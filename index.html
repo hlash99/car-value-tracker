@@ -95,6 +95,7 @@
   <h3>Growth indexed to 2020 = 100</h3>
   <div class="chartbox">
     <div class="legend" id="legendIdx"></div>
+    <div class="note" style="margin:-2px 0 9px">Hover a point for price, gain since 2020 &amp; YoY. Click one name above to isolate a line and label every point with price + %.</div>
     <div class="chartwrap"><canvas id="chartIdx"></canvas></div>
   </div>
 
@@ -151,6 +152,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <script>
 const state={basis:"nominal",scen:"base",maint:"off"};
 let D, charts={};
@@ -172,6 +174,7 @@ function scenProj(name){ // returns 6-pt array for chosen scenario
 }
 
 function init(){
+  try{Chart.unregister(ChartDataLabels);}catch(e){}  // scope datalabels to the indexed chart only
   const dt=new Date(D.updated);
   $("#updated").textContent="Updated "+dt.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
   $("#status2").textContent=D.refresh_status||"";
@@ -214,13 +217,26 @@ function buildLegend(){
   });
 }
 function idxArr(a){return a.map(v=>v/a[0]*100);}
+function fmtPrice(unit,v){
+  if(unit==="usdk")return "$"+Math.round(v)+"k";
+  if(unit==="usd")return "$"+Math.round(v);
+  return Math.round(v).toLocaleString();
+}
 function drawIdx(){
   const ds=[];
-  carList().forEach(n=>{const c=D.cars[n];ds.push({label:n,data:idxArr(c.hist),borderColor:c.color,backgroundColor:c.color,borderWidth:2,pointRadius:2,tension:.3});});
-  Object.keys(D.refs).forEach(n=>{const r=D.refs[n];ds.push({label:n,data:idxArr(r.hist),borderColor:r.color,backgroundColor:r.color,borderWidth:2.4,borderDash:[6,4],pointRadius:2,tension:.3});});
-  charts.idx=new Chart($("#chartIdx"),{type:"line",data:{labels:D.years,datasets:ds},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
-      tooltip:{callbacks:{label:c=>c.dataset.label+": "+Math.round(c.parsed.y)}}},
+  carList().forEach(n=>{const c=D.cars[n];ds.push({label:n,data:idxArr(c.hist),raw:c.hist,unit:"usdk",borderColor:c.color,backgroundColor:c.color,borderWidth:2,pointRadius:2,tension:.3});});
+  Object.keys(D.refs).forEach(n=>{const r=D.refs[n];ds.push({label:n,data:idxArr(r.hist),raw:r.hist,unit:r.unit,borderColor:r.color,backgroundColor:r.color,borderWidth:2.4,borderDash:[6,4],pointRadius:2,tension:.3});});
+  charts.idx=new Chart($("#chartIdx"),{type:"line",data:{labels:D.years,datasets:ds},plugins:[ChartDataLabels],
+    options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22,right:30}},
+      plugins:{legend:{display:false},
+        datalabels:{
+          display:ctx=>ctx.chart.data.datasets.filter(d=>!d.hidden).length===1,
+          anchor:"end",align:"top",offset:5,clamp:true,textAlign:"center",
+          color:ctx=>ctx.dataset.borderColor,font:{size:10,weight:"500",lineHeight:1.05},
+          formatter:(val,ctx)=>{const d=ctx.dataset,i=ctx.dataIndex,cum=Math.round(val-100);return fmtPrice(d.unit,d.raw[i])+"\n"+(cum>=0?"+":"")+cum+"%";}
+        },
+        tooltip:{callbacks:{label:ctx=>{const d=ctx.dataset,i=ctx.dataIndex,cum=Math.round(ctx.parsed.y-100),y=i>0?(d.raw[i]/d.raw[i-1]-1)*100:null;return d.label+": "+fmtPrice(d.unit,d.raw[i])+" ("+(cum>=0?"+":"")+cum+"% since ’20"+(y!=null?", "+(y>=0?"+":"")+Math.round(y)+"% YoY":"")+")";}}}
+      },
       scales:{y:{title:{display:true,text:"Index (2020=100)"}}}}});
 }
 function drawTraj(){
