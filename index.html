@@ -35,6 +35,7 @@
   .dot{width:10px;height:10px;border-radius:50%;flex:none}
   .card .val{font-size:24px;font-weight:600;margin:6px 0 2px}
   .card .chg{font-size:13px}
+  .card .chg2{font-size:12px;font-weight:500;margin-top:3px}
   .up{color:#137a4f}.down{color:#b33}
   .chartbox{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:12px;box-shadow:var(--shadow)}
   .chartwrap{position:relative;width:100%;height:340px}
@@ -102,6 +103,9 @@
 
   <h3>6-year return (2020 → 2026) — <span id="basisLabel">nominal</span></h3>
   <div class="chartbox"><div class="chartwrap"><canvas id="chartRet"></canvas></div></div>
+
+  <h3>Year-over-year appreciation — <span id="basisLabel2">nominal</span></h3>
+  <div class="chartbox"><div class="chartwrap"><canvas id="chartYoY"></canvas></div></div>
 
   <h2>Will the 997.2 Turbo S ever equal an 812 Superfast?</h2>
   <p class="sub">Drag the assumed annual appreciation for each car. The crossover updates live.</p>
@@ -173,10 +177,10 @@ function init(){
   $("#status2").textContent=D.refresh_status||"";
   $("#p997").textContent=fmtk(D.cars["Porsche 997.2 Turbo S"].hist.slice(-1)[0]);
   $("#p812").textContent=fmtk(D.cars["Ferrari 812 Superfast"].hist.slice(-1)[0]);
-  bindSeg("#basisSeg",v=>{state.basis=v;$("#basisLabel").textContent=v==="real"?"inflation-adjusted":"nominal";renderCards();drawRet();});
+  bindSeg("#basisSeg",v=>{state.basis=v;const t=v==="real"?"inflation-adjusted":"nominal";$("#basisLabel").textContent=t;$("#basisLabel2").textContent=t;renderCards();drawRet();drawYoY();});
   bindSeg("#scenSeg",v=>{state.scen=v;$("#scenLabel").textContent=v;drawTraj();renderProjTable();});
   bindSeg("#maintSeg",v=>{state.maint=v;renderProjTable();});
-  renderCards();buildLegend();drawIdx();drawTraj();drawRet();initCross();renderProjTable();renderEvid();renderYear();renderRef();
+  renderCards();buildLegend();drawIdx();drawTraj();drawRet();drawYoY();initCross();renderProjTable();renderEvid();renderYear();renderRef();
 }
 function bindSeg(sel,cb){document.querySelectorAll(sel+" button").forEach(b=>b.onclick=()=>{
   b.parentNode.querySelectorAll("button").forEach(x=>x.classList.remove("on"));b.classList.add("on");cb(b.dataset.v);});}
@@ -185,14 +189,15 @@ function renderCards(){
   const el=$("#cards");el.innerHTML="";
   carList().forEach(n=>{
     const c=D.cars[n], h=c.hist, cur=h[h.length-1], v0=h[0];
-    let chg, lbl;
-    if(state.basis==="real"){const r=(cur/v0)/D.inflation_factor-1;chg=r;lbl="real, 6-yr";}
-    else{chg=cur/v0-1;lbl="nominal, 6-yr";}
+    const yrs=D.years.length-1, real=state.basis==="real";
+    const ratio=real ? (cur/v0)/D.inflation_factor : cur/v0;
+    const total=ratio-1, cagr=Math.pow(ratio,1/yrs)-1, lbl=real?"real":"nominal";
     const trend=h[h.length-1]>=h[h.length-2];
     el.insertAdjacentHTML("beforeend",`<div class="card">
       <div class="nm"><span class="dot" style="background:${c.color}"></span>${n}</div>
       <div class="val">${fmtk(cur)}</div>
-      <div class="chg ${chg>=0?'up':'down'}">${pct0(chg*100)} <span style="color:var(--muted)">${lbl}</span> ${trend?'▲':'▼'}</div>
+      <div class="chg ${total>=0?'up':'down'}">${pct0(total*100)} <span style="color:var(--muted)">total, 6-yr ${lbl}</span> ${trend?'▲':'▼'}</div>
+      <div class="chg2 ${cagr>=0?'up':'down'}">${pct(cagr*100)}/yr <span style="color:var(--muted)">avg (CAGR)</span></div>
     </div>`);
   });
 }
@@ -247,6 +252,27 @@ function drawRet(){
     data:{labels:rows.map(r=>r.n),datasets:[{data:rows.map(r=>r.v),backgroundColor:rows.map(r=>r.color)}]},
     options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
       tooltip:{callbacks:{label:c=>pct0(c.parsed.x)}}},scales:{x:{ticks:{callback:v=>pct0(v)}}}}});
+}
+
+function yoyArr(h,real){
+  const out=[];
+  for(let i=1;i<h.length;i++){
+    let v=h[i]/h[i-1]-1;
+    if(real){const cp=D.cpi[i]/D.cpi[i-1]-1; v=(1+v)/(1+cp)-1;}
+    out.push(v*100);
+  }
+  return out;
+}
+function drawYoY(){
+  if(charts.yoy)charts.yoy.destroy();
+  const real=state.basis==="real";
+  const labels=D.years.slice(1);
+  const ds=carList().map(n=>({label:n,data:yoyArr(D.cars[n].hist,real),backgroundColor:D.cars[n].color}));
+  charts.yoy=new Chart($("#chartYoY"),{type:"bar",data:{labels,datasets:ds},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{boxWidth:10,font:{size:11},usePointStyle:true,pointStyle:"rect"}},
+        tooltip:{callbacks:{label:c=>c.dataset.label+": "+pct(c.parsed.y)}}},
+      scales:{y:{title:{display:true,text:(real?"real ":"")+"YoY %"},ticks:{callback:v=>pct0(v)}}}}});
 }
 
 /* ---- crossover ---- */
