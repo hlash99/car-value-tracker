@@ -1,0 +1,65 @@
+{
+  "updated": "2026-06-25T14:30:00Z",
+  "refresh_status": "seeded manually from Cars.com asking medians + Bring a Trailer sold prints (June 25, 2026)",
+  "inflation_factor": 1.308,
+  "cpi_note": "U.S. CPI-U, June each year",
+  "years": [2020, 2021, 2022, 2023, 2024, 2025, 2026],
+  "pyears": [2026, 2027, 2028, 2029, 2030, 2031],
+  "cpi": [257.8, 271.7, 296.3, 305.1, 314.2, 323.6, 337.2],
+  "refs": {
+    "S&P 500": {"color": "#1D9E75", "hist": [3100, 4300, 3785, 4450, 5460, 6140, 7366], "unit": "index"},
+    "AAPL": {"color": "#888780", "hist": [91, 137, 137, 194, 211, 201, 293], "unit": "usd"}
+  },
+  "cars": {
+    "Ferrari 458 Italia": {
+      "color": "#E24B4A",
+      "blurb": "Last naturally-aspirated V8 Ferrari (2010-2015).",
+      "hist": [175, 200, 235, 230, 255, 290, 310],
+      "proj": [310, 322, 338, 353, 366, 377],
+      "maint": 5,
+      "cagr": {"base": 0.04, "bull": 0.07, "bear": 0.0},
+      "asking": 340, "sold": 293, "factor": 0.912,
+      "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-458_italia&maximum_distance=all&zip=94027"
+    },
+    "Ferrari F12 Berlinetta": {
+      "color": "#D85A30",
+      "blurb": "Front-engine NA V12 grand tourer (2013-2017).",
+      "hist": [210, 245, 270, 260, 300, 350, 385],
+      "proj": [385, 402, 420, 435, 447, 457],
+      "maint": 6,
+      "cagr": {"base": 0.035, "bull": 0.06, "bear": 0.0},
+      "asking": 450, "sold": 368, "factor": 0.856,
+      "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-f12berlinetta&maximum_distance=all&zip=94027"
+    },
+    "Ferrari 812 Superfast": {
+      "color": "#BA7517",
+      "blurb": "789 hp NA V12 coupe (2018-2024).",
+      "hist": [320, 360, 370, 350, 380, 410, 430],
+      "proj": [430, 430, 440, 458, 474, 487],
+      "maint": 7,
+      "cagr": {"base": 0.025, "bull": 0.05, "bear": -0.02},
+      "asking": 465, "sold": 415, "factor": 0.925,
+      "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_superfast&maximum_distance=all&zip=94027"
+    },
+    "Ferrari 812 GTS": {
+      "color": "#534AB7",
+      "blurb": "Open-top NA V12, limited run (2020-2024).",
+      "hist": [460, 560, 640, 620, 680, 730, 760],
+      "proj": [760, 778, 802, 825, 845, 860],
+      "maint": 7,
+      "cagr": {"base": 0.025, "bull": 0.05, "bear": -0.01},
+      "asking": 950, "sold": 750, "factor": 0.8,
+      "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_gts&maximum_distance=all&zip=94027"
+    },
+    "Porsche 997.2 Turbo S": {
+      "color": "#185FA5",
+      "blurb": "523 hp PDK, last 997-gen Turbo S (2010-2013).",
+      "hist": [85, 98, 115, 120, 125, 135, 140],
+      "proj": [140, 150, 161, 172, 184, 196],
+      "maint": 3,
+      "cagr": {"base": 0.07, "bull": 0.10, "bear": 0.03},
+      "asking": 148, "sold": 140, "factor": 0.946,
+      "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=porsche&models[]=porsche-911&maximum_distance=all&zip=94027&year_min=2010&year_max=2013&keyword=Turbo%20S"
+    }
+  }
+}

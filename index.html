@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exotic Car Value Tracker — 6-yr history & 5-yr projection</title>
+<style>
+  :root{
+    --bg:#ffffff;--surface:#f7f8fa;--line:#e6e8ec;--ink:#1a1d21;--muted:#6b7280;--accent:#185FA5;
+    --shadow:0 1px 3px rgba(0,0,0,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--bg:#14161a;--surface:#1c1f25;--line:#2a2e36;--ink:#e9ecf1;--muted:#9aa3af;--shadow:none;}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px 60px}
+  header.top{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--line);
+    padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header.top h1{font-size:16px;margin:0;font-weight:600}
+  .upd{font-size:12px;color:var(--muted)}
+  h2{font-size:20px;margin:34px 0 6px;font-weight:600}
+  h3{font-size:15px;margin:22px 0 8px;font-weight:600}
+  p.sub{color:var(--muted);margin:4px 0 0;font-size:14px}
+  .controls{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 8px}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--surface)}
+  .seg button{border:0;background:transparent;color:var(--muted);padding:7px 13px;font-size:13px;cursor:pointer;font-weight:500}
+  .seg button.on{background:var(--accent);color:#fff}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:var(--shadow)}
+  .card .nm{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:7px}
+  .dot{width:10px;height:10px;border-radius:50%;flex:none}
+  .card .val{font-size:24px;font-weight:600;margin:6px 0 2px}
+  .card .chg{font-size:13px}
+  .up{color:#137a4f}.down{color:#b33}
+  .chartbox{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:12px;box-shadow:var(--shadow)}
+  .chartwrap{position:relative;width:100%;height:340px}
+  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 10px}
+  .legend button{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--bg);
+    color:var(--ink);border-radius:20px;padding:4px 11px;font-size:12px;cursor:pointer}
+  .legend button.off{opacity:.38}
+  .legend .sw{width:11px;height:11px;border-radius:3px}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  th,td{padding:7px 9px;text-align:right;border-bottom:1px solid var(--line)}
+  th:first-child,td:first-child{text-align:left}
+  thead th{background:var(--surface);font-weight:600;position:sticky}
+  .tablescroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+  .crosswrap{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+  @media(max-width:720px){.crosswrap{grid-template-columns:1fr}}
+  .slider{margin:10px 0}
+  .slider label{font-size:13px;display:flex;justify-content:space-between;color:var(--muted)}
+  input[type=range]{width:100%}
+  .answer{font-size:15px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:6px}
+  .big{font-size:30px;font-weight:700;color:var(--accent)}
+  .note{font-size:12px;color:var(--muted);margin-top:8px}
+  .pill{display:inline-block;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:2px 10px;font-size:12px;color:var(--muted)}
+  details{margin-top:8px}summary{cursor:pointer;font-weight:600;font-size:14px}
+  footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>🏎️ Exotic Car Value Tracker</h1>
+  <div style="display:flex;gap:14px;align-items:center">
+    <span class="upd" id="updated">loading…</span>
+    <a href="https://hlash99.github.io/" class="upd">← dashboard</a>
+  </div>
+</header>
+<div class="wrap">
+  <h2>Median value: 6-year history & 5-year projection</h2>
+  <p class="sub">Five collector cars vs the S&amp;P 500, Apple, and inflation. 2026 values from Cars.com asking medians cross-checked with Bring a Trailer sold results; auto-refreshed twice daily.</p>
+
+  <div class="controls">
+    <div class="seg" id="basisSeg">
+      <button data-v="nominal" class="on">Nominal</button>
+      <button data-v="real">Inflation-adjusted</button>
+    </div>
+    <div class="seg" id="scenSeg">
+      <button data-v="bear">Bear</button>
+      <button data-v="base" class="on">Base</button>
+      <button data-v="bull">Bull</button>
+    </div>
+    <div class="seg" id="maintSeg">
+      <button data-v="off" class="on">Maintenance off</button>
+      <button data-v="on">Maintenance on</button>
+    </div>
+  </div>
+
+  <div class="cards" id="cards"></div>
+
+  <h3>Growth indexed to 2020 = 100</h3>
+  <div class="chartbox">
+    <div class="legend" id="legendIdx"></div>
+    <div class="chartwrap"><canvas id="chartIdx"></canvas></div>
+  </div>
+
+  <h3>Price trajectory — actual + projected (<span id="scenLabel">base</span> case)</h3>
+  <div class="chartbox"><div class="chartwrap"><canvas id="chartTraj"></canvas></div></div>
+
+  <h3>6-year return (2020 → 2026) — <span id="basisLabel">nominal</span></h3>
+  <div class="chartbox"><div class="chartwrap"><canvas id="chartRet"></canvas></div></div>
+
+  <h2>Will the 997.2 Turbo S ever equal an 812 Superfast?</h2>
+  <p class="sub">Drag the assumed annual appreciation for each car. The crossover updates live.</p>
+  <div class="crosswrap">
+    <div>
+      <div class="slider">
+        <label><span>997.2 Turbo S CAGR</span><span id="r997lbl"></span></label>
+        <input type="range" id="r997" min="0" max="15" step="0.5">
+      </div>
+      <div class="slider">
+        <label><span>812 Superfast CAGR</span><span id="r812lbl"></span></label>
+        <input type="range" id="r812" min="-3" max="10" step="0.5">
+      </div>
+      <div class="answer" id="crossAns"></div>
+      <div class="note">Starting values: 997 ≈ <span id="p997"></span>, 812 Superfast ≈ <span id="p812"></span>. Pure compounding — illustrative, not a forecast far out.</div>
+    </div>
+    <div class="chartbox" style="margin:0"><div class="chartwrap" style="height:300px"><canvas id="chartCross"></canvas></div></div>
+  </div>
+
+  <h2>Projection detail (2026 → 2031)</h2>
+  <div class="tablescroll"><table id="projTable"></table></div>
+
+  <h2>How the 2026 values were set</h2>
+  <div class="tablescroll"><table id="evidTable"></table></div>
+  <p class="note">Adopted value leans toward sold/transaction reality; dealer asking — especially the 812 GTS — runs well above this.</p>
+
+  <h2>Year-by-year detail</h2>
+  <div id="yearTables"></div>
+
+  <h2>Reference assets &amp; inflation</h2>
+  <div class="tablescroll"><table id="refTable"></table></div>
+
+  <details>
+    <summary>Methodology &amp; caveats</summary>
+    <p class="note">
+      <b>2026 values</b> come from Cars.com nationwide asking medians, cross-checked against recent Bring a Trailer sold prints; the adopted figure leans to sold levels (asking × a per-car factor). <b>2020 baselines and mid-years</b> are reconstructed from documented market lows and the 2021-22 run-up / 2023 wobble / 2024-26 surge — treat the 6-yr % as ±5-8 pts. <b>Projections</b> use momentum-aware CAGRs by each car's place on the modern-classic curve, drivetrain desirability, scarcity, and momentum; bull/bear bands convey uncertainty and are nominal. <b>Maintenance</b> = routine servicing + amortized wear (997 ≈$3k, 458 ≈$5k, F12 ≈$6k, 812s ≈$7k/yr); excludes insurance, storage, fuel, and major repairs. <b>S&amp;P 500 / AAPL</b> are June levels (split-adjusted), not projected. Not investment advice.
+    </p>
+  </details>
+
+  <footer>
+    Auto-refreshed via GitHub Actions twice daily · <span id="status2"></span> · source: <a href="https://github.com/hlash99/car-value-tracker">github.com/hlash99/car-value-tracker</a>
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+const state={basis:"nominal",scen:"base",maint:"off"};
+let D, charts={};
+const $=s=>document.querySelector(s);
+const fmtk=v=>"$"+Math.round(v)+"k";
+const fmtUsd=v=>"$"+Math.round(v).toLocaleString();
+const pct=v=>(v>=0?"+":"")+v.toFixed(1)+"%";
+const pct0=v=>(v>=0?"+":"")+Math.round(v)+"%";
+
+fetch("data.json?_="+Date.now()).then(r=>r.json()).then(d=>{D=d;init();});
+
+function realFactorTo2026(i){return D.cpi[D.cpi.length-1]/D.cpi[i];}
+function carList(){return Object.keys(D.cars);}
+function scenProj(name){ // returns 6-pt array for chosen scenario
+  const c=D.cars[name];
+  if(state.scen==="base")return c.proj.slice();
+  const r=c.cagr[state.scen], v0=c.proj[0];
+  return D.pyears.map((y,i)=>v0*Math.pow(1+r,i));
+}
+
+function init(){
+  const dt=new Date(D.updated);
+  $("#updated").textContent="Updated "+dt.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
+  $("#status2").textContent=D.refresh_status||"";
+  $("#p997").textContent=fmtk(D.cars["Porsche 997.2 Turbo S"].hist.slice(-1)[0]);
+  $("#p812").textContent=fmtk(D.cars["Ferrari 812 Superfast"].hist.slice(-1)[0]);
+  bindSeg("#basisSeg",v=>{state.basis=v;$("#basisLabel").textContent=v==="real"?"inflation-adjusted":"nominal";renderCards();drawRet();});
+  bindSeg("#scenSeg",v=>{state.scen=v;$("#scenLabel").textContent=v;drawTraj();renderProjTable();});
+  bindSeg("#maintSeg",v=>{state.maint=v;renderProjTable();});
+  renderCards();buildLegend();drawIdx();drawTraj();drawRet();initCross();renderProjTable();renderEvid();renderYear();renderRef();
+}
+function bindSeg(sel,cb){document.querySelectorAll(sel+" button").forEach(b=>b.onclick=()=>{
+  b.parentNode.querySelectorAll("button").forEach(x=>x.classList.remove("on"));b.classList.add("on");cb(b.dataset.v);});}
+
+function renderCards(){
+  const el=$("#cards");el.innerHTML="";
+  carList().forEach(n=>{
+    const c=D.cars[n], h=c.hist, cur=h[h.length-1], v0=h[0];
+    let chg, lbl;
+    if(state.basis==="real"){const r=(cur/v0)/D.inflation_factor-1;chg=r;lbl="real, 6-yr";}
+    else{chg=cur/v0-1;lbl="nominal, 6-yr";}
+    const trend=h[h.length-1]>=h[h.length-2];
+    el.insertAdjacentHTML("beforeend",`<div class="card">
+      <div class="nm"><span class="dot" style="background:${c.color}"></span>${n}</div>
+      <div class="val">${fmtk(cur)}</div>
+      <div class="chg ${chg>=0?'up':'down'}">${pct0(chg*100)} <span style="color:var(--muted)">${lbl}</span> ${trend?'▲':'▼'}</div>
+    </div>`);
+  });
+}
+
+function buildLegend(){
+  const el=$("#legendIdx");el.innerHTML="";
+  const series=[...carList(),...Object.keys(D.refs)];
+  series.forEach((n,i)=>{
+    const color=D.cars[n]?D.cars[n].color:D.refs[n].color;
+    const b=document.createElement("button");b.dataset.n=n;
+    b.innerHTML=`<span class="sw" style="background:${color}"></span>${n}`;
+    b.onclick=()=>{const ds=charts.idx.data.datasets.find(d=>d.label===n);ds.hidden=!ds.hidden;b.classList.toggle("off",ds.hidden);charts.idx.update();};
+    el.appendChild(b);
+  });
+}
+function idxArr(a){return a.map(v=>v/a[0]*100);}
+function drawIdx(){
+  const ds=[];
+  carList().forEach(n=>{const c=D.cars[n];ds.push({label:n,data:idxArr(c.hist),borderColor:c.color,backgroundColor:c.color,borderWidth:2,pointRadius:2,tension:.3});});
+  Object.keys(D.refs).forEach(n=>{const r=D.refs[n];ds.push({label:n,data:idxArr(r.hist),borderColor:r.color,backgroundColor:r.color,borderWidth:2.4,borderDash:[6,4],pointRadius:2,tension:.3});});
+  charts.idx=new Chart($("#chartIdx"),{type:"line",data:{labels:D.years,datasets:ds},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>c.dataset.label+": "+Math.round(c.parsed.y)}}},
+      scales:{y:{title:{display:true,text:"Index (2020=100)"}}}}});
+}
+function drawTraj(){
+  if(charts.traj)charts.traj.destroy();
+  const labels=[...D.years,...D.pyears.slice(1)];
+  const ds=[];
+  carList().forEach(n=>{
+    const c=D.cars[n];
+    const hist=c.hist.concat(Array(D.pyears.length-1).fill(null));
+    const pj=scenProj(n);
+    const proj=Array(D.years.length-1).fill(null).concat(pj); // align: last hist year == pyears[0]
+    ds.push({label:n,data:hist,borderColor:c.color,backgroundColor:c.color,borderWidth:2,pointRadius:2,tension:.3});
+    ds.push({label:n+" (proj)",data:proj,borderColor:c.color,backgroundColor:c.color,borderWidth:1.6,borderDash:[5,4],pointRadius:1.8,tension:.3});
+  });
+  charts.traj=new Chart($("#chartTraj"),{type:"line",data:{labels,datasets:ds},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
+      tooltip:{filter:i=>i.parsed.y!=null,callbacks:{label:c=>c.dataset.label+": "+fmtk(c.parsed.y)}}},
+      scales:{y:{title:{display:true,text:"Median ($000s)"},ticks:{callback:v=>"$"+v+"k"}}}}});
+}
+function drawRet(){
+  if(charts.ret)charts.ret.destroy();
+  const names=[...carList(),...Object.keys(D.refs)];
+  const rows=names.map(n=>{
+    const a=D.cars[n]?D.cars[n].hist:D.refs[n].hist;
+    const nom=a[a.length-1]/a[0]-1, real=(a[a.length-1]/a[0])/D.inflation_factor-1;
+    return {n,v:(state.basis==="real"?real:nom)*100,color:D.cars[n]?D.cars[n].color:D.refs[n].color};
+  }).sort((x,y)=>x.v-y.v);
+  charts.ret=new Chart($("#chartRet"),{type:"bar",
+    data:{labels:rows.map(r=>r.n),datasets:[{data:rows.map(r=>r.v),backgroundColor:rows.map(r=>r.color)}]},
+    options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>pct0(c.parsed.x)}}},scales:{x:{ticks:{callback:v=>pct0(v)}}}}});
+}
+
+/* ---- crossover ---- */
+function initCross(){
+  const c997=D.cars["Porsche 997.2 Turbo S"], c812=D.cars["Ferrari 812 Superfast"];
+  $("#r997").value=c997.cagr.base*100; $("#r812").value=c812.cagr.base*100;
+  charts.cross=new Chart($("#chartCross"),{type:"line",data:{labels:[],datasets:[
+    {label:"997.2 Turbo S",data:[],borderColor:c997.color,borderWidth:2,pointRadius:0,tension:.2},
+    {label:"812 Superfast",data:[],borderColor:c812.color,borderWidth:2,pointRadius:0,tension:.2}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{boxWidth:10,font:{size:11}}}},
+      scales:{y:{ticks:{callback:v=>"$"+Math.round(v)+"k"}}}}});
+  $("#r997").oninput=$("#r812").oninput=updateCross;
+  updateCross();
+}
+function updateCross(){
+  const p997=D.cars["Porsche 997.2 Turbo S"].hist.slice(-1)[0];
+  const p812=D.cars["Ferrari 812 Superfast"].hist.slice(-1)[0];
+  const r1=(+$("#r997").value)/100, r2=(+$("#r812").value)/100;
+  $("#r997lbl").textContent=(r1*100).toFixed(1)+"%/yr"; $("#r812lbl").textContent=(r2*100).toFixed(1)+"%/yr";
+  let html, horizon;
+  if(p997>=p812){html=`The Porsche already meets or exceeds the 812.`;horizon=10;}
+  else if(r1<=r2){html=`At these rates the 997 <b>never</b> catches the 812 — the Ferrari grows as fast or faster.`;horizon=20;}
+  else{
+    const t=Math.log(p812/p997)/Math.log((1+r1)/(1+r2));
+    const yr=Math.round(2026+t), val=p812*Math.pow(1+r2,t);
+    html=`Crossover in <span class="big">${yr}</span> &nbsp;(~${t.toFixed(0)} yrs), both ≈ <b>${fmtk(val)}</b>.`;
+    horizon=Math.min(Math.ceil(t)+4,45);
+  }
+  $("#crossAns").innerHTML=html;
+  const labels=[],a=[],b=[];
+  for(let i=0;i<=horizon;i++){labels.push(2026+i);a.push(p997*Math.pow(1+r1,i));b.push(p812*Math.pow(1+r2,i));}
+  charts.cross.data.labels=labels;charts.cross.data.datasets[0].data=a;charts.cross.data.datasets[1].data=b;charts.cross.update();
+}
+
+/* ---- tables ---- */
+function renderProjTable(){
+  const t=$("#projTable");
+  let h=`<thead><tr><th>Car</th><th>2026</th><th>2031 (${state.scen})</th><th>Gross 5-yr</th><th>CAGR</th><th>Maint/yr</th><th>${state.maint==="on"?"Net of maint.":"—"}</th></tr></thead><tbody>`;
+  carList().forEach(n=>{
+    const c=D.cars[n], pj=scenProj(n), v0=pj[0], v1=pj[pj.length-1];
+    const gross=(v1/v0-1)*100, cagr=(Math.pow(v1/v0,1/5)-1)*100;
+    const net=(v1-v0-5*c.maint)/v0*100;
+    h+=`<tr><td><span class="dot" style="background:${c.color};display:inline-block;margin-right:6px"></span>${n}</td>
+      <td>${fmtk(v0)}</td><td>${fmtk(v1)}</td><td>${pct0(gross)}</td><td>${cagr.toFixed(1)}%</td>
+      <td>${fmtk(c.maint)}</td><td>${state.maint==="on"?pct0(net):"—"}</td></tr>`;
+  });
+  t.innerHTML=h+"</tbody>";
+}
+function renderEvid(){
+  let h=`<thead><tr><th>Car</th><th>Cars.com asking median</th><th>Recent BaT sold</th><th>Adopted value</th></tr></thead><tbody>`;
+  carList().forEach(n=>{const c=D.cars[n];h+=`<tr><td>${n}</td><td>${fmtk(c.asking)}</td><td>${fmtk(c.sold)}</td><td><b>${fmtk(c.hist.slice(-1)[0])}</b></td></tr>`;});
+  $("#evidTable").innerHTML=h+"</tbody>";
+}
+function renderYear(){
+  const wrap=$("#yearTables");wrap.innerHTML="";
+  carList().forEach(n=>{
+    const c=D.cars[n];
+    let h=`<details><summary style="color:${c.color}">${n}</summary><div class="tablescroll" style="margin-top:8px"><table>
+      <thead><tr><th>Year</th><th>Median</th><th>YoY</th><th>In 2026 $</th><th>Proj. year</th><th>Proj. (base)</th></tr></thead><tbody>`;
+    for(let i=0;i<D.years.length;i++){
+      const yoy=i>0?pct((c.hist[i]/c.hist[i-1]-1)*100):"–";
+      const real=c.hist[i]*realFactorTo2026(i);
+      const py=i<D.pyears.length?D.pyears[i]:"";
+      const pv=i<D.pyears.length?fmtk(c.proj[i]):"";
+      h+=`<tr><td>${D.years[i]}</td><td>${fmtk(c.hist[i])}</td><td>${yoy}</td><td>${fmtk(real)}</td><td>${py}</td><td>${pv}</td></tr>`;
+    }
+    wrap.insertAdjacentHTML("beforeend",h+"</tbody></table></div></details>");
+  });
+}
+function renderRef(){
+  let h=`<thead><tr><th>Year</th>`;
+  Object.keys(D.refs).forEach(n=>h+=`<th>${n}</th>`);h+=`<th>CPI</th></tr></thead><tbody>`;
+  for(let i=0;i<D.years.length;i++){
+    h+=`<tr><td>${D.years[i]}</td>`;
+    Object.keys(D.refs).forEach(n=>{const u=D.refs[n].unit;const v=D.refs[n].hist[i];h+=`<td>${u==="usd"?fmtUsd(v):v.toLocaleString()}</td>`;});
+    h+=`<td>${D.cpi[i].toFixed(1)}</td></tr>`;
+  }
+  $("#refTable").innerHTML=h+"</tbody>";
+}
+</script>
+</body>
+</html>
