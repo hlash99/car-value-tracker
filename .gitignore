@@ -1,1 +1,2 @@
-.github/workflows/
+.DS_Store
+__pycache__/
