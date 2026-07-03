@@ -58,6 +58,17 @@
     h2{font-size:18px}
     .chartwrap{height:260px}
   }
+  /* movable + collapsible sections */
+  .blk h2,.blk h3{display:flex;align-items:center;gap:9px}
+  .blk .clps{margin-left:auto;background:none;border:1px solid var(--line);color:var(--muted);border-radius:8px;
+    width:24px;height:24px;cursor:pointer;font-size:11px;line-height:1;padding:0;flex:none;
+    transition:transform .15s,color .12s,border-color .12s}
+  .blk .clps:hover{color:var(--accent);border-color:var(--accent)}
+  .blk.collapsed .clps{transform:rotate(-90deg)}
+  .blk.collapsed .bwrap{display:none}
+  .grip{cursor:grab;color:var(--muted);user-select:none;font-size:14px}
+  .grip:active{cursor:grabbing}
+  .blk.dragging{opacity:.45;outline:1px dashed var(--accent);outline-offset:6px;border-radius:12px}
   .slider{margin:10px 0}
   .slider label{font-size:13px;display:flex;justify-content:space-between;color:var(--muted)}
   input[type=range]{width:100%}
@@ -97,25 +108,27 @@
     </div>
   </div>
 
-  <div class="cards" id="cards"></div>
+  <section class="blk" data-blk="cards"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Current values<button class="clps" title="Collapse / expand">▾</button></h3>
+  <div class="bwrap"><div class="cards" id="cards"></div></div></section>
 
-  <h3>Growth indexed to 2020 = 100</h3>
-  <div class="chartbox">
+  <section class="blk" data-blk="indexed"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Growth indexed to 2020 = 100<button class="clps" title="Collapse / expand">▾</button></h3>
+  <div class="bwrap"><div class="chartbox">
     <div class="legend" id="legendIdx"></div>
     <div class="note" style="margin:-2px 0 9px">Hover a point for price, gain since 2020 &amp; YoY. Click one name above to isolate a line and label every point with price + %.</div>
     <div class="chartwrap"><canvas id="chartIdx"></canvas></div>
-  </div>
+  </div></div></section>
 
-  <h3>Price trajectory — actual + projected (<span id="scenLabel">base</span> case)</h3>
-  <div class="chartbox"><div class="chartwrap"><canvas id="chartTraj"></canvas></div></div>
+  <section class="blk" data-blk="trajectory"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Price trajectory — actual + projected (<span id="scenLabel">base</span> case)<button class="clps" title="Collapse / expand">▾</button></h3>
+  <div class="bwrap"><div class="chartbox"><div class="chartwrap"><canvas id="chartTraj"></canvas></div></div></div></section>
 
-  <h3>6-year return (2020 → 2026) — <span id="basisLabel">nominal</span></h3>
-  <div class="chartbox"><div class="chartwrap"><canvas id="chartRet"></canvas></div></div>
+  <section class="blk" data-blk="returns"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>6-year return (2020 → 2026) — <span id="basisLabel">nominal</span><button class="clps" title="Collapse / expand">▾</button></h3>
+  <div class="bwrap"><div class="chartbox"><div class="chartwrap"><canvas id="chartRet"></canvas></div></div></div></section>
 
-  <h3>Year-over-year appreciation — <span id="basisLabel2">nominal</span></h3>
-  <div class="chartbox"><div class="chartwrap"><canvas id="chartYoY"></canvas></div></div>
+  <section class="blk" data-blk="yoy"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Year-over-year appreciation — <span id="basisLabel2">nominal</span><button class="clps" title="Collapse / expand">▾</button></h3>
+  <div class="bwrap"><div class="chartbox"><div class="chartwrap"><canvas id="chartYoY"></canvas></div></div></div></section>
 
-  <h2>Will the 997.2 Turbo S ever equal an 812 Superfast?</h2>
+  <section class="blk" data-blk="crossover"><h2><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Will the 997.2 Turbo S ever equal an 812 Superfast?<button class="clps" title="Collapse / expand">▾</button></h2>
+  <div class="bwrap">
   <p class="sub">Drag the assumed annual appreciation for each car. The crossover updates live.</p>
   <div class="crosswrap">
     <div>
@@ -132,19 +145,20 @@
     </div>
     <div class="chartbox" style="margin:0"><div class="chartwrap" style="height:300px"><canvas id="chartCross"></canvas></div></div>
   </div>
+  </div></section>
 
-  <h2>Projection detail (2026 → 2031)</h2>
-  <div class="tablescroll"><table id="projTable"></table></div>
+  <section class="blk" data-blk="projection"><h2><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Projection detail (2026 → 2031)<button class="clps" title="Collapse / expand">▾</button></h2>
+  <div class="bwrap"><div class="tablescroll"><table id="projTable"></table></div></div></section>
 
-  <h2>How the 2026 values were set</h2>
-  <div class="tablescroll"><table id="evidTable"></table></div>
-  <p class="note">Adopted value leans toward sold/transaction reality; dealer asking — especially the 812 GTS — runs well above this.</p>
+  <section class="blk" data-blk="evidence"><h2><span class="grip" draggable="true" title="Drag to reorder">⠿</span>How the 2026 values were set<button class="clps" title="Collapse / expand">▾</button></h2>
+  <div class="bwrap"><div class="tablescroll"><table id="evidTable"></table></div>
+  <p class="note">Adopted value leans toward sold/transaction reality; dealer asking — especially the 812 GTS — runs well above this.</p></div></section>
 
-  <h2>Year-by-year detail</h2>
-  <div id="yearTables"></div>
+  <section class="blk" data-blk="yearly"><h2><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Year-by-year detail<button class="clps" title="Collapse / expand">▾</button></h2>
+  <div class="bwrap"><div id="yearTables"></div></div></section>
 
-  <h2>Reference assets &amp; inflation</h2>
-  <div class="tablescroll"><table id="refTable"></table></div>
+  <section class="blk" data-blk="reference"><h2><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Reference assets &amp; inflation<button class="clps" title="Collapse / expand">▾</button></h2>
+  <div class="bwrap"><div class="tablescroll"><table id="refTable"></table></div></div></section>
 
   <details>
     <summary>Methodology &amp; caveats</summary>
@@ -154,7 +168,8 @@
   </details>
 
   <footer>
-    Auto-refreshed via GitHub Actions twice daily · <span id="status2"></span> · source: <a href="https://github.com/hlash99/car-value-tracker">github.com/hlash99/car-value-tracker</a>
+    Auto-refreshed via GitHub Actions twice daily · <span id="status2"></span> · source: <a href="https://github.com/hlash99/car-value-tracker">github.com/hlash99/car-value-tracker</a> ·
+    <a href="#" onclick="localStorage.removeItem('cvOrder');localStorage.removeItem('cvCollapsed');location.reload();return false">⤺ reset layout</a>
   </footer>
 </div>
 
@@ -191,6 +206,39 @@ function init(){
   bindSeg("#scenSeg",v=>{state.scen=v;$("#scenLabel").textContent=v;drawTraj();renderProjTable();});
   bindSeg("#maintSeg",v=>{state.maint=v;renderProjTable();});
   renderCards();buildLegend();drawIdx();drawTraj();drawRet();drawYoY();initCross();renderProjTable();renderEvid();renderYear();renderRef();
+  initBlocks();
+}
+
+/* ── movable + collapsible sections (persisted per browser) ── */
+function initBlocks(){
+  const c=document.querySelector(".wrap");
+  // anchor = the top-level methodology <details> (NOT the per-car ones nested in the
+  // yearly block) — blocks always stay above it and the footer
+  const anchor=c.querySelector(":scope > details");
+  let ord=[];try{ord=JSON.parse(localStorage.getItem("cvOrder")||"[]")}catch(e){}
+  if(ord.length){const pos=new Map(ord.map((k,i)=>[k,i]));
+    [...c.querySelectorAll(".blk")].sort((a,b)=>(pos.has(a.dataset.blk)?pos.get(a.dataset.blk):1e6)-(pos.has(b.dataset.blk)?pos.get(b.dataset.blk):1e6))
+      .forEach(b=>c.insertBefore(b,anchor));}
+  let col=[];try{col=JSON.parse(localStorage.getItem("cvCollapsed")||"[]")}catch(e){}
+  col.forEach(k=>{const b=c.querySelector(`.blk[data-blk="${k}"]`);if(b)b.classList.add("collapsed");});
+  const nudge=()=>setTimeout(()=>Object.values(charts).forEach(ch=>{try{ch.resize()}catch(_){}}),30);
+  c.querySelectorAll(".clps").forEach(btn=>btn.onclick=e=>{
+    const b=e.currentTarget.closest(".blk");b.classList.toggle("collapsed");
+    localStorage.setItem("cvCollapsed",JSON.stringify([...c.querySelectorAll(".blk.collapsed")].map(x=>x.dataset.blk)));
+    if(!b.classList.contains("collapsed"))nudge();   // charts hidden at creation have no size
+  });
+  let drag=null;
+  c.querySelectorAll(".grip").forEach(g=>g.addEventListener("dragstart",e=>{
+    drag=g.closest(".blk");drag.classList.add("dragging");
+    e.dataTransfer.effectAllowed="move";try{e.dataTransfer.setDragImage(drag,24,18);}catch(_){}}));
+  c.addEventListener("dragover",e=>{if(!drag)return;e.preventDefault();
+    const els=[...c.querySelectorAll(".blk:not(.dragging)")];
+    let after=null;for(const el of els){const b=el.getBoundingClientRect();if(e.clientY<b.top+b.height/2){after=el;break;}}
+    c.insertBefore(drag,after||anchor);});
+  c.addEventListener("drop",e=>e.preventDefault());
+  document.addEventListener("dragend",()=>{if(!drag)return;drag.classList.remove("dragging");
+    localStorage.setItem("cvOrder",JSON.stringify([...c.querySelectorAll(".blk")].map(b=>b.dataset.blk)));
+    nudge();drag=null;});
 }
 function bindSeg(sel,cb){document.querySelectorAll(sel+" button").forEach(b=>b.onclick=()=>{
   b.parentNode.querySelectorAll("button").forEach(x=>x.classList.remove("on"));b.classList.add("on");cb(b.dataset.v);});}
