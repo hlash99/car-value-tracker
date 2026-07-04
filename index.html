@@ -169,7 +169,8 @@
 
   <footer>
     Auto-refreshed via GitHub Actions twice daily · <span id="status2"></span> · source: <a href="https://github.com/hlash99/car-value-tracker">github.com/hlash99/car-value-tracker</a> ·
-    <a href="#" onclick="localStorage.removeItem('cvOrder');localStorage.removeItem('cvCollapsed');location.reload();return false">⤺ reset layout</a>
+    <a href="#" onclick="resetLayout();return false">⤺ reset layout</a> ·
+    <a href="#" onclick="setupSync();return false" title="Sync layout across your devices">⇅ device sync<span id="syncTick"></span></a>
   </footer>
 </div>
 
@@ -184,7 +185,10 @@ const fmtUsd=v=>"$"+Math.round(v).toLocaleString();
 const pct=v=>(v>=0?"+":"")+v.toFixed(1)+"%";
 const pct0=v=>(v>=0?"+":"")+Math.round(v)+"%";
 
-fetch("data.json?_="+Date.now()).then(r=>r.json()).then(d=>{D=d;init();});
+// pull the synced layout in parallel with the data; apply whichever is newest before first render
+const _pull=Promise.race([syncPull(),new Promise(r=>setTimeout(r,1500))]);
+fetch("data.json?_="+Date.now()).then(r=>r.json()).then(async d=>{D=d;await _pull;init();
+  if(localStorage.getItem("gh_pat"))document.getElementById("syncTick").textContent=" ✓";});
 
 function realFactorTo2026(i){return D.cpi[D.cpi.length-1]/D.cpi[i];}
 function carList(){return Object.keys(D.cars);}
@@ -209,7 +213,72 @@ function init(){
   initBlocks();
 }
 
-/* ── movable + collapsible sections (persisted per browser) ── */
+/* ── cross-device layout sync ──
+   Same mechanism as the asset tracker: layout.json on the `layout` branch of
+   hlash99/hlash99.github.io. Anonymous reads via raw.githubusercontent (every
+   device picks the layout up automatically); writes need a GitHub token with
+   Contents R/W on that repo, pasted once per editing device (gh_pat in
+   localStorage — shared with the dashboard's ↻ feature). Newest-timestamp-
+   per-key wins. */
+const SYNC_KEYS=["cvOrder","cvCollapsed"];
+const SYNC_RAW="https://raw.githubusercontent.com/hlash99/hlash99.github.io/layout/layout.json";
+const SYNC_API="https://api.github.com/repos/hlash99/hlash99.github.io/contents/layout.json";
+let syncT=null;
+async function syncPull(){
+  try{
+    const r=await fetch(SYNC_RAW+"?_="+Date.now(),{cache:"no-store"}); if(!r.ok)return;
+    const j=await r.json();
+    for(const k of SYNC_KEYS){
+      const rec=j[k]; if(!rec||typeof rec.t!=="number") continue;
+      // pre-sync layouts have no timestamp — treat them as current so a stale
+      // remote record can't wipe a layout this browser already uses
+      const lt=+(localStorage.getItem("lt:"+k)||(localStorage.getItem(k)!=null?Date.now():0));
+      if(rec.t>lt){
+        rec.v==null?localStorage.removeItem(k):localStorage.setItem(k,rec.v);
+        localStorage.setItem("lt:"+k,rec.t);
+      }
+    }
+  }catch(e){}
+}
+function syncSave(k,v){
+  v==null?localStorage.removeItem(k):localStorage.setItem(k,v);
+  localStorage.setItem("lt:"+k,Date.now());
+  clearTimeout(syncT);syncT=setTimeout(syncPush,1200);
+}
+async function syncPush(){
+  const tok=localStorage.getItem("gh_pat"); if(!tok)return;
+  const H={Authorization:"Bearer "+tok,Accept:"application/vnd.github+json"};
+  try{
+    let cur={},sha;
+    const g=await fetch(SYNC_API+"?ref=layout",{headers:H});
+    if(g.ok){const gj=await g.json();sha=gj.sha;
+      try{cur=JSON.parse(atob((gj.content||"").replace(/\n/g,"")))||{}}catch(e){}}
+    for(const k of SYNC_KEYS){
+      const t=+(localStorage.getItem("lt:"+k)||0); if(!t)continue;
+      cur[k]={v:localStorage.getItem(k),t};
+    }
+    const body={message:"layout sync (car-value-tracker)",branch:"layout",
+      content:btoa(unescape(encodeURIComponent(JSON.stringify(cur))))};
+    if(sha)body.sha=sha;
+    await fetch(SYNC_API,{method:"PUT",headers:H,body:JSON.stringify(body)});
+  }catch(e){}
+}
+async function resetLayout(){
+  SYNC_KEYS.forEach(k=>{localStorage.removeItem(k);localStorage.setItem("lt:"+k,Date.now());});
+  await syncPush(); location.reload();
+}
+function setupSync(){
+  const cur=localStorage.getItem("gh_pat");
+  if(cur&&!confirm("A GitHub token is already stored in this browser.\nOK = replace it · Cancel = keep it."))return;
+  const v=prompt("Paste a GitHub token with Contents: read & write on hlash99/hlash99.github.io.\n"
+    +"It lets THIS browser save your layout so other devices pick it up (reading needs no token).\n"
+    +"Stored only in this browser's localStorage. Leave blank to clear.");
+  if(v===null)return;
+  if(v.trim()==="")localStorage.removeItem("gh_pat");else localStorage.setItem("gh_pat",v.trim());
+  syncPush().then(()=>location.reload());
+}
+
+/* ── movable + collapsible sections (persisted per browser + synced) ── */
 function initBlocks(){
   const c=document.querySelector(".wrap");
   // anchor = the top-level methodology <details> (NOT the per-car ones nested in the
@@ -224,7 +293,7 @@ function initBlocks(){
   const nudge=()=>setTimeout(()=>Object.values(charts).forEach(ch=>{try{ch.resize()}catch(_){}}),30);
   c.querySelectorAll(".clps").forEach(btn=>btn.onclick=e=>{
     const b=e.currentTarget.closest(".blk");b.classList.toggle("collapsed");
-    localStorage.setItem("cvCollapsed",JSON.stringify([...c.querySelectorAll(".blk.collapsed")].map(x=>x.dataset.blk)));
+    syncSave("cvCollapsed",JSON.stringify([...c.querySelectorAll(".blk.collapsed")].map(x=>x.dataset.blk)));
     if(!b.classList.contains("collapsed"))nudge();   // charts hidden at creation have no size
   });
   let drag=null;
@@ -237,7 +306,7 @@ function initBlocks(){
     c.insertBefore(drag,after||anchor);});
   c.addEventListener("drop",e=>e.preventDefault());
   document.addEventListener("dragend",()=>{if(!drag)return;drag.classList.remove("dragging");
-    localStorage.setItem("cvOrder",JSON.stringify([...c.querySelectorAll(".blk")].map(b=>b.dataset.blk)));
+    syncSave("cvOrder",JSON.stringify([...c.querySelectorAll(".blk")].map(b=>b.dataset.blk)));
     nudge();drag=null;});
 }
 function bindSeg(sel,cb){document.querySelectorAll(sel+" button").forEach(b=>b.onclick=()=>{
