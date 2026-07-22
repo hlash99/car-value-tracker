@@ -1,6 +1,6 @@
 {
-  "updated": "2026-07-22T05:32:04Z",
-  "refresh_status": "auto-refresh 2026-07-22 05:32Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $310k; Ferrari F12 Berlinetta: n=34 asking\u2248$569k -> value\u2248$487k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $541k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $760k; Porsche 997.2 Turbo S: only 0 prices found \u2014 kept last-good $119k",
+  "updated": "2026-07-22T15:57:02Z",
+  "refresh_status": "auto-refresh 2026-07-22 15:57Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $310k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $487k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $541k; Ferrari 812 GTS: n=40 asking\u2248$910k -> value\u2248$728k; Porsche 997.2 Turbo S: only 0 prices found \u2014 kept last-good $119k",
   "inflation_factor": 1.308,
   "cpi_note": "U.S. CPI-U, June each year",
   "years": [
@@ -161,10 +161,10 @@
         620,
         680,
         730,
-        760
+        728
       ],
       "proj": [
-        760,
+        728,
         778,
         802,
         825,
@@ -177,7 +177,7 @@
         "bull": 0.05,
         "bear": -0.01
       },
-      "asking": 950,
+      "asking": 910,
       "sold": 750,
       "factor": 0.8,
       "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_gts&maximum_distance=all&zip=94027"
