@@ -81,6 +81,12 @@
   .crumb{font-size:13px;color:var(--muted,#6b7280);margin-bottom:8px}
   .crumb a{color:inherit;text-decoration:none}
   .crumb a:hover{text-decoration:underline}
+  .appr{margin-top:10px;padding-top:9px;border-top:1px solid var(--line)}
+  .appr-row{display:flex;align-items:baseline;gap:7px;font-size:12px;margin-bottom:3px;flex-wrap:wrap}
+  .appr-row.driven{margin-top:5px;padding-top:5px;border-top:1px dashed var(--line)}
+  .appr-k{color:var(--muted);min-width:38px;font-weight:600}
+  .appr-sub{color:var(--muted)}
+  .appr-src{font-size:11px;color:var(--muted);margin-top:5px;opacity:.8}
 </style>
 </head>
 <body>
@@ -326,6 +332,31 @@ function initBlocks(){
 function bindSeg(sel,cb){document.querySelectorAll(sel+" button").forEach(b=>b.onclick=()=>{
   b.parentNode.querySelectorAll("button").forEach(x=>x.classList.remove("on"));b.classList.add("on");cb(b.dataset.v);});}
 
+
+/* Appreciation summary for BaT-sourced cars: total and per-year over the 5y and
+   10y windows, plus the driven-vs-stored split where we have enough comps.
+   That split is the most decision-relevant number on the page - on several of
+   these cars the appreciation lives almost entirely in low-mileage examples. */
+function apprHtml(c){
+  if(!c.appr) return "";
+  const w=(k,lbl)=>{const d=c.appr[k]; if(!d) return "";
+    const cls=d.total_pct>=0?"up":"down";
+    return `<div class="appr-row"><span class="appr-k">${lbl}</span>`
+      +`<b class="${cls}">${pct0(d.total_pct)}</b>`
+      +`<span class="appr-sub">total &middot; ${pct(d.cagr_pct)}/yr</span>`
+      +`<span class="appr-sub">${d.from_year}&ndash;${d.to_year}</span></div>`;};
+  let h=`<div class="appr">${w("w5","5-yr")}${w("w10","10-yr")}`;
+  const dv=c.driven, d5=dv&&dv.appr&&dv.appr.w5;
+  if(d5){
+    const cls=d5.total_pct>=0?"up":"down";
+    h+=`<div class="appr-row driven"><span class="appr-k">driven</span>`
+      +`<b class="${cls}">${pct0(d5.total_pct)}</b>`
+      +`<span class="appr-sub">5-yr at ${Math.round(dv.min_miles/1000)}k+ mi &middot; ${fmtk(dv.latest)} &middot; n=${dv.n_comps}</span></div>`;
+  }
+  if(c.n_comps) h+=`<div class="appr-src">${c.n_comps} BaT sold comps</div>`;
+  return h+`</div>`;
+}
+
 function renderCards(){
   const el=$("#cards");el.innerHTML="";
   carList().forEach(n=>{
@@ -341,6 +372,7 @@ function renderCards(){
       <div class="val">${fmtk(cur)}</div>
       <div class="chg ${total>=0?'up':'down'}">${pct0(total*100)} <span style="color:var(--muted)">total, 6-yr ${lbl}</span> ${trend?'▲':'▼'}</div>
       <div class="chg2 ${cagr>=0?'up':'down'}">${pct(cagr*100)}/yr <span style="color:var(--muted)">avg (CAGR)</span></div>
+      ${apprHtml(c)}
     </div>`);
   });
 }

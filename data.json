@@ -1,217 +1,523 @@
 {
-  "updated": "2026-08-18T03:13:08Z",
-  "refresh_status": "auto-refresh 2026-08-18 03:13Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $347k; Ferrari F12 Berlinetta: n=44 asking\u2248$573k -> value\u2248$490k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $546k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k; Porsche 997.2 Turbo S: only 0 prices found \u2014 kept last-good $119k",
-  "inflation_factor": 1.308,
-  "cpi_note": "U.S. CPI-U, June each year",
-  "years": [
-    2020,
-    2021,
-    2022,
-    2023,
-    2024,
-    2025,
-    2026
-  ],
-  "pyears": [
-    2026,
-    2027,
-    2028,
-    2029,
-    2030,
-    2031
-  ],
-  "cpi": [
-    257.8,
-    271.7,
-    296.3,
-    305.1,
-    314.2,
-    323.6,
-    337.2
-  ],
-  "refs": {
-    "S&P 500": {
-      "color": "#1D9E75",
-      "hist": [
-        3100,
-        4300,
-        3785,
-        4450,
-        5460,
-        6140,
-        7366
-      ],
-      "unit": "index"
-    },
-    "AAPL": {
-      "color": "#888780",
-      "hist": [
-        91,
-        137,
-        137,
-        194,
-        211,
-        201,
-        293
-      ],
-      "unit": "usd"
-    }
+ "updated": "2026-08-18T10:12Z",
+ "refresh_status": "auto-refresh 2026-08-18 03:13Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $347k; Ferrari F12 Berlinetta: n=44 asking\u2248$573k -> value\u2248$490k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $546k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k; Porsche 997.2 Turbo S: only 0 prices found \u2014 kept last-good $119k",
+ "inflation_factor": 1.308,
+ "cpi_note": "U.S. CPI-U, June each year",
+ "years": [
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025,
+  2026
+ ],
+ "pyears": [
+  2026,
+  2027,
+  2028,
+  2029,
+  2030,
+  2031
+ ],
+ "cpi": [
+  257.8,
+  271.7,
+  296.3,
+  305.1,
+  314.2,
+  323.6,
+  337.2
+ ],
+ "refs": {
+  "S&P 500": {
+   "color": "#1D9E75",
+   "hist": [
+    3100,
+    4300,
+    3785,
+    4450,
+    5460,
+    6140,
+    7366
+   ],
+   "unit": "index"
   },
-  "cars": {
-    "Ferrari 458 Italia": {
-      "color": "#E24B4A",
-      "blurb": "Last naturally-aspirated V8 Ferrari (2010-2015).",
-      "hist": [
-        175,
-        200,
-        235,
-        230,
-        255,
-        290,
-        347
-      ],
-      "proj": [
-        347,
-        322,
-        338,
-        353,
-        366,
-        377
-      ],
-      "maint": 5,
-      "cagr": {
-        "base": 0.04,
-        "bull": 0.07,
-        "bear": 0.0
-      },
-      "asking": 380,
-      "sold": 293,
-      "factor": 0.912,
-      "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-458_italia&maximum_distance=all&zip=94027"
-    },
-    "Ferrari F12 Berlinetta": {
-      "color": "#D85A30",
-      "blurb": "Front-engine NA V12 grand tourer (2013-2017).",
-      "hist": [
-        210,
-        245,
-        270,
-        260,
-        300,
-        350,
-        490
-      ],
-      "proj": [
-        490,
-        402,
-        420,
-        435,
-        447,
-        457
-      ],
-      "maint": 6,
-      "cagr": {
-        "base": 0.035,
-        "bull": 0.06,
-        "bear": 0.0
-      },
-      "asking": 573,
-      "sold": 368,
-      "factor": 0.856,
-      "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-f12berlinetta&maximum_distance=all&zip=94027"
-    },
-    "Ferrari 812 Superfast": {
-      "color": "#BA7517",
-      "blurb": "789 hp NA V12 coupe (2018-2024).",
-      "hist": [
-        320,
-        360,
-        370,
-        350,
-        380,
-        410,
-        546
-      ],
-      "proj": [
-        546,
-        430,
-        440,
-        458,
-        474,
-        487
-      ],
-      "maint": 7,
-      "cagr": {
-        "base": 0.025,
-        "bull": 0.05,
-        "bear": -0.02
-      },
-      "asking": 590,
-      "sold": 415,
-      "factor": 0.925,
-      "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_superfast&maximum_distance=all&zip=94027"
-    },
-    "Ferrari 812 GTS": {
-      "color": "#534AB7",
-      "blurb": "Open-top NA V12, limited run (2020-2024).",
-      "hist": [
-        460,
-        560,
-        640,
-        620,
-        680,
-        730,
-        759
-      ],
-      "proj": [
-        759,
-        778,
-        802,
-        825,
-        845,
-        860
-      ],
-      "maint": 7,
-      "cagr": {
-        "base": 0.025,
-        "bull": 0.05,
-        "bear": -0.01
-      },
-      "asking": 949,
-      "sold": 750,
-      "factor": 0.8,
-      "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_gts&maximum_distance=all&zip=94027"
-    },
-    "Porsche 997.2 Turbo S": {
-      "color": "#185FA5",
-      "blurb": "523 hp PDK, last 997-gen Turbo S (2010-2013).",
-      "hist": [
-        85,
-        98,
-        115,
-        120,
-        125,
-        135,
-        119
-      ],
-      "proj": [
-        119,
-        150,
-        161,
-        172,
-        184,
-        196
-      ],
-      "maint": 3,
-      "cagr": {
-        "base": 0.07,
-        "bull": 0.1,
-        "bear": 0.03
-      },
-      "asking": 126,
-      "sold": 140,
-      "factor": 0.946,
-      "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=porsche&models[]=porsche-911&maximum_distance=all&zip=94027&year_min=2010&year_max=2013&keyword=Turbo%20S"
-    }
+  "AAPL": {
+   "color": "#888780",
+   "hist": [
+    91,
+    137,
+    137,
+    194,
+    211,
+    201,
+    293
+   ],
+   "unit": "usd"
   }
+ },
+ "cars": {
+  "Ferrari 458 Italia": {
+   "color": "#E24B4A",
+   "blurb": "Last naturally-aspirated V8 Ferrari (2010-2015).",
+   "hist": [
+    175,
+    200,
+    235,
+    230,
+    255,
+    290,
+    347
+   ],
+   "proj": [
+    347,
+    322,
+    338,
+    353,
+    366,
+    377
+   ],
+   "maint": 5,
+   "cagr": {
+    "base": 0.04,
+    "bull": 0.07,
+    "bear": 0.0
+   },
+   "asking": 380,
+   "sold": 293,
+   "factor": 0.912,
+   "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-458_italia&maximum_distance=all&zip=94027"
+  },
+  "Ferrari F12 Berlinetta": {
+   "color": "#D85A30",
+   "blurb": "Front-engine NA V12 grand tourer (2013-2017).",
+   "hist": [
+    210,
+    245,
+    270,
+    260,
+    300,
+    350,
+    490
+   ],
+   "proj": [
+    490,
+    402,
+    420,
+    435,
+    447,
+    457
+   ],
+   "maint": 6,
+   "cagr": {
+    "base": 0.035,
+    "bull": 0.06,
+    "bear": 0.0
+   },
+   "asking": 573,
+   "sold": 368,
+   "factor": 0.856,
+   "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-f12berlinetta&maximum_distance=all&zip=94027"
+  },
+  "Ferrari 812 Superfast": {
+   "color": "#BA7517",
+   "blurb": "789 hp NA V12 coupe (2018-2024).",
+   "hist": [
+    320,
+    360,
+    370,
+    350,
+    380,
+    410,
+    546
+   ],
+   "proj": [
+    546,
+    430,
+    440,
+    458,
+    474,
+    487
+   ],
+   "maint": 7,
+   "cagr": {
+    "base": 0.025,
+    "bull": 0.05,
+    "bear": -0.02
+   },
+   "asking": 590,
+   "sold": 415,
+   "factor": 0.925,
+   "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_superfast&maximum_distance=all&zip=94027"
+  },
+  "Ferrari 812 GTS": {
+   "color": "#534AB7",
+   "blurb": "Open-top NA V12, limited run (2020-2024).",
+   "hist": [
+    460,
+    560,
+    640,
+    620,
+    680,
+    730,
+    759
+   ],
+   "proj": [
+    759,
+    778,
+    802,
+    825,
+    845,
+    860
+   ],
+   "maint": 7,
+   "cagr": {
+    "base": 0.025,
+    "bull": 0.05,
+    "bear": -0.01
+   },
+   "asking": 949,
+   "sold": 750,
+   "factor": 0.8,
+   "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_gts&maximum_distance=all&zip=94027"
+  },
+  "Porsche 997.2 Turbo S": {
+   "color": "#185FA5",
+   "blurb": "523 hp PDK, last 997-gen Turbo S (2010-2013).",
+   "hist": [
+    85,
+    98,
+    115,
+    120,
+    125,
+    135,
+    119
+   ],
+   "proj": [
+    119,
+    150,
+    161,
+    172,
+    184,
+    196
+   ],
+   "maint": 3,
+   "cagr": {
+    "base": 0.07,
+    "bull": 0.1,
+    "bear": 0.03
+   },
+   "asking": 126,
+   "sold": 140,
+   "factor": 0.946,
+   "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=porsche&models[]=porsche-911&maximum_distance=all&zip=94027&year_min=2010&year_max=2013&keyword=Turbo%20S"
+  },
+  "Acura NSX (NA2 manual)": {
+   "color": "#C8102E",
+   "blurb": "Pre-facelift NA2, 1997-2001, six-speed, coupe and targa.",
+   "hist": [
+    102.0,
+    95.0,
+    125.0,
+    100.0,
+    100.0,
+    101.9,
+    153.0
+   ],
+   "proj": [
+    153.0,
+    168.3,
+    185.1,
+    203.6,
+    224.0,
+    246.4
+   ],
+   "maint": 3,
+   "cagr": {
+    "base": 0.1,
+    "bull": 0.13,
+    "bear": 0.07
+   },
+   "sold": 153,
+   "src": "bat",
+   "n_comps": 93,
+   "appr": {
+    "w5": {
+     "from_year": 2021,
+     "from": 95.0,
+     "to_year": 2026,
+     "to": 153.0,
+     "total_pct": 61.1,
+     "cagr_pct": 10.0,
+     "span_years": 5
+    },
+    "w10": {
+     "from_year": 2017,
+     "from": 62.0,
+     "to_year": 2026,
+     "to": 153.0,
+     "total_pct": 146.8,
+     "cagr_pct": 10.6,
+     "span_years": 9
+    }
+   },
+   "bat_url": "https://bringatrailer.com/acura/nsx/",
+   "driven": {
+    "min_miles": 30000,
+    "n_comps": 20,
+    "latest": 100.0,
+    "appr": {
+     "w5": {
+      "from_year": 2020,
+      "from": 103.5,
+      "to_year": 2025,
+      "to": 100.0,
+      "total_pct": -3.4,
+      "cagr_pct": -0.7,
+      "span_years": 5
+     },
+     "w10": {
+      "from_year": 2020,
+      "from": 103.5,
+      "to_year": 2025,
+      "to": 100.0,
+      "total_pct": -3.4,
+      "cagr_pct": -0.7,
+      "span_years": 5
+     }
+    }
+   }
+  },
+  "Ferrari 360 (gated manual)": {
+   "color": "#E24B4A",
+   "blurb": "Gated six-speed only - the F1 cars are a different market.",
+   "hist": [
+    92.0,
+    120.0,
+    133.0,
+    127.5,
+    122.5,
+    152.2,
+    182.1
+   ],
+   "proj": [
+    182.1,
+    197.9,
+    215.2,
+    233.9,
+    254.2,
+    276.3
+   ],
+   "maint": 6,
+   "cagr": {
+    "base": 0.087,
+    "bull": 0.117,
+    "bear": 0.057
+   },
+   "sold": 182,
+   "src": "bat",
+   "n_comps": 174,
+   "appr": {
+    "w5": {
+     "from_year": 2021,
+     "from": 120.0,
+     "to_year": 2026,
+     "to": 182.1,
+     "total_pct": 51.7,
+     "cagr_pct": 8.7,
+     "span_years": 5
+    },
+    "w10": {
+     "from_year": 2018,
+     "from": 95.5,
+     "to_year": 2026,
+     "to": 182.1,
+     "total_pct": 90.6,
+     "cagr_pct": 8.4,
+     "span_years": 8
+    }
+   },
+   "bat_url": "https://bringatrailer.com/ferrari/360/"
+  },
+  "Audi R8 gen1 V10 (gated)": {
+   "color": "#B01E28",
+   "blurb": "Type 42 V10 coupe, gated six-speed, 2009-2015.",
+   "hist": [
+    82.6,
+    161.0,
+    132.0,
+    126.0,
+    122.0,
+    144.0,
+    141.5
+   ],
+   "proj": [
+    141.5,
+    138.0,
+    134.5,
+    131.2,
+    127.9,
+    124.7
+   ],
+   "maint": 5,
+   "cagr": {
+    "base": -0.025,
+    "bull": 0.005,
+    "bear": -0.055
+   },
+   "sold": 142,
+   "src": "bat",
+   "n_comps": 87,
+   "appr": {
+    "w5": {
+     "from_year": 2021,
+     "from": 161.0,
+     "to_year": 2026,
+     "to": 141.5,
+     "total_pct": -12.1,
+     "cagr_pct": -2.5,
+     "span_years": 5
+    },
+    "w10": {
+     "from_year": 2019,
+     "from": 90.0,
+     "to_year": 2026,
+     "to": 141.5,
+     "total_pct": 57.2,
+     "cagr_pct": 6.7,
+     "span_years": 7
+    }
+   },
+   "bat_url": "https://bringatrailer.com/audi/r8-v10-type-42/",
+   "driven": {
+    "min_miles": 30000,
+    "n_comps": 11,
+    "latest": 118.0,
+    "appr": {
+     "w5": {
+      "from_year": 2021,
+      "from": 119.5,
+      "to_year": 2025,
+      "to": 118.0,
+      "total_pct": -1.3,
+      "cagr_pct": -0.3,
+      "span_years": 4
+     },
+     "w10": {
+      "from_year": 2021,
+      "from": 119.5,
+      "to_year": 2025,
+      "to": 118.0,
+      "total_pct": -1.3,
+      "cagr_pct": -0.3,
+      "span_years": 4
+     }
+    }
+   }
+  },
+  "Corvette split-window (1963)": {
+   "color": "#2E6DB4",
+   "blurb": "1963 coupe only - the one-year split rear window.",
+   "hist": [
+    104.5,
+    126.0,
+    160.0,
+    190.0,
+    164.0,
+    149.0,
+    175.0
+   ],
+   "proj": [
+    175.0,
+    186.9,
+    199.6,
+    213.2,
+    227.7,
+    243.2
+   ],
+   "maint": 3,
+   "cagr": {
+    "base": 0.068,
+    "bull": 0.098,
+    "bear": 0.038
+   },
+   "sold": 175,
+   "src": "bat",
+   "n_comps": 214,
+   "appr": {
+    "w5": {
+     "from_year": 2021,
+     "from": 126.0,
+     "to_year": 2026,
+     "to": 175.0,
+     "total_pct": 38.9,
+     "cagr_pct": 6.8,
+     "span_years": 5
+    },
+    "w10": {
+     "from_year": 2016,
+     "from": 96.0,
+     "to_year": 2026,
+     "to": 175.0,
+     "total_pct": 82.3,
+     "cagr_pct": 6.2,
+     "span_years": 10
+    }
+   },
+   "bat_url": "https://bringatrailer.com/chevrolet/c2-corvette/"
+  },
+  "Volvo P1800 (1800 family)": {
+   "color": "#4A7C59",
+   "blurb": "1800 family incl. the ES shooting brake.",
+   "hist": [
+    20.0,
+    27.0,
+    25.2,
+    24.8,
+    26.8,
+    26.0,
+    25.8
+   ],
+   "proj": [
+    25.8,
+    25.6,
+    25.3,
+    25.1,
+    24.9,
+    24.7
+   ],
+   "maint": 2,
+   "cagr": {
+    "base": -0.009,
+    "bull": 0.021,
+    "bear": -0.039
+   },
+   "sold": 26,
+   "src": "bat",
+   "n_comps": 328,
+   "appr": {
+    "w5": {
+     "from_year": 2021,
+     "from": 27.0,
+     "to_year": 2026,
+     "to": 25.8,
+     "total_pct": -4.6,
+     "cagr_pct": -0.9,
+     "span_years": 5
+    },
+    "w10": {
+     "from_year": 2016,
+     "from": 15.5,
+     "to_year": 2026,
+     "to": 25.8,
+     "total_pct": 66.1,
+     "cagr_pct": 5.2,
+     "span_years": 10
+    }
+   },
+   "bat_url": "https://bringatrailer.com/volvo/1800/"
+  }
+ },
+ "bat_status": "Acura NSX (NA2 manual): 93 comps, 20 driven | Ferrari 360 (gated manual): 174 comps | Audi R8 gen1 V10 (gated): 87 comps, 11 driven | Corvette split-window (1963): 214 comps | Volvo P1800 (1800 family): 328 comps"
 }
