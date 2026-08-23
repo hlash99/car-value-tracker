@@ -397,8 +397,20 @@ function bindSeg(sel,cb){document.querySelectorAll(sel+" button").forEach(b=>b.o
    10y windows, plus the driven-vs-stored split where we have enough comps.
    That split is the most decision-relevant number on the page - on several of
    these cars the appreciation lives almost entirely in low-mileage examples. */
+/* Cars.com cars have no BaT window, so derive a 5-yr one straight off `hist`.
+   Without this they showed no 5-yr figure at all and the card sort - which is
+   BY 5-yr per-year appreciation - looked arbitrary. */
+function derivedAppr(name){
+  const c=D.cars[name], h=c.hist; if(!h||h.length<2) return null;
+  const span=Math.min(5,h.length-1), i0=h.length-1-span;
+  return {w5:{from:h[i0],to:h[h.length-1],from_year:D.years[i0],
+              to_year:D.years[h.length-1],span_years:span}};
+}
+
 function apprHtml(c){
-  if(!c.appr) return "";
+  const appr=c.appr||derivedAppr(c.__name);
+  if(!appr) return "";
+  c=Object.assign({},c,{appr:appr});
   const w=(k,lbl)=>{const d=apprAdj(c.__name,c.appr[k]); if(!d) return "";
     const cls=d.total_pct>=0?"up":"down";
     return `<div class="appr-row"><span class="appr-k">${lbl}</span>`
@@ -413,7 +425,8 @@ function apprHtml(c){
       +`<b class="${cls}">${pct0(d5.total_pct)}</b>`
       +`<span class="appr-sub">5-yr at ${Math.round(dv.min_miles/1000)}k+ mi &middot; ${fmtk(dv.latest)} &middot; n=${dv.n_comps}</span></div>`;
   }
-  if(c.n_comps) h+=`<div class="appr-src">${c.n_comps} BaT sold comps</div>`;
+  h+=c.n_comps?`<div class="appr-src">${c.n_comps} BaT sold comps</div>`
+              :`<div class="appr-src">derived from asking history</div>`;
   return h+`</div>`;
 }
 
