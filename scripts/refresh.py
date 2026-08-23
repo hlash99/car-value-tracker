@@ -16,7 +16,6 @@ WINDOW = {
     "Ferrari F12 Berlinetta": (200, 850),
     "Ferrari 812 Superfast": (300, 850),
     "Ferrari 812 GTS": (550, 1300),
-    "Porsche 997.2 Turbo S": (90, 200),  # tight: exclude new 992 Turbo S & exceptional cars
 }
 PRICE_RE = re.compile(r"\$([0-9]{2,3},[0-9]{3})")
 

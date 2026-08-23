@@ -68,6 +68,37 @@ BAT_CARS = {
                  "lo": 40000, "hi": 1200000},
         "maint": 3,
     },
+    "Porsche 997.2 Turbo S": {
+        "url": "https://bringatrailer.com/porsche/997-turbo/",
+        "color": "#185FA5",
+        "blurb": "997.2 Turbo S coupe, 2010-2013 - the owned-car benchmark.",
+        "spec": {"include": ["turbo s"], "exclude": ["cabriolet", "convertible"],
+                 "year_min": 2010, "year_max": 2013, "lo": 60000, "hi": 400000},
+        "maint": 3,
+    },
+    "Ferrari 328 GTS/GTB": {
+        "url": "https://bringatrailer.com/ferrari/328/",
+        "color": "#D94F3D",
+        "blurb": "328 GTB and GTS, 1986-1989 - the last of the carburettor-era shape.",
+        "spec": {"exclude": ["308"], "year_min": 1985, "year_max": 1990,
+                 "lo": 40000, "hi": 500000},
+        "maint": 5,
+    },
+    "Alfa Romeo GTV 1750/2000": {
+        "url": "https://bringatrailer.com/alfa-romeo/gtv/",
+        "color": "#A6192E",
+        "blurb": "105-series 1750 and 2000 GTV, 1967-1976 - the Bertone coupe.",
+        "spec": {"include": ["gtv"], "exclude": ["gtv6", "gtv-6", "spider", "junior"],
+                 "year_min": 1967, "year_max": 1976, "lo": 12000, "hi": 250000},
+        "maint": 2,
+    },
+    "Porsche Singer 911": {
+        "url": "https://bringatrailer.com/porsche/singer/",
+        "color": "#C9A227",
+        "blurb": "Singer-reimagined 964 - a different market to everything else here.",
+        "spec": {"lo": 250000, "hi": 3500000},
+        "maint": 8,
+    },
     "Volvo P1800 (1800 family)": {
         "url": "https://bringatrailer.com/volvo/1800/",
         "color": "#4A7C59",
@@ -76,6 +107,14 @@ BAT_CARS = {
         "maint": 2,
     },
 }
+
+
+# CPI-U annual averages, needed because the BaT windows reach back further than
+# the dashboard's own 2020-2026 `years` axis. Without this the 10-yr figures
+# cannot be inflation-adjusted at all.
+CPI_BY_YEAR = {2014: 236.7, 2015: 237.0, 2016: 240.0, 2017: 245.1, 2018: 251.1,
+               2019: 255.7, 2020: 257.8, 2021: 271.7, 2022: 296.3, 2023: 305.1,
+               2024: 314.2, 2025: 323.6, 2026: 337.2}
 
 
 def collect(cfg):
@@ -150,11 +189,39 @@ def windows(series):
     return out
 
 
+# The Google Sheet pulls this with IMPORTDATA, which re-fetches on its own
+# schedule - so the chart there tracks this CI without anyone touching it.
+# One row per calendar year, one column per car; values are YEAR-OVER-YEAR
+# percent change in the annual median. Blank where a year has too few sales to
+# median honestly (annual_medians requires n>=2).
+CSV_NAME = "appreciation.csv"
+CSV_FIRST = ["Acura NSX (NA2 manual)", "Ferrari 360 (gated manual)",
+             "Audi R8 gen1 V10 (gated)", "Porsche 997.2 Turbo S"]
+
+
+def write_csv(series_by_car):
+    ordered = [c for c in CSV_FIRST if series_by_car.get(c)]
+    ordered += [c for c in series_by_car if c not in ordered and series_by_car.get(c)]
+    years = sorted({p["year"] for c in ordered for p in series_by_car[c]})
+    lines = ["Year," + ",".join(ordered)]
+    for y in years:
+        row = [str(y)]
+        for c in ordered:
+            pts = {p["year"]: p["median"] for p in series_by_car[c]}
+            prev = pts.get(y - 1)
+            row.append(f"{(pts[y] / prev - 1) * 100:.1f}" if (y in pts and prev) else "")
+        lines.append(",".join(row))
+    with open(os.path.join(ROOT, CSV_NAME), "w") as f:
+        f.write("\n".join(lines) + "\n")
+    return len(years), len(ordered)
+
+
 def main():
     with open(DATA) as f:
         d = json.load(f)
     years, pyears = d["years"], d["pyears"]
     log = []
+    series_by_car = {}
 
     for name, cfg in BAT_CARS.items():
         try:
@@ -167,6 +234,7 @@ def main():
             continue
 
         s_all = annual_medians(all_sold)
+        series_by_car[name] = s_all
         s_drv = annual_medians(driven)
         hist = to_hist(s_all, years)
         if not hist:
@@ -205,6 +273,9 @@ def main():
             note += f", {len(driven)} driven"
         log.append(note)
 
+    d["cpi_by_year"] = {str(k): v for k, v in CPI_BY_YEAR.items()}
+    ny, nc = write_csv(series_by_car)
+    log.append(f"{CSV_NAME}: {ny}y x {nc} cars")
     d["updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
     d["bat_status"] = " | ".join(log)
     with open(DATA, "w") as f:

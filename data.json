@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-18T10:12Z",
+ "updated": "2026-08-23T19:14Z",
  "refresh_status": "auto-refresh 2026-08-18 03:13Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $347k; Ferrari F12 Berlinetta: n=44 asking\u2248$573k -> value\u2248$490k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $546k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k; Porsche 997.2 Turbo S: only 0 prices found \u2014 kept last-good $119k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
@@ -184,34 +184,82 @@
   },
   "Porsche 997.2 Turbo S": {
    "color": "#185FA5",
-   "blurb": "523 hp PDK, last 997-gen Turbo S (2010-2013).",
+   "blurb": "997.2 Turbo S coupe, 2010-2013 - the owned-car benchmark.",
    "hist": [
-    85,
-    98,
-    115,
-    120,
-    125,
-    135,
-    119
+    86.2,
+    117.5,
+    118.5,
+    98.0,
+    110.0,
+    112.5,
+    168.0
    ],
    "proj": [
-    119,
-    150,
-    161,
-    172,
-    184,
-    196
+    168.0,
+    180.4,
+    193.8,
+    208.1,
+    223.5,
+    240.1
    ],
    "maint": 3,
    "cagr": {
-    "base": 0.07,
-    "bull": 0.1,
-    "bear": 0.03
+    "base": 0.074,
+    "bull": 0.104,
+    "bear": 0.044
    },
    "asking": 126,
-   "sold": 140,
+   "sold": 168,
    "factor": 0.946,
-   "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=porsche&models[]=porsche-911&maximum_distance=all&zip=94027&year_min=2010&year_max=2013&keyword=Turbo%20S"
+   "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=porsche&models[]=porsche-911&maximum_distance=all&zip=94027&year_min=2010&year_max=2013&keyword=Turbo%20S",
+   "src": "bat",
+   "n_comps": 75,
+   "appr": {
+    "w5": {
+     "from_year": 2021,
+     "from": 117.5,
+     "to_year": 2026,
+     "to": 168.0,
+     "total_pct": 43.0,
+     "cagr_pct": 7.4,
+     "span_years": 5
+    },
+    "w10": {
+     "from_year": 2019,
+     "from": 75.0,
+     "to_year": 2026,
+     "to": 168.0,
+     "total_pct": 124.0,
+     "cagr_pct": 12.2,
+     "span_years": 7
+    }
+   },
+   "bat_url": "https://bringatrailer.com/porsche/997-turbo/",
+   "driven": {
+    "min_miles": 30000,
+    "n_comps": 15,
+    "latest": 109.0,
+    "appr": {
+     "w5": {
+      "from_year": 2022,
+      "from": 102.2,
+      "to_year": 2025,
+      "to": 109.0,
+      "total_pct": 6.7,
+      "cagr_pct": 2.2,
+      "span_years": 3
+     },
+     "w10": {
+      "from_year": 2022,
+      "from": 102.2,
+      "to_year": 2025,
+      "to": 109.0,
+      "total_pct": 6.7,
+      "cagr_pct": 2.2,
+      "span_years": 3
+     }
+    }
+   }
   },
   "Acura NSX (NA2 manual)": {
    "color": "#C8102E",
@@ -350,42 +398,42 @@
     126.0,
     122.0,
     144.0,
-    141.5
+    141.0
    ],
    "proj": [
-    141.5,
-    138.0,
-    134.5,
-    131.2,
-    127.9,
-    124.7
+    141.0,
+    137.3,
+    133.8,
+    130.3,
+    126.9,
+    123.6
    ],
    "maint": 5,
    "cagr": {
-    "base": -0.025,
-    "bull": 0.005,
-    "bear": -0.055
+    "base": -0.026,
+    "bull": 0.004,
+    "bear": -0.056
    },
-   "sold": 142,
+   "sold": 141,
    "src": "bat",
-   "n_comps": 87,
+   "n_comps": 88,
    "appr": {
     "w5": {
      "from_year": 2021,
      "from": 161.0,
      "to_year": 2026,
-     "to": 141.5,
-     "total_pct": -12.1,
-     "cagr_pct": -2.5,
+     "to": 141.0,
+     "total_pct": -12.4,
+     "cagr_pct": -2.6,
      "span_years": 5
     },
     "w10": {
      "from_year": 2019,
      "from": 90.0,
      "to_year": 2026,
-     "to": 141.5,
-     "total_pct": 57.2,
-     "cagr_pct": 6.7,
+     "to": 141.0,
+     "total_pct": 56.7,
+     "cagr_pct": 6.6,
      "span_years": 7
     }
    },
@@ -444,7 +492,7 @@
    },
    "sold": 175,
    "src": "bat",
-   "n_comps": 214,
+   "n_comps": 215,
    "appr": {
     "w5": {
      "from_year": 2021,
@@ -477,47 +525,240 @@
     24.8,
     26.8,
     26.0,
-    25.8
+    25.2
    ],
    "proj": [
-    25.8,
-    25.6,
-    25.3,
-    25.1,
+    25.2,
     24.9,
-    24.7
+    24.5,
+    24.2,
+    23.9,
+    23.6
    ],
    "maint": 2,
    "cagr": {
-    "base": -0.009,
-    "bull": 0.021,
-    "bear": -0.039
+    "base": -0.013,
+    "bull": 0.017,
+    "bear": -0.043
    },
-   "sold": 26,
+   "sold": 25,
    "src": "bat",
-   "n_comps": 328,
+   "n_comps": 329,
    "appr": {
     "w5": {
      "from_year": 2021,
      "from": 27.0,
      "to_year": 2026,
-     "to": 25.8,
-     "total_pct": -4.6,
-     "cagr_pct": -0.9,
+     "to": 25.2,
+     "total_pct": -6.5,
+     "cagr_pct": -1.3,
      "span_years": 5
     },
     "w10": {
      "from_year": 2016,
      "from": 15.5,
      "to_year": 2026,
-     "to": 25.8,
-     "total_pct": 66.1,
-     "cagr_pct": 5.2,
+     "to": 25.2,
+     "total_pct": 62.9,
+     "cagr_pct": 5.0,
      "span_years": 10
     }
    },
    "bat_url": "https://bringatrailer.com/volvo/1800/"
+  },
+  "Alfa Romeo GTV 1750/2000": {
+   "color": "#A6192E",
+   "blurb": "105-series 1750 and 2000 GTV, 1967-1976 - the Bertone coupe.",
+   "hist": [
+    31.2,
+    43.5,
+    54.8,
+    47.0,
+    52.0,
+    45.1,
+    45.5
+   ],
+   "proj": [
+    45.5,
+    45.9,
+    46.3,
+    46.7,
+    47.2,
+    47.6
+   ],
+   "maint": 2,
+   "cagr": {
+    "base": 0.009,
+    "bull": 0.039,
+    "bear": -0.021
+   },
+   "sold": 46,
+   "src": "bat",
+   "n_comps": 306,
+   "appr": {
+    "w5": {
+     "from_year": 2021,
+     "from": 43.5,
+     "to_year": 2026,
+     "to": 45.5,
+     "total_pct": 4.6,
+     "cagr_pct": 0.9,
+     "span_years": 5
+    },
+    "w10": {
+     "from_year": 2016,
+     "from": 38.0,
+     "to_year": 2026,
+     "to": 45.5,
+     "total_pct": 19.7,
+     "cagr_pct": 1.8,
+     "span_years": 10
+    }
+   },
+   "bat_url": "https://bringatrailer.com/alfa-romeo/gtv/"
+  },
+  "Porsche Singer 911": {
+   "color": "#C9A227",
+   "blurb": "Singer-reimagined 964 - a different market to everything else here.",
+   "hist": [
+    1150.0,
+    1150.0,
+    1150.0,
+    1125.0,
+    1100.0,
+    1075.0,
+    1275.0
+   ],
+   "proj": [
+    1275.0,
+    1308.2,
+    1342.2,
+    1377.1,
+    1412.9,
+    1449.6
+   ],
+   "maint": 8,
+   "cagr": {
+    "base": 0.026,
+    "bull": 0.056,
+    "bear": -0.004
+   },
+   "sold": 1275,
+   "src": "bat",
+   "n_comps": 19,
+   "appr": {
+    "w5": {
+     "from_year": 2022,
+     "from": 1150.0,
+     "to_year": 2026,
+     "to": 1275.0,
+     "total_pct": 10.9,
+     "cagr_pct": 2.6,
+     "span_years": 4
+    },
+    "w10": {
+     "from_year": 2022,
+     "from": 1150.0,
+     "to_year": 2026,
+     "to": 1275.0,
+     "total_pct": 10.9,
+     "cagr_pct": 2.6,
+     "span_years": 4
+    }
+   },
+   "bat_url": "https://bringatrailer.com/porsche/singer/"
+  },
+  "Ferrari 328 GTS/GTB": {
+   "color": "#D94F3D",
+   "blurb": "328 GTB and GTS, 1986-1989 - the last of the carburettor-era shape.",
+   "hist": [
+    61.0,
+    85.5,
+    110.0,
+    103.0,
+    87.0,
+    115.5,
+    124.4
+   ],
+   "proj": [
+    124.4,
+    134.1,
+    144.6,
+    155.8,
+    168.0,
+    181.1
+   ],
+   "maint": 5,
+   "cagr": {
+    "base": 0.078,
+    "bull": 0.108,
+    "bear": 0.048
+   },
+   "sold": 124,
+   "src": "bat",
+   "n_comps": 193,
+   "appr": {
+    "w5": {
+     "from_year": 2021,
+     "from": 85.5,
+     "to_year": 2026,
+     "to": 124.4,
+     "total_pct": 45.5,
+     "cagr_pct": 7.8,
+     "span_years": 5
+    },
+    "w10": {
+     "from_year": 2016,
+     "from": 81.5,
+     "to_year": 2026,
+     "to": 124.4,
+     "total_pct": 52.7,
+     "cagr_pct": 4.3,
+     "span_years": 10
+    }
+   },
+   "bat_url": "https://bringatrailer.com/ferrari/328/",
+   "driven": {
+    "min_miles": 30000,
+    "n_comps": 9,
+    "latest": 132.5,
+    "appr": {
+     "w5": {
+      "from_year": 2024,
+      "from": 86.0,
+      "to_year": 2026,
+      "to": 132.5,
+      "total_pct": 54.1,
+      "cagr_pct": 24.1,
+      "span_years": 2
+     },
+     "w10": {
+      "from_year": 2024,
+      "from": 86.0,
+      "to_year": 2026,
+      "to": 132.5,
+      "total_pct": 54.1,
+      "cagr_pct": 24.1,
+      "span_years": 2
+     }
+    }
+   }
   }
  },
- "bat_status": "Acura NSX (NA2 manual): 93 comps, 20 driven | Ferrari 360 (gated manual): 174 comps | Audi R8 gen1 V10 (gated): 87 comps, 11 driven | Corvette split-window (1963): 214 comps | Volvo P1800 (1800 family): 328 comps"
+ "bat_status": "Acura NSX (NA2 manual): 93 comps, 20 driven | Ferrari 360 (gated manual): 174 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 215 comps | Porsche 997.2 Turbo S: 75 comps, 15 driven | Ferrari 328 GTS/GTB: 193 comps, 9 driven | Alfa Romeo GTV 1750/2000: 306 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 329 comps | appreciation.csv: 12y x 9 cars",
+ "cpi_by_year": {
+  "2014": 236.7,
+  "2015": 237.0,
+  "2016": 240.0,
+  "2017": 245.1,
+  "2018": 251.1,
+  "2019": 255.7,
+  "2020": 257.8,
+  "2021": 271.7,
+  "2022": 296.3,
+  "2023": 305.1,
+  "2024": 314.2,
+  "2025": 323.6,
+  "2026": 337.2
+ }
 }
