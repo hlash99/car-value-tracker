@@ -29,13 +29,23 @@
   .seg{display:inline-flex;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:var(--surface)}
   .seg button{border:0;background:transparent;color:var(--muted);padding:7px 13px;font-size:13px;cursor:pointer;font-weight:500}
   .seg button.on{background:var(--accent);color:#fff}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:var(--shadow)}
-  .card .nm{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:7px}
   .dot{width:10px;height:10px;border-radius:50%;flex:none}
-  .card .val{font-size:24px;font-weight:600;margin:6px 0 2px}
-  .card .chg{font-size:13px}
-  .card .chg2{font-size:12px;font-weight:500;margin-top:3px}
+  /* Appreciation table (replaced the old card grid 2026-08-24). */
+  #valTable td .sub{display:block;font-size:11px;color:var(--muted);margin-top:1px;font-weight:400}
+  #valTable th .sub{display:block;font-size:10px;color:var(--muted);font-weight:400;margin-top:1px;text-transform:none}
+  #valTable th.sortable{cursor:pointer;user-select:none;white-space:nowrap}
+  #valTable th.sortable:hover{color:var(--accent)}
+  #valTable th .arrow{opacity:.3;font-size:9px;margin-left:3px}
+  #valTable th.sorted{color:var(--accent)}
+  #valTable th.sorted .arrow{opacity:1}
+  #valTable td.num,#valTable th.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+  #valTable .carcell{display:flex;align-items:center;gap:8px}
+  #valTable .carcell a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--line)}
+  #valTable .carcell a:hover{color:var(--accent)}
+  #valTable tbody tr:hover td{background:rgba(0,0,0,.025)}
+  #valTable .val{font-weight:600}
+  #valTable .fb{opacity:.55}
+  .tnote{font-size:11.5px;color:var(--muted);margin:7px 2px 0;line-height:1.55}
   .up{color:#137a4f}.down{color:#b33}
   .chartbox{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:12px;box-shadow:var(--shadow);min-width:0}
   .chartwrap{position:relative;width:100%;min-width:0;height:340px}
@@ -81,15 +91,6 @@
   .crumb{font-size:13px;color:var(--muted,#6b7280);margin-bottom:8px}
   .crumb a{color:inherit;text-decoration:none}
   .crumb a:hover{text-decoration:underline}
-  .appr{margin-top:10px;padding-top:9px;border-top:1px solid var(--line)}
-  .appr-row{display:flex;align-items:baseline;gap:7px;font-size:12px;margin-bottom:3px;flex-wrap:wrap}
-  .appr-row.driven{margin-top:5px;padding-top:5px;border-top:1px dashed var(--line)}
-  .appr-k{color:var(--muted);min-width:38px;font-weight:600}
-  .appr-sub{color:var(--muted)}
-  .appr-src{font-size:11px;color:var(--muted);margin-top:5px;opacity:.8}
-  .card[draggable="true"]{cursor:grab}
-  .card.dragging{opacity:.45}
-  .card.drop-target{outline:2px dashed var(--accent);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -103,7 +104,7 @@
 </header>
 <div class="wrap">
   <h2>Median value: 6-year history & 5-year projection</h2>
-  <p class="sub">Ten collector cars vs the S&amp;P 500, Apple, and inflation. Four are Cars.com asking medians; the rest are Bring a Trailer <b>sold</b> medians scraped ~12 years deep. Cards are sorted by best 10-yr total return &mdash; drag them to reorder. Every figure on the page, including the 5-yr and 10-yr blocks, responds to the basis and maintenance toggles. Auto-refreshed twice daily.</p>
+  <p class="sub">Ten collector cars vs the S&amp;P 500, Apple, and inflation. Four are Cars.com asking medians; the rest are Bring a Trailer <b>sold</b> medians scraped ~12 years deep. The table is sorted by best 10-yr return &mdash; click any column header to re-sort. Every figure on the page responds to the basis, maintenance, total-vs-CAGR and all-comps-vs-driven toggles. Auto-refreshed twice daily.</p>
 
   <div class="controls">
     <div class="seg" id="basisSeg">
@@ -119,10 +120,21 @@
       <button data-v="off">Maintenance off</button>
       <button data-v="on" class="on">Maintenance on</button>
     </div>
+    <div class="seg" id="metricSeg">
+      <button data-v="total" class="on">Total %</button>
+      <button data-v="cagr">CAGR %/yr</button>
+    </div>
+    <div class="seg" id="drivenSeg">
+      <button data-v="all" class="on">All comps</button>
+      <button data-v="driven">Driven only</button>
+    </div>
   </div>
 
-  <section class="blk" data-blk="cards"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Current values<button class="clps" title="Collapse / expand">▾</button></h3>
-  <div class="bwrap"><div class="cards" id="cards"></div></div></section>
+  <section class="blk" data-blk="cards"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Current values &amp; appreciation<button class="clps" title="Collapse / expand">▾</button></h3>
+  <div class="bwrap">
+    <div class="tablescroll"><table id="valTable"></table></div>
+    <p class="tnote" id="valNote"></p>
+  </div></section>
 
   <section class="blk" data-blk="indexed"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Growth indexed to 2020 = 100<button class="clps" title="Collapse / expand">▾</button></h3>
   <div class="bwrap"><div class="chartbox">
@@ -176,7 +188,7 @@
   <details>
     <summary>Methodology &amp; caveats</summary>
     <p class="note">
-      <b>2026 values</b> come from Cars.com nationwide asking medians, cross-checked against recent Bring a Trailer sold prints; the adopted figure leans to sold levels (asking × a per-car factor). <b>2020 baselines and mid-years</b> are reconstructed from documented market lows and the 2021-22 run-up / 2023 wobble / 2024-26 surge — treat the 6-yr % as ±5-8 pts. <b>Projections</b> use momentum-aware CAGRs by each car's place on the modern-classic curve, drivetrain desirability, scarcity, and momentum; bull/bear bands convey uncertainty and are nominal. <b>Maintenance</b> = routine servicing + amortized wear (997 &asymp;$3k, 458 &asymp;$5k, F12 &asymp;$6k, 812s &asymp;$7k/yr); excludes insurance, storage, fuel, and major repairs. With the toggle <b>on</b> this carrying cost is subtracted from the end value everywhere &mdash; card totals and CAGR, the returns bars, the YoY bars and the projection table &mdash; so the figures show what each car cost to <i>hold</i>, not just what it sold for. Reference series (S&amp;P 500, AAPL) carry no maintenance. <b>Scope vs the asset tracker.</b> The R8 shown here is <i>gated manual, coupe, gen1 V10 only</i> (~$141k all-mileage, ~$118k at 30k+ miles). The asset tracker carries a deliberately broader <i>R8 V10 Gen 1</i> covering all transmissions and both bodies, which prices lower (~$111k) because R-tronic and S-tronic cars drag the median down. Same generation, different car - not a disagreement. <b>Sold vs asking.</b> The five original cars here are Cars.com <i>asking</i> medians; the five added 2026-08 are Bring a Trailer <i>sold</i> medians, which run lower and are the better evidence. <b>S&amp;P 500 / AAPL</b> are June levels (split-adjusted), not projected. Not investment advice.
+      <b>2026 values</b> come from Cars.com nationwide asking medians, cross-checked against recent Bring a Trailer sold prints; the adopted figure leans to sold levels (asking × a per-car factor). <b>2020 baselines and mid-years</b> are reconstructed from documented market lows and the 2021-22 run-up / 2023 wobble / 2024-26 surge — treat the 6-yr % as ±5-8 pts. <b>Projections</b> use momentum-aware CAGRs by each car's place on the modern-classic curve, drivetrain desirability, scarcity, and momentum; bull/bear bands convey uncertainty and are nominal. <b>Maintenance</b> = routine servicing + amortized wear (997 &asymp;$3k, 458 &asymp;$5k, F12 &asymp;$6k, 812s &asymp;$7k/yr); excludes insurance, storage, fuel, and major repairs. With the toggle <b>on</b> this carrying cost is subtracted from the end value everywhere &mdash; the table's 5-yr and 10-yr columns, the returns bars, the YoY bars and the projection table &mdash; so the figures show what each car cost to <i>hold</i>, not just what it sold for. Reference series (S&amp;P 500, AAPL) carry no maintenance. <b>Scope vs the asset tracker.</b> The R8 shown here is <i>gated manual, coupe, gen1 V10 only</i> (~$141k all-mileage, ~$118k at 30k+ miles). The asset tracker carries a deliberately broader <i>R8 V10 Gen 1</i> covering all transmissions and both bodies, which prices lower (~$111k) because R-tronic and S-tronic cars drag the median down. Same generation, different car - not a disagreement. <b>Sold vs asking.</b> The five original cars here are Cars.com <i>asking</i> medians; the five added 2026-08 are Bring a Trailer <i>sold</i> medians, which run lower and are the better evidence. <b>S&amp;P 500 / AAPL</b> are June levels (split-adjusted), not projected. Not investment advice.
     </p>
   </details>
 
@@ -190,7 +202,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <script>
-const state={basis:"real",scen:"base",maint:"on"};
+const state={basis:"real",scen:"base",maint:"on",metric:"total",driven:"all",
+             sortBy:"w10",sortDir:"desc"};
 let D, charts={};
 const $=s=>document.querySelector(s);
 const fmtk=v=>"$"+Math.round(v)+"k";
@@ -206,7 +219,7 @@ fetch("data.json?_="+Date.now()).then(r=>r.json()).then(async d=>{D=d;await _pul
 function realFactorTo2026(i){return D.cpi[D.cpi.length-1]/D.cpi[i];}
 
 /* Maintenance is a per-year carrying cost in $k. With the toggle on it is
-   subtracted from the END value, so every headline number - card totals and
+   subtracted from the END value, so every headline number - the table's windows and
    CAGR, the returns bars, the YoY bars and the projection table - reflects what
    the car cost to HOLD, not just what it sold for. Reference series (S&P 500,
    AAPL) carry no maintenance. Before 2026-08 the toggle only drove one column
@@ -234,37 +247,55 @@ function apprAdj(name,w){
           from_year:w.from_year,to_year:w.to_year,span_years:span};
 }
 
-/* Sort key for the cards: best 10-YEAR TOTAL return first. Falls back to the
-   5-yr window, then to `hist`, so Cars.com cars (which have no BaT window) and
-   thin-history cars still sort on a like-for-like basis. Everything is measured
-   under the CURRENT basis and maintenance settings, so re-sorting happens
-   automatically when the toggles move. */
-function sortKey(name){
-  const c=D.cars[name];
-  for(const k of ["w10","w5"]){
-    const a=c.appr?apprAdj(name,c.appr[k]):null;
-    if(a&&isFinite(a.total_pct)) return a.total_pct;
-  }
-  const h=c.hist, span=h.length-1;
-  const from=h[0], to=netEnd(name,h[h.length-1],span);
-  let ratio=to/from;
-  if(state.basis==="real"){
-    const c0=cpiYear(D.years[0]), c1=cpiYear(D.years[D.years.length-1]);
-    if(c0&&c1) ratio=ratio/(c1/c0);
-  }
-  return (ratio-1)*100;
+/* One table row's numbers, resolved under the CURRENT toggles.
+
+   `driven` mode swaps in the >=30k-mile sub-sample -- both the headline value
+   and the appreciation windows -- for the four cars that have one. That split
+   is the most decision-relevant number on the page: on several of these cars
+   the appreciation lives almost entirely in stored, low-mileage examples, so
+   the all-comps figure describes a car you would not actually drive. Cars
+   without a split fall back to all comps, flagged so the table can say so. */
+function rowData(name){
+  const c=D.cars[name], dv=c.driven, h=c.hist;
+  const useDriven = state.driven==="driven" && dv && dv.appr;
+  const appr = useDriven ? dv.appr : (c.appr || derivedAppr(name));
+  return {
+    name:name, c:c, useDriven:useDriven,
+    fallback: state.driven==="driven" && !useDriven,
+    value: (useDriven && dv.latest!=null) ? dv.latest : h[h.length-1],
+    w5:  appr ? apprAdj(name,appr.w5)  : null,
+    w10: appr ? apprAdj(name,appr.w10) : null,
+    n:   useDriven ? dv.n_comps : (c.n_comps||null),
+    minMiles: useDriven ? dv.min_miles : null
+  };
 }
 
-/* Default order is best 10-yr total return first; a manual drag order
-   wins once the user sets one, and syncs across devices like the block order. */
-function orderedCars(){
-  const all=carList();
-  let saved=null; try{saved=JSON.parse(localStorage.getItem("cvCardOrder")||"null");}catch(e){}
-  if(Array.isArray(saved)&&saved.length){
-    const keep=saved.filter(n=>all.includes(n));
-    return keep.concat(all.filter(n=>!keep.includes(n)));
-  }
-  return all.slice().sort((a,b)=>sortKey(b)-sortKey(a));
+/* Total-vs-CAGR is a pure presentation switch over the same adjusted window. */
+function metricVal(d){return d ? (state.metric==="cagr" ? d.cagr_pct : d.total_pct) : null;}
+
+const SORTS={
+  name:  r=>r.name.toLowerCase(),
+  value: r=>r.value,
+  maint: r=>r.c.maint||0,
+  w5:    r=>metricVal(r.w5),
+  w10:   r=>metricVal(r.w10),
+  n:     r=>r.n
+};
+
+/* Blank cells sort last in BOTH directions -- a car with no 10-yr history
+   should never win a "best 10-yr" sort by having nothing to show. */
+function sortedRows(){
+  const f=SORTS[state.sortBy]||SORTS.w10, dir=state.sortDir==="asc"?1:-1;
+  return carList().map(rowData).sort((a,b)=>{
+    const x=f(a), y=f(b);
+    const xn=(x==null||(typeof x==="number"&&!isFinite(x)));
+    const yn=(y==null||(typeof y==="number"&&!isFinite(y)));
+    if(xn&&yn) return 0;
+    if(xn) return 1;
+    if(yn) return -1;
+    if(typeof x==="string") return x<y?-dir:(x>y?dir:0);
+    return (x-y)*dir;
+  });
 }
 
 /* Suffix describing the active settings, so chart titles and card captions
@@ -289,11 +320,14 @@ function init(){
   $("#status2").textContent=D.refresh_status||"";
   $("#p997").textContent=fmtk(D.cars["Porsche 997.2 Turbo S"].hist.slice(-1)[0]);
   $("#p812").textContent=fmtk(D.cars["Ferrari 812 Superfast"].hist.slice(-1)[0]);
-  bindSeg("#basisSeg",v=>{state.basis=v;syncLabels();renderCards();drawRet();drawYoY();});
+  bindSeg("#basisSeg",v=>{state.basis=v;syncLabels();renderTable();drawRet();drawYoY();});
   bindSeg("#scenSeg",v=>{state.scen=v;$("#scenLabel").textContent=v;drawTraj();renderProjTable();});
-  bindSeg("#maintSeg",v=>{state.maint=v;syncLabels();renderCards();drawRet();drawYoY();renderProjTable();});
+  bindSeg("#maintSeg",v=>{state.maint=v;syncLabels();renderTable();drawRet();drawYoY();renderProjTable();});
+  bindSeg("#metricSeg",v=>{state.metric=v;renderTable();});
+  bindSeg("#drivenSeg",v=>{state.driven=v;renderTable();});
+  loadSort();
   syncLabels();
-  renderCards();buildLegend();drawIdx();drawTraj();drawRet();drawYoY();initCross();renderProjTable();renderEvid();renderYear();renderRef();
+  renderTable();buildLegend();drawIdx();drawTraj();drawRet();drawYoY();initCross();renderProjTable();renderEvid();renderYear();renderRef();
   initBlocks();
 }
 
@@ -304,7 +338,21 @@ function init(){
    Contents R/W on that repo, pasted once per editing device (gh_pat in
    localStorage — shared with the dashboard's ↻ feature). Newest-timestamp-
    per-key wins. */
-const SYNC_KEYS=["cvOrder","cvCollapsed","cvCardOrder"];
+const SYNC_KEYS=["cvOrder","cvCollapsed","cvTableSort"];
+
+/* The table's sort column/direction persists and syncs like the block order,
+   so the page opens the way you left it on any device. */
+function saveSort(){
+  const v=JSON.stringify({by:state.sortBy,dir:state.sortDir});
+  localStorage.setItem("cvTableSort",v);
+  if(typeof syncPush==="function") try{syncPush("cvTableSort");}catch(_){}
+}
+function loadSort(){
+  try{
+    const v=JSON.parse(localStorage.getItem("cvTableSort")||"null");
+    if(v&&SORTS[v.by]){state.sortBy=v.by;state.sortDir=(v.dir==="asc")?"asc":"desc";}
+  }catch(_){}
+}
 const SYNC_RAW="https://raw.githubusercontent.com/hlash99/hlash99.github.io/layout/layout.json";
 const SYNC_API="https://api.github.com/repos/hlash99/hlash99.github.io/contents/layout.json";
 let syncT=null;
@@ -402,8 +450,8 @@ function bindSeg(sel,cb){document.querySelectorAll(sel+" button").forEach(b=>b.o
    That split is the most decision-relevant number on the page - on several of
    these cars the appreciation lives almost entirely in low-mileage examples. */
 /* Cars.com cars have no BaT window, so derive a 5-yr one straight off `hist`.
-   Without this they showed no 5-yr figure at all and the card sort - which is
-   BY 5-yr per-year appreciation - looked arbitrary. */
+   Without this they showed no 5-yr figure at all. They still have no 10-yr
+   column, which is why they sort to the bottom of a 10-yr sort. */
 function derivedAppr(name){
   const c=D.cars[name], h=c.hist; if(!h||h.length<2) return null;
   const span=Math.min(5,h.length-1), i0=h.length-1-span;
@@ -411,72 +459,98 @@ function derivedAppr(name){
               to_year:D.years[h.length-1],span_years:span}};
 }
 
-function apprHtml(c){
-  const appr=c.appr||derivedAppr(c.__name);
-  if(!appr) return "";
-  c=Object.assign({},c,{appr:appr});
-  const w=(k,lbl)=>{const d=apprAdj(c.__name,c.appr[k]); if(!d) return "";
-    const cls=d.total_pct>=0?"up":"down";
-    return `<div class="appr-row"><span class="appr-k">${lbl}</span>`
-      +`<b class="${cls}">${pct0(d.total_pct)}</b>`
-      +`<span class="appr-sub">total &middot; ${pct(d.cagr_pct)}/yr</span>`
-      +`<span class="appr-sub">${d.from_year}&ndash;${d.to_year}</span></div>`;};
-  let h=`<div class="appr">${w("w5","5-yr")}${w("w10","10-yr")}`;
-  const dv=c.driven, d5=dv&&dv.appr?apprAdj(c.__name,dv.appr.w5):null;
-  if(d5){
-    const cls=d5.total_pct>=0?"up":"down";
-    h+=`<div class="appr-row driven"><span class="appr-k">driven</span>`
-      +`<b class="${cls}">${pct0(d5.total_pct)}</b>`
-      +`<span class="appr-sub">5-yr at ${Math.round(dv.min_miles/1000)}k+ mi &middot; ${fmtk(dv.latest)} &middot; n=${dv.n_comps}</span></div>`;
-  }
-  h+=c.n_comps?`<div class="appr-src">${c.n_comps} BaT sold comps</div>`
-              :`<div class="appr-src">derived from asking history</div>`;
-  return h+`</div>`;
+/* Column set. `key` doubles as the sort key; `num` right-aligns. */
+function valCols(){
+  const m = state.metric==="cagr" ? "CAGR" : "total";
+  const dv = state.driven==="driven";
+  return [
+    {key:"name",  label:"Car",                        num:false},
+    {key:"value", label:dv?"Value (driven)":"Value",  num:true},
+    {key:"maint", label:"Maint/yr",                   num:true, only:()=>state.maint==="on"},
+    {key:"w5",    label:"5-yr "+m,                    num:true},
+    {key:"w10",   label:"10-yr "+m,                   num:true, sub:"or longest available"},
+    {key:"n",     label:"Comps",                      num:true}
+  ].filter(c=>!c.only||c.only());
 }
 
-function renderCards(){
-  const el=$("#cards");el.innerHTML="";
-  orderedCars().forEach(n=>{
-    D.cars[n].__name=n;
-    const c=D.cars[n], h=c.hist, cur=h[h.length-1], v0=h[0];
-    const yrs=D.years.length-1, real=state.basis==="real";
-    const eff=netEnd(n,cur,yrs);                       // end value less maintenance
-    const ratio=real ? (eff/v0)/D.inflation_factor : eff/v0;
-    const total=ratio-1, cagr=Math.pow(ratio,1/yrs)-1;
-    const lbl=basisText().replace("inflation-adjusted","real").replace(", net of maintenance",", net of maint.");
-    const trend=h[h.length-1]>=h[h.length-2];
-    el.insertAdjacentHTML("beforeend",`<div class="card" draggable="true" data-n="${n.replace(/"/g,'&quot;')}">
-      <div class="nm"><span class="dot" style="background:${c.color}"></span>${n}</div>
-      <div class="val">${fmtk(cur)}</div>
-      <div class="chg ${total>=0?'up':'down'}">${pct0(total*100)} <span style="color:var(--muted)">total, 6-yr ${lbl}</span> ${trend?'▲':'▼'}</div>
-      <div class="chg2 ${cagr>=0?'up':'down'}">${pct(cagr*100)}/yr <span style="color:var(--muted)">avg (CAGR)</span></div>
-      ${apprHtml(c)}
-    </div>`);
+/* A window built from a short span or a handful of comps is noise, not a
+   trend -- the driven 328 reads +15%/yr off 9 cars over 2 years. The figure
+   still shows and still sorts, but it is muted and labelled so it cannot
+   quietly top the table. */
+function isThin(d,n){return !!d && (d.span_years<3 || (n!=null && n<10));}
+
+function winCell(d,n){
+  if(!d) return '<td class="num">&mdash;</td>';
+  const v=metricVal(d);
+  if(v==null||!isFinite(v)) return '<td class="num">&mdash;</td>';
+  const main = state.metric==="cagr" ? pct(v)+"/yr" : pct0(v);
+  const thin = isThin(d,n);
+  return '<td class="num"'+(thin?' title="Thin sample \u2014 short window and/or few comps; treat as indicative only"':'')+'>'
+    +'<b class="'+(v>=0?"up":"down")+(thin?" fb":"")+'">'+main+'</b>'
+    +'<span class="sub">'+d.from_year+'&ndash;'+d.to_year+' &middot; '+d.span_years+'y'
+    +(thin?' &middot; thin':'')+'</span></td>';
+}
+
+function renderTable(){
+  const cols=valCols(), rows=sortedRows();
+  let h="<thead><tr>";
+  cols.forEach(c=>{
+    const on = state.sortBy===c.key;
+    const arrow = on ? (state.sortDir==="asc"?"\u25b2":"\u25bc") : "\u25bc";
+    h+='<th class="sortable'+(c.num?" num":"")+(on?" sorted":"")+'" data-k="'+c.key+'"'
+      +' title="Sort by '+c.label.replace(/"/g,"")+'">'+c.label
+      +'<span class="arrow">'+arrow+'</span>'
+      +(c.sub?'<span class="sub">'+c.sub+'</span>':'')+'</th>';
   });
-  wireCardDrag();
-}
+  h+="</tr></thead><tbody>";
 
-/* Drag a card onto another to reorder; the order persists and syncs. */
-function wireCardDrag(){
-  const el=$("#cards"); let src=null;
-  el.querySelectorAll(".card").forEach(card=>{
-    card.addEventListener("dragstart",e=>{src=card;card.classList.add("dragging");
-      e.dataTransfer.effectAllowed="move";try{e.dataTransfer.setData("text/plain",card.dataset.n);}catch(_){}});
-    card.addEventListener("dragend",()=>{src=null;card.classList.remove("dragging");
-      el.querySelectorAll(".card").forEach(c=>c.classList.remove("drop-target"));});
-    card.addEventListener("dragover",e=>{if(src&&src!==card){e.preventDefault();card.classList.add("drop-target");}});
-    card.addEventListener("dragleave",()=>card.classList.remove("drop-target"));
-    card.addEventListener("drop",e=>{
-      e.preventDefault(); card.classList.remove("drop-target");
-      if(!src||src===card) return;
-      const names=[...el.querySelectorAll(".card")].map(c=>c.dataset.n);
-      const from=names.indexOf(src.dataset.n), to=names.indexOf(card.dataset.n);
-      names.splice(to,0,names.splice(from,1)[0]);
-      localStorage.setItem("cvCardOrder",JSON.stringify(names));
-      if(typeof syncPush==="function") try{syncPush("cvCardOrder");}catch(_){}
-      renderCards();
+  rows.forEach(r=>{
+    const c=r.c;
+    const nm = c.bat_url
+      ? '<a href="'+c.bat_url+'" target="_blank" rel="noopener">'+r.name+'</a>'
+      : r.name;
+    h+="<tr>";
+    cols.forEach(col=>{
+      if(col.key==="name")
+        h+='<td><span class="carcell"><span class="dot" style="background:'+c.color+'"></span>'
+          +nm+(r.fallback?' <span class="sub" style="display:inline">&dagger;</span>':"")+'</span></td>';
+      else if(col.key==="value")
+        h+='<td class="num"><span class="val">'+fmtk(r.value)+'</span>'
+          +(r.minMiles?'<span class="sub">'+Math.round(r.minMiles/1000)+'k+ mi</span>':"")+'</td>';
+      else if(col.key==="maint")
+        h+='<td class="num">'+(c.maint?fmtk(c.maint):"&mdash;")+'</td>';
+      else if(col.key==="w5")  h+=winCell(r.w5,r.n);
+      else if(col.key==="w10") h+=winCell(r.w10,r.n);
+      else if(col.key==="n")
+        h+='<td class="num">'+(r.n?r.n:"&mdash;")
+          +'<span class="sub">'+(c.n_comps?"BaT sold":"asking")+'</span></td>';
     });
+    h+="</tr>";
   });
+  h+="</tbody>";
+  const t=$("#valTable"); t.innerHTML=h;
+
+  t.querySelectorAll("th.sortable").forEach(th=>th.onclick=()=>{
+    const k=th.dataset.k;
+    if(state.sortBy===k) state.sortDir = state.sortDir==="asc"?"desc":"asc";
+    else { state.sortBy=k; state.sortDir = (k==="name") ? "asc" : "desc"; }
+    saveSort(); renderTable();
+  });
+
+  const anyFb  = rows.some(r=>r.fallback);
+  const anyThin = rows.some(r=>isThin(r.w5,r.n)||isThin(r.w10,r.n));
+  $("#valNote").innerHTML =
+    "All figures "+basisText()+"."
+    + (state.metric==="cagr"
+        ? " CAGR is the annualised rate over each window."
+        : " Total is the whole-window change, so windows of different lengths are not directly comparable \u2014 switch to CAGR for that.")
+    + " The 10-yr column falls back to each car\u2019s longest available history; the span under every figure says which years it actually covers."
+    + (state.driven==="driven"
+        ? " Driven = BaT sold comps at 30k+ miles only, value included."
+        : "")
+    + (anyFb ? " \u2020 no driven split for this car \u2014 all-comps figure shown." : "")
+    + (anyThin ? " Figures marked \u201cthin\u201d rest on a short window or fewer than 10 comps \u2014 indicative only." : "")
+    + " Blank cells sort last in either direction.";
 }
 
 function buildLegend(){
