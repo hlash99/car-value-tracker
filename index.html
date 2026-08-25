@@ -103,7 +103,7 @@
 </header>
 <div class="wrap">
   <h2>Median value: 6-year history & 5-year projection</h2>
-  <p class="sub">Ten collector cars vs the S&amp;P 500, Apple, and inflation. Four are Cars.com asking medians; the rest are Bring a Trailer <b>sold</b> medians scraped ~12 years deep. Cards are sorted by 5-yr per-year appreciation &mdash; drag them to reorder. Every figure on the page, including the 5-yr and 10-yr blocks, responds to the basis and maintenance toggles. Auto-refreshed twice daily.</p>
+  <p class="sub">Ten collector cars vs the S&amp;P 500, Apple, and inflation. Four are Cars.com asking medians; the rest are Bring a Trailer <b>sold</b> medians scraped ~12 years deep. Cards are sorted by best 10-yr total return &mdash; drag them to reorder. Every figure on the page, including the 5-yr and 10-yr blocks, responds to the basis and maintenance toggles. Auto-refreshed twice daily.</p>
 
   <div class="controls">
     <div class="seg" id="basisSeg">
@@ -234,24 +234,28 @@ function apprAdj(name,w){
           from_year:w.from_year,to_year:w.to_year,span_years:span};
 }
 
-/* Per-year 5-yr appreciation, used to sort the cards. BaT cars use their own
-   5-yr window; Cars.com cars fall back to the same span off `hist`, so every
-   card sorts on a like-for-like basis under the current toggles. */
-function sort5yr(name){
+/* Sort key for the cards: best 10-YEAR TOTAL return first. Falls back to the
+   5-yr window, then to `hist`, so Cars.com cars (which have no BaT window) and
+   thin-history cars still sort on a like-for-like basis. Everything is measured
+   under the CURRENT basis and maintenance settings, so re-sorting happens
+   automatically when the toggles move. */
+function sortKey(name){
   const c=D.cars[name];
-  const a=c.appr?apprAdj(name,c.appr.w5):null;
-  if(a&&isFinite(a.cagr_pct)) return a.cagr_pct;
-  const h=c.hist, span=Math.min(5,h.length-1);
-  const from=h[h.length-1-span], to=netEnd(name,h[h.length-1],span);
+  for(const k of ["w10","w5"]){
+    const a=c.appr?apprAdj(name,c.appr[k]):null;
+    if(a&&isFinite(a.total_pct)) return a.total_pct;
+  }
+  const h=c.hist, span=h.length-1;
+  const from=h[0], to=netEnd(name,h[h.length-1],span);
   let ratio=to/from;
   if(state.basis==="real"){
-    const c0=cpiYear(D.years[D.years.length-1-span]), c1=cpiYear(D.years[D.years.length-1]);
+    const c0=cpiYear(D.years[0]), c1=cpiYear(D.years[D.years.length-1]);
     if(c0&&c1) ratio=ratio/(c1/c0);
   }
-  return (Math.pow(Math.max(ratio,1e-6),1/span)-1)*100;
+  return (ratio-1)*100;
 }
 
-/* Default order is best 5-yr per-year appreciation first; a manual drag order
+/* Default order is best 10-yr total return first; a manual drag order
    wins once the user sets one, and syncs across devices like the block order. */
 function orderedCars(){
   const all=carList();
@@ -260,7 +264,7 @@ function orderedCars(){
     const keep=saved.filter(n=>all.includes(n));
     return keep.concat(all.filter(n=>!keep.includes(n)));
   }
-  return all.slice().sort((a,b)=>sort5yr(b)-sort5yr(a));
+  return all.slice().sort((a,b)=>sortKey(b)-sortKey(a));
 }
 
 /* Suffix describing the active settings, so chart titles and card captions
