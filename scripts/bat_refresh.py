@@ -158,6 +158,28 @@ def collect(cfg):
     return all_sold, sorted(driven.values(), key=lambda s: s["ts"])
 
 
+def annual_detail(sold, min_n=2):
+    """Per-year median, sample size and interquartile band, in $000s.
+
+    `annual_medians` gives only year/median/n. The band and the per-year n are
+    what let a consumer see that a window's ENDPOINT rests on a thin sample --
+    the 997.2's 2026 median moved 34 points on a single extra sale -- so both
+    are published rather than recomputed downstream.
+    """
+    by = {}
+    for s in sold:
+        by.setdefault(s["date"][:4], []).append(s["price"])
+    out = []
+    for y, v in sorted(by.items()):
+        if len(v) < min_n:
+            continue
+        v = sorted(v)
+        q = lambda f: v[min(len(v) - 1, max(0, int(round(f * (len(v) - 1)))))]
+        out.append({"year": int(y), "median": round(statistics.median(v) / 1000.0, 1),
+                    "n": len(v), "lo": round(q(0.25) / 1000.0, 1), "hi": round(q(0.75) / 1000.0, 1)})
+    return out
+
+
 def to_hist(series, years):
     """Annual medians -> one value per dashboard year, in $000s.
 
@@ -275,6 +297,7 @@ def main():
             "src": "bat",
             "n_comps": len(all_sold),
             "appr": appr,
+            "annual": annual_detail(all_sold),
             "bat_url": cfg["url"],
         })
         if s_drv and len(driven) >= 5:

@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-27T05:11Z",
+ "updated": "2026-08-27T14:21Z",
  "refresh_status": "auto-refresh 2026-08-18 03:13Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $347k; Ferrari F12 Berlinetta: n=44 asking\u2248$573k -> value\u2248$490k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $546k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k; Porsche 997.2 Turbo S: only 0 prices found \u2014 kept last-good $119k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
@@ -259,7 +259,65 @@
       "span_years": 3
      }
     }
-   }
+   },
+   "annual": [
+    {
+     "year": 2019,
+     "median": 75.0,
+     "n": 5,
+     "lo": 73.0,
+     "hi": 77.3
+    },
+    {
+     "year": 2020,
+     "median": 86.2,
+     "n": 4,
+     "lo": 85.0,
+     "hi": 87.5
+    },
+    {
+     "year": 2021,
+     "median": 117.5,
+     "n": 6,
+     "lo": 106.0,
+     "hi": 122.0
+    },
+    {
+     "year": 2022,
+     "median": 118.5,
+     "n": 18,
+     "lo": 101.0,
+     "hi": 125.0
+    },
+    {
+     "year": 2023,
+     "median": 98.0,
+     "n": 10,
+     "lo": 80.0,
+     "hi": 108.0
+    },
+    {
+     "year": 2024,
+     "median": 110.0,
+     "n": 10,
+     "lo": 90.0,
+     "hi": 120.0
+    },
+    {
+     "year": 2025,
+     "median": 112.5,
+     "n": 14,
+     "lo": 105.6,
+     "hi": 118.0
+    },
+    {
+     "year": 2026,
+     "median": 168.0,
+     "n": 7,
+     "lo": 149.0,
+     "hi": 219.0
+    }
+   ]
   },
   "Acura NSX (NA2 manual)": {
    "color": "#C8102E",
@@ -335,7 +393,79 @@
       "span_years": 5
      }
     }
-   }
+   },
+   "annual": [
+    {
+     "year": 2017,
+     "median": 62.0,
+     "n": 3,
+     "lo": 58.0,
+     "hi": 82.0
+    },
+    {
+     "year": 2018,
+     "median": 58.4,
+     "n": 6,
+     "lo": 55.0,
+     "hi": 68.0
+    },
+    {
+     "year": 2019,
+     "median": 66.5,
+     "n": 4,
+     "lo": 57.5,
+     "hi": 75.5
+    },
+    {
+     "year": 2020,
+     "median": 102.0,
+     "n": 12,
+     "lo": 82.8,
+     "hi": 107.0
+    },
+    {
+     "year": 2021,
+     "median": 95.0,
+     "n": 11,
+     "lo": 71.5,
+     "hi": 112.5
+    },
+    {
+     "year": 2022,
+     "median": 125.0,
+     "n": 15,
+     "lo": 97.0,
+     "hi": 141.0
+    },
+    {
+     "year": 2023,
+     "median": 100.0,
+     "n": 5,
+     "lo": 74.5,
+     "hi": 116.0
+    },
+    {
+     "year": 2024,
+     "median": 100.0,
+     "n": 13,
+     "lo": 88.9,
+     "hi": 132.0
+    },
+    {
+     "year": 2025,
+     "median": 101.9,
+     "n": 14,
+     "lo": 95.0,
+     "hi": 170.0
+    },
+    {
+     "year": 2026,
+     "median": 153.0,
+     "n": 9,
+     "lo": 128.0,
+     "hi": 176.0
+    }
+   ]
   },
   "Ferrari 360 (gated manual)": {
    "color": "#E24B4A",
@@ -386,7 +516,72 @@
      "span_years": 8
     }
    },
-   "bat_url": "https://bringatrailer.com/ferrari/360/"
+   "bat_url": "https://bringatrailer.com/ferrari/360/",
+   "annual": [
+    {
+     "year": 2018,
+     "median": 95.5,
+     "n": 6,
+     "lo": 88.4,
+     "hi": 116.0
+    },
+    {
+     "year": 2019,
+     "median": 92.0,
+     "n": 11,
+     "lo": 84.0,
+     "hi": 100.0
+    },
+    {
+     "year": 2020,
+     "median": 92.0,
+     "n": 13,
+     "lo": 79.0,
+     "hi": 104.0
+    },
+    {
+     "year": 2021,
+     "median": 120.0,
+     "n": 23,
+     "lo": 107.0,
+     "hi": 135.4
+    },
+    {
+     "year": 2022,
+     "median": 133.0,
+     "n": 31,
+     "lo": 120.0,
+     "hi": 146.0
+    },
+    {
+     "year": 2023,
+     "median": 127.5,
+     "n": 22,
+     "lo": 96.0,
+     "hi": 152.0
+    },
+    {
+     "year": 2024,
+     "median": 122.5,
+     "n": 25,
+     "lo": 100.4,
+     "hi": 140.0
+    },
+    {
+     "year": 2025,
+     "median": 152.2,
+     "n": 20,
+     "lo": 130.0,
+     "hi": 171.0
+    },
+    {
+     "year": 2026,
+     "median": 182.1,
+     "n": 22,
+     "lo": 120.0,
+     "hi": 270.0
+    }
+   ]
   },
   "Audi R8 gen1 V10 (gated)": {
    "color": "#B01E28",
@@ -462,7 +657,65 @@
       "span_years": 4
      }
     }
-   }
+   },
+   "annual": [
+    {
+     "year": 2019,
+     "median": 90.0,
+     "n": 3,
+     "lo": 89.5,
+     "hi": 92.0
+    },
+    {
+     "year": 2020,
+     "median": 82.6,
+     "n": 2,
+     "lo": 73.5,
+     "hi": 91.7
+    },
+    {
+     "year": 2021,
+     "median": 161.0,
+     "n": 22,
+     "lo": 130.0,
+     "hi": 177.0
+    },
+    {
+     "year": 2022,
+     "median": 132.0,
+     "n": 13,
+     "lo": 125.0,
+     "hi": 166.0
+    },
+    {
+     "year": 2023,
+     "median": 126.0,
+     "n": 13,
+     "lo": 105.0,
+     "hi": 141.2
+    },
+    {
+     "year": 2024,
+     "median": 122.0,
+     "n": 10,
+     "lo": 113.0,
+     "hi": 134.0
+    },
+    {
+     "year": 2025,
+     "median": 144.0,
+     "n": 16,
+     "lo": 121.0,
+     "hi": 159.0
+    },
+    {
+     "year": 2026,
+     "median": 141.0,
+     "n": 7,
+     "lo": 136.0,
+     "hi": 142.0
+    }
+   ]
   },
   "Corvette split-window (1963)": {
    "color": "#2E6DB4",
@@ -513,7 +766,79 @@
      "span_years": 10
     }
    },
-   "bat_url": "https://bringatrailer.com/chevrolet/c2-corvette/"
+   "bat_url": "https://bringatrailer.com/chevrolet/c2-corvette/",
+   "annual": [
+    {
+     "year": 2016,
+     "median": 96.0,
+     "n": 3,
+     "lo": 85.0,
+     "hi": 113.0
+    },
+    {
+     "year": 2017,
+     "median": 82.0,
+     "n": 3,
+     "lo": 65.0,
+     "hi": 100.0
+    },
+    {
+     "year": 2019,
+     "median": 92.0,
+     "n": 5,
+     "lo": 87.5,
+     "hi": 105.0
+    },
+    {
+     "year": 2020,
+     "median": 104.5,
+     "n": 6,
+     "lo": 89.0,
+     "hi": 106.0
+    },
+    {
+     "year": 2021,
+     "median": 126.0,
+     "n": 24,
+     "lo": 91.0,
+     "hi": 146.5
+    },
+    {
+     "year": 2022,
+     "median": 160.0,
+     "n": 30,
+     "lo": 125.0,
+     "hi": 227.0
+    },
+    {
+     "year": 2023,
+     "median": 190.0,
+     "n": 29,
+     "lo": 152.5,
+     "hi": 222.0
+    },
+    {
+     "year": 2024,
+     "median": 164.0,
+     "n": 35,
+     "lo": 135.0,
+     "hi": 198.0
+    },
+    {
+     "year": 2025,
+     "median": 149.0,
+     "n": 45,
+     "lo": 118.0,
+     "hi": 181.0
+    },
+    {
+     "year": 2026,
+     "median": 173.0,
+     "n": 34,
+     "lo": 120.0,
+     "hi": 196.0
+    }
+   ]
   },
   "Volvo P1800 (1800 family)": {
    "color": "#4A7C59",
@@ -564,7 +889,93 @@
      "span_years": 10
     }
    },
-   "bat_url": "https://bringatrailer.com/volvo/1800/"
+   "bat_url": "https://bringatrailer.com/volvo/1800/",
+   "annual": [
+    {
+     "year": 2015,
+     "median": 26.0,
+     "n": 4,
+     "lo": 24.0,
+     "hi": 28.0
+    },
+    {
+     "year": 2016,
+     "median": 15.5,
+     "n": 7,
+     "lo": 15.0,
+     "hi": 16.8
+    },
+    {
+     "year": 2017,
+     "median": 17.0,
+     "n": 19,
+     "lo": 14.0,
+     "hi": 22.5
+    },
+    {
+     "year": 2018,
+     "median": 20.7,
+     "n": 22,
+     "lo": 14.2,
+     "hi": 24.1
+    },
+    {
+     "year": 2019,
+     "median": 17.8,
+     "n": 21,
+     "lo": 13.5,
+     "hi": 20.5
+    },
+    {
+     "year": 2020,
+     "median": 20.0,
+     "n": 27,
+     "lo": 13.0,
+     "hi": 25.0
+    },
+    {
+     "year": 2021,
+     "median": 27.0,
+     "n": 33,
+     "lo": 18.5,
+     "hi": 40.0
+    },
+    {
+     "year": 2022,
+     "median": 25.2,
+     "n": 39,
+     "lo": 17.0,
+     "hi": 34.4
+    },
+    {
+     "year": 2023,
+     "median": 24.8,
+     "n": 49,
+     "lo": 17.5,
+     "hi": 31.5
+    },
+    {
+     "year": 2024,
+     "median": 26.8,
+     "n": 43,
+     "lo": 19.2,
+     "hi": 33.2
+    },
+    {
+     "year": 2025,
+     "median": 26.0,
+     "n": 37,
+     "lo": 18.2,
+     "hi": 35.8
+    },
+    {
+     "year": 2026,
+     "median": 25.2,
+     "n": 29,
+     "lo": 20.0,
+     "hi": 31.2
+    }
+   ]
   },
   "Alfa Romeo GTV 1750/2000": {
    "color": "#A6192E",
@@ -615,7 +1026,93 @@
      "span_years": 10
     }
    },
-   "bat_url": "https://bringatrailer.com/alfa-romeo/gtv/"
+   "bat_url": "https://bringatrailer.com/alfa-romeo/gtv/",
+   "annual": [
+    {
+     "year": 2015,
+     "median": 25.9,
+     "n": 4,
+     "lo": 25.0,
+     "hi": 26.8
+    },
+    {
+     "year": 2016,
+     "median": 38.0,
+     "n": 17,
+     "lo": 29.5,
+     "hi": 50.0
+    },
+    {
+     "year": 2017,
+     "median": 34.1,
+     "n": 24,
+     "lo": 25.0,
+     "hi": 49.0
+    },
+    {
+     "year": 2018,
+     "median": 40.1,
+     "n": 33,
+     "lo": 30.0,
+     "hi": 56.0
+    },
+    {
+     "year": 2019,
+     "median": 42.4,
+     "n": 42,
+     "lo": 32.0,
+     "hi": 54.0
+    },
+    {
+     "year": 2020,
+     "median": 31.2,
+     "n": 18,
+     "lo": 27.0,
+     "hi": 50.0
+    },
+    {
+     "year": 2021,
+     "median": 43.5,
+     "n": 39,
+     "lo": 39.0,
+     "hi": 56.5
+    },
+    {
+     "year": 2022,
+     "median": 54.8,
+     "n": 28,
+     "lo": 43.0,
+     "hi": 62.0
+    },
+    {
+     "year": 2023,
+     "median": 47.0,
+     "n": 33,
+     "lo": 35.0,
+     "hi": 51.1
+    },
+    {
+     "year": 2024,
+     "median": 52.0,
+     "n": 27,
+     "lo": 38.0,
+     "hi": 59.0
+    },
+    {
+     "year": 2025,
+     "median": 45.1,
+     "n": 24,
+     "lo": 28.5,
+     "hi": 57.0
+    },
+    {
+     "year": 2026,
+     "median": 45.5,
+     "n": 16,
+     "lo": 28.0,
+     "hi": 49.5
+    }
+   ]
   },
   "Porsche Singer 911": {
    "color": "#C9A227",
@@ -666,7 +1163,30 @@
      "span_years": 4
     }
    },
-   "bat_url": "https://bringatrailer.com/porsche/singer/"
+   "bat_url": "https://bringatrailer.com/porsche/singer/",
+   "annual": [
+    {
+     "year": 2022,
+     "median": 1150.0,
+     "n": 2,
+     "lo": 1100.0,
+     "hi": 1200.0
+    },
+    {
+     "year": 2025,
+     "median": 1075.0,
+     "n": 8,
+     "lo": 1025.0,
+     "hi": 1200.0
+    },
+    {
+     "year": 2026,
+     "median": 1275.0,
+     "n": 7,
+     "lo": 1205.0,
+     "hi": 1275.0
+    }
+   ]
   },
   "Ferrari 328 GTS/GTB": {
    "color": "#D94F3D",
@@ -742,7 +1262,86 @@
       "span_years": 2
      }
     }
-   }
+   },
+   "annual": [
+    {
+     "year": 2016,
+     "median": 81.5,
+     "n": 5,
+     "lo": 71.6,
+     "hi": 84.0
+    },
+    {
+     "year": 2017,
+     "median": 68.5,
+     "n": 4,
+     "lo": 67.0,
+     "hi": 70.0
+    },
+    {
+     "year": 2018,
+     "median": 72.5,
+     "n": 8,
+     "lo": 66.5,
+     "hi": 74.0
+    },
+    {
+     "year": 2019,
+     "median": 71.0,
+     "n": 10,
+     "lo": 68.0,
+     "hi": 78.5
+    },
+    {
+     "year": 2020,
+     "median": 61.0,
+     "n": 17,
+     "lo": 52.0,
+     "hi": 79.5
+    },
+    {
+     "year": 2021,
+     "median": 85.5,
+     "n": 13,
+     "lo": 81.5,
+     "hi": 115.0
+    },
+    {
+     "year": 2022,
+     "median": 110.0,
+     "n": 26,
+     "lo": 91.0,
+     "hi": 125.0
+    },
+    {
+     "year": 2023,
+     "median": 103.0,
+     "n": 28,
+     "lo": 90.5,
+     "hi": 115.0
+    },
+    {
+     "year": 2024,
+     "median": 87.0,
+     "n": 24,
+     "lo": 78.5,
+     "hi": 108.0
+    },
+    {
+     "year": 2025,
+     "median": 115.5,
+     "n": 23,
+     "lo": 91.0,
+     "hi": 145.0
+    },
+    {
+     "year": 2026,
+     "median": 124.4,
+     "n": 34,
+     "lo": 116.0,
+     "hi": 140.0
+    }
+   ]
   },
   "Ferrari Dino 246 GT/GTS": {
    "color": "#E2703A",
@@ -793,7 +1392,65 @@
      "span_years": 7
     }
    },
-   "bat_url": "https://bringatrailer.com/ferrari/dino/"
+   "bat_url": "https://bringatrailer.com/ferrari/dino/",
+   "annual": [
+    {
+     "year": 2019,
+     "median": 363.0,
+     "n": 5,
+     "lo": 352.0,
+     "hi": 380.0
+    },
+    {
+     "year": 2020,
+     "median": 355.0,
+     "n": 6,
+     "lo": 290.0,
+     "hi": 406.0
+    },
+    {
+     "year": 2021,
+     "median": 360.2,
+     "n": 5,
+     "lo": 350.0,
+     "hi": 374.0
+    },
+    {
+     "year": 2022,
+     "median": 567.0,
+     "n": 13,
+     "lo": 445.0,
+     "hi": 585.0
+    },
+    {
+     "year": 2023,
+     "median": 498.5,
+     "n": 12,
+     "lo": 425.0,
+     "hi": 599.0
+    },
+    {
+     "year": 2024,
+     "median": 450.5,
+     "n": 12,
+     "lo": 362.0,
+     "hi": 500.0
+    },
+    {
+     "year": 2025,
+     "median": 419.2,
+     "n": 6,
+     "lo": 386.0,
+     "hi": 525.0
+    },
+    {
+     "year": 2026,
+     "median": 406.5,
+     "n": 6,
+     "lo": 305.0,
+     "hi": 452.5
+    }
+   ]
   }
  },
  "bat_status": "Acura NSX (NA2 manual): 93 comps, 20 driven | Ferrari 360 (gated manual): 174 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 216 comps | Porsche 997.2 Turbo S: 75 comps, 15 driven | Ferrari 328 GTS/GTB: 193 comps, 9 driven | Alfa Romeo GTV 1750/2000: 306 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 331 comps | Ferrari Dino 246 GT/GTS: 67 comps | appreciation.csv: 12y x 10 cars",
