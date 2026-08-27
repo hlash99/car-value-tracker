@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-23T19:14Z",
+ "updated": "2026-08-27T05:11Z",
  "refresh_status": "auto-refresh 2026-08-18 03:13Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $347k; Ferrari F12 Berlinetta: n=44 asking\u2248$573k -> value\u2248$490k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $546k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k; Porsche 997.2 Turbo S: only 0 prices found \u2014 kept last-good $119k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
@@ -474,42 +474,42 @@
     190.0,
     164.0,
     149.0,
-    175.0
+    173.0
    ],
    "proj": [
-    175.0,
-    186.9,
-    199.6,
-    213.2,
-    227.7,
-    243.2
+    173.0,
+    184.2,
+    196.2,
+    209.0,
+    222.6,
+    237.0
    ],
    "maint": 3,
    "cagr": {
-    "base": 0.068,
-    "bull": 0.098,
-    "bear": 0.038
+    "base": 0.065,
+    "bull": 0.095,
+    "bear": 0.035
    },
-   "sold": 175,
+   "sold": 173,
    "src": "bat",
-   "n_comps": 215,
+   "n_comps": 216,
    "appr": {
     "w5": {
      "from_year": 2021,
      "from": 126.0,
      "to_year": 2026,
-     "to": 175.0,
-     "total_pct": 38.9,
-     "cagr_pct": 6.8,
+     "to": 173.0,
+     "total_pct": 37.3,
+     "cagr_pct": 6.5,
      "span_years": 5
     },
     "w10": {
      "from_year": 2016,
      "from": 96.0,
      "to_year": 2026,
-     "to": 175.0,
-     "total_pct": 82.3,
-     "cagr_pct": 6.2,
+     "to": 173.0,
+     "total_pct": 80.2,
+     "cagr_pct": 6.1,
      "span_years": 10
     }
    },
@@ -543,7 +543,7 @@
    },
    "sold": 25,
    "src": "bat",
-   "n_comps": 329,
+   "n_comps": 331,
    "appr": {
     "w5": {
      "from_year": 2021,
@@ -743,9 +743,60 @@
      }
     }
    }
+  },
+  "Ferrari Dino 246 GT/GTS": {
+   "color": "#E2703A",
+   "blurb": "246 GT and GTS, 1969-1974 - the V6 junior Ferrari, badged Dino.",
+   "hist": [
+    355.0,
+    360.2,
+    567.0,
+    498.5,
+    450.5,
+    419.2,
+    406.5
+   ],
+   "proj": [
+    406.5,
+    416.3,
+    426.2,
+    436.5,
+    447.0,
+    457.7
+   ],
+   "maint": 7,
+   "cagr": {
+    "base": 0.024,
+    "bull": 0.054,
+    "bear": -0.006
+   },
+   "sold": 406,
+   "src": "bat",
+   "n_comps": 67,
+   "appr": {
+    "w5": {
+     "from_year": 2021,
+     "from": 360.2,
+     "to_year": 2026,
+     "to": 406.5,
+     "total_pct": 12.8,
+     "cagr_pct": 2.4,
+     "span_years": 5
+    },
+    "w10": {
+     "from_year": 2019,
+     "from": 363.0,
+     "to_year": 2026,
+     "to": 406.5,
+     "total_pct": 12.0,
+     "cagr_pct": 1.6,
+     "span_years": 7
+    }
+   },
+   "bat_url": "https://bringatrailer.com/ferrari/dino/"
   }
  },
- "bat_status": "Acura NSX (NA2 manual): 93 comps, 20 driven | Ferrari 360 (gated manual): 174 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 215 comps | Porsche 997.2 Turbo S: 75 comps, 15 driven | Ferrari 328 GTS/GTB: 193 comps, 9 driven | Alfa Romeo GTV 1750/2000: 306 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 329 comps | appreciation.csv: 12y x 9 cars",
+ "bat_status": "Acura NSX (NA2 manual): 93 comps, 20 driven | Ferrari 360 (gated manual): 174 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 216 comps | Porsche 997.2 Turbo S: 75 comps, 15 driven | Ferrari 328 GTS/GTB: 193 comps, 9 driven | Alfa Romeo GTV 1750/2000: 306 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 331 comps | Ferrari Dino 246 GT/GTS: 67 comps | appreciation.csv: 12y x 10 cars",
  "cpi_by_year": {
   "2014": 236.7,
   "2015": 237.0,

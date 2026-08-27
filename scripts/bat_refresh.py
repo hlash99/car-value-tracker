@@ -106,6 +106,23 @@ BAT_CARS = {
         "spec": {"lo": 8000, "hi": 150000},
         "maint": 2,
     },
+    # BaT files the Dino under /ferrari/dino/ -- there is no 246-specific model
+    # page. That page is unusually full of memorabilia (manuals, jacks, tool
+    # kits, illuminated signs, a transaxle), all of which parse as SOLD. They
+    # top out at $20,500 and no real car has sold below $200k, so the $100k
+    # floor separates them cleanly. "206" cars are a rarer, different market and
+    # fall out on the `246` include; the $1.1M V8-powered "Evo 3.6" restomod is
+    # excluded by name because it is not a stock Dino at all.
+    "Ferrari Dino 246 GT/GTS": {
+        "url": "https://bringatrailer.com/ferrari/dino/",
+        "color": "#E2703A",
+        "blurb": "246 GT and GTS, 1969-1974 - the V6 junior Ferrari, badged Dino.",
+        "spec": {"include": ["246"],
+                 "exclude": ["v8-powered", "replica", "kit car"],
+                 "year_min": 1969, "year_max": 1974,
+                 "lo": 100000, "hi": 900000},
+        "maint": 7,
+    },
 }
 
 
