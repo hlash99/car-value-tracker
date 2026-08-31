@@ -16,7 +16,6 @@ WINDOW = {
     "Ferrari F12 Berlinetta": (200, 850),
     "Ferrari 812 Superfast": (300, 850),
     "Ferrari 812 GTS": (550, 1300),
-    "Porsche 997.2 Turbo S": (90, 200),  # tight: exclude new 992 Turbo S & exceptional cars
 }
 PRICE_RE = re.compile(r"\$([0-9]{2,3},[0-9]{3})")
 
@@ -56,14 +55,15 @@ def main():
             viewport={"width": 1400, "height": 1000})
         page = ctx.new_page()
         for name, car in d["cars"].items():
-            # Cars with no cars_url are the BaT-sourced entries added 2026-08 —
-            # scripts/bat_refresh.py owns those, so there is nothing to scrape here.
-            if not car.get("cars_url"):
+            # src == "bat" cars belong to scripts/bat_refresh.py. The 997.2 was moved
+            # to BaT in 2026-08 and its Cars.com window was dropped on purpose so the
+            # two scrapers cannot fight over the same car — but it still carries a
+            # legacy cars_url, so `src` is the authoritative signal here, not the URL.
+            if car.get("src") == "bat" or not car.get("cars_url"):
                 continue
-            # A car added to data.json before its plausibility window is configured
-            # gets skipped with a note rather than killing the whole run (which
-            # would also strand bat_refresh.py's updates, since the workflow never
-            # reaches its commit step once this script exits non-zero).
+            # Safety net for a genuinely new Cars.com car added before its window:
+            # log and skip rather than exiting non-zero. A crash here also strands
+            # bat_refresh.py's work, since the workflow never reaches its commit step.
             if name not in WINDOW:
                 log.append(f"{name}: no price window configured — skipped")
                 continue
