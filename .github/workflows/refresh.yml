@@ -40,7 +40,18 @@ jobs:
           if ! git diff --quiet -- data.json; then
             git add data.json
             git commit -m "refresh: Cars.com asking + BaT sold $(date -u +%Y-%m-%dT%H:%MZ)"
-            git push
+            # A scrape takes minutes, so main can move underneath us (a local push, or
+            # the dashboard's manual trigger). Rebase and retry rather than failing the
+            # run — the commit only ever touches data.json, so a rebase is safe.
+            for i in 1 2 3; do
+              if git push; then
+                echo "pushed on attempt $i"
+                exit 0
+              fi
+              echo "push rejected on attempt $i — rebasing onto origin/main"
+              git pull --rebase origin main || { git rebase --abort || true; echo "rebase conflict — skipping cycle"; exit 0; }
+            done
+            echo "could not push after 3 attempts — skipping this cycle"
           else
             echo "no change"
           fi
