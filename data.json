@@ -1,6 +1,6 @@
 {
- "updated": "2026-08-27T14:21Z",
- "refresh_status": "auto-refresh 2026-08-18 03:13Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $347k; Ferrari F12 Berlinetta: n=44 asking\u2248$573k -> value\u2248$490k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $546k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k; Porsche 997.2 Turbo S: only 0 prices found \u2014 kept last-good $119k",
+ "updated": "2026-08-31T21:35Z",
+ "refresh_status": "auto-refresh 2026-08-31 21:29Z \u00b7 updated Ferrari 458 Italia: n=50 asking\u2248$396k -> value\u2248$361k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $490k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $546k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k; Porsche 997.2 Turbo S: only 0 prices found \u2014 kept last-good $168.0k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
  "years": [
@@ -68,10 +68,10 @@
     230,
     255,
     290,
-    347
+    361
    ],
    "proj": [
-    347,
+    361,
     322,
     338,
     353,
@@ -84,7 +84,7 @@
     "bull": 0.07,
     "bear": 0.0
    },
-   "asking": 380,
+   "asking": 396,
    "sold": 293,
    "factor": 0.912,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-458_italia&maximum_distance=all&zip=94027"
@@ -192,71 +192,71 @@
     98.0,
     110.0,
     112.5,
-    168.0
+    158.5
    ],
    "proj": [
-    168.0,
-    180.4,
-    193.8,
-    208.1,
-    223.5,
-    240.1
+    158.5,
+    168.3,
+    178.8,
+    189.8,
+    201.6,
+    214.1
    ],
    "maint": 3,
    "cagr": {
-    "base": 0.074,
-    "bull": 0.104,
-    "bear": 0.044
+    "base": 0.062,
+    "bull": 0.092,
+    "bear": 0.032
    },
    "asking": 126,
-   "sold": 168,
+   "sold": 158,
    "factor": 0.946,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=porsche&models[]=porsche-911&maximum_distance=all&zip=94027&year_min=2010&year_max=2013&keyword=Turbo%20S",
    "src": "bat",
-   "n_comps": 75,
+   "n_comps": 76,
    "appr": {
     "w5": {
      "from_year": 2021,
      "from": 117.5,
      "to_year": 2026,
-     "to": 168.0,
-     "total_pct": 43.0,
-     "cagr_pct": 7.4,
+     "to": 158.5,
+     "total_pct": 34.9,
+     "cagr_pct": 6.2,
      "span_years": 5
     },
     "w10": {
      "from_year": 2019,
      "from": 75.0,
      "to_year": 2026,
-     "to": 168.0,
-     "total_pct": 124.0,
-     "cagr_pct": 12.2,
+     "to": 158.5,
+     "total_pct": 111.3,
+     "cagr_pct": 11.3,
      "span_years": 7
     }
    },
    "bat_url": "https://bringatrailer.com/porsche/997-turbo/",
    "driven": {
     "min_miles": 30000,
-    "n_comps": 15,
-    "latest": 109.0,
+    "n_comps": 16,
+    "latest": 130.8,
     "appr": {
      "w5": {
       "from_year": 2022,
       "from": 102.2,
-      "to_year": 2025,
-      "to": 109.0,
-      "total_pct": 6.7,
-      "cagr_pct": 2.2,
-      "span_years": 3
+      "to_year": 2026,
+      "to": 130.8,
+      "total_pct": 27.9,
+      "cagr_pct": 6.3,
+      "span_years": 4
      },
      "w10": {
       "from_year": 2022,
       "from": 102.2,
-      "to_year": 2025,
-      "to": 109.0,
-      "total_pct": 6.7,
-      "cagr_pct": 2.2,
-      "span_years": 3
+      "to_year": 2026,
+      "to": 130.8,
+      "total_pct": 27.9,
+      "cagr_pct": 6.3,
+      "span_years": 4
      }
     }
    },
@@ -312,9 +312,9 @@
     },
     {
      "year": 2026,
-     "median": 168.0,
-     "n": 7,
-     "lo": 149.0,
+     "median": 158.5,
+     "n": 8,
+     "lo": 134.0,
      "hi": 219.0
     }
    ]
@@ -329,15 +329,15 @@
     100.0,
     100.0,
     101.9,
-    153.0
+    164.0
    ],
    "proj": [
-    153.0,
-    168.3,
-    185.1,
-    203.6,
-    224.0,
-    246.4
+    164.0,
+    180.4,
+    198.4,
+    218.3,
+    240.1,
+    264.1
    ],
    "maint": 3,
    "cagr": {
@@ -345,26 +345,26 @@
     "bull": 0.13,
     "bear": 0.07
    },
-   "sold": 153,
+   "sold": 164,
    "src": "bat",
-   "n_comps": 93,
+   "n_comps": 94,
    "appr": {
     "w5": {
      "from_year": 2021,
      "from": 95.0,
      "to_year": 2026,
-     "to": 153.0,
-     "total_pct": 61.1,
-     "cagr_pct": 10.0,
+     "to": 164.0,
+     "total_pct": 72.6,
+     "cagr_pct": 11.5,
      "span_years": 5
     },
     "w10": {
      "from_year": 2017,
      "from": 62.0,
      "to_year": 2026,
-     "to": 153.0,
-     "total_pct": 146.8,
-     "cagr_pct": 10.6,
+     "to": 164.0,
+     "total_pct": 164.5,
+     "cagr_pct": 11.4,
      "span_years": 9
     }
    },
@@ -460,10 +460,10 @@
     },
     {
      "year": 2026,
-     "median": 153.0,
-     "n": 9,
+     "median": 164.0,
+     "n": 10,
      "lo": 128.0,
-     "hi": 176.0
+     "hi": 178.0
     }
    ]
   },
@@ -495,7 +495,7 @@
    },
    "sold": 182,
    "src": "bat",
-   "n_comps": 174,
+   "n_comps": 176,
    "appr": {
     "w5": {
      "from_year": 2021,
@@ -577,9 +577,9 @@
     {
      "year": 2026,
      "median": 182.1,
-     "n": 22,
-     "lo": 120.0,
-     "hi": 270.0
+     "n": 24,
+     "lo": 125.0,
+     "hi": 261.0
     }
    ]
   },
@@ -727,42 +727,42 @@
     190.0,
     164.0,
     149.0,
-    173.0
+    175.0
    ],
    "proj": [
-    173.0,
-    184.2,
-    196.2,
-    209.0,
-    222.6,
-    237.0
+    175.0,
+    186.9,
+    199.6,
+    213.2,
+    227.7,
+    243.2
    ],
    "maint": 3,
    "cagr": {
-    "base": 0.065,
-    "bull": 0.095,
-    "bear": 0.035
+    "base": 0.068,
+    "bull": 0.098,
+    "bear": 0.038
    },
-   "sold": 173,
+   "sold": 175,
    "src": "bat",
-   "n_comps": 216,
+   "n_comps": 218,
    "appr": {
     "w5": {
      "from_year": 2021,
      "from": 126.0,
      "to_year": 2026,
-     "to": 173.0,
-     "total_pct": 37.3,
-     "cagr_pct": 6.5,
+     "to": 175.0,
+     "total_pct": 38.9,
+     "cagr_pct": 6.8,
      "span_years": 5
     },
     "w10": {
      "from_year": 2016,
      "from": 96.0,
      "to_year": 2026,
-     "to": 173.0,
-     "total_pct": 80.2,
-     "cagr_pct": 6.1,
+     "to": 175.0,
+     "total_pct": 82.3,
+     "cagr_pct": 6.2,
      "span_years": 10
     }
    },
@@ -833,10 +833,10 @@
     },
     {
      "year": 2026,
-     "median": 173.0,
-     "n": 34,
-     "lo": 120.0,
-     "hi": 196.0
+     "median": 175.0,
+     "n": 36,
+     "lo": 125.0,
+     "hi": 205.0
     }
    ]
   },
@@ -1198,42 +1198,42 @@
     103.0,
     87.0,
     115.5,
-    124.4
+    125.0
    ],
    "proj": [
-    124.4,
-    134.1,
-    144.6,
-    155.8,
-    168.0,
-    181.1
+    125.0,
+    134.9,
+    145.5,
+    157.0,
+    169.4,
+    182.8
    ],
    "maint": 5,
    "cagr": {
-    "base": 0.078,
-    "bull": 0.108,
-    "bear": 0.048
+    "base": 0.079,
+    "bull": 0.109,
+    "bear": 0.049
    },
-   "sold": 124,
+   "sold": 125,
    "src": "bat",
-   "n_comps": 193,
+   "n_comps": 194,
    "appr": {
     "w5": {
      "from_year": 2021,
      "from": 85.5,
      "to_year": 2026,
-     "to": 124.4,
-     "total_pct": 45.5,
-     "cagr_pct": 7.8,
+     "to": 125.0,
+     "total_pct": 46.2,
+     "cagr_pct": 7.9,
      "span_years": 5
     },
     "w10": {
      "from_year": 2016,
      "from": 81.5,
      "to_year": 2026,
-     "to": 124.4,
-     "total_pct": 52.7,
-     "cagr_pct": 4.3,
+     "to": 125.0,
+     "total_pct": 53.4,
+     "cagr_pct": 4.4,
      "span_years": 10
     }
    },
@@ -1336,8 +1336,8 @@
     },
     {
      "year": 2026,
-     "median": 124.4,
-     "n": 34,
+     "median": 125.0,
+     "n": 35,
      "lo": 116.0,
      "hi": 140.0
     }
@@ -1453,7 +1453,7 @@
    ]
   }
  },
- "bat_status": "Acura NSX (NA2 manual): 93 comps, 20 driven | Ferrari 360 (gated manual): 174 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 216 comps | Porsche 997.2 Turbo S: 75 comps, 15 driven | Ferrari 328 GTS/GTB: 193 comps, 9 driven | Alfa Romeo GTV 1750/2000: 306 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 331 comps | Ferrari Dino 246 GT/GTS: 67 comps | appreciation.csv: 12y x 10 cars",
+ "bat_status": "Acura NSX (NA2 manual): 94 comps, 20 driven | Ferrari 360 (gated manual): 176 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 218 comps | Porsche 997.2 Turbo S: 76 comps, 16 driven | Ferrari 328 GTS/GTB: 194 comps, 9 driven | Alfa Romeo GTV 1750/2000: 306 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 331 comps | Ferrari Dino 246 GT/GTS: 67 comps | appreciation.csv: 12y x 10 cars",
  "cpi_by_year": {
   "2014": 236.7,
   "2015": 237.0,
