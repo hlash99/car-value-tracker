@@ -43,6 +43,7 @@
   #valTable .carcell a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--line)}
   #valTable .carcell a:hover{color:var(--accent)}
   #valTable tbody tr:hover td{background:rgba(0,0,0,.025)}
+  #valTable td .sub.alt{color:var(--ink);opacity:.62;font-size:11.5px;font-weight:500;margin-top:2px}
   #valTable .val{font-weight:600}
   #valTable .fb{opacity:.55}
   .tnote{font-size:11.5px;color:var(--muted);margin:7px 2px 0;line-height:1.55}
@@ -461,14 +462,15 @@ function derivedAppr(name){
 
 /* Column set. `key` doubles as the sort key; `num` right-aligns. */
 function valCols(){
-  const m = state.metric==="cagr" ? "CAGR" : "total";
+  const m   = state.metric==="cagr" ? "CAGR" : "total";
+  const alt = state.metric==="cagr" ? "total below" : "CAGR below";
   const dv = state.driven==="driven";
   return [
     {key:"name",  label:"Car",                        num:false},
     {key:"value", label:dv?"Value (driven)":"Value",  num:true},
     {key:"maint", label:"Maint/yr",                   num:true, only:()=>state.maint==="on"},
-    {key:"w5",    label:"5-yr "+m,                    num:true},
-    {key:"w10",   label:"10-yr "+m,                   num:true, sub:"or longest available"},
+    {key:"w5",    label:"5-yr "+m,                    num:true, sub:alt},
+    {key:"w10",   label:"10-yr "+m,                   num:true, sub:alt+" \u00b7 or longest available"},
     {key:"n",     label:"Comps",                      num:true}
   ].filter(c=>!c.only||c.only());
 }
@@ -479,14 +481,22 @@ function valCols(){
    quietly top the table. */
 function isThin(d,n){return !!d && (d.span_years<3 || (n!=null && n<10));}
 
+/* Both figures always show: the toggle picks which one is the headline (and
+   the one the column sorts on), the other rides the sub-line. Reading total
+   without the annualised rate beside it is misleading when the windows are
+   different lengths, and the toggle alone made you flip back and forth. */
 function winCell(d,n){
   if(!d) return '<td class="num">&mdash;</td>';
   const v=metricVal(d);
   if(v==null||!isFinite(v)) return '<td class="num">&mdash;</td>';
+  const alt = state.metric==="cagr" ? d.total_pct : d.cagr_pct;
   const main = state.metric==="cagr" ? pct(v)+"/yr" : pct0(v);
+  const altTxt = (alt==null||!isFinite(alt)) ? null
+    : (state.metric==="cagr" ? pct0(alt)+" total" : pct(alt)+"/yr");
   const thin = isThin(d,n);
   return '<td class="num"'+(thin?' title="Thin sample \u2014 short window and/or few comps; treat as indicative only"':'')+'>'
     +'<b class="'+(v>=0?"up":"down")+(thin?" fb":"")+'">'+main+'</b>'
+    +(altTxt?'<span class="sub alt'+(thin?" fb":"")+'">'+altTxt+'</span>':'')
     +'<span class="sub">'+d.from_year+'&ndash;'+d.to_year+' &middot; '+d.span_years+'y'
     +(thin?' &middot; thin':'')+'</span></td>';
 }
@@ -541,9 +551,11 @@ function renderTable(){
   const anyThin = rows.some(r=>isThin(r.w5,r.n)||isThin(r.w10,r.n));
   $("#valNote").innerHTML =
     "All figures "+basisText()+"."
-    + (state.metric==="cagr"
-        ? " CAGR is the annualised rate over each window."
-        : " Total is the whole-window change, so windows of different lengths are not directly comparable \u2014 switch to CAGR for that.")
+    + " Each 5-yr/10-yr cell shows both figures: the headline is whichever the"
+    + " total-vs-CAGR toggle selects (and the one the column sorts on), with the"
+    + " other directly beneath it. Total is the whole-window change \u2014 not"
+    + " comparable across windows of different lengths \u2014 while CAGR is the"
+    + " annualised rate, which is."
     + " The 10-yr column falls back to each car\u2019s longest available history; the span under every figure says which years it actually covers."
     + (state.driven==="driven"
         ? " Driven = BaT sold comps at 30k+ miles only, value included."
