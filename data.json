@@ -1,6 +1,6 @@
 {
- "updated": "2026-09-04T17:47Z",
- "refresh_status": "auto-refresh 2026-09-04 17:41Z \u00b7 updated Ferrari 458 Italia: n=50 asking\u2248$395k -> value\u2248$360k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $471k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $546k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k",
+ "updated": "2026-09-05T05:17Z",
+ "refresh_status": "auto-refresh 2026-09-05 05:11Z \u00b7 updated Ferrari 458 Italia: n=50 asking\u2248$395k -> value\u2248$360k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $471k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $546k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
  "years": [
@@ -1451,9 +1451,97 @@
      "hi": 452.5
     }
    ]
+  },
+  "Lotus Evora GT (2020-21)": {
+   "color": "#00915A",
+   "blurb": "Final US Evora, 2020-2021 - supercharged V6, manual and auto.",
+   "hist": [
+    88.5,
+    88.5,
+    88.5,
+    81.5,
+    85.2,
+    85.0,
+    89.5
+   ],
+   "proj": [
+    89.5,
+    89.8,
+    90.0,
+    90.3,
+    90.6,
+    90.9
+   ],
+   "maint": 3,
+   "cagr": {
+    "base": 0.003,
+    "bull": 0.033,
+    "bear": -0.027
+   },
+   "sold": 90,
+   "src": "bat",
+   "n_comps": 17,
+   "appr": {
+    "w5": {
+     "from_year": 2022,
+     "from": 88.5,
+     "to_year": 2026,
+     "to": 89.5,
+     "total_pct": 1.1,
+     "cagr_pct": 0.3,
+     "span_years": 4
+    },
+    "w10": {
+     "from_year": 2022,
+     "from": 88.5,
+     "to_year": 2026,
+     "to": 89.5,
+     "total_pct": 1.1,
+     "cagr_pct": 0.3,
+     "span_years": 4
+    }
+   },
+   "annual": [
+    {
+     "year": 2022,
+     "median": 88.5,
+     "n": 3,
+     "lo": 87.3,
+     "hi": 96.5
+    },
+    {
+     "year": 2023,
+     "median": 81.5,
+     "n": 3,
+     "lo": 80.0,
+     "hi": 82.0
+    },
+    {
+     "year": 2024,
+     "median": 85.2,
+     "n": 3,
+     "lo": 73.5,
+     "hi": 90.0
+    },
+    {
+     "year": 2025,
+     "median": 85.0,
+     "n": 5,
+     "lo": 81.5,
+     "hi": 94.0
+    },
+    {
+     "year": 2026,
+     "median": 89.5,
+     "n": 3,
+     "lo": 76.0,
+     "hi": 90.5
+    }
+   ],
+   "bat_url": "https://bringatrailer.com/lotus/evora/"
   }
  },
- "bat_status": "Acura NSX (NA2 manual): 94 comps, 20 driven | Ferrari 360 (gated manual): 176 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 219 comps | Porsche 997.2 Turbo S: 76 comps, 16 driven | Ferrari 328 GTS/GTB: 194 comps, 9 driven | Alfa Romeo GTV 1750/2000: 306 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 332 comps | Ferrari Dino 246 GT/GTS: 67 comps | appreciation.csv: 12y x 10 cars",
+ "bat_status": "Acura NSX (NA2 manual): 94 comps, 20 driven | Ferrari 360 (gated manual): 176 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 219 comps | Porsche 997.2 Turbo S: 76 comps, 16 driven | Ferrari 328 GTS/GTB: 194 comps, 9 driven | Alfa Romeo GTV 1750/2000: 306 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 332 comps | Ferrari Dino 246 GT/GTS: 67 comps | Lotus Evora GT (2020-21): 17 comps | appreciation.csv: 12y x 11 cars",
  "cpi_by_year": {
   "2014": 236.7,
   "2015": 237.0,
