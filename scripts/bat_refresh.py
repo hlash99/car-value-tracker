@@ -99,6 +99,19 @@ BAT_CARS = {
         "spec": {"lo": 250000, "hi": 3500000},
         "maint": 8,
     },
+    # BaT files every Evora generation on one page, so "evora gt" alone also
+    # catches the 2014 Evora GTS and two race cars (a GTN and a GT4 Cup). Those
+    # three names plus a $60k floor leave only the 2020-21 US-market GT, whose
+    # cheapest real sale was $73.5k. No driven series: not one has sold at 30k+
+    # miles, so it falls back to all-comps with a dagger like the Dino.
+    "Lotus Evora GT (2020-21)": {
+        "url": "https://bringatrailer.com/lotus/evora/",
+        "color": "#00915A",
+        "blurb": "Final US Evora, 2020-2021 - supercharged V6, manual and auto.",
+        "spec": {"include": ["evora gt"], "exclude": ["gts", "gtn", "gt4"],
+                 "year_min": 2020, "year_max": 2021, "lo": 60000, "hi": 250000},
+        "maint": 3,
+    },
     "Volvo P1800 (1800 family)": {
         "url": "https://bringatrailer.com/volvo/1800/",
         "color": "#4A7C59",
