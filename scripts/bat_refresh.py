@@ -141,6 +141,20 @@ BAT_CARS = {
                  "year_min": 2020, "year_max": 2021, "lo": 60000, "hi": 250000},
         "maint": 3,
     },
+    # Every Emira that has sold on BaT so far is the V6 (supercharged Toyota 2GR),
+    # almost all of them First Edition 6-speeds. Three of those titles omit "V6",
+    # so an include on it would drop real cars — the i4 / Turbo SE is excluded by
+    # name instead, as a guard for when those start trading. Only two years of
+    # price history, so isThin() flags it until 2027; that is honest for a car
+    # this new and is exactly what the guard is for.
+    "Lotus Emira V6 (2024-25)": {
+        "url": "https://bringatrailer.com/lotus/emira/",
+        "color": "#0FA3A3",
+        "blurb": "Supercharged Toyota V6, six-speed - the last analogue Lotus.",
+        "spec": {"exclude": ["i4", "turbo se"],
+                 "year_min": 2023, "year_max": 2026, "lo": 50000, "hi": 250000},
+        "maint": 3,
+    },
 }
 
 
