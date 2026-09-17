@@ -1,6 +1,6 @@
 {
- "updated": "2026-09-16T18:23Z",
- "refresh_status": "auto-refresh 2026-09-16 18:16Z \u00b7 updated Ferrari 458 Italia: n=26 asking\u2248$386k -> value\u2248$352k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $471k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $546k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k",
+ "updated": "2026-09-17T07:53Z",
+ "refresh_status": "auto-refresh 2026-09-17 07:47Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $352k; Ferrari F12 Berlinetta: n=24 asking\u2248$537k -> value\u2248$460k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $546k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
  "years": [
@@ -99,10 +99,10 @@
     260,
     300,
     350,
-    471
+    460
    ],
    "proj": [
-    471,
+    460,
     402,
     420,
     435,
@@ -115,7 +115,7 @@
     "bull": 0.06,
     "bear": 0.0
    },
-   "asking": 550,
+   "asking": 537,
    "sold": 368,
    "factor": 0.856,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-f12berlinetta&maximum_distance=all&zip=94027"
@@ -329,15 +329,15 @@
     100.0,
     100.0,
     101.9,
-    164.0
+    153.0
    ],
    "proj": [
-    164.0,
-    180.4,
-    198.4,
-    218.3,
-    240.1,
-    264.1
+    153.0,
+    168.3,
+    185.1,
+    203.6,
+    224.0,
+    246.4
    ],
    "maint": 3,
    "cagr": {
@@ -345,26 +345,26 @@
     "bull": 0.13,
     "bear": 0.07
    },
-   "sold": 164,
+   "sold": 153,
    "src": "bat",
-   "n_comps": 94,
+   "n_comps": 95,
    "appr": {
     "w5": {
      "from_year": 2021,
      "from": 95.0,
      "to_year": 2026,
-     "to": 164.0,
-     "total_pct": 72.6,
-     "cagr_pct": 11.5,
+     "to": 153.0,
+     "total_pct": 61.1,
+     "cagr_pct": 10.0,
      "span_years": 5
     },
     "w10": {
      "from_year": 2017,
      "from": 62.0,
      "to_year": 2026,
-     "to": 164.0,
-     "total_pct": 164.5,
-     "cagr_pct": 11.4,
+     "to": 153.0,
+     "total_pct": 146.8,
+     "cagr_pct": 10.6,
      "span_years": 9
     }
    },
@@ -460,8 +460,8 @@
     },
     {
      "year": 2026,
-     "median": 164.0,
-     "n": 10,
+     "median": 153.0,
+     "n": 11,
      "lo": 128.0,
      "hi": 178.0
     }
@@ -1615,7 +1615,7 @@
    "bat_url": "https://bringatrailer.com/lotus/emira/"
   }
  },
- "bat_status": "Acura NSX (NA2 manual): 94 comps, 20 driven | Ferrari 360 (gated manual): 177 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 222 comps | Porsche 997.2 Turbo S: 77 comps, 17 driven | Ferrari 328 GTS/GTB: 197 comps, 9 driven | Alfa Romeo GTV 1750/2000: 308 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 334 comps | Ferrari Dino 246 GT/GTS: 67 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 27 comps | appreciation.csv: 12y x 12 cars",
+ "bat_status": "Acura NSX (NA2 manual): 95 comps, 20 driven | Ferrari 360 (gated manual): 177 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 222 comps | Porsche 997.2 Turbo S: 77 comps, 17 driven | Ferrari 328 GTS/GTB: 197 comps, 9 driven | Alfa Romeo GTV 1750/2000: 308 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 334 comps | Ferrari Dino 246 GT/GTS: 67 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 27 comps | appreciation.csv: 12y x 12 cars",
  "cpi_by_year": {
   "2014": 236.7,
   "2015": 237.0,
