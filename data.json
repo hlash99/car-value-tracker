@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-22T07:53Z",
+ "updated": "2026-09-22T14:57Z",
  "refresh_status": "auto-refresh 2026-09-22 07:47Z \u00b7 updated Ferrari 458 Italia: n=26 asking\u2248$375k -> value\u2248$342k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $448k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $550k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
@@ -1613,9 +1613,125 @@
     }
    ],
    "bat_url": "https://bringatrailer.com/lotus/emira/"
+  },
+  "Ferrari 550 Maranello": {
+   "color": "#7A8490",
+   "blurb": "1996-2001 front-engined V12 coupe, gated six-speed - every one a manual.",
+   "hist": [
+    115.0,
+    165.5,
+    167.5,
+    194.3,
+    205.0,
+    168.8,
+    218.0
+   ],
+   "proj": [
+    218.0,
+    230.4,
+    243.6,
+    257.4,
+    272.1,
+    287.6
+   ],
+   "maint": 6,
+   "cagr": {
+    "base": 0.057,
+    "bull": 0.087,
+    "bear": 0.027
+   },
+   "sold": 218,
+   "src": "bat",
+   "n_comps": 129,
+   "appr": {
+    "w5": {
+     "from_year": 2021,
+     "from": 165.5,
+     "to_year": 2026,
+     "to": 218.0,
+     "total_pct": 31.7,
+     "cagr_pct": 5.7,
+     "span_years": 5
+    },
+    "w10": {
+     "from_year": 2018,
+     "from": 130.0,
+     "to_year": 2026,
+     "to": 218.0,
+     "total_pct": 67.7,
+     "cagr_pct": 6.7,
+     "span_years": 8
+    }
+   },
+   "annual": [
+    {
+     "year": 2018,
+     "median": 130.0,
+     "n": 7,
+     "lo": 120.5,
+     "hi": 131.1
+    },
+    {
+     "year": 2019,
+     "median": 107.0,
+     "n": 5,
+     "lo": 94.2,
+     "hi": 110.5
+    },
+    {
+     "year": 2020,
+     "median": 115.0,
+     "n": 11,
+     "lo": 103.0,
+     "hi": 154.0
+    },
+    {
+     "year": 2021,
+     "median": 165.5,
+     "n": 6,
+     "lo": 145.0,
+     "hi": 177.6
+    },
+    {
+     "year": 2022,
+     "median": 167.5,
+     "n": 16,
+     "lo": 150.0,
+     "hi": 190.6
+    },
+    {
+     "year": 2023,
+     "median": 194.3,
+     "n": 18,
+     "lo": 140.0,
+     "hi": 240.0
+    },
+    {
+     "year": 2024,
+     "median": 205.0,
+     "n": 22,
+     "lo": 155.0,
+     "hi": 260.0
+    },
+    {
+     "year": 2025,
+     "median": 168.8,
+     "n": 22,
+     "lo": 157.0,
+     "hi": 195.0
+    },
+    {
+     "year": 2026,
+     "median": 218.0,
+     "n": 21,
+     "lo": 177.0,
+     "hi": 305.0
+    }
+   ],
+   "bat_url": "https://bringatrailer.com/ferrari/550-maranello/"
   }
  },
- "bat_status": "Acura NSX (NA2 manual): 95 comps, 20 driven | Ferrari 360 (gated manual): 177 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 223 comps | Porsche 997.2 Turbo S: 77 comps, 17 driven | Ferrari 328 GTS/GTB: 197 comps, 9 driven | Alfa Romeo GTV 1750/2000: 309 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 334 comps | Ferrari Dino 246 GT/GTS: 67 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 27 comps | appreciation.csv: 12y x 12 cars",
+ "bat_status": "Acura NSX (NA2 manual): 95 comps, 20 driven | Ferrari 360 (gated manual): 177 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 223 comps | Porsche 997.2 Turbo S: 77 comps, 17 driven | Ferrari 328 GTS/GTB: 197 comps, 9 driven | Alfa Romeo GTV 1750/2000: 309 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 334 comps | Ferrari Dino 246 GT/GTS: 67 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 27 comps | Ferrari 550 Maranello: 129 comps | appreciation.csv: 12y x 13 cars",
  "cpi_by_year": {
   "2014": 236.7,
   "2015": 237.0,

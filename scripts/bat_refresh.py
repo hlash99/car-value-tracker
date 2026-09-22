@@ -155,6 +155,21 @@ BAT_CARS = {
                  "year_min": 2023, "year_max": 2026, "lo": 50000, "hi": 250000},
         "maint": 3,
     },
+    # Every 550 Maranello was a gated six-speed - the F1 box arrived with the
+    # 575M in 2002 - so no transmission include is needed. The model page is
+    # mostly Schedoni luggage, wheels, engines and exhausts, which all parse as
+    # SOLD and top out at $39k against a $83k cheapest real car, hence the $60k
+    # floor. The Barchetta shares the page but is a 448-car roadster trading at
+    # 3-5x, so it is excluded by name. Kilometer-odometer cars stay in all-comps
+    # and drop out of the driven series, same as every other car here.
+    "Ferrari 550 Maranello": {
+        "url": "https://bringatrailer.com/ferrari/550-maranello/",
+        "color": "#7A8490",
+        "blurb": "1996-2001 front-engined V12 coupe, gated six-speed - every one a manual.",
+        "spec": {"include": ["550 maranello"], "exclude": ["barchetta", "575"],
+                 "year_min": 1996, "year_max": 2001, "lo": 60000, "hi": 900000},
+        "maint": 6,
+    },
 }
 
 
@@ -332,13 +347,21 @@ def main():
             "annual": annual_detail(all_sold),
             "bat_url": cfg["url"],
         })
-        if s_drv and len(driven) >= 5:
+        # A driven series also needs two usable years to form a window. The 550
+        # has five 30k+ sales but only one year with n>=2, and an empty `appr`
+        # is truthy in the page JS - it showed blank cells instead of falling
+        # back to all comps with the dagger. Drop any stale block too, so a car
+        # that loses its driven window falls back rather than keeping old numbers.
+        drv_appr = windows(s_drv) if s_drv else {}
+        if len(driven) >= 5 and drv_appr:
             car["driven"] = {
                 "min_miles": DRIVEN_MILES,
                 "n_comps": len(driven),
                 "latest": round(s_drv[-1]["median"] / 1000.0, 1),
-                "appr": windows(s_drv),
+                "appr": drv_appr,
             }
+        else:
+            car.pop("driven", None)
         d["cars"][name] = car
         note = f"{name}: {len(all_sold)} comps"
         if car.get("driven"):

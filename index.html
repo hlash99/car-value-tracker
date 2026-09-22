@@ -105,7 +105,7 @@
 </header>
 <div class="wrap">
   <h2>Median value: 6-year history & 5-year projection</h2>
-  <p class="sub">Ten collector cars vs the S&amp;P 500, Apple, and inflation. Four are Cars.com asking medians; the rest are Bring a Trailer <b>sold</b> medians scraped ~12 years deep. The table is sorted by best 10-yr return &mdash; click any column header to re-sort. Every figure on the page responds to the basis, maintenance, total-vs-CAGR and all-comps-vs-driven toggles. Auto-refreshed twice daily.</p>
+  <p class="sub"><span id="nCars">Seventeen</span> collector cars vs the S&amp;P 500, Apple, and inflation. Four are Cars.com asking medians; the rest are Bring a Trailer <b>sold</b> medians scraped ~12 years deep. The table is sorted by best 10-yr return &mdash; click any column header to re-sort. Every figure on the page responds to the basis, maintenance, total-vs-CAGR and all-comps-vs-driven toggles. Auto-refreshed twice daily.</p>
 
   <div class="controls">
     <div class="seg" id="basisSeg">
@@ -319,6 +319,9 @@ function init(){
   const dt=new Date(D.updated);
   $("#updated").textContent="Updated "+dt.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
   $("#status2").textContent=D.refresh_status||"";
+  // Count from the data, not the copy: the intro said "Ten" long after there were sixteen.
+  $("#nCars").textContent=(n=>["Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten",
+    "Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen","Twenty"][n]||String(n))(carList().length);
   $("#p997").textContent=fmtk(D.cars["Porsche 997.2 Turbo S"].hist.slice(-1)[0]);
   $("#p812").textContent=fmtk(D.cars["Ferrari 812 Superfast"].hist.slice(-1)[0]);
   bindSeg("#basisSeg",v=>{state.basis=v;syncLabels();renderTable();drawRet();drawYoY();});
@@ -708,7 +711,7 @@ function renderProjTable(){
 }
 function renderEvid(){
   let h=`<thead><tr><th>Car</th><th>Cars.com asking median</th><th>Recent BaT sold</th><th>Adopted value</th></tr></thead><tbody>`;
-  carList().forEach(n=>{const c=D.cars[n];h+=`<tr><td>${n}</td><td>${fmtk(c.asking)}</td><td>${fmtk(c.sold)}</td><td><b>${fmtk(c.hist.slice(-1)[0])}</b></td></tr>`;});
+  carList().forEach(n=>{const c=D.cars[n];h+=`<tr><td>${n}</td><td>${c.asking!=null?fmtk(c.asking):"&mdash;"}</td><td>${fmtk(c.sold)}</td><td><b>${fmtk(c.hist.slice(-1)[0])}</b></td></tr>`;});
   $("#evidTable").innerHTML=h+"</tbody>";
 }
 function renderYear(){
