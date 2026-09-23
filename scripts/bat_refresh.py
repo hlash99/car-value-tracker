@@ -173,6 +173,65 @@ BAT_CARS = {
 }
 
 
+# Production figures, scoped to the SAME spec as each car's filter above - the
+# 360 is the gated-manual car, so its figure is the gated-manual count, not all
+# 360s. Where only a narrower or looser figure exists the label says so (US-only,
+# sales rather than builds). Only figures that reconcile across sources are
+# listed; the 997.2 Turbo S (sources disagree, 2,000 vs 5,150), the gated R8
+# (never published) and the Emira (still in production) are deliberately absent.
+PRODUCTION = {
+    "Corvette split-window (1963)": {
+        "label": "10,594 built",
+        "detail": "1963 split-window coupes, body numbers 00001-10594. The 10,919 convertibles that made up the rest of the 21,513 total are excluded, as in the price data.",
+        "src": "Corvette Action Center",
+        "url": "https://www.corvetteactioncenter.com/c2-corvette-news/ebay-the-very-last-1963-corvette-split-window-coupe-built-is-for-sale/"},
+    "Ferrari 328 GTS/GTB": {
+        "label": "7,412 built",
+        "detail": "6,068 GTS + 1,344 GTB, 1985-1989.",
+        "src": "Wikipedia - Ferrari 328",
+        "url": "https://en.wikipedia.org/wiki/Ferrari_328"},
+    "Ferrari Dino 246 GT/GTS": {
+        "label": "3,569 built",
+        "detail": "2,295 GT (357 L + 507 M + 1,431 E series) + 1,274 GTS, 1969-1974. The 3,761 sometimes quoted does not reconcile with the per-series counts.",
+        "src": "Wikipedia, citing QV500",
+        "url": "https://en.wikipedia.org/wiki/Dino_206_GT_and_246_GT"},
+    "Ferrari 550 Maranello": {
+        "label": "3,083 built",
+        "detail": "550 Maranello coupes, 1996-2001. The 448 Barchettas are counted separately and excluded here, as in the price data.",
+        "src": "Wikipedia - Ferrari 550",
+        "url": "https://en.wikipedia.org/wiki/Ferrari_550"},
+    "Ferrari 360 (gated manual)": {
+        "label": "1,139 US manuals",
+        "detail": "US-market gated six-speeds: 469 Modena + 670 Spider, out of 4,199 US cars and 16,365 worldwide (Challenge Stradale excluded). No worldwide manual count is published.",
+        "src": "Sports Car Market, Mar 2013 (via Wikipedia)",
+        "url": "https://en.wikipedia.org/wiki/Ferrari_360"},
+    "Volvo P1800 (1800 family)": {
+        "label": "~47,500 built",
+        "detail": "39,407 coupes (P1800 / 1800S / 1800E) + 8,077 1800ES, 1961-1973. The quoted total of 47,492 is 8 more than those parts sum to.",
+        "src": "Wikipedia - Volvo P1800",
+        "url": "https://en.wikipedia.org/wiki/Volvo_P1800"},
+    "Alfa Romeo GTV 1750/2000": {
+        "label": "81,728 built",
+        "detail": "44,269 1750 GTV (1967-72) + 37,459 2000 GTV (1971-76), all markets.",
+        "src": "Wikipedia, citing carsfromitaly.net",
+        "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_105/115_Series_Coup%C3%A9s"},
+    "Lotus Evora GT (2020-21)": {
+        "label": "722 to the US",
+        "detail": "374 MY2020 + 348 MY2021 US cars, 535 of them manual. Owner-reported from Lotus Certificates of Provenance, not an official Lotus release.",
+        "src": "LotusTalk owner thread",
+        "url": "https://www.lotustalk.com/threads/my-certificate-of-provenance-arrives-and-2021-evora-total-build-counts.486380/"},
+    "Porsche Singer 911": {
+        "label": "300+ built, ongoing",
+        "detail": "Singer completed its 300th reimagined 911 in February 2024 and is still building. No later total has been published.",
+        "src": "Singer Vehicle Design",
+        "url": "https://singervehicledesign.com/press/singer-celebrates-300th-restoration-in-california/"},
+    "Acura NSX (NA2 manual)": {
+        "label": "~1,400 sold new (N. Am.)",
+        "detail": "North American new-car sales 1997-2001: 1,359 US + 38 Canada. All transmissions, so automatic NSX-Ts are included. Honda never published a manual-only or NA2 build count.",
+        "src": "Wikipedia - Honda NSX",
+        "url": "https://en.wikipedia.org/wiki/Honda_NSX_(first_generation)"}
+}
+
 # CPI-U annual averages, needed because the BaT windows reach back further than
 # the dashboard's own 2020-2026 `years` axis. Without this the 10-yr figures
 # cannot be inflation-adjusted at all.
@@ -347,6 +406,10 @@ def main():
             "annual": annual_detail(all_sold),
             "bat_url": cfg["url"],
         })
+        if name in PRODUCTION:
+            car["production"] = PRODUCTION[name]
+        else:
+            car.pop("production", None)
         # A driven series also needs two usable years to form a window. The 550
         # has five 30k+ sales but only one year with n>=2, and an empty `appr`
         # is truthy in the page JS - it showed blank cells instead of falling

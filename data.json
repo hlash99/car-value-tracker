@@ -465,7 +465,13 @@
      "lo": 128.0,
      "hi": 178.0
     }
-   ]
+   ],
+   "production": {
+    "label": "~1,400 sold new (N. Am.)",
+    "detail": "North American new-car sales 1997-2001: 1,359 US + 38 Canada. All transmissions, so automatic NSX-Ts are included. Honda never published a manual-only or NA2 build count.",
+    "src": "Wikipedia - Honda NSX",
+    "url": "https://en.wikipedia.org/wiki/Honda_NSX_(first_generation)"
+   }
   },
   "Ferrari 360 (gated manual)": {
    "color": "#E24B4A",
@@ -581,7 +587,13 @@
      "lo": 125.0,
      "hi": 270.0
     }
-   ]
+   ],
+   "production": {
+    "label": "1,139 US manuals",
+    "detail": "US-market gated six-speeds: 469 Modena + 670 Spider, out of 4,199 US cars and 16,365 worldwide (Challenge Stradale excluded). No worldwide manual count is published.",
+    "src": "Sports Car Market, Mar 2013 (via Wikipedia)",
+    "url": "https://en.wikipedia.org/wiki/Ferrari_360"
+   }
   },
   "Audi R8 gen1 V10 (gated)": {
    "color": "#B01E28",
@@ -838,7 +850,13 @@
      "lo": 128.0,
      "hi": 206.0
     }
-   ]
+   ],
+   "production": {
+    "label": "10,594 built",
+    "detail": "1963 split-window coupes, body numbers 00001-10594. The 10,919 convertibles that made up the rest of the 21,513 total are excluded, as in the price data.",
+    "src": "Corvette Action Center",
+    "url": "https://www.corvetteactioncenter.com/c2-corvette-news/ebay-the-very-last-1963-corvette-split-window-coupe-built-is-for-sale/"
+   }
   },
   "Volvo P1800 (1800 family)": {
    "color": "#4A7C59",
@@ -975,7 +993,13 @@
      "lo": 20.0,
      "hi": 31.2
     }
-   ]
+   ],
+   "production": {
+    "label": "~47,500 built",
+    "detail": "39,407 coupes (P1800 / 1800S / 1800E) + 8,077 1800ES, 1961-1973. The quoted total of 47,492 is 8 more than those parts sum to.",
+    "src": "Wikipedia - Volvo P1800",
+    "url": "https://en.wikipedia.org/wiki/Volvo_P1800"
+   }
   },
   "Alfa Romeo GTV 1750/2000": {
    "color": "#A6192E",
@@ -1112,7 +1136,13 @@
      "lo": 28.0,
      "hi": 62.0
     }
-   ]
+   ],
+   "production": {
+    "label": "81,728 built",
+    "detail": "44,269 1750 GTV (1967-72) + 37,459 2000 GTV (1971-76), all markets.",
+    "src": "Wikipedia, citing carsfromitaly.net",
+    "url": "https://en.wikipedia.org/wiki/Alfa_Romeo_105/115_Series_Coup%C3%A9s"
+   }
   },
   "Porsche Singer 911": {
    "color": "#C9A227",
@@ -1186,7 +1216,13 @@
      "lo": 1205.0,
      "hi": 1275.0
     }
-   ]
+   ],
+   "production": {
+    "label": "300+ built, ongoing",
+    "detail": "Singer completed its 300th reimagined 911 in February 2024 and is still building. No later total has been published.",
+    "src": "Singer Vehicle Design",
+    "url": "https://singervehicledesign.com/press/singer-celebrates-300th-restoration-in-california/"
+   }
   },
   "Ferrari 328 GTS/GTB": {
    "color": "#D94F3D",
@@ -1341,7 +1377,13 @@
      "lo": 111.0,
      "hi": 140.0
     }
-   ]
+   ],
+   "production": {
+    "label": "7,412 built",
+    "detail": "6,068 GTS + 1,344 GTB, 1985-1989.",
+    "src": "Wikipedia - Ferrari 328",
+    "url": "https://en.wikipedia.org/wiki/Ferrari_328"
+   }
   },
   "Ferrari Dino 246 GT/GTS": {
    "color": "#E2703A",
@@ -1450,7 +1492,13 @@
      "lo": 305.0,
      "hi": 452.5
     }
-   ]
+   ],
+   "production": {
+    "label": "3,569 built",
+    "detail": "2,295 GT (357 L + 507 M + 1,431 E series) + 1,274 GTS, 1969-1974. The 3,761 sometimes quoted does not reconcile with the per-series counts.",
+    "src": "Wikipedia, citing QV500",
+    "url": "https://en.wikipedia.org/wiki/Dino_206_GT_and_246_GT"
+   }
   },
   "Lotus Evora GT (2020-21)": {
    "color": "#00915A",
@@ -1538,7 +1586,13 @@
      "hi": 89.5
     }
    ],
-   "bat_url": "https://bringatrailer.com/lotus/evora/"
+   "bat_url": "https://bringatrailer.com/lotus/evora/",
+   "production": {
+    "label": "722 to the US",
+    "detail": "374 MY2020 + 348 MY2021 US cars, 535 of them manual. Owner-reported from Lotus Certificates of Provenance, not an official Lotus release.",
+    "src": "LotusTalk owner thread",
+    "url": "https://www.lotustalk.com/threads/my-certificate-of-provenance-arrives-and-2021-evora-total-build-counts.486380/"
+   }
   },
   "Lotus Emira V6 (2024-25)": {
    "color": "#0FA3A3",
@@ -1728,7 +1782,13 @@
      "hi": 305.0
     }
    ],
-   "bat_url": "https://bringatrailer.com/ferrari/550-maranello/"
+   "bat_url": "https://bringatrailer.com/ferrari/550-maranello/",
+   "production": {
+    "label": "3,083 built",
+    "detail": "550 Maranello coupes, 1996-2001. The 448 Barchettas are counted separately and excluded here, as in the price data.",
+    "src": "Wikipedia - Ferrari 550",
+    "url": "https://en.wikipedia.org/wiki/Ferrari_550"
+   }
   }
  },
  "bat_status": "Acura NSX (NA2 manual): 95 comps, 20 driven | Ferrari 360 (gated manual): 177 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 224 comps | Porsche 997.2 Turbo S: 78 comps, 17 driven | Ferrari 328 GTS/GTB: 197 comps, 9 driven | Alfa Romeo GTV 1750/2000: 309 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 334 comps | Ferrari Dino 246 GT/GTS: 67 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 27 comps | Ferrari 550 Maranello: 129 comps | appreciation.csv: 12y x 13 cars",
