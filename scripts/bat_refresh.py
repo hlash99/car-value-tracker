@@ -173,12 +173,14 @@ BAT_CARS = {
 }
 
 
-# Production figures, scoped to the SAME spec as each car's filter above - the
-# 360 is the gated-manual car, so its figure is the gated-manual count, not all
-# 360s. Where only a narrower or looser figure exists the label says so (US-only,
-# sales rather than builds). Only figures that reconcile across sources are
-# listed; the 997.2 Turbo S (sources disagree, 2,000 vs 5,150), the gated R8
-# (never published) and the Emira (still in production) are deliberately absent.
+# Production figures, scoped to the SAME spec as each car's filter - the 360 is
+# the gated-manual car, so its figure is the gated-manual count, not all 360s.
+# Where only a narrower figure exists the label says so (US-only, sales rather
+# than builds), and a leading "~" marks counts that are not official: chassis-
+# register totals for the modern Ferraris (Ferrari publishes none), and VIN or
+# dealer-data compilations. Applied to EVERY car in data.json, including the
+# Cars.com ones this script does not otherwise touch. Still absent on purpose:
+# the Emira (in production, no audited total).
 PRODUCTION = {
     "Corvette split-window (1963)": {
         "label": "10,594 built",
@@ -187,22 +189,22 @@ PRODUCTION = {
         "url": "https://www.corvetteactioncenter.com/c2-corvette-news/ebay-the-very-last-1963-corvette-split-window-coupe-built-is-for-sale/"},
     "Ferrari 328 GTS/GTB": {
         "label": "7,412 built",
-        "detail": "6,068 GTS + 1,344 GTB, 1985-1989.",
+        "detail": "6,068 GTS + 1,344 GTB, 1985-1989. One chassis register puts the GTS lower (3,067-4,979); 6,068 is the figure 308-328.com and most references use.",
         "src": "Wikipedia - Ferrari 328",
         "url": "https://en.wikipedia.org/wiki/Ferrari_328"},
     "Ferrari Dino 246 GT/GTS": {
-        "label": "3,569 built",
-        "detail": "2,295 GT (357 L + 507 M + 1,431 E series) + 1,274 GTS, 1969-1974. The 3,761 sometimes quoted does not reconcile with the per-series counts.",
-        "src": "Wikipedia, citing QV500",
-        "url": "https://en.wikipedia.org/wiki/Dino_206_GT_and_246_GT"},
+        "label": "3,761 built",
+        "detail": "2,487 GT (357 L + 506 M + 1,624 E series) + 1,274 GTS, 1969-1974. The f-register chassis list and Bonhams catalogue notes agree on 1,624 E-series GTs; the 3,569 on Wikipedia counts only 1,431.",
+        "src": "f-register.com; Bonhams",
+        "url": "https://f-register.com/About-the-Cars/Production-Numbers"},
     "Ferrari 550 Maranello": {
         "label": "3,083 built",
-        "detail": "550 Maranello coupes, 1996-2001. The 448 Barchettas are counted separately and excluded here, as in the price data.",
+        "detail": "550 Maranello coupes, 1996-2001. The 448 Barchettas are counted separately and excluded here, as in the price data. A chassis register counts 3,735 including 33 WSR editions; RM Sotheby's catalogues use roughly 3,000-3,083.",
         "src": "Wikipedia - Ferrari 550",
         "url": "https://en.wikipedia.org/wiki/Ferrari_550"},
     "Ferrari 360 (gated manual)": {
         "label": "1,139 US manuals",
-        "detail": "US-market gated six-speeds: 469 Modena + 670 Spider, out of 4,199 US cars and 16,365 worldwide (Challenge Stradale excluded). No worldwide manual count is published.",
+        "detail": "US-market gated six-speeds: 469 Modena + 670 Spider, out of 4,199 US cars and 16,365 worldwide (Challenge Stradale excluded). No worldwide manual count is published. The f-register chassis list counts 2,115 manual Spiders worldwide (of 7,565) but has no manual split for coupes.",
         "src": "Sports Car Market, Mar 2013 (via Wikipedia)",
         "url": "https://en.wikipedia.org/wiki/Ferrari_360"},
     "Volvo P1800 (1800 family)": {
@@ -229,7 +231,37 @@ PRODUCTION = {
         "label": "~1,400 sold new (N. Am.)",
         "detail": "North American new-car sales 1997-2001: 1,359 US + 38 Canada. All transmissions, so automatic NSX-Ts are included. Honda never published a manual-only or NA2 build count.",
         "src": "Wikipedia - Honda NSX",
-        "url": "https://en.wikipedia.org/wiki/Honda_NSX_(first_generation)"}
+        "url": "https://en.wikipedia.org/wiki/Honda_NSX_(first_generation)"},
+    "Porsche 997.2 Turbo S": {
+        "label": "3,095 coupes",
+        "detail": "997.2 Turbo S coupes, MY2011-2013, worldwide; 2,055 cabriolets on top (5,150 total). There was no 997.1 Turbo S. The '2,000' sometimes quoted was a launch-era figure that the factory-archive count does not support.",
+        "src": "Marc Bongers, Porsche Serienfahrzeuge (ex-Porsche archive); Streather",
+        "url": "https://rennlist.com/forums/997-turbo-forum/848248-so-when-do-the-997-turbo-s-begin-to-appreciate-2.html"},
+    "Audi R8 gen1 V10 (gated)": {
+        "label": "~743 to the US",
+        "detail": "US gated six-speed V10 coupes: 717 V10 (12 MY09, 208 MY10, 199 MY11, 212 MY12, 51 MY14, 35 MY15) + 26 V10 plus. Compiled from Audi of America data by R. N. Labas, who notes about 10 cars may sit in the wrong year. No worldwide manual count exists; Audi built just over 26,000 first-gen R8s of every kind.",
+        "src": "R. N. Labas R8 V10 register (Audi of America data)",
+        "url": "https://www.r8talk.com/threads/production-numbers-for-us-manual-transmission-v8s-v10s.129153/"},
+    "Ferrari 458 Italia": {
+        "label": "~11,856 built",
+        "detail": "458 Italia coupes, 2009-2015; Spider and Speciale are separate. An earlier count by the same register, quoted by Forza, was 9,944. Ferrari does not publish model totals; this is a count of chassis numbers.",
+        "src": "f-register.com production list (Matthias Urban)",
+        "url": "https://f-register.com/About-the-Cars/Production-Numbers"},
+    "Ferrari F12 Berlinetta": {
+        "label": "~4,802 built",
+        "detail": "F12berlinetta, 2012-2017; the 799 F12tdf are separate. Ferrari does not publish model totals; this is a count of chassis numbers.",
+        "src": "f-register.com production list (Matthias Urban)",
+        "url": "https://f-register.com/About-the-Cars/Production-Numbers"},
+    "Ferrari 812 Superfast": {
+        "label": "~5,124 built",
+        "detail": "812 Superfast, 2017-2023; the Competizione (999 official) and Competizione A (599 official) are separate. Ferrari does not publish model totals; this is a count of chassis numbers.",
+        "src": "f-register.com production list (Matthias Urban)",
+        "url": "https://f-register.com/About-the-Cars/Production-Numbers"},
+    "Ferrari 812 GTS": {
+        "label": "~5,348 built",
+        "detail": "812 GTS, 2019-2022. Ferrari does not publish model totals; this is a count of chassis numbers.",
+        "src": "f-register.com production list (Matthias Urban)",
+        "url": "https://f-register.com/About-the-Cars/Production-Numbers"}
 }
 
 # CPI-U annual averages, needed because the BaT windows reach back further than
@@ -406,10 +438,6 @@ def main():
             "annual": annual_detail(all_sold),
             "bat_url": cfg["url"],
         })
-        if name in PRODUCTION:
-            car["production"] = PRODUCTION[name]
-        else:
-            car.pop("production", None)
         # A driven series also needs two usable years to form a window. The 550
         # has five 30k+ sales but only one year with n>=2, and an empty `appr`
         # is truthy in the page JS - it showed blank cells instead of falling
@@ -430,6 +458,12 @@ def main():
         if car.get("driven"):
             note += f", {len(driven)} driven"
         log.append(note)
+
+    for name, car in d["cars"].items():
+        if name in PRODUCTION:
+            car["production"] = PRODUCTION[name]
+        else:
+            car.pop("production", None)
 
     d["cpi_by_year"] = {str(k): v for k, v in CPI_BY_YEAR.items()}
     ny, nc = write_csv(series_by_car)
