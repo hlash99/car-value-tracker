@@ -491,15 +491,30 @@ function isThin(d,n){return !!d && (d.span_years<3 || (n!=null && n<10));}
    the one the column sorts on), the other rides the sub-line. Reading total
    without the annualised rate beside it is misleading when the windows are
    different lengths, and the toggle alone made you flip back and forth. */
-/* Production figure under the car name. Each is scoped to that car's own filter
-   (the 360's is gated manuals only) and its label says when it is narrower - US
-   only, or sales rather than builds - so the tooltip carries the full basis and
-   the label links to the source. Cars with no reconcilable figure show nothing. */
+/* Production figure under the car name, scoped to that car's own filter (the
+   360's are gated manuals only). Which figure shows follows the US 25-year
+   import rule: once every model year is 25+ years old any example can be
+   imported, so the worldwide count is the relevant pool; until then only cars
+   built for North America can be registered here, so the N. American count is.
+   It flips by itself in last_my + 25. If the preferred figure does not exist the
+   other is shown and the tooltip says so. Hover for basis, click for source. */
 const escH=s=>String(s).replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+const IMPORT_AGE=25;
+function pickProd(p){
+  if(!p) return null;
+  if(p.label) return {v:p, basis:""};
+  const until=p.last_my+IMPORT_AGE, ok=new Date().getFullYear()>=until;
+  if(ok&&p.world)  return {v:p.world, basis:"Worldwide figure: every model year is 25+ years old, so any example can be imported to the US."};
+  if(ok&&p.na)     return {v:p.na,    basis:"Import-eligible, but no worldwide figure is published, so the North American one is shown."};
+  if(!ok&&p.na)    return {v:p.na,    basis:"North American figure: under 25 years old, so only cars built for this market can be registered in the US. Switches to worldwide in "+until+"."};
+  if(!ok&&p.world) return {v:p.world, basis:"Under 25 years old, but no North American figure is published, so the worldwide one is shown - the US-registrable pool is smaller.", world:true};
+  return null;
+}
 function prodTag(p){
-  if(!p) return "";
-  const tip=escH(p.detail+" Source: "+p.src+".");
-  return '<span class="sub prod"><a href="'+escH(p.url)+'" target="_blank" rel="noopener" title="'+tip+'">'+escH(p.label)+'</a></span>';
+  const r=pickProd(p); if(!r) return "";
+  const lab=r.v.label+(r.world&&!/worldwide/i.test(r.v.label)?" worldwide":"");
+  const tip=escH((r.basis?r.basis+" ":"")+r.v.detail+" Source: "+r.v.src+".");
+  return '<span class="sub prod"><a href="'+escH(r.v.url)+'" target="_blank" rel="noopener" title="'+tip+'">'+escH(lab)+'</a></span>';
 }
 
 function winCell(d,n){
@@ -580,7 +595,7 @@ function renderTable(){
         : "")
     + (anyFb ? " \u2020 no driven split for this car \u2014 all-comps figure shown." : "")
     + (anyThin ? " Figures marked \u201cthin\u201d rest on a short window or fewer than 10 comps \u2014 indicative only." : "")
-    + " The line under a car\u2019s name is how many were made, scoped to that car\u2019s spec \u2014 hover it for the basis, click for the source."
+    + " The line under a car\u2019s name is how many were made, scoped to that car\u2019s spec \u2014 worldwide once every model year is 25+ years old and importable to the US, North American before that. Hover it for the basis, click for the source."
     + " A leading ~ marks an unofficial count (a chassis register, or dealer and VIN data) where the maker publishes none;"
     + " the Emira has none because it is still in production."
     + " Blank cells sort last in either direction.";
