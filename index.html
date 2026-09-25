@@ -48,6 +48,11 @@
   #valTable td .sub.prod a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--line)}
   #valTable td .sub.prod a:hover{color:var(--accent)}
   #valTable .val{font-weight:600}
+  #valTable td:first-child{min-width:160px}
+  .tnote details.how{margin-top:4px}
+  .tnote details.how summary{cursor:pointer;color:var(--accent)}
+  .tnote details.how ul{margin:6px 0 0;padding-left:18px}
+  .tnote details.how li{margin:2px 0}
   #valTable .fb{opacity:.55}
   .tnote{font-size:11.5px;color:var(--muted);margin:7px 2px 0;line-height:1.55}
   .up{color:#137a4f}.down{color:#b33}
@@ -86,6 +91,7 @@
   .slider{margin:10px 0}
   .slider label{font-size:13px;display:flex;justify-content:space-between;color:var(--muted)}
   input[type=range]{width:100%}
+  .holdin{width:3.6em;font:inherit;padding:0 4px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--ink)}
   .answer{font-size:15px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:6px}
   .big{font-size:30px;font-weight:700;color:var(--accent)}
   .note{font-size:12px;color:var(--muted);margin-top:8px}
@@ -137,7 +143,10 @@
   <section class="blk" data-blk="cards"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Current values &amp; appreciation<button class="clps" title="Collapse / expand">▾</button></h3>
   <div class="bwrap">
     <div class="tablescroll"><table id="valTable"></table></div>
-    <p class="tnote" id="valNote"></p>
+    <div class="tnote" id="valNote"></div>
+    <p class="tnote">Net $/yr to hold assumes the money would otherwise earn
+      <input class="holdin" id="holdOpp" type="number" step="0.5" min="0" max="20">%/yr and insurance costs
+      <input class="holdin" id="holdIns" type="number" step="0.1" min="0" max="5">% of value/yr.</p>
   </div></section>
 
   <section class="blk" data-blk="indexed"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Growth indexed to 2020 = 100<button class="clps" title="Collapse / expand">▾</button></h3>
@@ -272,6 +281,8 @@ function rowData(name){
     value: (useDriven && dv.latest!=null) ? dv.latest : h[h.length-1],
     w5:  appr ? apprAdj(name,appr.w5)  : null,
     w10: appr ? apprAdj(name,appr.w10) : null,
+    // Nominal, gross of maintenance: the hold column subtracts costs itself.
+    g5:  (appr&&appr.w5&&appr.w5.from>0) ? Math.pow(appr.w5.to/appr.w5.from,1/(appr.w5.span_years||1))-1 : null,
     n:   useDriven ? dv.n_comps : (c.n_comps||null),
     minMiles: useDriven ? dv.min_miles : null
   };
@@ -287,6 +298,7 @@ const SORTS={
   w5:    r=>metricVal(r.w5),
   w10:   r=>metricVal(r.w10),
   deal:  r=>dealKey(r),
+  hold:  r=>{const h=holdOf(r);return h?h.net:null;},
   n:     r=>r.n
 };
 
@@ -344,6 +356,13 @@ function init(){
   const dt=new Date(D.updated);
   $("#updated").textContent="Updated "+dt.toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'});
   $("#status2").textContent=D.refresh_status||"";
+  $("#holdOpp").value=HOLD.opp; $("#holdIns").value=HOLD.ins;
+  ["#holdOpp","#holdIns"].forEach(sel=>$(sel).addEventListener("input",()=>{
+    const o=parseFloat($("#holdOpp").value), i=parseFloat($("#holdIns").value);
+    if(isFinite(o)) HOLD.opp=o; if(isFinite(i)) HOLD.ins=i;
+    try{localStorage.setItem("cvHold",JSON.stringify(HOLD));}catch(e){}
+    renderTable();
+  }));
   // Count from the data, not the copy: the intro said "Ten" long after there were sixteen.
   $("#nCars").textContent=(n=>["Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten",
     "Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen","Twenty"][n]||String(n))(carList().length);
@@ -498,8 +517,9 @@ function valCols(){
     {key:"value", label:dv?"Value (driven)":"Value",  num:true},
     {key:"maint", label:"Maint/yr",                   num:true, only:()=>state.maint==="on"},
     {key:"w5",    label:"5-yr "+m,                    num:true, sub:alt},
-    {key:"w10",   label:"10-yr "+m,                   num:true, sub:alt+" \u00b7 or longest available"},
-    {key:"deal",  label:"CAGR per $100k",             num:true, sub:"5-yr CAGR \u00f7 price \u00b7 higher = better deal"},
+    {key:"w10",   label:"10-yr "+m,                   num:true, sub:alt},
+    {key:"deal",  label:"CAGR per $100k",             num:true, sub:"higher = better"},
+    {key:"hold",  label:"Net $/yr to hold",           num:true, sub:"after all costs"},
     {key:"n",     label:"Comps",                      num:true}
   ].filter(c=>!c.only||c.only());
 }
@@ -553,12 +573,14 @@ function winCell(d,n){
   const altTxt = (alt==null||!isFinite(alt)) ? null
     : (state.metric==="cagr" ? pct0(alt)+" total" : pct(alt)+"/yr");
   const thin = isThin(d,n);
-  return '<td class="num"'+(thin?' title="Thin sample \u2014 a short window, under 10 comps, or under 5 sales at one end; treat as indicative only"':'')+'>'
+  // Years stay visible; span and sale counts go in the tooltip to keep cells narrow.
+  const tip = (+d.span_years).toFixed(1)+' yrs'
+    + (d.n_from!=null ? ' \u00b7 '+d.n_from+' sales \u2192 '+d.n_to+' sales' : '')
+    + (thin ? ' \u2014 thin: indicative only' : '');
+  return '<td class="num" title="'+tip+'">'
     +'<b class="'+(v>=0?"up":"down")+(thin?" fb":"")+'">'+main+'</b>'
     +(altTxt?'<span class="sub alt'+(thin?" fb":"")+'">'+altTxt+'</span>':'')
-    +'<span class="sub">'+(d.from_label
-        ? d.from_label+' &rarr; '+d.to_label+' &middot; '+(+d.span_years).toFixed(1)+'y &middot; n '+d.n_from+'/'+d.n_to
-        : d.from_year+'&ndash;'+d.to_year+' &middot; '+d.span_years+'y')
+    +'<span class="sub">'+(d.from_label ? d.from_label+' &rarr; '+d.to_label : d.from_year+'&ndash;'+d.to_year)
     +(thin?' &middot; thin':'')+'</span></td>';
 }
 
@@ -571,8 +593,32 @@ function dealCell(r){
     return '<td class="num"'+tip+'><b class="down'+(thin?' fb':'')+'">losing</b>'
       +'<span class="sub">'+basis+(thin?' &middot; thin':'')+'</span></td>';
   return '<td class="num"'+tip+'><b class="up'+(thin?' fb':'')+'">'+d.ratio.toFixed(2)+'</b>'
-    +'<span class="sub alt'+(thin?' fb':'')+'">%/yr per $100k</span>'
     +'<span class="sub">'+basis+(thin?' &middot; thin':'')+'</span></td>';
+}
+
+/* Net $/yr to hold: what the car is expected to earn in dollars (price x its
+   5-yr nominal CAGR, gross of maintenance) less what holding it costs -
+   maintenance, insurance (HOLD.ins % of value) and the capital tied up
+   (HOLD.opp % of value, what the money would earn elsewhere). All nominal, so
+   inflation cancels, and independent of the basis/maintenance toggles.
+   Backward-looking: the "expected" gain is the last five years' rate. */
+const HOLD={opp:4, ins:1};
+try{const v=JSON.parse(localStorage.getItem("cvHold")||"null"); if(v){HOLD.opp=+v.opp;HOLD.ins=+v.ins;}}catch(e){}
+function holdOf(r){
+  if(r.g5==null||!isFinite(r.g5)||!r.value) return null;
+  const V=r.value, gain=V*r.g5, maint=r.c.maint||0, ins=V*HOLD.ins/100, opp=V*HOLD.opp/100;
+  const net=gain-maint-ins-opp;
+  return {net, gain, maint, ins, opp, pctPrice:net/V*100};
+}
+const fmtNetK=v=>(v>=0?"+":"\u2212")+"$"+Math.abs(v).toFixed(1)+"k";
+function holdCell(r){
+  const h=holdOf(r);
+  if(!h) return '<td class="num">&mdash;</td>';
+  const thin=isThin(r.w5,r.n);
+  const tip='Gain '+fmtNetK(h.gain)+' ('+pct(r.g5*100)+'/yr on '+fmtk(r.value)+') \u2212 maint $'+h.maint.toFixed(1)
+    +'k \u2212 insurance $'+h.ins.toFixed(1)+'k \u2212 capital $'+h.opp.toFixed(1)+'k'+(thin?' \u2014 thin 5-yr window':'');
+  return '<td class="num" title="'+tip+'"><b class="'+(h.net>=0?"up":"down")+(thin?" fb":"")+'">'+fmtNetK(h.net)+'</b>'
+    +'<span class="sub">'+pct(h.pctPrice)+' of price'+(thin?' &middot; thin':'')+'</span></td>';
 }
 
 function renderTable(){
@@ -607,6 +653,7 @@ function renderTable(){
       else if(col.key==="w5")  h+=winCell(r.w5,r.n);
       else if(col.key==="w10") h+=winCell(r.w10,r.n);
       else if(col.key==="deal") h+=dealCell(r);
+      else if(col.key==="hold") h+=holdCell(r);
       else if(col.key==="n")
         h+='<td class="num">'+(r.n?r.n:"&mdash;")
           +'<span class="sub">'+(c.n_comps?"BaT sold":"asking")+'</span></td>';
@@ -625,25 +672,20 @@ function renderTable(){
 
   const anyFb  = rows.some(r=>r.fallback);
   const anyThin = rows.some(r=>isThin(r.w5,r.n)||isThin(r.w10,r.n));
+  // One visible line; the method lives in a collapsible so the table stays clean.
   $("#valNote").innerHTML =
     "All figures "+basisText()+"."
-    + " Each 5-yr/10-yr cell shows both figures: the headline is whichever the"
-    + " total-vs-CAGR toggle selects (and the one the column sorts on), with the"
-    + " other directly beneath it. Total is the whole-window change \u2014 not"
-    + " comparable across windows of different lengths \u2014 while CAGR is the"
-    + " annualised rate, which is."
-    + " BaT windows compare POOLED two-year medians (e.g. 2020-21 \u2192 2025-26) rather than single years, so a handful of sales in one year cannot swing the figure; the span is measured between the pools\u2019 average sale dates, and n shows the sales at each end."
-    + " The 10-yr column falls back to each car\u2019s longest available history; the line under every figure says which years it actually covers."
-    + (state.driven==="driven"
-        ? " Driven = BaT sold comps at 30k+ miles only, value included."
-        : "")
-    + (anyFb ? " \u2020 no driven split for this car \u2014 all-comps figure shown." : "")
-    + (anyThin ? " Figures marked \u201cthin\u201d rest on a short window, fewer than 10 comps, or fewer than 5 sales at either end \u2014 indicative only." : "")
-    + " The line under a car\u2019s name is how many were made, scoped to that car\u2019s spec \u2014 worldwide once every model year is 25+ years old and importable to the US, North American before that. Hover it for the basis, click for the source."
-    + " A leading ~ marks an unofficial count (a chassis register, or dealer and VIN data) where the maker publishes none;"
-    + " the Emira has none because it is still in production."
-    + " CAGR per $100k divides the 5-yr CAGR (as currently toggled) by today\u2019s price: higher means more appreciation per dollar tied up. It is only shown for cars that are appreciating - cars losing value read \u201closing\u201d and sort below every gainer."
-    + " Blank cells sort last in either direction.";
+    + (state.driven==="driven" ? " Driven = BaT sold comps at 30k+ miles only." : "")
+    + (anyFb ? " \u2020 no driven split \u2014 all comps shown." : "")
+    + (anyThin ? " \u201cThin\u201d = indicative only." : "")
+    + " Hover any figure for its basis."
+    + '<details class="how"><summary>How these are calculated</summary><ul>'
+    + "<li><b>5-yr / 10-yr</b>: pooled two-year BaT medians (e.g. 2020-21 \u2192 2025-26), not single years, so a few sales in one year cannot swing the figure. The span runs between the pools\u2019 average sale dates. The toggle picks total or CAGR as the headline; the other sits beneath. 10-yr falls back to the longest history available.</li>"
+    + "<li><b>Thin</b>: a window under 3 years, under 10 comps, or under 5 sales at either end.</li>"
+    + "<li><b>Built</b> (under the name): scoped to the car\u2019s spec \u2014 worldwide once every model year is 25+ and importable to the US, North American before that. ~ = unofficial count.</li>"
+    + "<li><b>CAGR per $100k</b>: 5-yr CAGR (as toggled) \u00f7 today\u2019s price. Only for appreciating cars; losers read \u201closing\u201d and sort last.</li>"
+    + "<li><b>Net $/yr to hold</b>: price \u00d7 5-yr nominal CAGR, less maintenance, insurance and what the money would earn elsewhere (set below).</li>"
+    + "<li>Blank cells sort last in either direction.</li></ul></details>";
 }
 
 function buildLegend(){
