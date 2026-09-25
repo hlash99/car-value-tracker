@@ -47,7 +47,7 @@ BAT_CARS = {
         "url": "https://bringatrailer.com/ferrari/360/",
         "color": "#E24B4A",
         "blurb": "Gated six-speed only - the F1 cars are a different market.",
-        "spec": {"include": ["6-speed"], "exclude": ["challenge stradale"],
+        "spec": {"include": ["6-speed"], "exclude": ["challenge stradale", "conversion"],
                  "lo": 40000, "hi": 500000},
         "maint": 6,
     },
@@ -176,11 +176,14 @@ BAT_CARS = {
     # share the page and are excluded, as are luggage/exhausts via the $60k floor.
     # One manual coupe is titled "355 GTB" rather than Berlinetta, hence any_of.
     # The soft-top Spider is left out: he asked for the coupe and the targa.
+    # "6-Speed Conversion" = an F1 car converted to manual after the fact - not a
+    # factory gated car, and it trades differently, so it is excluded here and
+    # on the 360, matching the NSX and R8 filters.
     "Ferrari F355 Berlinetta (gated manual)": {
         "url": "https://bringatrailer.com/ferrari/f355/",
         "color": "#E8B100",
         "blurb": "Gated six-speed coupe, 1995-1999 - the F1 paddle cars are a different market.",
-        "spec": {"include": ["6-speed"], "exclude": ["challenge", "spider", "gts", "f1"],
+        "spec": {"include": ["6-speed"], "exclude": ["challenge", "spider", "gts", "f1", "conversion"],
                  "year_min": 1995, "year_max": 1999, "lo": 60000, "hi": 600000},
         "any_of": ["berlinetta", "355 gtb"],
         "maint": 7,
@@ -189,7 +192,7 @@ BAT_CARS = {
         "url": "https://bringatrailer.com/ferrari/f355/",
         "color": "#A0522D",
         "blurb": "Targa-top GTS, gated six-speed, 1995-1999 - the lift-out roof, not the Spider.",
-        "spec": {"include": ["gts", "6-speed"], "exclude": ["challenge", "spider", "f1"],
+        "spec": {"include": ["gts", "6-speed"], "exclude": ["challenge", "spider", "f1", "conversion"],
                  "year_min": 1995, "year_max": 1999, "lo": 60000, "hi": 600000},
         "maint": 7,
     },

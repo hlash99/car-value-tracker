@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-25T00:37Z",
+ "updated": "2026-09-25T03:29Z",
  "refresh_status": "auto-refresh 2026-09-24 18:30Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $344k; Ferrari F12 Berlinetta: n=24 asking\u2248$526k -> value\u2248$450k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $532k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
@@ -534,18 +534,18 @@
     92.0,
     120.0,
     133.0,
-    127.5,
+    132.0,
     122.5,
     152.2,
-    201.0
+    233.0
    ],
    "proj": [
-    201.0,
-    221.1,
-    243.2,
-    267.5,
-    294.3,
-    323.7
+    233.0,
+    256.3,
+    281.9,
+    310.1,
+    341.1,
+    375.2
    ],
    "maint": 6,
    "cagr": {
@@ -553,26 +553,26 @@
     "bull": 0.13,
     "bear": 0.07
    },
-   "sold": 201,
+   "sold": 233,
    "src": "bat",
-   "n_comps": 178,
+   "n_comps": 171,
    "appr": {
     "w5": {
      "from_year": 2021,
      "from": 120.0,
      "to_year": 2026,
-     "to": 201.0,
-     "total_pct": 67.5,
-     "cagr_pct": 10.9,
+     "to": 233.0,
+     "total_pct": 94.2,
+     "cagr_pct": 14.2,
      "span_years": 5
     },
     "w10": {
      "from_year": 2018,
      "from": 95.5,
      "to_year": 2026,
-     "to": 201.0,
-     "total_pct": 110.5,
-     "cagr_pct": 9.7,
+     "to": 233.0,
+     "total_pct": 144.0,
+     "cagr_pct": 11.8,
      "span_years": 8
     }
    },
@@ -615,10 +615,10 @@
     },
     {
      "year": 2023,
-     "median": 127.5,
-     "n": 22,
-     "lo": 96.0,
-     "hi": 152.0
+     "median": 132.0,
+     "n": 19,
+     "lo": 105.0,
+     "hi": 153.0
     },
     {
      "year": 2024,
@@ -636,10 +636,10 @@
     },
     {
      "year": 2026,
-     "median": 201.0,
-     "n": 26,
+     "median": 233.0,
+     "n": 22,
      "lo": 125.0,
-     "hi": 285.0
+     "hi": 293.5
     }
    ],
    "production": {
@@ -1900,15 +1900,15 @@
     171.0,
     152.5,
     134.7,
-    249.2
+    245.4
    ],
    "proj": [
-    249.2,
-    274.1,
-    301.5,
-    331.7,
-    364.9,
-    401.3
+    245.4,
+    269.9,
+    296.9,
+    326.6,
+    359.3,
+    395.2
    ],
    "maint": 7,
    "cagr": {
@@ -1916,26 +1916,26 @@
     "bull": 0.13,
     "bear": 0.07
    },
-   "sold": 249,
+   "sold": 245,
    "src": "bat",
-   "n_comps": 56,
+   "n_comps": 55,
    "appr": {
     "w5": {
      "from_year": 2021,
      "from": 130.0,
      "to_year": 2026,
-     "to": 249.2,
-     "total_pct": 91.7,
-     "cagr_pct": 13.9,
+     "to": 245.4,
+     "total_pct": 88.7,
+     "cagr_pct": 13.5,
      "span_years": 5
     },
     "w10": {
      "from_year": 2018,
      "from": 67.5,
      "to_year": 2026,
-     "to": 249.2,
-     "total_pct": 269.2,
-     "cagr_pct": 17.7,
+     "to": 245.4,
+     "total_pct": 263.5,
+     "cagr_pct": 17.5,
      "span_years": 8
     }
    },
@@ -1991,10 +1991,10 @@
     },
     {
      "year": 2026,
-     "median": 249.2,
-     "n": 4,
-     "lo": 245.4,
-     "hi": 253.0
+     "median": 245.4,
+     "n": 3,
+     "lo": 202.0,
+     "hi": 355.4
     }
    ],
    "bat_url": "https://bringatrailer.com/ferrari/f355/",
@@ -2043,43 +2043,43 @@
     210.0,
     187.7,
     180.5,
-    165.0,
-    223.7
+    159.8,
+    235.4
    ],
    "proj": [
-    223.7,
-    242.0,
-    261.9,
-    283.4,
-    306.6,
-    331.7
+    235.4,
+    257.3,
+    281.2,
+    307.4,
+    336.0,
+    367.2
    ],
    "maint": 7,
    "cagr": {
-    "base": 0.082,
-    "bull": 0.112,
-    "bear": 0.052
+    "base": 0.093,
+    "bull": 0.123,
+    "bear": 0.063
    },
-   "sold": 224,
+   "sold": 235,
    "src": "bat",
-   "n_comps": 41,
+   "n_comps": 38,
    "appr": {
     "w5": {
      "from_year": 2021,
      "from": 150.8,
      "to_year": 2026,
-     "to": 223.7,
-     "total_pct": 48.4,
-     "cagr_pct": 8.2,
+     "to": 235.4,
+     "total_pct": 56.1,
+     "cagr_pct": 9.3,
      "span_years": 5
     },
     "w10": {
      "from_year": 2021,
      "from": 150.8,
      "to_year": 2026,
-     "to": 223.7,
-     "total_pct": 48.4,
-     "cagr_pct": 8.2,
+     "to": 235.4,
+     "total_pct": 56.1,
+     "cagr_pct": 9.3,
      "span_years": 5
     }
    },
@@ -2114,16 +2114,16 @@
     },
     {
      "year": 2025,
-     "median": 165.0,
-     "n": 4,
-     "lo": 164.5,
+     "median": 159.8,
+     "n": 2,
+     "lo": 154.0,
      "hi": 165.5
     },
     {
      "year": 2026,
-     "median": 223.7,
-     "n": 6,
-     "lo": 191.0,
+     "median": 235.4,
+     "n": 5,
+     "lo": 212.0,
      "hi": 266.0
     }
    ],
@@ -2140,7 +2140,7 @@
    }
   }
  },
- "bat_status": "Acura NSX (NA2 manual): 95 comps, 20 driven | Ferrari 360 (gated manual): 178 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 224 comps | Porsche 997.2 Turbo S: 78 comps, 17 driven | Ferrari 328 GTS/GTB: 198 comps, 9 driven | Alfa Romeo GTV 1750/2000: 309 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 335 comps | Ferrari Dino 246 GT/GTS: 67 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 27 comps | Ferrari 550 Maranello: 129 comps | Ferrari F355 Berlinetta (gated manual): 56 comps, 8 driven | Ferrari F355 GTS (gated manual): 41 comps | appreciation.csv: 12y x 15 cars",
+ "bat_status": "Acura NSX (NA2 manual): 95 comps, 20 driven | Ferrari 360 (gated manual): 171 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 224 comps | Porsche 997.2 Turbo S: 78 comps, 17 driven | Ferrari 328 GTS/GTB: 198 comps, 9 driven | Alfa Romeo GTV 1750/2000: 309 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 335 comps | Ferrari Dino 246 GT/GTS: 67 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 27 comps | Ferrari 550 Maranello: 129 comps | Ferrari F355 Berlinetta (gated manual): 55 comps, 8 driven | Ferrari F355 GTS (gated manual): 38 comps | appreciation.csv: 12y x 15 cars",
  "cpi_by_year": {
   "2014": 236.7,
   "2015": 237.0,
