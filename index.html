@@ -48,7 +48,8 @@
   #valTable td .sub.prod a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--line)}
   #valTable td .sub.prod a:hover{color:var(--accent)}
   #valTable .val{font-weight:600}
-  #valTable td:first-child{min-width:160px}
+  #valTable td:first-child{min-width:150px}
+  #valTable th,#valTable td{padding-left:7px;padding-right:7px}
   .tnote details.how{margin-top:4px}
   .tnote details.how summary{cursor:pointer;color:var(--accent)}
   .tnote details.how ul{margin:6px 0 0;padding-left:18px}
@@ -260,7 +261,8 @@ function apprAdj(name,w){
   }
   return {total_pct:(ratio-1)*100, cagr_pct:(Math.pow(Math.max(ratio,1e-6),1/span)-1)*100,
           from_year:w.from_year,to_year:w.to_year,span_years:span,
-          from_label:w.from_label,to_label:w.to_label,n_from:w.n_from,n_to:w.n_to};
+          from_label:w.from_label,to_label:w.to_label,n_from:w.n_from,n_to:w.n_to,
+          t_from:w.t_from,t_to:w.t_to,cpi_from:w.cpi_from,cpi_to:w.cpi_to};
 }
 
 /* One table row's numbers, resolved under the CURRENT toggles.
@@ -299,6 +301,7 @@ const SORTS={
   w10:   r=>metricVal(r.w10),
   deal:  r=>dealKey(r),
   hold:  r=>{const h=holdOf(r);return h?h.net:null;},
+  vs:    r=>{const v=vsBench(r);return v&&v.AAPL!=null?v.AAPL:null;},
   n:     r=>r.n
 };
 
@@ -520,7 +523,7 @@ function valCols(){
     {key:"w10",   label:"10-yr "+m,                   num:true, sub:alt},
     {key:"deal",  label:"CAGR per $100k",             num:true, sub:"higher = better"},
     {key:"hold",  label:"Net $/yr to hold",           num:true, sub:"after all costs"},
-    {key:"n",     label:"Comps",                      num:true}
+    {key:"vs",    label:"vs AAPL",                    num:true, sub:"pts/yr \u00b7 S&P below"}
   ].filter(c=>!c.only||c.only());
 }
 
@@ -621,6 +624,51 @@ function holdCell(r){
     +'<span class="sub">'+pct(h.pctPrice)+' of price'+(thin?' &middot; thin':'')+'</span></td>';
 }
 
+/* vs AAPL / S&P: the car's 5-yr CAGR (as toggled - real or nominal, net of
+   maintenance when that is on) minus each benchmark's CAGR over the SAME dates:
+   the pools' average sale dates for BaT windows, mid-year for the Cars.com
+   ones. Benchmarks are monthly total-return series (dividends reinvested) from
+   bench_refresh.py, deflated with the same CPI as the car on the real basis.
+   Positive = the car beat the shares it would be bought with. */
+function benchAt(name,t){
+  const s=D.bench&&D.bench.series&&D.bench.series[name]; if(!s) return null;
+  const m=s.m, x=(t-Math.floor(t))*12-0.5, y=Math.floor(t);     // monthly averages sit mid-month
+  let mo=Math.floor(x), f=x-mo, y0=y; if(mo<0){mo+=12;y0--;}
+  const key=(yy,mm)=>yy+"-"+String(mm+1).padStart(2,"0");
+  const a=m[key(y0,mo)], nx=mo+1>11?[y0+1,0]:[y0,mo+1], b=m[key(nx[0],nx[1])];
+  if(a!=null&&b!=null) return a+(b-a)*f;
+  if(a!=null) return a;
+  const ks=Object.keys(m).sort(), last=ks[ks.length-1];           // past the data: hold the last month
+  return key(y0,mo)>last ? m[last] : null;
+}
+function vsBench(r){
+  const w=r.w5; if(!w||w.cagr_pct==null||!isFinite(w.cagr_pct)) return null;
+  const t0=w.t_from!=null?w.t_from:w.from_year+0.5, t1=w.t_to!=null?w.t_to:w.to_year+0.5, span=t1-t0;
+  if(!(span>0)) return null;
+  const out={car:w.cagr_pct, span:span, t0:t0, t1:t1};
+  ["AAPL","S&P 500"].forEach(n=>{
+    const b0=benchAt(n,t0), b1=benchAt(n,t1);
+    if(b0==null||b1==null){out[n]=null;return;}
+    let ratio=b1/b0;
+    if(state.basis==="real"){const c0=w.cpi_from||cpiYear(w.from_year), c1=w.cpi_to||cpiYear(w.to_year); if(c0&&c1) ratio/=(c1/c0);}
+    const g=(Math.pow(ratio,1/span)-1)*100;
+    out[n+"_g"]=g; out[n]=w.cagr_pct-g;
+  });
+  return out;
+}
+const fmtPts=v=>(v>=0?"+":"\u2212")+Math.abs(v).toFixed(1);
+const ym=t=>["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][Math.min(11,Math.floor((t-Math.floor(t))*12))]+" "+Math.floor(t);
+function vsCell(r){
+  const v=vsBench(r);
+  if(!v||v.AAPL==null) return '<td class="num">&mdash;</td>';
+  const thin=isThin(r.w5,r.n);
+  const tip='Car '+pct(v.car)+'/yr vs AAPL '+pct(v["AAPL_g"])+'/yr'
+    +(v["S&P 500"]!=null?' and S&P 500 '+pct(v["S&P 500_g"])+'/yr':'')
+    +', '+ym(v.t0)+' \u2013 '+ym(v.t1)+' (dividends reinvested; '+basisText()+')'+(thin?' \u2014 thin':'');
+  return '<td class="num" title="'+tip+'"><b class="'+(v.AAPL>=0?"up":"down")+(thin?" fb":"")+'">'+fmtPts(v.AAPL)+'</b>'
+    +'<span class="sub">'+(v["S&P 500"]!=null?'S&P '+fmtPts(v["S&P 500"]):'')+(thin?' &middot; thin':'')+'</span></td>';
+}
+
 function renderTable(){
   const cols=valCols(), rows=sortedRows();
   let h="<thead><tr>";
@@ -646,14 +694,17 @@ function renderTable(){
           +nm+(r.fallback?' <span class="sub" style="display:inline">&dagger;</span>':"")+'</span>'
           +prodTag(c.production)+'</td>';
       else if(col.key==="value")
+        // Sample size lives under the value (was its own Comps column).
         h+='<td class="num"><span class="val">'+fmtk(r.value)+'</span>'
-          +(r.minMiles?'<span class="sub">'+Math.round(r.minMiles/1000)+'k+ mi</span>':"")+'</td>';
+          +'<span class="sub">'+(r.n ? r.n+(c.n_comps?' sold':' asking') : (c.n_comps?'BaT sold':'asking'))
+          +(r.minMiles?' &middot; '+Math.round(r.minMiles/1000)+'k+ mi':'')+'</span></td>';
       else if(col.key==="maint")
         h+='<td class="num">'+(c.maint?fmtk(c.maint):"&mdash;")+'</td>';
       else if(col.key==="w5")  h+=winCell(r.w5,r.n);
       else if(col.key==="w10") h+=winCell(r.w10,r.n);
       else if(col.key==="deal") h+=dealCell(r);
       else if(col.key==="hold") h+=holdCell(r);
+      else if(col.key==="vs")   h+=vsCell(r);
       else if(col.key==="n")
         h+='<td class="num">'+(r.n?r.n:"&mdash;")
           +'<span class="sub">'+(c.n_comps?"BaT sold":"asking")+'</span></td>';
@@ -684,6 +735,7 @@ function renderTable(){
     + "<li><b>Thin</b>: a window under 3 years, under 10 comps, or under 5 sales at either end.</li>"
     + "<li><b>Built</b> (under the name): scoped to the car\u2019s spec \u2014 worldwide once every model year is 25+ and importable to the US, North American before that. ~ = unofficial count.</li>"
     + "<li><b>CAGR per $100k</b>: 5-yr CAGR (as toggled) \u00f7 today\u2019s price. Only for appreciating cars; losers read \u201closing\u201d and sort last.</li>"
+    + "<li><b>vs AAPL</b>: the car\u2019s 5-yr CAGR (as toggled) minus AAPL\u2019s over the same dates, dividends reinvested, in points per year; S&P 500 beneath. Positive = the car beat the shares you would sell to buy it.</li>"
     + "<li><b>Net $/yr to hold</b>: price \u00d7 5-yr nominal CAGR, less maintenance, insurance and what the money would earn elsewhere (set below).</li>"
     + "<li>Blank cells sort last in either direction.</li></ul></details>";
 }

@@ -33,6 +33,9 @@ jobs:
       - name: Refresh BaT sold history (stdlib only, no browser)
         run: python scripts/bat_refresh.py
         continue-on-error: true
+      - name: Refresh benchmark total-return series (AAPL, S&P 500)
+        run: python scripts/bench_refresh.py
+        continue-on-error: true
       - name: Commit if changed
         run: |
           git config user.name  "github-actions[bot]"

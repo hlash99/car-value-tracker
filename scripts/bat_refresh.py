@@ -544,6 +544,9 @@ def windows(sold):
             "cagr_pct": cagr(from_med, to_med, span),
             "span_years": span,
             "cpi_from": round(_cpi_at(t0), 1), "cpi_to": round(_cpi_at(t1), 1),
+            # Average sale dates of each pool - the page measures AAPL / S&P
+            # over exactly these dates so the comparison is like for like.
+            "t_from": round(t0, 3), "t_to": round(t1, 3),
             "pooled": True,
         }
     return out
