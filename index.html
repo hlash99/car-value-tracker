@@ -244,11 +244,14 @@ function apprAdj(name,w){
   const span=w.span_years||1, to=w.to-maintPerYear(name)*span;
   let ratio=to/w.from;
   if(state.basis==="real"){
-    const c0=cpiYear(w.from_year), c1=cpiYear(w.to_year);
+    // Pooled BaT windows carry CPI read at each pool's average sale date;
+    // the Cars.com-derived windows still use calendar-year CPI.
+    const c0=w.cpi_from||cpiYear(w.from_year), c1=w.cpi_to||cpiYear(w.to_year);
     if(c0&&c1) ratio=ratio/(c1/c0);
   }
   return {total_pct:(ratio-1)*100, cagr_pct:(Math.pow(Math.max(ratio,1e-6),1/span)-1)*100,
-          from_year:w.from_year,to_year:w.to_year,span_years:span};
+          from_year:w.from_year,to_year:w.to_year,span_years:span,
+          from_label:w.from_label,to_label:w.to_label,n_from:w.n_from,n_to:w.n_to};
 }
 
 /* One table row's numbers, resolved under the CURRENT toggles.
@@ -484,8 +487,12 @@ function valCols(){
 /* A window built from a short span or a handful of comps is noise, not a
    trend -- the driven 328 reads +15%/yr off 9 cars over 2 years. The figure
    still shows and still sorts, but it is muted and labelled so it cannot
-   quietly top the table. */
-function isThin(d,n){return !!d && (d.span_years<3 || (n!=null && n<10));}
+   quietly top the table.
+   Also thin: fewer than THIN_POOL sales at EITHER end of a pooled window --
+   the F355 Berlinetta's 2026 median was three cars. */
+const THIN_POOL=5;
+function isThin(d,n){return !!d && (d.span_years<3 || (n!=null && n<10)
+  || (d.n_from!=null && (d.n_from<THIN_POOL || d.n_to<THIN_POOL)));}
 
 /* Both figures always show: the toggle picks which one is the headline (and
    the one the column sorts on), the other rides the sub-line. Reading total
@@ -526,10 +533,12 @@ function winCell(d,n){
   const altTxt = (alt==null||!isFinite(alt)) ? null
     : (state.metric==="cagr" ? pct0(alt)+" total" : pct(alt)+"/yr");
   const thin = isThin(d,n);
-  return '<td class="num"'+(thin?' title="Thin sample \u2014 short window and/or few comps; treat as indicative only"':'')+'>'
+  return '<td class="num"'+(thin?' title="Thin sample \u2014 a short window, under 10 comps, or under 5 sales at one end; treat as indicative only"':'')+'>'
     +'<b class="'+(v>=0?"up":"down")+(thin?" fb":"")+'">'+main+'</b>'
     +(altTxt?'<span class="sub alt'+(thin?" fb":"")+'">'+altTxt+'</span>':'')
-    +'<span class="sub">'+d.from_year+'&ndash;'+d.to_year+' &middot; '+d.span_years+'y'
+    +'<span class="sub">'+(d.from_label
+        ? d.from_label+' &rarr; '+d.to_label+' &middot; '+(+d.span_years).toFixed(1)+'y &middot; n '+d.n_from+'/'+d.n_to
+        : d.from_year+'&ndash;'+d.to_year+' &middot; '+d.span_years+'y')
     +(thin?' &middot; thin':'')+'</span></td>';
 }
 
@@ -589,12 +598,13 @@ function renderTable(){
     + " other directly beneath it. Total is the whole-window change \u2014 not"
     + " comparable across windows of different lengths \u2014 while CAGR is the"
     + " annualised rate, which is."
-    + " The 10-yr column falls back to each car\u2019s longest available history; the span under every figure says which years it actually covers."
+    + " BaT windows compare POOLED two-year medians (e.g. 2020-21 \u2192 2025-26) rather than single years, so a handful of sales in one year cannot swing the figure; the span is measured between the pools\u2019 average sale dates, and n shows the sales at each end."
+    + " The 10-yr column falls back to each car\u2019s longest available history; the line under every figure says which years it actually covers."
     + (state.driven==="driven"
         ? " Driven = BaT sold comps at 30k+ miles only, value included."
         : "")
     + (anyFb ? " \u2020 no driven split for this car \u2014 all-comps figure shown." : "")
-    + (anyThin ? " Figures marked \u201cthin\u201d rest on a short window or fewer than 10 comps \u2014 indicative only." : "")
+    + (anyThin ? " Figures marked \u201cthin\u201d rest on a short window, fewer than 10 comps, or fewer than 5 sales at either end \u2014 indicative only." : "")
     + " The line under a car\u2019s name is how many were made, scoped to that car\u2019s spec \u2014 worldwide once every model year is 25+ years old and importable to the US, North American before that. Hover it for the basis, click for the source."
     + " A leading ~ marks an unofficial count (a chassis register, or dealer and VIN data) where the maker publishes none;"
     + " the Emira has none because it is still in production."

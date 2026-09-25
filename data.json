@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-25T03:29Z",
+ "updated": "2026-09-25T03:43Z",
  "refresh_status": "auto-refresh 2026-09-24 18:30Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $344k; Ferrari F12 Berlinetta: n=24 asking\u2248$526k -> value\u2248$450k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $532k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
@@ -236,17 +236,17 @@
    ],
    "proj": [
     144.5,
-    150.6,
-    156.9,
-    163.5,
-    170.3,
-    177.5
+    149.8,
+    155.4,
+    161.1,
+    167.1,
+    173.3
    ],
    "maint": 3,
    "cagr": {
-    "base": 0.042,
-    "bull": 0.072,
-    "bear": 0.012
+    "base": 0.037,
+    "bull": 0.067,
+    "bear": 0.007
    },
    "asking": 126,
    "sold": 144,
@@ -256,22 +256,36 @@
    "n_comps": 78,
    "appr": {
     "w5": {
-     "from_year": 2021,
-     "from": 117.5,
+     "from_year": 2020,
      "to_year": 2026,
-     "to": 144.5,
-     "total_pct": 23.0,
-     "cagr_pct": 4.2,
-     "span_years": 5
+     "from_label": "2020-21",
+     "to_label": "2025-26",
+     "from": 102.8,
+     "to": 121.8,
+     "n_from": 10,
+     "n_to": 24,
+     "total_pct": 18.5,
+     "cagr_pct": 3.7,
+     "span_years": 4.7,
+     "cpi_from": 268.5,
+     "cpi_to": 330.1,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2019,
-     "from": 75.0,
+     "from_year": 2018,
      "to_year": 2026,
-     "to": 144.5,
-     "total_pct": 92.7,
-     "cagr_pct": 9.8,
-     "span_years": 7
+     "from_label": "2018-19",
+     "to_label": "2025-26",
+     "from": 76.2,
+     "to": 121.8,
+     "n_from": 6,
+     "n_to": 24,
+     "total_pct": 59.9,
+     "cagr_pct": 7.3,
+     "span_years": 6.7,
+     "cpi_from": 254.6,
+     "cpi_to": 330.1,
+     "pooled": true
     }
    },
    "bat_url": "https://bringatrailer.com/porsche/997-turbo/",
@@ -281,22 +295,36 @@
     "latest": 134.0,
     "appr": {
      "w5": {
-      "from_year": 2022,
-      "from": 102.2,
+      "from_year": 2021,
       "to_year": 2026,
-      "to": 134.0,
-      "total_pct": 31.1,
-      "cagr_pct": 7.0,
-      "span_years": 4
+      "from_label": "2021-22",
+      "to_label": "2025-26",
+      "from": 102.2,
+      "to": 126.9,
+      "n_from": 6,
+      "n_to": 7,
+      "total_pct": 24.1,
+      "cagr_pct": 6.0,
+      "span_years": 3.7,
+      "cpi_from": 291.8,
+      "cpi_to": 331.1,
+      "pooled": true
      },
      "w10": {
-      "from_year": 2022,
-      "from": 102.2,
+      "from_year": 2021,
       "to_year": 2026,
-      "to": 134.0,
-      "total_pct": 31.1,
-      "cagr_pct": 7.0,
-      "span_years": 4
+      "from_label": "2021-22",
+      "to_label": "2025-26",
+      "from": 102.2,
+      "to": 126.9,
+      "n_from": 6,
+      "n_to": 7,
+      "total_pct": 24.1,
+      "cagr_pct": 6.0,
+      "span_years": 3.7,
+      "cpi_from": 291.8,
+      "cpi_to": 331.1,
+      "pooled": true
      }
     }
    },
@@ -383,39 +411,53 @@
    ],
    "proj": [
     153.0,
-    168.3,
-    185.1,
-    203.6,
-    224.0,
-    246.4
+    160.8,
+    169.0,
+    177.6,
+    186.7,
+    196.2
    ],
    "maint": 3,
    "cagr": {
-    "base": 0.1,
-    "bull": 0.13,
-    "bear": 0.07
+    "base": 0.051,
+    "bull": 0.081,
+    "bear": 0.021
    },
    "sold": 153,
    "src": "bat",
    "n_comps": 95,
    "appr": {
     "w5": {
-     "from_year": 2021,
-     "from": 95.0,
+     "from_year": 2020,
      "to_year": 2026,
-     "to": 153.0,
-     "total_pct": 61.1,
-     "cagr_pct": 10.0,
-     "span_years": 5
+     "from_label": "2020-21",
+     "to_label": "2025-26",
+     "from": 101.0,
+     "to": 129.0,
+     "n_from": 23,
+     "n_to": 25,
+     "total_pct": 27.7,
+     "cagr_pct": 5.1,
+     "span_years": 4.9,
+     "cpi_from": 266.1,
+     "cpi_to": 329.7,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2017,
-     "from": 62.0,
+     "from_year": 2016,
      "to_year": 2026,
-     "to": 153.0,
-     "total_pct": 146.8,
-     "cagr_pct": 10.6,
-     "span_years": 9
+     "from_label": "2016-17",
+     "to_label": "2025-26",
+     "from": 61.0,
+     "to": 129.0,
+     "n_from": 4,
+     "n_to": 25,
+     "total_pct": 111.5,
+     "cagr_pct": 9.2,
+     "span_years": 8.5,
+     "cpi_from": 245.0,
+     "cpi_to": 329.7,
+     "pooled": true
     }
    },
    "bat_url": "https://bringatrailer.com/acura/nsx/",
@@ -426,21 +468,35 @@
     "appr": {
      "w5": {
       "from_year": 2020,
-      "from": 103.5,
-      "to_year": 2025,
-      "to": 100.0,
-      "total_pct": -3.4,
-      "cagr_pct": -0.7,
-      "span_years": 5
+      "to_year": 2026,
+      "from_label": "2020-21",
+      "to_label": "2025-26",
+      "from": 109.2,
+      "to": 103.0,
+      "n_from": 4,
+      "n_to": 4,
+      "total_pct": -5.7,
+      "cagr_pct": -1.3,
+      "span_years": 4.4,
+      "cpi_from": 268.9,
+      "cpi_to": 326.6,
+      "pooled": true
      },
      "w10": {
-      "from_year": 2020,
-      "from": 103.5,
-      "to_year": 2025,
-      "to": 100.0,
-      "total_pct": -3.4,
-      "cagr_pct": -0.7,
-      "span_years": 5
+      "from_year": 2016,
+      "to_year": 2026,
+      "from_label": "2016-17",
+      "to_label": "2025-26",
+      "from": 71.0,
+      "to": 103.0,
+      "n_from": 2,
+      "n_to": 4,
+      "total_pct": 45.1,
+      "cagr_pct": 4.4,
+      "span_years": 8.6,
+      "cpi_from": 243.2,
+      "cpi_to": 326.6,
+      "pooled": true
      }
     }
    },
@@ -541,39 +597,53 @@
    ],
    "proj": [
     233.0,
-    256.3,
-    281.9,
-    310.1,
-    341.1,
-    375.2
+    255.1,
+    279.4,
+    305.9,
+    335.0,
+    366.8
    ],
    "maint": 6,
    "cagr": {
-    "base": 0.1,
-    "bull": 0.13,
-    "bear": 0.07
+    "base": 0.095,
+    "bull": 0.125,
+    "bear": 0.065
    },
    "sold": 233,
    "src": "bat",
    "n_comps": 171,
    "appr": {
     "w5": {
-     "from_year": 2021,
-     "from": 120.0,
+     "from_year": 2020,
      "to_year": 2026,
-     "to": 233.0,
-     "total_pct": 94.2,
-     "cagr_pct": 14.2,
-     "span_years": 5
+     "from_label": "2020-21",
+     "to_label": "2025-26",
+     "from": 109.2,
+     "to": 170.5,
+     "n_from": 36,
+     "n_to": 42,
+     "total_pct": 56.2,
+     "cagr_pct": 9.5,
+     "span_years": 4.9,
+     "cpi_from": 266.0,
+     "cpi_to": 330.6,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2018,
-     "from": 95.5,
+     "from_year": 2017,
      "to_year": 2026,
-     "to": 233.0,
-     "total_pct": 144.0,
-     "cagr_pct": 11.8,
-     "span_years": 8
+     "from_label": "2017-18",
+     "to_label": "2025-26",
+     "from": 95.6,
+     "to": 170.5,
+     "n_from": 7,
+     "n_to": 42,
+     "total_pct": 78.3,
+     "cagr_pct": 7.9,
+     "span_years": 7.6,
+     "cpi_from": 250.5,
+     "cpi_to": 330.6,
+     "pooled": true
     }
    },
    "bat_url": "https://bringatrailer.com/ferrari/360/",
@@ -667,39 +737,53 @@
    ],
    "proj": [
     141.0,
-    137.3,
-    133.8,
-    130.3,
-    126.9,
-    123.6
+    137.2,
+    133.5,
+    129.9,
+    126.4,
+    123.0
    ],
    "maint": 5,
    "cagr": {
-    "base": -0.026,
-    "bull": 0.004,
-    "bear": -0.056
+    "base": -0.027,
+    "bull": 0.003,
+    "bear": -0.057
    },
    "sold": 141,
    "src": "bat",
    "n_comps": 88,
    "appr": {
     "w5": {
-     "from_year": 2021,
-     "from": 161.0,
+     "from_year": 2020,
      "to_year": 2026,
+     "from_label": "2020-21",
+     "to_label": "2025-26",
+     "from": 158.5,
      "to": 141.0,
-     "total_pct": -12.4,
-     "cagr_pct": -2.6,
-     "span_years": 5
+     "n_from": 24,
+     "n_to": 23,
+     "total_pct": -11.0,
+     "cagr_pct": -2.7,
+     "span_years": 4.2,
+     "cpi_from": 272.2,
+     "cpi_to": 326.2,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2019,
-     "from": 90.0,
+     "from_year": 2017,
      "to_year": 2026,
+     "from_label": "2017-18",
+     "to_label": "2025-26",
+     "from": 88.2,
      "to": 141.0,
-     "total_pct": 56.7,
-     "cagr_pct": 6.6,
-     "span_years": 7
+     "n_from": 2,
+     "n_to": 23,
+     "total_pct": 59.8,
+     "cagr_pct": 6.5,
+     "span_years": 7.4,
+     "cpi_from": 249.8,
+     "cpi_to": 326.2,
+     "pooled": true
     }
    },
    "bat_url": "https://bringatrailer.com/audi/r8-v10-type-42/",
@@ -709,22 +793,36 @@
     "latest": 118.0,
     "appr": {
      "w5": {
-      "from_year": 2021,
+      "from_year": 2020,
+      "to_year": 2026,
+      "from_label": "2020-21",
+      "to_label": "2025-26",
       "from": 119.5,
-      "to_year": 2025,
-      "to": 118.0,
-      "total_pct": -1.3,
-      "cagr_pct": -0.3,
-      "span_years": 4
+      "to": 119.5,
+      "n_from": 2,
+      "n_to": 4,
+      "total_pct": 0.0,
+      "cagr_pct": 0.0,
+      "span_years": 4.3,
+      "cpi_from": 270.4,
+      "cpi_to": 326.1,
+      "pooled": true
      },
      "w10": {
-      "from_year": 2021,
+      "from_year": 2020,
+      "to_year": 2026,
+      "from_label": "2020-21",
+      "to_label": "2025-26",
       "from": 119.5,
-      "to_year": 2025,
-      "to": 118.0,
-      "total_pct": -1.3,
-      "cagr_pct": -0.3,
-      "span_years": 4
+      "to": 119.5,
+      "n_from": 2,
+      "n_to": 4,
+      "total_pct": 0.0,
+      "cagr_pct": 0.0,
+      "span_years": 4.3,
+      "cpi_from": 270.4,
+      "cpi_to": 326.1,
+      "pooled": true
      }
     }
    },
@@ -811,39 +909,53 @@
    ],
    "proj": [
     175.0,
-    186.9,
-    199.6,
-    213.2,
-    227.7,
-    243.2
+    187.4,
+    200.7,
+    215.0,
+    230.2,
+    246.6
    ],
    "maint": 3,
    "cagr": {
-    "base": 0.068,
-    "bull": 0.098,
-    "bear": 0.038
+    "base": 0.071,
+    "bull": 0.101,
+    "bear": 0.041
    },
    "sold": 175,
    "src": "bat",
    "n_comps": 224,
    "appr": {
     "w5": {
-     "from_year": 2021,
-     "from": 126.0,
+     "from_year": 2020,
      "to_year": 2026,
-     "to": 175.0,
-     "total_pct": 38.9,
-     "cagr_pct": 6.8,
-     "span_years": 5
+     "from_label": "2020-21",
+     "to_label": "2025-26",
+     "from": 114.0,
+     "to": 155.0,
+     "n_from": 30,
+     "n_to": 87,
+     "total_pct": 36.0,
+     "cagr_pct": 7.1,
+     "span_years": 4.5,
+     "cpi_from": 271.1,
+     "cpi_to": 329.4,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2016,
-     "from": 96.0,
+     "from_year": 2015,
      "to_year": 2026,
-     "to": 175.0,
-     "total_pct": 82.3,
-     "cagr_pct": 6.2,
-     "span_years": 10
+     "from_label": "2015-16",
+     "to_label": "2025-26",
+     "from": 90.8,
+     "to": 155.0,
+     "n_from": 4,
+     "n_to": 87,
+     "total_pct": 70.8,
+     "cagr_pct": 5.7,
+     "span_years": 9.7,
+     "cpi_from": 239.2,
+     "cpi_to": 329.4,
+     "pooled": true
     }
    },
    "bat_url": "https://bringatrailer.com/chevrolet/c2-corvette/",
@@ -944,39 +1056,53 @@
    ],
    "proj": [
     25.2,
-    24.9,
-    24.5,
-    24.2,
-    23.9,
-    23.6
+    25.7,
+    26.3,
+    26.8,
+    27.4,
+    28.0
    ],
    "maint": 2,
    "cagr": {
-    "base": -0.013,
-    "bull": 0.017,
-    "bear": -0.043
+    "base": 0.021,
+    "bull": 0.051,
+    "bear": -0.009
    },
    "sold": 25,
    "src": "bat",
    "n_comps": 335,
    "appr": {
     "w5": {
-     "from_year": 2021,
-     "from": 27.0,
+     "from_year": 2020,
      "to_year": 2026,
-     "to": 25.2,
-     "total_pct": -6.5,
-     "cagr_pct": -1.3,
-     "span_years": 5
+     "from_label": "2020-21",
+     "to_label": "2025-26",
+     "from": 23.2,
+     "to": 25.8,
+     "n_from": 60,
+     "n_to": 70,
+     "total_pct": 10.8,
+     "cagr_pct": 2.1,
+     "span_years": 4.9,
+     "cpi_from": 266.2,
+     "cpi_to": 329.9,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2016,
-     "from": 15.5,
+     "from_year": 2015,
      "to_year": 2026,
-     "to": 25.2,
-     "total_pct": 62.9,
-     "cagr_pct": 5.0,
-     "span_years": 10
+     "from_label": "2015-16",
+     "to_label": "2025-26",
+     "from": 16.8,
+     "to": 25.8,
+     "n_from": 11,
+     "n_to": 70,
+     "total_pct": 53.7,
+     "cagr_pct": 4.5,
+     "span_years": 9.8,
+     "cpi_from": 238.9,
+     "cpi_to": 329.9,
+     "pooled": true
     }
    },
    "bat_url": "https://bringatrailer.com/volvo/1800/",
@@ -1091,39 +1217,53 @@
    ],
    "proj": [
     45.5,
-    45.9,
-    46.3,
-    46.7,
-    47.2,
-    47.6
+    46.5,
+    47.5,
+    48.6,
+    49.6,
+    50.7
    ],
    "maint": 2,
    "cagr": {
-    "base": 0.009,
-    "bull": 0.039,
-    "bear": -0.021
+    "base": 0.022,
+    "bull": 0.052,
+    "bear": -0.008
    },
    "sold": 46,
    "src": "bat",
    "n_comps": 309,
    "appr": {
     "w5": {
-     "from_year": 2021,
-     "from": 43.5,
+     "from_year": 2020,
      "to_year": 2026,
+     "from_label": "2020-21",
+     "to_label": "2025-26",
+     "from": 41.0,
      "to": 45.5,
-     "total_pct": 4.6,
-     "cagr_pct": 0.9,
-     "span_years": 5
+     "n_from": 57,
+     "n_to": 43,
+     "total_pct": 11.0,
+     "cagr_pct": 2.2,
+     "span_years": 4.7,
+     "cpi_from": 267.6,
+     "cpi_to": 329.0,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2016,
-     "from": 38.0,
+     "from_year": 2015,
      "to_year": 2026,
+     "from_label": "2015-16",
+     "to_label": "2025-26",
+     "from": 34.0,
      "to": 45.5,
-     "total_pct": 19.7,
-     "cagr_pct": 1.8,
-     "span_years": 10
+     "n_from": 21,
+     "n_to": 43,
+     "total_pct": 33.8,
+     "cagr_pct": 3.1,
+     "span_years": 9.5,
+     "cpi_from": 239.6,
+     "cpi_to": 329.0,
+     "pooled": true
     }
    },
    "bat_url": "https://bringatrailer.com/alfa-romeo/gtv/",
@@ -1238,39 +1378,53 @@
    ],
    "proj": [
     1275.0,
-    1308.2,
-    1342.2,
-    1377.1,
-    1412.9,
-    1449.6
+    1291.6,
+    1308.4,
+    1325.4,
+    1342.6,
+    1360.1
    ],
    "maint": 8,
    "cagr": {
-    "base": 0.026,
-    "bull": 0.056,
-    "bear": -0.004
+    "base": 0.013,
+    "bull": 0.043,
+    "bear": -0.017
    },
    "sold": 1275,
    "src": "bat",
    "n_comps": 19,
    "appr": {
     "w5": {
-     "from_year": 2022,
-     "from": 1150.0,
+     "from_year": 2021,
      "to_year": 2026,
-     "to": 1275.0,
-     "total_pct": 10.9,
-     "cagr_pct": 2.6,
-     "span_years": 4
+     "from_label": "2021-22",
+     "to_label": "2025-26",
+     "from": 1150.0,
+     "to": 1200.0,
+     "n_from": 2,
+     "n_to": 15,
+     "total_pct": 4.3,
+     "cagr_pct": 1.3,
+     "span_years": 3.4,
+     "cpi_from": 296.1,
+     "cpi_to": 328.7,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2022,
-     "from": 1150.0,
+     "from_year": 2021,
      "to_year": 2026,
-     "to": 1275.0,
-     "total_pct": 10.9,
-     "cagr_pct": 2.6,
-     "span_years": 4
+     "from_label": "2021-22",
+     "to_label": "2025-26",
+     "from": 1150.0,
+     "to": 1200.0,
+     "n_from": 2,
+     "n_to": 15,
+     "total_pct": 4.3,
+     "cagr_pct": 1.3,
+     "span_years": 3.4,
+     "cpi_from": 296.1,
+     "cpi_to": 328.7,
+     "pooled": true
     }
    },
    "bat_url": "https://bringatrailer.com/porsche/singer/",
@@ -1322,39 +1476,53 @@
    ],
    "proj": [
     123.9,
-    133.4,
-    143.7,
-    154.8,
-    166.7,
-    179.5
+    134.2,
+    145.3,
+    157.4,
+    170.4,
+    184.6
    ],
    "maint": 5,
    "cagr": {
-    "base": 0.077,
-    "bull": 0.107,
-    "bear": 0.047
+    "base": 0.083,
+    "bull": 0.113,
+    "bear": 0.053
    },
    "sold": 124,
    "src": "bat",
    "n_comps": 198,
    "appr": {
     "w5": {
-     "from_year": 2021,
-     "from": 85.5,
+     "from_year": 2020,
      "to_year": 2026,
-     "to": 123.9,
-     "total_pct": 44.9,
-     "cagr_pct": 7.7,
-     "span_years": 5
+     "from_label": "2020-21",
+     "to_label": "2025-26",
+     "from": 79.8,
+     "to": 120.5,
+     "n_from": 30,
+     "n_to": 62,
+     "total_pct": 51.1,
+     "cagr_pct": 8.3,
+     "span_years": 5.2,
+     "cpi_from": 262.9,
+     "cpi_to": 331.1,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2016,
-     "from": 81.5,
+     "from_year": 2015,
      "to_year": 2026,
-     "to": 123.9,
-     "total_pct": 52.0,
-     "cagr_pct": 4.3,
-     "span_years": 10
+     "from_label": "2015-16",
+     "to_label": "2025-26",
+     "from": 76.5,
+     "to": 120.5,
+     "n_from": 6,
+     "n_to": 62,
+     "total_pct": 57.4,
+     "cagr_pct": 4.7,
+     "span_years": 9.8,
+     "cpi_from": 239.3,
+     "cpi_to": 331.1,
+     "pooled": true
     }
    },
    "bat_url": "https://bringatrailer.com/ferrari/328/",
@@ -1364,22 +1532,36 @@
     "latest": 132.5,
     "appr": {
      "w5": {
-      "from_year": 2024,
-      "from": 86.0,
+      "from_year": 2023,
       "to_year": 2026,
+      "from_label": "2023-24",
+      "to_label": "2025-26",
+      "from": 84.0,
       "to": 132.5,
-      "total_pct": 54.1,
-      "cagr_pct": 24.1,
-      "span_years": 2
+      "n_from": 5,
+      "n_to": 2,
+      "total_pct": 57.7,
+      "cagr_pct": 28.8,
+      "span_years": 1.8,
+      "cpi_from": 313.2,
+      "cpi_to": 332.3,
+      "pooled": true
      },
      "w10": {
-      "from_year": 2024,
-      "from": 86.0,
+      "from_year": 2018,
       "to_year": 2026,
+      "from_label": "2018-19",
+      "to_label": "2025-26",
+      "from": 70.8,
       "to": 132.5,
-      "total_pct": 54.1,
-      "cagr_pct": 24.1,
-      "span_years": 2
+      "n_from": 2,
+      "n_to": 2,
+      "total_pct": 87.1,
+      "cagr_pct": 9.2,
+      "span_years": 7.1,
+      "cpi_from": 253.5,
+      "cpi_to": 332.3,
+      "pooled": true
      }
     }
    },
@@ -1487,39 +1669,53 @@
    ],
    "proj": [
     406.5,
-    416.3,
-    426.2,
-    436.5,
-    447.0,
-    457.7
+    418.3,
+    430.4,
+    442.9,
+    455.7,
+    469.0
    ],
    "maint": 7,
    "cagr": {
-    "base": 0.024,
-    "bull": 0.054,
-    "bear": -0.006
+    "base": 0.029,
+    "bull": 0.059,
+    "bear": -0.001
    },
    "sold": 406,
    "src": "bat",
    "n_comps": 67,
    "appr": {
     "w5": {
-     "from_year": 2021,
-     "from": 360.2,
+     "from_year": 2020,
      "to_year": 2026,
-     "to": 406.5,
-     "total_pct": 12.8,
-     "cagr_pct": 2.4,
-     "span_years": 5
+     "from_label": "2020-21",
+     "to_label": "2025-26",
+     "from": 360.2,
+     "to": 416.2,
+     "n_from": 11,
+     "n_to": 12,
+     "total_pct": 15.5,
+     "cagr_pct": 2.9,
+     "span_years": 5.1,
+     "cpi_from": 262.3,
+     "cpi_to": 329.3,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2019,
-     "from": 363.0,
+     "from_year": 2018,
      "to_year": 2026,
-     "to": 406.5,
+     "from_label": "2018-19",
+     "to_label": "2025-26",
+     "from": 371.5,
+     "to": 416.2,
+     "n_from": 6,
+     "n_to": 12,
      "total_pct": 12.0,
-     "cagr_pct": 1.6,
-     "span_years": 7
+     "cagr_pct": 1.8,
+     "span_years": 6.4,
+     "cpi_from": 255.6,
+     "cpi_to": 329.3,
+     "pooled": true
     }
    },
    "bat_url": "https://bringatrailer.com/ferrari/dino/",
@@ -1606,39 +1802,53 @@
    ],
    "proj": [
     88.0,
-    87.9,
-    87.8,
-    87.7,
-    87.6,
-    87.6
+    87.4,
+    86.8,
+    86.2,
+    85.6,
+    85.0
    ],
    "maint": 3,
    "cagr": {
-    "base": -0.001,
-    "bull": 0.029,
-    "bear": -0.031
+    "base": -0.007,
+    "bull": 0.023,
+    "bear": -0.037
    },
    "sold": 88,
    "src": "bat",
    "n_comps": 18,
    "appr": {
     "w5": {
-     "from_year": 2022,
-     "from": 88.5,
+     "from_year": 2021,
      "to_year": 2026,
-     "to": 88.0,
-     "total_pct": -0.6,
-     "cagr_pct": -0.1,
-     "span_years": 4
+     "from_label": "2021-22",
+     "to_label": "2025-26",
+     "from": 88.5,
+     "to": 86.5,
+     "n_from": 3,
+     "n_to": 9,
+     "total_pct": -2.3,
+     "cagr_pct": -0.7,
+     "span_years": 3.3,
+     "cpi_from": 296.9,
+     "cpi_to": 329.0,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2022,
-     "from": 88.5,
+     "from_year": 2021,
      "to_year": 2026,
-     "to": 88.0,
-     "total_pct": -0.6,
-     "cagr_pct": -0.1,
-     "span_years": 4
+     "from_label": "2021-22",
+     "to_label": "2025-26",
+     "from": 88.5,
+     "to": 86.5,
+     "n_from": 3,
+     "n_to": 9,
+     "total_pct": -2.3,
+     "cagr_pct": -0.7,
+     "span_years": 3.3,
+     "cpi_from": 296.9,
+     "cpi_to": 329.0,
+     "pooled": true
     }
    },
    "annual": [
@@ -1721,22 +1931,36 @@
    "n_comps": 27,
    "appr": {
     "w5": {
-     "from_year": 2024,
-     "from": 101.0,
+     "from_year": 2023,
      "to_year": 2026,
-     "to": 84.2,
-     "total_pct": -16.6,
-     "cagr_pct": -8.7,
-     "span_years": 2
+     "from_label": "2023-24",
+     "to_label": "2025-26",
+     "from": 101.0,
+     "to": 85.3,
+     "n_from": 5,
+     "n_to": 22,
+     "total_pct": -15.6,
+     "cagr_pct": -10.7,
+     "span_years": 1.5,
+     "cpi_from": 313.7,
+     "cpi_to": 329.5,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2024,
-     "from": 101.0,
+     "from_year": 2023,
      "to_year": 2026,
-     "to": 84.2,
-     "total_pct": -16.6,
-     "cagr_pct": -8.7,
-     "span_years": 2
+     "from_label": "2023-24",
+     "to_label": "2025-26",
+     "from": 101.0,
+     "to": 85.3,
+     "n_from": 5,
+     "n_to": 22,
+     "total_pct": -15.6,
+     "cagr_pct": -10.7,
+     "span_years": 1.5,
+     "cpi_from": 313.7,
+     "cpi_to": 329.5,
+     "pooled": true
     }
    },
    "annual": [
@@ -1778,39 +2002,53 @@
    ],
    "proj": [
     218.0,
-    230.4,
-    243.6,
-    257.4,
-    272.1,
-    287.6
+    232.0,
+    246.8,
+    262.6,
+    279.4,
+    297.3
    ],
    "maint": 6,
    "cagr": {
-    "base": 0.057,
-    "bull": 0.087,
-    "bear": 0.027
+    "base": 0.064,
+    "bull": 0.094,
+    "bear": 0.034
    },
    "sold": 218,
    "src": "bat",
    "n_comps": 129,
    "appr": {
     "w5": {
-     "from_year": 2021,
-     "from": 165.5,
+     "from_year": 2020,
      "to_year": 2026,
-     "to": 218.0,
-     "total_pct": 31.7,
-     "cagr_pct": 5.7,
-     "span_years": 5
+     "from_label": "2020-21",
+     "to_label": "2025-26",
+     "from": 135.0,
+     "to": 185.0,
+     "n_from": 17,
+     "n_to": 43,
+     "total_pct": 37.0,
+     "cagr_pct": 6.4,
+     "span_years": 5.1,
+     "cpi_from": 263.5,
+     "cpi_to": 330.0,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2018,
-     "from": 130.0,
+     "from_year": 2017,
      "to_year": 2026,
-     "to": 218.0,
-     "total_pct": 67.7,
-     "cagr_pct": 6.7,
-     "span_years": 8
+     "from_label": "2017-18",
+     "to_label": "2025-26",
+     "from": 125.3,
+     "to": 185.0,
+     "n_from": 8,
+     "n_to": 43,
+     "total_pct": 47.7,
+     "cagr_pct": 5.4,
+     "span_years": 7.4,
+     "cpi_from": 251.3,
+     "cpi_to": 330.0,
+     "pooled": true
     }
    },
    "annual": [
@@ -1904,39 +2142,53 @@
    ],
    "proj": [
     245.4,
-    269.9,
-    296.9,
-    326.6,
-    359.3,
-    395.2
+    257.7,
+    270.6,
+    284.1,
+    298.3,
+    313.2
    ],
    "maint": 7,
    "cagr": {
-    "base": 0.1,
-    "bull": 0.13,
-    "bear": 0.07
+    "base": 0.05,
+    "bull": 0.08,
+    "bear": 0.02
    },
    "sold": 245,
    "src": "bat",
    "n_comps": 55,
    "appr": {
     "w5": {
-     "from_year": 2021,
-     "from": 130.0,
+     "from_year": 2020,
      "to_year": 2026,
-     "to": 245.4,
-     "total_pct": 88.7,
-     "cagr_pct": 13.5,
-     "span_years": 5
+     "from_label": "2020-21",
+     "to_label": "2025-26",
+     "from": 114.7,
+     "to": 141.0,
+     "n_from": 6,
+     "n_to": 13,
+     "total_pct": 23.0,
+     "cagr_pct": 5.0,
+     "span_years": 4.2,
+     "cpi_from": 270.3,
+     "cpi_to": 325.4,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2018,
-     "from": 67.5,
+     "from_year": 2017,
      "to_year": 2026,
-     "to": 245.4,
-     "total_pct": 263.5,
-     "cagr_pct": 17.5,
-     "span_years": 8
+     "from_label": "2017-18",
+     "to_label": "2025-26",
+     "from": 67.5,
+     "to": 141.0,
+     "n_from": 5,
+     "n_to": 13,
+     "total_pct": 108.9,
+     "cagr_pct": 10.9,
+     "span_years": 7.1,
+     "cpi_from": 251.1,
+     "cpi_to": 325.4,
+     "pooled": true
     }
    },
    "annual": [
@@ -1998,31 +2250,6 @@
     }
    ],
    "bat_url": "https://bringatrailer.com/ferrari/f355/",
-   "driven": {
-    "min_miles": 30000,
-    "n_comps": 8,
-    "latest": 141.0,
-    "appr": {
-     "w5": {
-      "from_year": 2024,
-      "from": 154.4,
-      "to_year": 2025,
-      "to": 141.0,
-      "total_pct": -8.7,
-      "cagr_pct": -8.7,
-      "span_years": 1
-     },
-     "w10": {
-      "from_year": 2024,
-      "from": 154.4,
-      "to_year": 2025,
-      "to": 141.0,
-      "total_pct": -8.7,
-      "cagr_pct": -8.7,
-      "span_years": 1
-     }
-    }
-   },
    "production": {
     "last_my": 1999,
     "na": null,
@@ -2048,39 +2275,53 @@
    ],
    "proj": [
     235.4,
-    257.3,
-    281.2,
-    307.4,
-    336.0,
-    367.2
+    252.6,
+    271.0,
+    290.8,
+    312.0,
+    334.8
    ],
    "maint": 7,
    "cagr": {
-    "base": 0.093,
-    "bull": 0.123,
-    "bear": 0.063
+    "base": 0.073,
+    "bull": 0.103,
+    "bear": 0.043
    },
    "sold": 235,
    "src": "bat",
    "n_comps": 38,
    "appr": {
     "w5": {
-     "from_year": 2021,
-     "from": 150.8,
+     "from_year": 2020,
      "to_year": 2026,
-     "to": 235.4,
-     "total_pct": 56.1,
-     "cagr_pct": 9.3,
-     "span_years": 5
+     "from_label": "2020-21",
+     "to_label": "2025-26",
+     "from": 151.0,
+     "to": 212.0,
+     "n_from": 7,
+     "n_to": 7,
+     "total_pct": 40.4,
+     "cagr_pct": 7.3,
+     "span_years": 4.8,
+     "cpi_from": 269.7,
+     "cpi_to": 332.6,
+     "pooled": true
     },
     "w10": {
-     "from_year": 2021,
-     "from": 150.8,
+     "from_year": 2020,
      "to_year": 2026,
-     "to": 235.4,
-     "total_pct": 56.1,
-     "cagr_pct": 9.3,
-     "span_years": 5
+     "from_label": "2020-21",
+     "to_label": "2025-26",
+     "from": 151.0,
+     "to": 212.0,
+     "n_from": 7,
+     "n_to": 7,
+     "total_pct": 40.4,
+     "cagr_pct": 7.3,
+     "span_years": 4.8,
+     "cpi_from": 269.7,
+     "cpi_to": 332.6,
+     "pooled": true
     }
    },
    "annual": [
@@ -2140,7 +2381,7 @@
    }
   }
  },
- "bat_status": "Acura NSX (NA2 manual): 95 comps, 20 driven | Ferrari 360 (gated manual): 171 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 224 comps | Porsche 997.2 Turbo S: 78 comps, 17 driven | Ferrari 328 GTS/GTB: 198 comps, 9 driven | Alfa Romeo GTV 1750/2000: 309 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 335 comps | Ferrari Dino 246 GT/GTS: 67 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 27 comps | Ferrari 550 Maranello: 129 comps | Ferrari F355 Berlinetta (gated manual): 55 comps, 8 driven | Ferrari F355 GTS (gated manual): 38 comps | appreciation.csv: 12y x 15 cars",
+ "bat_status": "Acura NSX (NA2 manual): 95 comps, 20 driven | Ferrari 360 (gated manual): 171 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 224 comps | Porsche 997.2 Turbo S: 78 comps, 17 driven | Ferrari 328 GTS/GTB: 198 comps, 9 driven | Alfa Romeo GTV 1750/2000: 309 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 335 comps | Ferrari Dino 246 GT/GTS: 67 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 27 comps | Ferrari 550 Maranello: 129 comps | Ferrari F355 Berlinetta (gated manual): 55 comps | Ferrari F355 GTS (gated manual): 38 comps | appreciation.csv: 12y x 15 cars",
  "cpi_by_year": {
   "2014": 236.7,
   "2015": 237.0,

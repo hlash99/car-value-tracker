@@ -474,27 +474,79 @@ def to_hist(series, years):
     return out
 
 
-def windows(series):
-    """Total and per-year appreciation over the 5y and 10y windows."""
-    if len(series) < 2:
+# Sales needed at EACH end of a window before the page stops flagging it "thin".
+THIN_POOL = 5
+
+
+def _frac_year(s):
+    """Sale date as a fractional year, e.g. mid-2025 -> 2025.5."""
+    return 1970 + s["ts"] / (365.2425 * 86400)
+
+
+def _cpi_at(t):
+    """CPI-U at a fractional year. The table holds annual averages, which sit
+    at mid-year, so interpolate between mid-years and hold flat past the ends."""
+    ys = sorted(CPI_BY_YEAR)
+    x = t - 0.5
+    if x <= ys[0]:
+        return CPI_BY_YEAR[ys[0]]
+    if x >= ys[-1]:
+        return CPI_BY_YEAR[ys[-1]]
+    y0 = int(x)
+    f = x - y0
+    return CPI_BY_YEAR[y0] + (CPI_BY_YEAR[y0 + 1] - CPI_BY_YEAR[y0]) * f
+
+
+def windows(sold):
+    """Total and per-year appreciation over the 5y and 10y windows, from POOLED
+    two-year ends rather than single calendar years.
+
+    Comparing one year's median with another's let 3-5 sales set a car's whole
+    5-yr figure: the F355 Berlinetta read +89% off a 2026 median of three cars
+    (one a 17k-mile $355k outlier) while its 2021-22 -> 2025-26 pooled median
+    was flat. Each end is now the median of a two-calendar-year pool - the latest
+    two years, and the two years ~5 (or ~10) before them, moving later if that
+    pool is empty, as before. The span is measured between the pools' average
+    SALE DATES, so a part-year at the end does not flatter the CAGR, and CPI is
+    read at those same dates so the page can deflate exactly. n_from / n_to are
+    published so the page can flag a window resting on few sales."""
+    if not sold:
         return {}
-    latest = series[-1]
+    L = max(int(s["date"][:4]) for s in sold)
+    pool = lambda y0, y1: [s for s in sold if y0 <= int(s["date"][:4]) <= y1]
+    top = pool(L - 1, L)
+    if len(top) < 2:
+        return {}
+    to_med = statistics.median(s["price"] for s in top)
+    t1 = statistics.mean(_frac_year(s) for s in top)
     out = {}
     for win in (5, 10):
-        target = latest["year"] - win
-        base = next((p for p in series if p["year"] >= target), None)
-        if not base or base["year"] >= latest["year"]:
+        base = None
+        for y0 in range(L - 1 - win, L - 2):      # base pool must end before the top pool starts
+            p = pool(y0, y0 + 1)
+            if len(p) >= 2:
+                base = (y0, p)
+                break
+        if not base:
             continue
-        span = latest["year"] - base["year"]
+        y0, p = base
+        from_med = statistics.median(s["price"] for s in p)
+        t0 = statistics.mean(_frac_year(s) for s in p)
+        span = round(t1 - t0, 1)
+        if span < 1:
+            continue
         out[f"w{win}"] = {
-            "from_year": base["year"], "from": round(base["median"] / 1000.0, 1),
-            "to_year": latest["year"], "to": round(latest["median"] / 1000.0, 1),
-            "total_pct": round((latest["median"] / base["median"] - 1) * 100, 1),
-            "cagr_pct": cagr(base["median"], latest["median"], span),
+            "from_year": y0, "to_year": L,
+            "from_label": f"{y0}-{str(y0 + 1)[2:]}", "to_label": f"{L - 1}-{str(L)[2:]}",
+            "from": round(from_med / 1000.0, 1), "to": round(to_med / 1000.0, 1),
+            "n_from": len(p), "n_to": len(top),
+            "total_pct": round((to_med / from_med - 1) * 100, 1),
+            "cagr_pct": cagr(from_med, to_med, span),
             "span_years": span,
+            "cpi_from": round(_cpi_at(t0), 1), "cpi_to": round(_cpi_at(t1), 1),
+            "pooled": True,
         }
     return out
-
 
 # The Google Sheet pulls this with IMPORTDATA, which re-fetches on its own
 # schedule - so the chart there tracks this CI without anyone touching it.
@@ -548,7 +600,7 @@ def main():
             log.append(f"{name}: no usable annual medians")
             continue
 
-        appr = windows(s_all)
+        appr = windows(all_sold)
         base_cagr = (appr.get("w5") or {}).get("cagr_pct")
         r = max(-0.06, min(0.10, (base_cagr or 0) / 100.0))   # damp to a sane band
         v0 = hist[-1]
@@ -573,7 +625,7 @@ def main():
         # is truthy in the page JS - it showed blank cells instead of falling
         # back to all comps with the dagger. Drop any stale block too, so a car
         # that loses its driven window falls back rather than keeping old numbers.
-        drv_appr = windows(s_drv) if s_drv else {}
+        drv_appr = windows(driven)
         if len(driven) >= 5 and drv_appr:
             car["driven"] = {
                 "min_miles": DRIVEN_MILES,
