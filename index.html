@@ -286,8 +286,27 @@ const SORTS={
   maint: r=>r.c.maint||0,
   w5:    r=>metricVal(r.w5),
   w10:   r=>metricVal(r.w10),
+  deal:  r=>dealKey(r),
   n:     r=>r.n
 };
+
+/* "Deal" ratio: the 5-yr CAGR - under the CURRENT basis and maintenance
+   toggles, so a costly-to-run car is penalised when maintenance is on - per
+   $100k of today's market price. Higher = more appreciation per dollar tied up.
+   5-yr rather than 10-yr because the 10-yr column often falls back to a
+   shorter, thinner window. Only defined for appreciating cars: dividing a
+   NEGATIVE rate by price makes a cheap loser look worse than an expensive one
+   losing the same %/yr, so losers show "losing" and sort below every gainer,
+   ordered among themselves by their CAGR. */
+function dealOf(r){
+  const c=r.w5?r.w5.cagr_pct:null;
+  if(c==null||!isFinite(c)||!r.value) return null;
+  return {cagr:c, ratio: c>0 ? c/(r.value/100) : null};
+}
+function dealKey(r){
+  const d=dealOf(r); if(!d) return null;
+  return d.ratio!=null ? d.ratio : -1000+d.cagr;
+}
 
 /* Blank cells sort last in BOTH directions -- a car with no 10-yr history
    should never win a "best 10-yr" sort by having nothing to show. */
@@ -480,6 +499,7 @@ function valCols(){
     {key:"maint", label:"Maint/yr",                   num:true, only:()=>state.maint==="on"},
     {key:"w5",    label:"5-yr "+m,                    num:true, sub:alt},
     {key:"w10",   label:"10-yr "+m,                   num:true, sub:alt+" \u00b7 or longest available"},
+    {key:"deal",  label:"CAGR per $100k",             num:true, sub:"5-yr CAGR \u00f7 price \u00b7 higher = better deal"},
     {key:"n",     label:"Comps",                      num:true}
   ].filter(c=>!c.only||c.only());
 }
@@ -542,6 +562,19 @@ function winCell(d,n){
     +(thin?' &middot; thin':'')+'</span></td>';
 }
 
+function dealCell(r){
+  const d=dealOf(r);
+  if(!d) return '<td class="num">&mdash;</td>';
+  const thin=isThin(r.w5,r.n), basis=pct(d.cagr)+'/yr on '+fmtk(r.value);
+  const tip=thin?' title="Rests on a thin 5-yr window - indicative only"':'';
+  if(d.ratio==null)
+    return '<td class="num"'+tip+'><b class="down'+(thin?' fb':'')+'">losing</b>'
+      +'<span class="sub">'+basis+(thin?' &middot; thin':'')+'</span></td>';
+  return '<td class="num"'+tip+'><b class="up'+(thin?' fb':'')+'">'+d.ratio.toFixed(2)+'</b>'
+    +'<span class="sub alt'+(thin?' fb':'')+'">%/yr per $100k</span>'
+    +'<span class="sub">'+basis+(thin?' &middot; thin':'')+'</span></td>';
+}
+
 function renderTable(){
   const cols=valCols(), rows=sortedRows();
   let h="<thead><tr>";
@@ -573,6 +606,7 @@ function renderTable(){
         h+='<td class="num">'+(c.maint?fmtk(c.maint):"&mdash;")+'</td>';
       else if(col.key==="w5")  h+=winCell(r.w5,r.n);
       else if(col.key==="w10") h+=winCell(r.w10,r.n);
+      else if(col.key==="deal") h+=dealCell(r);
       else if(col.key==="n")
         h+='<td class="num">'+(r.n?r.n:"&mdash;")
           +'<span class="sub">'+(c.n_comps?"BaT sold":"asking")+'</span></td>';
@@ -608,6 +642,7 @@ function renderTable(){
     + " The line under a car\u2019s name is how many were made, scoped to that car\u2019s spec \u2014 worldwide once every model year is 25+ years old and importable to the US, North American before that. Hover it for the basis, click for the source."
     + " A leading ~ marks an unofficial count (a chassis register, or dealer and VIN data) where the maker publishes none;"
     + " the Emira has none because it is still in production."
+    + " CAGR per $100k divides the 5-yr CAGR (as currently toggled) by today\u2019s price: higher means more appreciation per dollar tied up. It is only shown for cars that are appreciating - cars losing value read \u201closing\u201d and sort below every gainer."
     + " Blank cells sort last in either direction.";
 }
 
