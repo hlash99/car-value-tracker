@@ -1,6 +1,6 @@
 {
- "updated": "2026-09-25T04:10Z",
- "refresh_status": "auto-refresh 2026-09-24 18:30Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $344k; Ferrari F12 Berlinetta: n=24 asking\u2248$526k -> value\u2248$450k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $532k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k",
+ "updated": "2026-09-25T08:04Z",
+ "refresh_status": "auto-refresh 2026-09-25 07:57Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $344k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $450k; Ferrari 812 Superfast: n=24 asking\u2248$575k -> value\u2248$532k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
  "years": [
@@ -2747,7 +2747,7 @@
     }
    }
   },
-  "updated": "2026-09-25T04:02Z",
+  "updated": "2026-09-25T08:04Z",
   "status": "S&P 500: 140 months to 2026-08 | AAPL: 121 months to 2026-09"
  }
 }
