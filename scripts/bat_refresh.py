@@ -170,6 +170,29 @@ BAT_CARS = {
                  "year_min": 1996, "year_max": 2001, "lo": 60000, "hi": 900000},
         "maint": 6,
     },
+    # F355: manual only, like the 360. BaT titles every manual "6-Speed"; the
+    # untitled late cars are nearly all F1, so 6-speed is required and F1 is
+    # excluded by name. Challenge race cars (and their seats, wheels and signs)
+    # share the page and are excluded, as are luggage/exhausts via the $60k floor.
+    # One manual coupe is titled "355 GTB" rather than Berlinetta, hence any_of.
+    # The soft-top Spider is left out: he asked for the coupe and the targa.
+    "Ferrari F355 Berlinetta (gated manual)": {
+        "url": "https://bringatrailer.com/ferrari/f355/",
+        "color": "#E8B100",
+        "blurb": "Gated six-speed coupe, 1995-1999 - the F1 paddle cars are a different market.",
+        "spec": {"include": ["6-speed"], "exclude": ["challenge", "spider", "gts", "f1"],
+                 "year_min": 1995, "year_max": 1999, "lo": 60000, "hi": 600000},
+        "any_of": ["berlinetta", "355 gtb"],
+        "maint": 7,
+    },
+    "Ferrari F355 GTS (gated manual)": {
+        "url": "https://bringatrailer.com/ferrari/f355/",
+        "color": "#A0522D",
+        "blurb": "Targa-top GTS, gated six-speed, 1995-1999 - the lift-out roof, not the Spider.",
+        "spec": {"include": ["gts", "6-speed"], "exclude": ["challenge", "spider", "f1"],
+                 "year_min": 1995, "year_max": 1999, "lo": 60000, "hi": 600000},
+        "maint": 7,
+    },
 }
 
 
@@ -345,6 +368,26 @@ PRODUCTION = {
             "url": "https://f-register.com/About-the-Cars/Production-Numbers"
         },
         "na": None
+    },
+    "Ferrari F355 Berlinetta (gated manual)": {
+        "last_my": 1999,
+        "na": None,
+        "world": {
+            "label": "~3,822 built",
+            "detail": "Gated-manual F355 Berlinettas, 1994-1999, worldwide: 3,931 manual chassis in the register less the 109 Challenge conversions. Another 1,049 were F1. Totals reconcile within ~2% of the 4,871 Berlinettas usually quoted.",
+            "src": "f-register.com production list (Matthias Urban)",
+            "url": "https://f-register.com/About-the-Cars/Production-Numbers"
+        }
+    },
+    "Ferrari F355 GTS (gated manual)": {
+        "last_my": 1999,
+        "na": None,
+        "world": {
+            "label": "~2,003 built",
+            "detail": "Gated-manual F355 GTS targas, 1994-1998, worldwide; another 526 were F1. Totals reconcile within ~2% of the 2,577 GTS usually quoted.",
+            "src": "f-register.com production list (Matthias Urban)",
+            "url": "https://f-register.com/About-the-Cars/Production-Numbers"
+        }
     }
 }
 
@@ -549,8 +592,22 @@ def main():
         else:
             car.pop("production", None)
 
+    # A car whose scrape failed this run keeps its CSV column, rebuilt from the
+    # per-year medians already in data.json. Without this a single BaT timeout
+    # dropped the column and shifted every later car left - and the WEEKEND CAR
+    # VERDICT sheet charts these columns by POSITION, so its series silently
+    # repointed at the wrong car. Columns are always emitted in BAT_CARS order.
+    csv_series = {}
+    for name in BAT_CARS:
+        if series_by_car.get(name):
+            csv_series[name] = series_by_car[name]
+        elif d["cars"].get(name, {}).get("annual"):
+            csv_series[name] = [{"year": p["year"], "median": p["median"] * 1000}
+                                for p in d["cars"][name]["annual"]]
+            log.append(f"{name}: CSV column kept from last-good data")
+
     d["cpi_by_year"] = {str(k): v for k, v in CPI_BY_YEAR.items()}
-    ny, nc = write_csv(series_by_car)
+    ny, nc = write_csv(csv_series)
     log.append(f"{CSV_NAME}: {ny}y x {nc} cars")
     d["updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ")
     d["bat_status"] = " | ".join(log)
