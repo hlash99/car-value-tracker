@@ -132,8 +132,8 @@
       <button data-v="on" class="on">Maintenance on</button>
     </div>
     <div class="seg" id="metricSeg">
-      <button data-v="total" class="on">Total %</button>
-      <button data-v="cagr">CAGR %/yr</button>
+      <button data-v="total">Total %</button>
+      <button data-v="cagr" class="on">CAGR %/yr</button>
     </div>
     <div class="seg" id="drivenSeg">
       <button data-v="all" class="on">All comps</button>
@@ -216,7 +216,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <script>
-const state={basis:"real",scen:"base",maint:"on",metric:"total",driven:"all",
+const state={basis:"real",scen:"base",maint:"on",metric:"cagr",driven:"all",
              sortBy:"w10",sortDir:"desc"};
 let D, charts={};
 const $=s=>document.querySelector(s);

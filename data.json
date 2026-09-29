@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-28T20:46Z",
+ "updated": "2026-09-29T03:56Z",
  "refresh_status": "auto-refresh 2026-09-28 20:38Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $344k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $432k; Ferrari 812 Superfast: n=24 asking\u2248$580k -> value\u2248$536k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $759k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
@@ -2455,9 +2455,109 @@
      "url": "https://f-register.com/About-the-Cars/Production-Numbers"
     }
    }
+  },
+  "Porsche Carrera GT": {
+   "color": "#3B4A5A",
+   "blurb": "2004-2006 Le Mans-derived 5.7 V10, six-speed - 1,270 built, and only 14 BaT sales ever, so the pre-2022 years are interpolated.",
+   "hist": [
+    1682.0,
+    1682.0,
+    1682.0,
+    1724.8,
+    1767.6,
+    1810.4,
+    1810.4
+   ],
+   "proj": [
+    1810.4,
+    1991.4,
+    2190.6,
+    2409.6,
+    2650.6,
+    2915.7
+   ],
+   "maint": 12,
+   "cagr": {
+    "base": 0.1,
+    "bull": 0.13,
+    "bear": 0.07
+   },
+   "sold": 1810,
+   "src": "bat",
+   "n_comps": 14,
+   "appr": {
+    "w5": {
+     "from_year": 2020,
+     "to_year": 2025,
+     "from_label": "2020-21",
+     "to_label": "2024-25",
+     "from": 943.0,
+     "to": 1599.7,
+     "n_from": 2,
+     "n_to": 4,
+     "total_pct": 69.6,
+     "cagr_pct": 13.4,
+     "span_years": 4.2,
+     "cpi_from": 263.7,
+     "cpi_to": 320.2,
+     "t_from": 2020.923,
+     "t_to": 2025.137,
+     "pooled": true
+    },
+    "w10": {
+     "from_year": 2020,
+     "to_year": 2025,
+     "from_label": "2020-21",
+     "to_label": "2024-25",
+     "from": 943.0,
+     "to": 1599.7,
+     "n_from": 2,
+     "n_to": 4,
+     "total_pct": 69.6,
+     "cagr_pct": 13.4,
+     "span_years": 4.2,
+     "cpi_from": 263.7,
+     "cpi_to": 320.2,
+     "t_from": 2020.923,
+     "t_to": 2025.137,
+     "pooled": true
+    }
+   },
+   "annual": [
+    {
+     "year": 2022,
+     "median": 1682.0,
+     "n": 7,
+     "lo": 1650.0,
+     "hi": 1865.0
+    },
+    {
+     "year": 2025,
+     "median": 1810.4,
+     "n": 3,
+     "lo": 1389.0,
+     "hi": 1921.0
+    }
+   ],
+   "bat_url": "https://bringatrailer.com/porsche/carrera-gt/",
+   "production": {
+    "last_my": 2006,
+    "world": {
+     "label": "1,270 built",
+     "detail": "Every Carrera GT, 2004 to the end of production on 6 May 2006. Porsche had planned 1,500 and stopped early over changing US airbag rules.",
+     "src": "Wikipedia - Porsche Carrera GT",
+     "url": "https://en.wikipedia.org/wiki/Porsche_Carrera_GT"
+    },
+    "na": {
+     "label": "675 sold new in N. America",
+     "detail": "644 United States + 31 Canada, of 1,270 built. The last model year turns 25 in 2031, so until then these are the cars that can legally be registered here.",
+     "src": "Wikipedia - Porsche Carrera GT",
+     "url": "https://en.wikipedia.org/wiki/Porsche_Carrera_GT"
+    }
+   }
   }
  },
- "bat_status": "Acura NSX (NA2 manual): 95 comps, 20 driven | Ferrari 360 (gated manual): 171 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 226 comps | Porsche 997.2 Turbo S: 78 comps, 17 driven | Ferrari 328 GTS/GTB: 198 comps, 9 driven | Alfa Romeo GTV 1750/2000: 310 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 336 comps | Ferrari Dino 246 GT/GTS: 67 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 27 comps | Ferrari 550 Maranello: 129 comps | Ferrari F355 Berlinetta (gated manual): 55 comps | Ferrari F355 GTS (gated manual): 38 comps | appreciation.csv: 12y x 15 cars",
+ "bat_status": "Acura NSX (NA2 manual): 95 comps, 20 driven | Ferrari 360 (gated manual): 171 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 226 comps | Porsche 997.2 Turbo S: 78 comps, 17 driven | Ferrari 328 GTS/GTB: 198 comps, 9 driven | Alfa Romeo GTV 1750/2000: 310 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 336 comps | Ferrari Dino 246 GT/GTS: 67 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 27 comps | Ferrari 550 Maranello: 129 comps | Ferrari F355 Berlinetta (gated manual): 55 comps | Ferrari F355 GTS (gated manual): 38 comps | Porsche Carrera GT: 14 comps | appreciation.csv: 12y x 16 cars",
  "cpi_by_year": {
   "2014": 236.7,
   "2015": 237.0,

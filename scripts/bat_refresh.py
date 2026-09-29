@@ -196,6 +196,21 @@ BAT_CARS = {
                  "year_min": 1995, "year_max": 1999, "lo": 60000, "hi": 600000},
         "maint": 7,
     },
+    # Only 1,270 were built and they change hands a handful of times a year, so
+    # the whole BaT history is 14 sold comps deep - thin by this page's
+    # standards, and flagged as such until the pools fill out. The model page
+    # also carries posters, models and a steering wheel, all of which parse as
+    # SOLD; the $300k floor clears them, and no real car has sold below $1.1M.
+    # Not one has sold at 30k+ miles - most are under 10k - so there is no
+    # driven series and it falls back to all comps with a dagger, like the Dino.
+    "Porsche Carrera GT": {
+        "url": "https://bringatrailer.com/porsche/carrera-gt/",
+        "color": "#3B4A5A",
+        "blurb": "2004-2006 Le Mans-derived 5.7 V10, six-speed - 1,270 built, and only 14 BaT sales ever, so the pre-2022 years are interpolated.",
+        "spec": {"include": ["carrera gt"], "exclude": ["replica", "kit car", "poster"],
+                 "year_min": 2003, "year_max": 2007, "lo": 300000, "hi": 3000000},
+        "maint": 12,
+    },
 }
 
 
@@ -212,6 +227,21 @@ BAT_CARS = {
 # counts (chassis registers, VIN or dealer-data compilations). Applied to EVERY
 # car in data.json. Absent: the Emira (in production, no audited total).
 PRODUCTION = {
+    "Porsche Carrera GT": {
+        "last_my": 2006,
+        "world": {
+            "label": "1,270 built",
+            "detail": "Every Carrera GT, 2004 to the end of production on 6 May 2006. Porsche had planned 1,500 and stopped early over changing US airbag rules.",
+            "src": "Wikipedia - Porsche Carrera GT",
+            "url": "https://en.wikipedia.org/wiki/Porsche_Carrera_GT"
+        },
+        "na": {
+            "label": "675 sold new in N. America",
+            "detail": "644 United States + 31 Canada, of 1,270 built. The last model year turns 25 in 2031, so until then these are the cars that can legally be registered here.",
+            "src": "Wikipedia - Porsche Carrera GT",
+            "url": "https://en.wikipedia.org/wiki/Porsche_Carrera_GT"
+        }
+    },
     "Corvette split-window (1963)": {
         "last_my": 1963,
         "world": {
