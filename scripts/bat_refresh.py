@@ -211,6 +211,26 @@ BAT_CARS = {
                  "year_min": 2003, "year_max": 2007, "lo": 300000, "hi": 3000000},
         "maint": 12,
     },
+    # BaT files the 2017-2022 car on its own page, so /ford/gt/ is all
+    # first-generation - the year bounds keep it that way if that ever changes.
+    # The page is unusually full of parts: BBS wheels, doors, bodywork, three
+    # loose engines, an engine-and-transaxle and a 1:1 wooden display model, all
+    # of which parse as SOLD. They top out at $151k against a $210k cheapest real
+    # car, so the $175k floor separates them cleanly. Six modified cars
+    # (Whipple-supercharged, Hennessey GT850, two twin-turbo builds) are excluded
+    # by name: they trade on their own terms, above and below stock. Heritage
+    # Editions stay in - a factory edition, not a modification. Not one car has
+    # sold at 30k+ miles, so there is no driven series and it falls back to all
+    # comps with a dagger, like the Dino and the Carrera GT.
+    "Ford GT (2005-2006)": {
+        "url": "https://bringatrailer.com/ford/gt/",
+        "color": "#00A3E0",
+        "blurb": "Supercharged 5.4 V8, six-speed - the Le Mans homage, 4,038 built.",
+        "spec": {"include": ["ford gt"],
+                 "exclude": ["gt40", "replica", "whipple", "hennessey", "twin-turbo", "modified"],
+                 "year_min": 2004, "year_max": 2007, "lo": 175000, "hi": 3000000},
+        "maint": 3,
+    },
 }
 
 
@@ -227,6 +247,21 @@ BAT_CARS = {
 # counts (chassis registers, VIN or dealer-data compilations). Applied to EVERY
 # car in data.json. Absent: the Emira (in production, no audited total).
 PRODUCTION = {
+    "Ford GT (2005-2006)": {
+        "last_my": 2006,
+        "world": {
+            "label": "4,038 built",
+            "detail": "Every first-generation Ford GT, from the 2004 pre-production cars to the end of the line on 21 September 2006: roughly 550 in 2004, nearly 1,900 in 2005 and just over 1,600 in 2006. Ford had planned 4,500.",
+            "src": "Wikipedia - Ford GT",
+            "url": "https://en.wikipedia.org/wiki/Ford_GT"
+        },
+        "na": {
+            "label": "~3,900 for N. America",
+            "detail": "4,038 built less the roughly 129 European deliveries (101 to the mainland, 28 to the UK). Those are allocation figures rather than audited builds, hence the tilde; about 200 of the North American cars went to Canada.",
+            "src": "Wikipedia - Ford GT",
+            "url": "https://en.wikipedia.org/wiki/Ford_GT"
+        }
+    },
     "Porsche Carrera GT": {
         "last_my": 2006,
         "world": {
