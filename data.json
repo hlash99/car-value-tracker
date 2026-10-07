@@ -1,6 +1,6 @@
 {
- "updated": "2026-10-07T08:56Z",
- "refresh_status": "auto-refresh 2026-10-07 08:49Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $344k; Ferrari F12 Berlinetta: n=24 asking\u2248$495k -> value\u2248$424k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $517k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $696k",
+ "updated": "2026-10-07T20:10Z",
+ "refresh_status": "auto-refresh 2026-10-07 20:02Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $344k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $424k; Ferrari 812 Superfast: n=23 asking\u2248$570k -> value\u2248$527k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $696k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
  "years": [
@@ -150,10 +150,10 @@
     350,
     380,
     410,
-    517
+    527
    ],
    "proj": [
-    517,
+    527,
     430,
     440,
     458,
@@ -166,7 +166,7 @@
     "bull": 0.05,
     "bear": -0.02
    },
-   "asking": 559,
+   "asking": 570,
    "sold": 415,
    "factor": 0.925,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_superfast&maximum_distance=all&zip=94027",
@@ -951,7 +951,7 @@
    },
    "sold": 175,
    "src": "bat",
-   "n_comps": 226,
+   "n_comps": 227,
    "appr": {
     "w5": {
      "from_year": 2020,
@@ -959,16 +959,16 @@
      "from_label": "2020-21",
      "to_label": "2025-26",
      "from": 114.0,
-     "to": 155.0,
+     "to": 155.5,
      "n_from": 30,
-     "n_to": 89,
-     "total_pct": 36.0,
+     "n_to": 90,
+     "total_pct": 36.4,
      "cagr_pct": 7.1,
      "span_years": 4.5,
      "cpi_from": 271.1,
-     "cpi_to": 329.6,
+     "cpi_to": 329.8,
      "t_from": 2021.454,
-     "t_to": 2025.943,
+     "t_to": 2025.952,
      "pooled": true
     },
     "w10": {
@@ -977,16 +977,16 @@
      "from_label": "2015-16",
      "to_label": "2025-26",
      "from": 90.8,
-     "to": 155.0,
+     "to": 155.5,
      "n_from": 4,
-     "n_to": 89,
-     "total_pct": 70.8,
+     "n_to": 90,
+     "total_pct": 71.3,
      "cagr_pct": 5.7,
      "span_years": 9.7,
      "cpi_from": 239.2,
-     "cpi_to": 329.6,
+     "cpi_to": 329.8,
      "t_from": 2016.222,
-     "t_to": 2025.943,
+     "t_to": 2025.952,
      "pooled": true
     }
    },
@@ -1058,9 +1058,9 @@
     {
      "year": 2026,
      "median": 175.0,
-     "n": 44,
+     "n": 45,
      "lo": 130.0,
-     "hi": 206.0
+     "hi": 216.0
     }
    ],
    "production": {
@@ -2343,25 +2343,25 @@
     187.7,
     180.5,
     159.8,
-    235.4
+    250.7
    ],
    "proj": [
-    235.4,
-    252.6,
-    271.0,
-    290.8,
-    312.0,
-    334.8
+    250.7,
+    271.5,
+    294.0,
+    318.4,
+    344.9,
+    373.5
    ],
    "maint": 7,
    "cagr": {
-    "base": 0.073,
-    "bull": 0.103,
-    "bear": 0.043
+    "base": 0.083,
+    "bull": 0.113,
+    "bear": 0.053
    },
-   "sold": 235,
+   "sold": 251,
    "src": "bat",
-   "n_comps": 38,
+   "n_comps": 39,
    "appr": {
     "w5": {
      "from_year": 2020,
@@ -2369,16 +2369,16 @@
      "from_label": "2020-21",
      "to_label": "2025-26",
      "from": 151.0,
-     "to": 212.0,
+     "to": 223.7,
      "n_from": 7,
-     "n_to": 7,
-     "total_pct": 40.4,
-     "cagr_pct": 7.3,
-     "span_years": 4.8,
+     "n_to": 8,
+     "total_pct": 48.1,
+     "cagr_pct": 8.3,
+     "span_years": 4.9,
      "cpi_from": 269.7,
-     "cpi_to": 332.6,
+     "cpi_to": 333.6,
      "t_from": 2021.359,
-     "t_to": 2026.158,
+     "t_to": 2026.234,
      "pooled": true
     },
     "w10": {
@@ -2387,16 +2387,16 @@
      "from_label": "2020-21",
      "to_label": "2025-26",
      "from": 151.0,
-     "to": 212.0,
+     "to": 223.7,
      "n_from": 7,
-     "n_to": 7,
-     "total_pct": 40.4,
-     "cagr_pct": 7.3,
-     "span_years": 4.8,
+     "n_to": 8,
+     "total_pct": 48.1,
+     "cagr_pct": 8.3,
+     "span_years": 4.9,
      "cpi_from": 269.7,
-     "cpi_to": 332.6,
+     "cpi_to": 333.6,
      "t_from": 2021.359,
-     "t_to": 2026.158,
+     "t_to": 2026.234,
      "pooled": true
     }
    },
@@ -2438,10 +2438,10 @@
     },
     {
      "year": 2026,
-     "median": 235.4,
-     "n": 5,
+     "median": 250.7,
+     "n": 6,
      "lo": 212.0,
-     "hi": 266.0
+     "hi": 280.0
     }
    ],
    "bat_url": "https://bringatrailer.com/ferrari/f355/",
@@ -2706,7 +2706,7 @@
    }
   }
  },
- "bat_status": "Acura NSX (NA2 manual): 95 comps, 20 driven | Ferrari 360 (gated manual): 171 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 226 comps | Porsche 997.2 Turbo S: 78 comps, 17 driven | Ferrari 328 GTS/GTB: 200 comps, 9 driven | Alfa Romeo GTV 1750/2000: 310 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 337 comps | Ferrari Dino 246 GT/GTS: 68 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 28 comps | Ferrari 550 Maranello: 129 comps | Ferrari F355 Berlinetta (gated manual): 55 comps | Ferrari F355 GTS (gated manual): 38 comps | Porsche Carrera GT: 14 comps | Ford GT (2005-2006): 252 comps | appreciation.csv: 12y x 17 cars",
+ "bat_status": "Acura NSX (NA2 manual): 95 comps, 20 driven | Ferrari 360 (gated manual): 171 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 227 comps | Porsche 997.2 Turbo S: 78 comps, 17 driven | Ferrari 328 GTS/GTB: 200 comps, 9 driven | Alfa Romeo GTV 1750/2000: 310 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 337 comps | Ferrari Dino 246 GT/GTS: 68 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 28 comps | Ferrari 550 Maranello: 129 comps | Ferrari F355 Berlinetta (gated manual): 55 comps | Ferrari F355 GTS (gated manual): 39 comps | Porsche Carrera GT: 14 comps | Ford GT (2005-2006): 252 comps | appreciation.csv: 12y x 17 cars",
  "cpi_by_year": {
   "2014": 236.7,
   "2015": 237.0,
@@ -2996,7 +2996,7 @@
     }
    }
   },
-  "updated": "2026-10-07T08:56Z",
+  "updated": "2026-10-07T20:11Z",
   "status": "S&P 500: 140 months to 2026-08 | AAPL: 121 months to 2026-10"
  }
 }
