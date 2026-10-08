@@ -164,7 +164,7 @@
   <section class="blk" data-blk="trajectory"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Price trajectory — actual + projected (<span id="scenLabel">base</span> case)<button class="clps" title="Collapse / expand">▾</button></h3>
   <div class="bwrap"><div class="chartbox"><div class="chartwrap"><canvas id="chartTraj"></canvas></div></div></div></section>
 
-  <section class="blk" data-blk="returns"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>6-year return (2020 → 2026) — <span id="basisLabel">nominal</span><button class="clps" title="Collapse / expand">▾</button></h3>
+  <section class="blk" data-blk="returns"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>5-year return, same figures as the table (<span id="retMetric">CAGR %/yr</span>) — <span id="basisLabel">nominal</span><button class="clps" title="Collapse / expand">▾</button></h3>
   <div class="bwrap"><div class="chartbox"><div class="chartwrap"><canvas id="chartRet"></canvas></div></div></div></section>
 
   <section class="blk" data-blk="yoy"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Year-over-year appreciation — <span id="basisLabel2">nominal</span><button class="clps" title="Collapse / expand">▾</button></h3>
@@ -370,7 +370,8 @@ function scenProj(name){ // returns 6-pt array for chosen scenario
   return D.pyears.map((y,i)=>v0*Math.pow(1+r,i));
 }
 
-function syncLabels(){const t=basisText();$("#basisLabel").textContent=t;$("#basisLabel2").textContent=t;}
+function syncLabels(){const t=basisText();$("#basisLabel").textContent=t;$("#basisLabel2").textContent=t;
+  $("#retMetric").textContent=state.metric==="cagr"?"CAGR %/yr":"total %";}
 
 function init(){
   try{Chart.unregister(ChartDataLabels);}catch(e){}  // scope datalabels to the indexed chart only
@@ -392,7 +393,7 @@ function init(){
   bindSeg("#basisSeg",v=>{state.basis=v;syncLabels();renderTable();drawPlots();});
   bindSeg("#scenSeg",v=>{state.scen=v;$("#scenLabel").textContent=v;drawTraj();renderProjTable();});
   bindSeg("#maintSeg",v=>{state.maint=v;syncLabels();renderTable();drawPlots();renderProjTable();});
-  bindSeg("#metricSeg",v=>{state.metric=v;renderTable();drawPlots();});
+  bindSeg("#metricSeg",v=>{state.metric=v;syncLabels();renderTable();drawPlots();});
   bindSeg("#drivenSeg",v=>{state.driven=v;renderTable();drawPlots();});
   document.querySelectorAll("#plotSeg button").forEach(b=>b.classList.toggle("on",b.dataset.v===state.plotN));
   bindSeg("#plotSeg",v=>{state.plotN=v;try{localStorage.setItem("cvPlotN",v);}catch(e){}drawPlots();});
@@ -752,10 +753,11 @@ function renderTable(){
     + " Hover any figure for its basis."
     + '<details class="how"><summary>How these are calculated</summary><ul>'
     + "<li><b>5-yr / 10-yr</b>: pooled two-year BaT medians (e.g. 2020-21 \u2192 2025-26), not single years, so a few sales in one year cannot swing the figure. The span runs between the pools\u2019 average sale dates. The toggle picks total or CAGR as the headline; the other sits beneath. 10-yr falls back to the longest history available.</li>"
+    + "<li><b>Charts vs table</b>: the 5-year return chart plots the table\u2019s own 5-yr figures. The indexed, trajectory and year-over-year charts use calendar-year medians and only years that actually had BaT sales - a car with no 2020 sales starts later (its index base is its first sale year), and gaps are bridged, not invented. The Value column is the latest calendar-year median; the 5-yr window ends on a two-year pool, so the two can differ on purpose.</li>"
     + "<li><b>Thin</b>: a window under 3 years, under 10 comps, or under 5 sales at either end.</li>"
     + "<li><b>Built</b> (under the name): scoped to the car\u2019s spec \u2014 worldwide once every model year is 25+ and importable to the US, North American before that. ~ = unofficial count.</li>"
     + "<li><b>CAGR per $100k</b>: 5-yr CAGR (as toggled) \u00f7 today\u2019s price. Only for appreciating cars; losers read \u201closing\u201d and sort last.</li>"
-    + "<li><b>vs AAPL</b>: the car\u2019s 5-yr CAGR (as toggled) minus AAPL\u2019s over the same dates, dividends reinvested, in points per year; S&P 500 beneath. Positive = the car beat the shares you would sell to buy it.</li>"
+    + "<li><b>vs AAPL</b>: the car\u2019s 5-yr CAGR (as toggled) minus AAPL\u2019s over the same dates, dividends reinvested, in points per year; S&P 500 beneath. Positive = the car beat the shares you would sell to buy it. Because it uses each car\u2019s own dates, it can differ slightly from the gap between that car\u2019s bar and the AAPL bar in the 5-year chart, which covers the last five calendar years.</li>"
     + "<li><b>Net $/yr to hold</b>: price \u00d7 5-yr nominal CAGR, less maintenance, insurance and what the money would earn elsewhere (set below).</li>"
     + "<li>Blank cells sort last in either direction.</li></ul></details>";
 }
@@ -777,10 +779,27 @@ function fmtPrice(unit,v){
   if(unit==="usd")return "$"+Math.round(v);
   return Math.round(v).toLocaleString();
 }
+/* Yearly series for the charts, OBSERVED years only. A BaT car's `hist` fills
+   every year 2020-2026: years with no sales are interpolated between, or copied
+   from, the nearest year that had them (the Carrera GT has real medians for 2022
+   and 2025 only). That fill is fine for the projection's start value, but
+   plotting it drew flat or straight-line "history" that never happened, so the
+   charts now show a gap there. Cars.com cars carry no per-year sample and are
+   drawn as-is. */
+function obsHist(n){
+  const c=D.cars[n]; if(!c.annual) return c.hist.slice();
+  const ys=new Set(c.annual.map(p=>p.year));
+  return c.hist.map((v,i)=>ys.has(D.years[i])?v:null);
+}
+function firstObs(a){const i=a.findIndex(v=>v!=null);return i<0?null:i;}
+
 function drawIdx(){
   if(charts.idx)charts.idx.destroy();
   const ds=[];
-  plotCars().forEach(n=>{const c=D.cars[n];ds.push({label:n,data:idxArr(c.hist),raw:c.hist,unit:"usdk",borderColor:c.color,backgroundColor:c.color,borderWidth:2,pointRadius:2,tension:.3});});
+  plotCars().forEach(n=>{const c=D.cars[n],h=obsHist(n),i0=firstObs(h); if(i0==null) return;
+    // Indexed to the first year with real sales (2020 for most; later for a few).
+    ds.push({label:n,data:h.map(v=>v==null?null:v/h[i0]*100),raw:h,base:D.years[i0],unit:"usdk",spanGaps:true,
+      borderColor:c.color,backgroundColor:c.color,borderWidth:2,pointRadius:2,tension:.3});});
   Object.keys(D.refs).forEach(n=>{const r=D.refs[n];ds.push({label:n,data:idxArr(r.hist),raw:r.hist,unit:r.unit,borderColor:r.color,backgroundColor:r.color,borderWidth:2.4,borderDash:[6,4],pointRadius:2,tension:.3});});
   charts.idx=new Chart($("#chartIdx"),{type:"line",data:{labels:D.years,datasets:ds},plugins:[ChartDataLabels],
     options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22,right:30}},
@@ -791,7 +810,7 @@ function drawIdx(){
           color:ctx=>ctx.dataset.borderColor,font:{size:10,weight:"500",lineHeight:1.05},
           formatter:(val,ctx)=>{const d=ctx.dataset,i=ctx.dataIndex,cum=Math.round(val-100);return fmtPrice(d.unit,d.raw[i])+"\n"+(cum>=0?"+":"")+cum+"%";}
         },
-        tooltip:{callbacks:{label:ctx=>{const d=ctx.dataset,i=ctx.dataIndex,cum=Math.round(ctx.parsed.y-100),y=i>0?(d.raw[i]/d.raw[i-1]-1)*100:null;return d.label+": "+fmtPrice(d.unit,d.raw[i])+" ("+(cum>=0?"+":"")+cum+"% since ’20"+(y!=null?", "+(y>=0?"+":"")+Math.round(y)+"% YoY":"")+")";}}}
+        tooltip:{callbacks:{label:ctx=>{const d=ctx.dataset,i=ctx.dataIndex,cum=Math.round(ctx.parsed.y-100),y=(i>0&&d.raw[i-1]!=null)?(d.raw[i]/d.raw[i-1]-1)*100:null;return d.label+": "+fmtPrice(d.unit,d.raw[i])+" ("+(cum>=0?"+":"")+cum+"% since "+(d.base||2020)+(y!=null?", "+(y>=0?"+":"")+Math.round(y)+"% YoY":"")+")";}}}
       },
       scales:{y:{title:{display:true,text:"Index (2020=100)"}}}}});
 }
@@ -801,10 +820,10 @@ function drawTraj(){
   const ds=[];
   plotCars().forEach(n=>{
     const c=D.cars[n];
-    const hist=c.hist.concat(Array(D.pyears.length-1).fill(null));
+    const hist=obsHist(n).concat(Array(D.pyears.length-1).fill(null));
     const pj=scenProj(n);
     const proj=Array(D.years.length-1).fill(null).concat(pj); // align: last hist year == pyears[0]
-    ds.push({label:n,data:hist,borderColor:c.color,backgroundColor:c.color,borderWidth:2,pointRadius:2,tension:.3});
+    ds.push({label:n,data:hist,spanGaps:true,borderColor:c.color,backgroundColor:c.color,borderWidth:2,pointRadius:2,tension:.3});
     ds.push({label:n+" (proj)",data:proj,borderColor:c.color,backgroundColor:c.color,borderWidth:1.6,borderDash:[5,4],pointRadius:1.8,tension:.3});
   });
   // Every car gets a legend entry (it had none, so new cars were invisible in
@@ -823,34 +842,53 @@ function drawTraj(){
       tooltip:{filter:i=>i.parsed.y!=null,callbacks:{label:c=>c.dataset.label+": "+fmtk(c.parsed.y)}}},
       scales:{y:{type:"logarithmic",title:{display:true,text:"Median ($000s, log scale)"},ticks:{callback:tick,autoSkip:false}}}}});
 }
+/* The return chart plots EXACTLY the table's 5-yr figures - same pooled window,
+   same basis / maintenance / driven / total-vs-CAGR toggles - so the two can no
+   longer disagree. It used to compute its own 2020 -> 2026 change from the yearly
+   series, a different window and method: the Carrera GT read +35% in the table
+   but -21% here, because it has no 2020 or 2021 sales and that series had copied
+   its 2022 median backwards. Benchmarks: AAPL and the S&P 500 over the last five
+   years of their dividends-reinvested series, deflated the same way. */
+function cpiAt(t){
+  const m=D.cpi_by_year||{}, ys=Object.keys(m).map(Number).sort((a,b)=>a-b); if(!ys.length) return null;
+  const x=t-0.5; if(x<=ys[0]) return m[ys[0]]; if(x>=ys[ys.length-1]) return m[ys[ys.length-1]];
+  const y0=Math.floor(x), f=x-y0; return m[y0]+(m[y0+1]-m[y0])*f;
+}
+function benchWin(name,years){
+  const s=D.bench&&D.bench.series&&D.bench.series[name]; if(!s) return null;
+  const ks=Object.keys(s.m).sort(), last=ks[ks.length-1], t1=+last.slice(0,4)+(+last.slice(5)-0.5)/12, t0=t1-years;
+  const b0=benchAt(name,t0), b1=benchAt(name,t1); if(b0==null||b1==null) return null;
+  let ratio=b1/b0; if(state.basis==="real"){const c0=cpiAt(t0),c1=cpiAt(t1); if(c0&&c1) ratio/=(c1/c0);}
+  return {total_pct:(ratio-1)*100, cagr_pct:(Math.pow(ratio,1/years)-1)*100, span_years:years};
+}
 function drawRet(){
   if(charts.ret)charts.ret.destroy();
-  const names=[...plotCars(),...Object.keys(D.refs)];
-  const rows=names.map(n=>{
-    const a=D.cars[n]?D.cars[n].hist:D.refs[n].hist;
-    const end=netEnd(n,a[a.length-1],histYears());     // refs return end unchanged
-    const nom=end/a[0]-1, real=(end/a[0])/D.inflation_factor-1;
-    return {n,v:(state.basis==="real"?real:nom)*100,color:D.cars[n]?D.cars[n].color:D.refs[n].color};
-  }).sort((x,y)=>x.v-y.v);
-  // One label per bar: at 340px the axis auto-skipped every other name once the
-  // list passed ~15 cars, so AAPL's bar (and half the cars) had no label. Size
-  // the box to the bar count instead, and bold the two benchmarks.
+  const rows=[];
+  plotCars().forEach(n=>{const r=rowData(n),v=metricVal(r.w5);
+    if(v!=null&&isFinite(v)) rows.push({n,v,color:D.cars[n].color,thin:isThin(r.w5,r.n),bench:false});});
+  Object.keys(D.refs).forEach(n=>{const w=benchWin(n,5),v=metricVal(w);
+    if(v!=null&&isFinite(v)) rows.push({n:n+" (5 yrs, with dividends)",v,color:D.refs[n].color,thin:false,bench:true});});
+  rows.sort((x,y)=>x.v-y.v);
+  const fmt=v=>state.metric==="cagr"?pct(v)+"/yr":pct0(v);
+  // One label per bar, box sized to the bar count.
   $("#chartRet").parentNode.style.height=Math.max(340,rows.length*22+50)+"px";
   charts.ret=new Chart($("#chartRet"),{type:"bar",plugins:[ChartDataLabels],
-    data:{labels:rows.map(r=>r.n),datasets:[{data:rows.map(r=>r.v),backgroundColor:rows.map(r=>r.color)}]},
-    options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,layout:{padding:{right:46}},
+    data:{labels:rows.map(r=>r.n+(r.thin?" \u00b7 thin":"")),
+      datasets:[{data:rows.map(r=>r.v),backgroundColor:rows.map(r=>r.thin?r.color+"66":r.color)}]},
+    options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,layout:{padding:{right:56}},
       plugins:{legend:{display:false},
-      datalabels:{anchor:"end",align:"end",clamp:true,formatter:v=>pct0(v),
+      datalabels:{anchor:"end",align:"end",clamp:true,formatter:fmt,
                   font:{size:11,weight:"600"},color:"#555"},
-      tooltip:{callbacks:{label:c=>pct0(c.parsed.x)}}},
-      scales:{x:{ticks:{callback:v=>pct0(v)}},
-              y:{ticks:{autoSkip:false,font:c=>({weight:D.refs[rows[c.index]&&rows[c.index].n]?"700":"400"})}}}}});
+      tooltip:{callbacks:{label:c=>fmt(c.parsed.x)}}},
+      scales:{x:{ticks:{callback:v=>state.metric==="cagr"?pct0(v)+"/yr":pct0(v)}},
+              y:{ticks:{autoSkip:false,font:c=>({weight:rows[c.index]&&rows[c.index].bench?"700":"400"})}}}}});
 }
 
 function yoyArr(h,real,mpy){
   const out=[];
   mpy=mpy||0;
   for(let i=1;i<h.length;i++){
+    if(h[i]==null||h[i-1]==null){out.push(null);continue;}   // only between two real years
     let v=(h[i]-mpy)/h[i-1]-1;
     if(real){const cp=D.cpi[i]/D.cpi[i-1]-1; v=(1+v)/(1+cp)-1;}
     out.push(v*100);
@@ -861,7 +899,7 @@ function drawYoY(){
   if(charts.yoy)charts.yoy.destroy();
   const real=state.basis==="real";
   const labels=D.years.slice(1);
-  const ds=plotCars().map(n=>({label:n,data:yoyArr(D.cars[n].hist,real,maintPerYear(n)),backgroundColor:D.cars[n].color}));
+  const ds=plotCars().map(n=>({label:n,data:yoyArr(obsHist(n),real,maintPerYear(n)),backgroundColor:D.cars[n].color}));
   // The two benchmarks, like the return chart: no maintenance, same CPI.
   Object.keys(D.refs).forEach(n=>ds.push({label:n,data:yoyArr(D.refs[n].hist,real,0),
     backgroundColor:D.refs[n].color,borderColor:"#fff",borderWidth:1}));
