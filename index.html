@@ -800,13 +800,19 @@ function drawRet(){
     const nom=end/a[0]-1, real=(end/a[0])/D.inflation_factor-1;
     return {n,v:(state.basis==="real"?real:nom)*100,color:D.cars[n]?D.cars[n].color:D.refs[n].color};
   }).sort((x,y)=>x.v-y.v);
+  // One label per bar: at 340px the axis auto-skipped every other name once the
+  // list passed ~15 cars, so AAPL's bar (and half the cars) had no label. Size
+  // the box to the bar count instead, and bold the two benchmarks.
+  $("#chartRet").parentNode.style.height=Math.max(340,rows.length*22+50)+"px";
   charts.ret=new Chart($("#chartRet"),{type:"bar",plugins:[ChartDataLabels],
     data:{labels:rows.map(r=>r.n),datasets:[{data:rows.map(r=>r.v),backgroundColor:rows.map(r=>r.color)}]},
     options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,layout:{padding:{right:46}},
       plugins:{legend:{display:false},
       datalabels:{anchor:"end",align:"end",clamp:true,formatter:v=>pct0(v),
                   font:{size:11,weight:"600"},color:"#555"},
-      tooltip:{callbacks:{label:c=>pct0(c.parsed.x)}}},scales:{x:{ticks:{callback:v=>pct0(v)}}}}});
+      tooltip:{callbacks:{label:c=>pct0(c.parsed.x)}}},
+      scales:{x:{ticks:{callback:v=>pct0(v)}},
+              y:{ticks:{autoSkip:false,font:c=>({weight:D.refs[rows[c.index]&&rows[c.index].n]?"700":"400"})}}}}});
 }
 
 function yoyArr(h,real,mpy){
