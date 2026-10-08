@@ -61,6 +61,9 @@ BAT_CARS = {
         "maint": 5,
     },
     "Corvette split-window (1963)": {
+        # Off the dashboards at his request (2026-10-07); still scraped so its
+        # appreciation.csv column holds position for the WEEKEND CAR VERDICT sheet.
+        "dashboard": False,
         "url": "https://bringatrailer.com/chevrolet/c2-corvette/",
         "color": "#2E6DB4",
         "blurb": "1963 coupe only - the one-year split rear window.",
@@ -100,6 +103,9 @@ BAT_CARS = {
         "maint": 8,
     },
     "Volvo P1800 (1800 family)": {
+        # Off the dashboards at his request (2026-10-07); still scraped so its
+        # appreciation.csv column holds position for the WEEKEND CAR VERDICT sheet.
+        "dashboard": False,
         "url": "https://bringatrailer.com/volvo/1800/",
         "color": "#4A7C59",
         "blurb": "1800 family incl. the ES shooting brake.",
@@ -294,16 +300,6 @@ PRODUCTION = {
             "url": "https://en.wikipedia.org/wiki/Porsche_Carrera_GT"
         }
     },
-    "Corvette split-window (1963)": {
-        "last_my": 1963,
-        "world": {
-            "label": "10,594 built",
-            "detail": "1963 split-window coupes, body numbers 00001-10594. The 10,919 convertibles that made up the rest of the 21,513 total are excluded, as in the price data.",
-            "src": "Corvette Action Center",
-            "url": "https://www.corvetteactioncenter.com/c2-corvette-news/ebay-the-very-last-1963-corvette-split-window-coupe-built-is-for-sale/"
-        },
-        "na": None
-    },
     "Ferrari 328 GTS/GTB": {
         "last_my": 1989,
         "world": {
@@ -331,16 +327,6 @@ PRODUCTION = {
             "detail": "550 Maranello coupes, 1996-2001. The 448 Barchettas are counted separately and excluded here, as in the price data. A chassis register counts 3,735 including 33 WSR editions; RM Sotheby's catalogues use roughly 3,000-3,083.",
             "src": "Wikipedia - Ferrari 550",
             "url": "https://en.wikipedia.org/wiki/Ferrari_550"
-        },
-        "na": None
-    },
-    "Volvo P1800 (1800 family)": {
-        "last_my": 1973,
-        "world": {
-            "label": "~47,500 built",
-            "detail": "39,407 coupes (P1800 / 1800S / 1800E) + 8,077 1800ES, 1961-1973. The quoted total of 47,492 is 8 more than those parts sum to.",
-            "src": "Wikipedia - Volvo P1800",
-            "url": "https://en.wikipedia.org/wiki/Volvo_P1800"
         },
         "na": None
     },
@@ -694,6 +680,14 @@ def main():
 
         s_all = annual_medians(all_sold)
         series_by_car[name] = s_all
+        if cfg.get("dashboard") is False:
+            # CSV column only: kept so later columns don't shift (the sheet reads
+            # them by position). Removed from the dashboard, with a last-good
+            # copy of its medians in case a later scrape fails.
+            d["cars"].pop(name, None)
+            d.setdefault("csv_only", {})[name] = {"annual": annual_detail(all_sold)}
+            log.append(f"{name}: CSV only")
+            continue
         s_drv = annual_medians(driven)
         hist = to_hist(s_all, years)
         if not hist:
@@ -756,9 +750,10 @@ def main():
     for name in BAT_CARS:
         if series_by_car.get(name):
             csv_series[name] = series_by_car[name]
-        elif d["cars"].get(name, {}).get("annual"):
+        elif (d["cars"].get(name) or d.get("csv_only", {}).get(name) or {}).get("annual"):
+            src = d["cars"].get(name) or d["csv_only"][name]
             csv_series[name] = [{"year": p["year"], "median": p["median"] * 1000}
-                                for p in d["cars"][name]["annual"]]
+                                for p in src["annual"]]
             log.append(f"{name}: CSV column kept from last-good data")
 
     d["cpi_by_year"] = {str(k): v for k, v in CPI_BY_YEAR.items()}

@@ -923,322 +923,6 @@
     }
    }
   },
-  "Corvette split-window (1963)": {
-   "color": "#2E6DB4",
-   "blurb": "1963 coupe only - the one-year split rear window.",
-   "hist": [
-    104.5,
-    126.0,
-    160.0,
-    190.0,
-    164.0,
-    149.0,
-    175.0
-   ],
-   "proj": [
-    175.0,
-    187.4,
-    200.7,
-    215.0,
-    230.2,
-    246.6
-   ],
-   "maint": 3,
-   "cagr": {
-    "base": 0.071,
-    "bull": 0.101,
-    "bear": 0.041
-   },
-   "sold": 175,
-   "src": "bat",
-   "n_comps": 227,
-   "appr": {
-    "w5": {
-     "from_year": 2020,
-     "to_year": 2026,
-     "from_label": "2020-21",
-     "to_label": "2025-26",
-     "from": 114.0,
-     "to": 155.5,
-     "n_from": 30,
-     "n_to": 90,
-     "total_pct": 36.4,
-     "cagr_pct": 7.1,
-     "span_years": 4.5,
-     "cpi_from": 271.1,
-     "cpi_to": 329.8,
-     "t_from": 2021.454,
-     "t_to": 2025.952,
-     "pooled": true
-    },
-    "w10": {
-     "from_year": 2015,
-     "to_year": 2026,
-     "from_label": "2015-16",
-     "to_label": "2025-26",
-     "from": 90.8,
-     "to": 155.5,
-     "n_from": 4,
-     "n_to": 90,
-     "total_pct": 71.3,
-     "cagr_pct": 5.7,
-     "span_years": 9.7,
-     "cpi_from": 239.2,
-     "cpi_to": 329.8,
-     "t_from": 2016.222,
-     "t_to": 2025.952,
-     "pooled": true
-    }
-   },
-   "bat_url": "https://bringatrailer.com/chevrolet/c2-corvette/",
-   "annual": [
-    {
-     "year": 2016,
-     "median": 96.0,
-     "n": 3,
-     "lo": 85.0,
-     "hi": 113.0
-    },
-    {
-     "year": 2017,
-     "median": 82.0,
-     "n": 3,
-     "lo": 65.0,
-     "hi": 100.0
-    },
-    {
-     "year": 2019,
-     "median": 92.0,
-     "n": 5,
-     "lo": 87.5,
-     "hi": 105.0
-    },
-    {
-     "year": 2020,
-     "median": 104.5,
-     "n": 6,
-     "lo": 89.0,
-     "hi": 106.0
-    },
-    {
-     "year": 2021,
-     "median": 126.0,
-     "n": 24,
-     "lo": 91.0,
-     "hi": 146.5
-    },
-    {
-     "year": 2022,
-     "median": 160.0,
-     "n": 30,
-     "lo": 125.0,
-     "hi": 227.0
-    },
-    {
-     "year": 2023,
-     "median": 190.0,
-     "n": 29,
-     "lo": 152.5,
-     "hi": 222.0
-    },
-    {
-     "year": 2024,
-     "median": 164.0,
-     "n": 35,
-     "lo": 135.0,
-     "hi": 198.0
-    },
-    {
-     "year": 2025,
-     "median": 149.0,
-     "n": 45,
-     "lo": 118.0,
-     "hi": 181.0
-    },
-    {
-     "year": 2026,
-     "median": 175.0,
-     "n": 45,
-     "lo": 130.0,
-     "hi": 216.0
-    }
-   ],
-   "production": {
-    "last_my": 1963,
-    "world": {
-     "label": "10,594 built",
-     "detail": "1963 split-window coupes, body numbers 00001-10594. The 10,919 convertibles that made up the rest of the 21,513 total are excluded, as in the price data.",
-     "src": "Corvette Action Center",
-     "url": "https://www.corvetteactioncenter.com/c2-corvette-news/ebay-the-very-last-1963-corvette-split-window-coupe-built-is-for-sale/"
-    },
-    "na": null
-   }
-  },
-  "Volvo P1800 (1800 family)": {
-   "color": "#4A7C59",
-   "blurb": "1800 family incl. the ES shooting brake.",
-   "hist": [
-    20.0,
-    27.0,
-    25.2,
-    24.8,
-    26.8,
-    26.0,
-    25.0
-   ],
-   "proj": [
-    25.0,
-    25.4,
-    25.9,
-    26.4,
-    26.8,
-    27.3
-   ],
-   "maint": 2,
-   "cagr": {
-    "base": 0.018,
-    "bull": 0.048,
-    "bear": -0.012
-   },
-   "sold": 25,
-   "src": "bat",
-   "n_comps": 337,
-   "appr": {
-    "w5": {
-     "from_year": 2020,
-     "to_year": 2026,
-     "from_label": "2020-21",
-     "to_label": "2025-26",
-     "from": 23.2,
-     "to": 25.4,
-     "n_from": 60,
-     "n_to": 72,
-     "total_pct": 9.1,
-     "cagr_pct": 1.8,
-     "span_years": 4.9,
-     "cpi_from": 266.2,
-     "cpi_to": 330.2,
-     "t_from": 2021.105,
-     "t_to": 2025.986,
-     "pooled": true
-    },
-    "w10": {
-     "from_year": 2015,
-     "to_year": 2026,
-     "from_label": "2015-16",
-     "to_label": "2025-26",
-     "from": 16.8,
-     "to": 25.4,
-     "n_from": 11,
-     "n_to": 72,
-     "total_pct": 51.5,
-     "cagr_pct": 4.3,
-     "span_years": 9.8,
-     "cpi_from": 238.9,
-     "cpi_to": 330.2,
-     "t_from": 2016.149,
-     "t_to": 2025.986,
-     "pooled": true
-    }
-   },
-   "bat_url": "https://bringatrailer.com/volvo/1800/",
-   "annual": [
-    {
-     "year": 2015,
-     "median": 26.0,
-     "n": 4,
-     "lo": 24.0,
-     "hi": 28.0
-    },
-    {
-     "year": 2016,
-     "median": 15.5,
-     "n": 7,
-     "lo": 15.0,
-     "hi": 16.8
-    },
-    {
-     "year": 2017,
-     "median": 17.0,
-     "n": 19,
-     "lo": 14.0,
-     "hi": 22.5
-    },
-    {
-     "year": 2018,
-     "median": 20.7,
-     "n": 22,
-     "lo": 14.2,
-     "hi": 24.1
-    },
-    {
-     "year": 2019,
-     "median": 17.8,
-     "n": 21,
-     "lo": 13.5,
-     "hi": 20.5
-    },
-    {
-     "year": 2020,
-     "median": 20.0,
-     "n": 27,
-     "lo": 13.0,
-     "hi": 25.0
-    },
-    {
-     "year": 2021,
-     "median": 27.0,
-     "n": 33,
-     "lo": 18.5,
-     "hi": 40.0
-    },
-    {
-     "year": 2022,
-     "median": 25.2,
-     "n": 39,
-     "lo": 17.0,
-     "hi": 34.4
-    },
-    {
-     "year": 2023,
-     "median": 24.8,
-     "n": 49,
-     "lo": 17.5,
-     "hi": 31.5
-    },
-    {
-     "year": 2024,
-     "median": 26.8,
-     "n": 43,
-     "lo": 19.2,
-     "hi": 33.2
-    },
-    {
-     "year": 2025,
-     "median": 26.0,
-     "n": 37,
-     "lo": 18.2,
-     "hi": 35.8
-    },
-    {
-     "year": 2026,
-     "median": 25.0,
-     "n": 35,
-     "lo": 19.8,
-     "hi": 31.2
-    }
-   ],
-   "production": {
-    "last_my": 1973,
-    "world": {
-     "label": "~47,500 built",
-     "detail": "39,407 coupes (P1800 / 1800S / 1800E) + 8,077 1800ES, 1961-1973. The quoted total of 47,492 is 8 more than those parts sum to.",
-     "src": "Wikipedia - Volvo P1800",
-     "url": "https://en.wikipedia.org/wiki/Volvo_P1800"
-    },
-    "na": null
-   }
-  },
   "Alfa Romeo GTV 1750/2000": {
    "color": "#A6192E",
    "blurb": "105-series 1750 and 2000 GTV, 1967-1976 - the Bertone coupe.",
@@ -3140,5 +2824,169 @@
   },
   "updated": "2026-10-07T20:11Z",
   "status": "S&P 500: 140 months to 2026-08 | AAPL: 121 months to 2026-10"
+ },
+ "csv_only": {
+  "Corvette split-window (1963)": {
+   "annual": [
+    {
+     "year": 2016,
+     "median": 96.0,
+     "n": 3,
+     "lo": 85.0,
+     "hi": 113.0
+    },
+    {
+     "year": 2017,
+     "median": 82.0,
+     "n": 3,
+     "lo": 65.0,
+     "hi": 100.0
+    },
+    {
+     "year": 2019,
+     "median": 92.0,
+     "n": 5,
+     "lo": 87.5,
+     "hi": 105.0
+    },
+    {
+     "year": 2020,
+     "median": 104.5,
+     "n": 6,
+     "lo": 89.0,
+     "hi": 106.0
+    },
+    {
+     "year": 2021,
+     "median": 126.0,
+     "n": 24,
+     "lo": 91.0,
+     "hi": 146.5
+    },
+    {
+     "year": 2022,
+     "median": 160.0,
+     "n": 30,
+     "lo": 125.0,
+     "hi": 227.0
+    },
+    {
+     "year": 2023,
+     "median": 190.0,
+     "n": 29,
+     "lo": 152.5,
+     "hi": 222.0
+    },
+    {
+     "year": 2024,
+     "median": 164.0,
+     "n": 35,
+     "lo": 135.0,
+     "hi": 198.0
+    },
+    {
+     "year": 2025,
+     "median": 149.0,
+     "n": 45,
+     "lo": 118.0,
+     "hi": 181.0
+    },
+    {
+     "year": 2026,
+     "median": 175.0,
+     "n": 45,
+     "lo": 130.0,
+     "hi": 216.0
+    }
+   ]
+  },
+  "Volvo P1800 (1800 family)": {
+   "annual": [
+    {
+     "year": 2015,
+     "median": 26.0,
+     "n": 4,
+     "lo": 24.0,
+     "hi": 28.0
+    },
+    {
+     "year": 2016,
+     "median": 15.5,
+     "n": 7,
+     "lo": 15.0,
+     "hi": 16.8
+    },
+    {
+     "year": 2017,
+     "median": 17.0,
+     "n": 19,
+     "lo": 14.0,
+     "hi": 22.5
+    },
+    {
+     "year": 2018,
+     "median": 20.7,
+     "n": 22,
+     "lo": 14.2,
+     "hi": 24.1
+    },
+    {
+     "year": 2019,
+     "median": 17.8,
+     "n": 21,
+     "lo": 13.5,
+     "hi": 20.5
+    },
+    {
+     "year": 2020,
+     "median": 20.0,
+     "n": 27,
+     "lo": 13.0,
+     "hi": 25.0
+    },
+    {
+     "year": 2021,
+     "median": 27.0,
+     "n": 33,
+     "lo": 18.5,
+     "hi": 40.0
+    },
+    {
+     "year": 2022,
+     "median": 25.2,
+     "n": 39,
+     "lo": 17.0,
+     "hi": 34.4
+    },
+    {
+     "year": 2023,
+     "median": 24.8,
+     "n": 49,
+     "lo": 17.5,
+     "hi": 31.5
+    },
+    {
+     "year": 2024,
+     "median": 26.8,
+     "n": 43,
+     "lo": 19.2,
+     "hi": 33.2
+    },
+    {
+     "year": 2025,
+     "median": 26.0,
+     "n": 37,
+     "lo": 18.2,
+     "hi": 35.8
+    },
+    {
+     "year": 2026,
+     "median": 25.0,
+     "n": 35,
+     "lo": 19.8,
+     "hi": 31.2
+    }
+   ]
+  }
  }
 }
