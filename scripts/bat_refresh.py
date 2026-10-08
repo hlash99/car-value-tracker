@@ -557,6 +557,9 @@ def to_hist(series, years):
     return out
 
 
+# Look-backs (years) published for the return chart's duration slider.
+LOOKBACKS = tuple(range(1, 11))
+
 # Sales needed at EACH end of a window before the page stops flagging it "thin".
 THIN_POOL = 5
 
@@ -580,9 +583,9 @@ def _cpi_at(t):
     return CPI_BY_YEAR[y0] + (CPI_BY_YEAR[y0 + 1] - CPI_BY_YEAR[y0]) * f
 
 
-def windows(sold):
-    """Total and per-year appreciation over the 5y and 10y windows, from POOLED
-    two-year ends rather than single calendar years.
+def windows(sold, wins=(5, 10)):
+    """Total and per-year appreciation over each look-back in `wins` (years),
+    from POOLED two-year ends rather than single calendar years.
 
     Comparing one year's median with another's let 3-5 sales set a car's whole
     5-yr figure: the F355 Berlinetta read +89% off a 2026 median of three cars
@@ -592,18 +595,42 @@ def windows(sold):
     pool is empty, as before. The span is measured between the pools' average
     SALE DATES, so a part-year at the end does not flatter the CAGR, and CPI is
     read at those same dates so the page can deflate exactly. n_from / n_to are
-    published so the page can flag a window resting on few sales."""
+    published so the page can flag a window resting on few sales.
+
+    A 1-yr window cannot use two-year pools (they would overlap), so it compares
+    the last 12 months of sales with the 12 months before, by sale date."""
     if not sold:
         return {}
+    out = {}
+    if 1 in wins:
+        tmax = max(_frac_year(s) for s in sold)
+        top1 = [s for s in sold if _frac_year(s) > tmax - 1]
+        base1 = [s for s in sold if tmax - 2 < _frac_year(s) <= tmax - 1]
+        if len(top1) >= 2 and len(base1) >= 2:
+            a = statistics.median(s["price"] for s in base1)
+            b = statistics.median(s["price"] for s in top1)
+            t0 = statistics.mean(_frac_year(s) for s in base1)
+            t1 = statistics.mean(_frac_year(s) for s in top1)
+            span = round(t1 - t0, 2)
+            if span > 0.3:
+                out["w1"] = {
+                    "from_year": int(t0), "to_year": int(t1),
+                    "from_label": "prior 12 mo", "to_label": "last 12 mo",
+                    "from": round(a / 1000.0, 1), "to": round(b / 1000.0, 1),
+                    "n_from": len(base1), "n_to": len(top1),
+                    "total_pct": round((b / a - 1) * 100, 1),
+                    "cagr_pct": cagr(a, b, span), "span_years": span,
+                    "cpi_from": round(_cpi_at(t0), 1), "cpi_to": round(_cpi_at(t1), 1),
+                    "t_from": round(t0, 3), "t_to": round(t1, 3), "pooled": True,
+                }
     L = max(int(s["date"][:4]) for s in sold)
     pool = lambda y0, y1: [s for s in sold if y0 <= int(s["date"][:4]) <= y1]
     top = pool(L - 1, L)
     if len(top) < 2:
-        return {}
+        return out
     to_med = statistics.median(s["price"] for s in top)
     t1 = statistics.mean(_frac_year(s) for s in top)
-    out = {}
-    for win in (5, 10):
+    for win in (w for w in wins if w >= 2):
         base = None
         for y0 in range(L - 1 - win, L - 2):      # base pool must end before the top pool starts
             p = pool(y0, y0 + 1)
@@ -694,19 +721,11 @@ def main():
             log.append(f"{name}: no usable annual medians")
             continue
 
-        appr = windows(all_sold)
-        # The same windows as of each past year-end, for the return chart's time
-        # slider: only sales up to year E count, so each frame is what this table
-        # would have shown then. A frame whose newest pool is older than E-1 is
-        # dropped rather than shown stale.
-        def by_end(sold):
-            out = {}
-            for E in range(years[0], years[-1] + 1):
-                w = windows([x for x in sold if int(x["date"][:4]) <= E])
-                if w and max(v["to_year"] for v in w.values()) >= E - 1:
-                    out[str(E)] = w
-            return out
-        appr_by_end = by_end(all_sold)
+        # Every look-back from 1 to 10 years, ending now, for the return chart's
+        # duration slider. The table's 5y/10y columns are the same w5/w10 entries,
+        # so the slider at 5 or 10 IS the table.
+        appr_n = windows(all_sold, LOOKBACKS)
+        appr = {k: appr_n[k] for k in ("w5", "w10") if k in appr_n}
         base_cagr = (appr.get("w5") or {}).get("cagr_pct")
         r = max(-0.06, min(0.10, (base_cagr or 0) / 100.0))   # damp to a sane band
         v0 = hist[-1]
@@ -723,7 +742,7 @@ def main():
             "src": "bat",
             "n_comps": len(all_sold),
             "appr": appr,
-            "appr_by_end": appr_by_end,
+            "appr_n": appr_n,
             "annual": annual_detail(all_sold),
             "bat_url": cfg["url"],
         })
@@ -732,17 +751,19 @@ def main():
         # is truthy in the page JS - it showed blank cells instead of falling
         # back to all comps with the dagger. Drop any stale block too, so a car
         # that loses its driven window falls back rather than keeping old numbers.
-        drv_appr = windows(driven)
+        drv_n = windows(driven, LOOKBACKS)
+        drv_appr = {k: drv_n[k] for k in ("w5", "w10") if k in drv_n}
         if len(driven) >= 5 and drv_appr:
             car["driven"] = {
                 "min_miles": DRIVEN_MILES,
                 "n_comps": len(driven),
                 "latest": round(s_drv[-1]["median"] / 1000.0, 1),
                 "appr": drv_appr,
-                "appr_by_end": by_end(driven),
+                "appr_n": drv_n,
             }
         else:
             car.pop("driven", None)
+        car.pop("appr_by_end", None)          # superseded by appr_n (2026-10-07)
         d["cars"][name] = car
         note = f"{name}: {len(all_sold)} comps"
         if car.get("driven"):
