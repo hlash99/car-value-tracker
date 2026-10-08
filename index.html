@@ -92,6 +92,11 @@
   .slider{margin:10px 0}
   .slider label{font-size:13px;display:flex;justify-content:space-between;color:var(--muted)}
   input[type=range]{width:100%}
+  .timebar{display:flex;align-items:center;gap:8px;margin:0 0 10px;flex-wrap:wrap}
+  .timebar button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:7px;padding:4px 10px;font:inherit;font-size:12px;cursor:pointer}
+  .timebar button:hover{border-color:var(--accent)}
+  .timebar input[type=range]{flex:1;min-width:140px;width:auto}
+  .timebar #retYearLbl{font-size:12.5px;font-weight:600;min-width:190px;text-align:right}
   .holdin{width:3.6em;font:inherit;padding:0 4px;border:1px solid var(--line);border-radius:5px;background:var(--surface);color:var(--ink)}
   .answer{font-size:15px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:6px}
   .big{font-size:30px;font-weight:700;color:var(--accent)}
@@ -165,7 +170,15 @@
   <div class="bwrap"><div class="chartbox"><div class="chartwrap"><canvas id="chartTraj"></canvas></div></div></div></section>
 
   <section class="blk" data-blk="returns"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>5-year return, same figures as the table (<span id="retMetric">CAGR %/yr</span>) — <span id="basisLabel">nominal</span><button class="clps" title="Collapse / expand">▾</button></h3>
-  <div class="bwrap"><div class="chartbox"><div class="chartwrap"><canvas id="chartRet"></canvas></div></div></div></section>
+  <div class="bwrap"><div class="chartbox">
+    <div class="timebar" id="retTime" title="Scroll here, drag the slider or press play to move through time">
+      <button id="retPrev" aria-label="Previous year">&#9664;</button>
+      <button id="retPlay">&#9654; Play</button>
+      <button id="retNext" aria-label="Next year">&#9654;</button>
+      <input type="range" id="retYear" step="1">
+      <span id="retYearLbl"></span>
+    </div>
+    <div class="chartwrap"><canvas id="chartRet"></canvas></div></div></div></section>
 
   <section class="blk" data-blk="yoy"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Year-over-year appreciation — <span id="basisLabel2">nominal</span><button class="clps" title="Collapse / expand">▾</button></h3>
   <div class="bwrap"><div class="chartbox"><div class="chartwrap"><canvas id="chartYoY"></canvas></div></div></div></section>
@@ -399,6 +412,7 @@ function init(){
   bindSeg("#plotSeg",v=>{state.plotN=v;try{localStorage.setItem("cvPlotN",v);}catch(e){}drawPlots();});
   loadSort();
   syncLabels();
+  initRetTime();
   renderTable();drawPlots();initCross();renderProjTable();renderEvid();renderYear();renderRef();
   initBlocks();
 }
@@ -854,34 +868,86 @@ function cpiAt(t){
   const x=t-0.5; if(x<=ys[0]) return m[ys[0]]; if(x>=ys[ys.length-1]) return m[ys[ys.length-1]];
   const y0=Math.floor(x), f=x-y0; return m[y0]+(m[y0+1]-m[y0])*f;
 }
-function benchWin(name,years){
+function benchWin(name,years,tEnd){
   const s=D.bench&&D.bench.series&&D.bench.series[name]; if(!s) return null;
-  const ks=Object.keys(s.m).sort(), last=ks[ks.length-1], t1=+last.slice(0,4)+(+last.slice(5)-0.5)/12, t0=t1-years;
+  const ks=Object.keys(s.m).sort(), last=ks[ks.length-1];
+  const tLast=+last.slice(0,4)+(+last.slice(5)-0.5)/12, t1=tEnd==null?tLast:Math.min(tEnd,tLast), t0=t1-years;
   const b0=benchAt(name,t0), b1=benchAt(name,t1); if(b0==null||b1==null) return null;
   let ratio=b1/b0; if(state.basis==="real"){const c0=cpiAt(t0),c1=cpiAt(t1); if(c0&&c1) ratio/=(c1/c0);}
   return {total_pct:(ratio-1)*100, cagr_pct:(Math.pow(ratio,1/years)-1)*100, span_years:years};
 }
+/* Time slider: the same 5-yr figures as of each past year-end (only sales up
+   to that year count - bat_refresh stores appr_by_end), so you can watch the
+   ranking move. The last frame IS the table. Cars.com cars, which have no
+   per-sale data, use their yearly series over whatever span exists then. */
+let retE=null, retTimer=null;
+function latestYear(){return D.years[D.years.length-1];}
+function derivedApprAt(n,E){
+  const h=D.cars[n].hist, i=D.years.indexOf(E); if(i<1) return null;
+  const span=Math.min(5,i), i0=i-span;
+  return {w5:{from:h[i0],to:h[i],from_year:D.years[i0],to_year:E,span_years:span}};
+}
+function rowDataAt(n,E){
+  const r=rowData(n); if(E==null||E===latestYear()) return r;
+  const c=D.cars[n], dv=c.driven;
+  let appr;
+  if(!c.annual) appr=derivedApprAt(n,E);                         // Cars.com cars
+  else if(state.driven==="driven"&&dv&&dv.appr_by_end) appr=dv.appr_by_end[E];
+  else appr=c.appr_by_end?c.appr_by_end[E]:null;
+  return Object.assign({},r,{w5:appr&&appr.w5?apprAdj(n,appr.w5):null});
+}
 function drawRet(){
-  if(charts.ret)charts.ret.destroy();
+  const E=retE==null?latestYear():retE, latest=E===latestYear();
   const rows=[];
-  plotCars().forEach(n=>{const r=rowData(n),v=metricVal(r.w5);
+  plotCars().forEach(n=>{const r=rowDataAt(n,E),v=metricVal(r.w5);
     if(v!=null&&isFinite(v)) rows.push({n,v,color:D.cars[n].color,thin:isThin(r.w5,r.n),bench:false});});
-  Object.keys(D.refs).forEach(n=>{const w=benchWin(n,5),v=metricVal(w);
+  Object.keys(D.refs).forEach(n=>{const w=benchWin(n,5,latest?null:E+0.5),v=metricVal(w);
     if(v!=null&&isFinite(v)) rows.push({n:n+" (5 yrs, with dividends)",v,color:D.refs[n].color,thin:false,bench:true});});
   rows.sort((x,y)=>x.v-y.v);
   const fmt=v=>state.metric==="cagr"?pct(v)+"/yr":pct0(v);
-  // One label per bar, box sized to the bar count.
-  $("#chartRet").parentNode.style.height=Math.max(340,rows.length*22+50)+"px";
+  const labels=rows.map(r=>r.n+(r.thin?" \u00b7 thin":"")), data=rows.map(r=>r.v),
+        colors=rows.map(r=>r.thin?r.color+"66":r.color);
+  $("#retYearLbl").textContent="5-yr window ending "+E+(latest?" (today = the table)":"");
+  const yr=$("#retYear"); yr.min=D.years[0]; yr.max=latestYear(); yr.value=E;
+  // Constant height across frames so the bars animate instead of the box jumping.
+  const h=Math.max(340,(plotCars().length+Object.keys(D.refs).length)*22+50)+"px";
+  if(charts.ret && charts.ret._fmtKey===state.metric && $("#chartRet").parentNode.style.height===h){
+    charts.ret._rows=rows;
+    charts.ret.data.labels=labels; charts.ret.data.datasets[0].data=data;
+    charts.ret.data.datasets[0].backgroundColor=colors; charts.ret.update();
+    return;
+  }
+  if(charts.ret)charts.ret.destroy();
+  $("#chartRet").parentNode.style.height=h;
   charts.ret=new Chart($("#chartRet"),{type:"bar",plugins:[ChartDataLabels],
-    data:{labels:rows.map(r=>r.n+(r.thin?" \u00b7 thin":"")),
-      datasets:[{data:rows.map(r=>r.v),backgroundColor:rows.map(r=>r.thin?r.color+"66":r.color)}]},
-    options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,layout:{padding:{right:56}},
+    data:{labels,datasets:[{data,backgroundColor:colors}]},
+    options:{indexAxis:"y",responsive:true,maintainAspectRatio:false,animation:{duration:650},
+      layout:{padding:{right:56}},
       plugins:{legend:{display:false},
-      datalabels:{anchor:"end",align:"end",clamp:true,formatter:fmt,
-                  font:{size:11,weight:"600"},color:"#555"},
+      datalabels:{anchor:"end",align:"end",clamp:true,formatter:fmt,font:{size:11,weight:"600"},color:"#555"},
       tooltip:{callbacks:{label:c=>fmt(c.parsed.x)}}},
       scales:{x:{ticks:{callback:v=>state.metric==="cagr"?pct0(v)+"/yr":pct0(v)}},
-              y:{ticks:{autoSkip:false,font:c=>({weight:rows[c.index]&&rows[c.index].bench?"700":"400"})}}}}});
+              y:{ticks:{autoSkip:false,font:c=>{const r=charts.ret&&charts.ret._rows&&charts.ret._rows[c.index];return {weight:r&&r.bench?"700":"400"};}}}}}});
+  charts.ret._rows=rows; charts.ret._fmtKey=state.metric;
+}
+function retStep(d){
+  const y0=D.years[0], y1=latestYear(), E=retE==null?y1:retE;
+  let n=E+d; if(n>y1) n=y0; if(n<y0) n=y1;
+  retE=(n===y1)?null:n; drawRet();
+}
+function retPlay(on){
+  if(retTimer){clearInterval(retTimer);retTimer=null;}
+  if(on){retTimer=setInterval(()=>retStep(1),1300);}
+  $("#retPlay").innerHTML=retTimer?"&#10074;&#10074; Pause":"&#9654; Play";
+}
+function initRetTime(){
+  $("#retPrev").onclick=()=>{retPlay(false);retStep(-1);};
+  $("#retNext").onclick=()=>{retPlay(false);retStep(1);};
+  $("#retPlay").onclick=()=>retPlay(!retTimer);
+  $("#retYear").oninput=e=>{retPlay(false);const v=+e.target.value;retE=(v===latestYear())?null:v;drawRet();};
+  // Wheel over the control bar steps through time; the chart itself is left
+  // alone so scrolling the page never gets caught on it.
+  $("#retTime").addEventListener("wheel",e=>{e.preventDefault();retPlay(false);retStep(e.deltaY>0?1:-1);},{passive:false});
 }
 
 function yoyArr(h,real,mpy){

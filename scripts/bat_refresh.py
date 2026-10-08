@@ -695,6 +695,18 @@ def main():
             continue
 
         appr = windows(all_sold)
+        # The same windows as of each past year-end, for the return chart's time
+        # slider: only sales up to year E count, so each frame is what this table
+        # would have shown then. A frame whose newest pool is older than E-1 is
+        # dropped rather than shown stale.
+        def by_end(sold):
+            out = {}
+            for E in range(years[0], years[-1] + 1):
+                w = windows([x for x in sold if int(x["date"][:4]) <= E])
+                if w and max(v["to_year"] for v in w.values()) >= E - 1:
+                    out[str(E)] = w
+            return out
+        appr_by_end = by_end(all_sold)
         base_cagr = (appr.get("w5") or {}).get("cagr_pct")
         r = max(-0.06, min(0.10, (base_cagr or 0) / 100.0))   # damp to a sane band
         v0 = hist[-1]
@@ -711,6 +723,7 @@ def main():
             "src": "bat",
             "n_comps": len(all_sold),
             "appr": appr,
+            "appr_by_end": appr_by_end,
             "annual": annual_detail(all_sold),
             "bat_url": cfg["url"],
         })
@@ -726,6 +739,7 @@ def main():
                 "n_comps": len(driven),
                 "latest": round(s_drv[-1]["median"] / 1000.0, 1),
                 "appr": drv_appr,
+                "appr_by_end": by_end(driven),
             }
         else:
             car.pop("driven", None)

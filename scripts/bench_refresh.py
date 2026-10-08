@@ -43,11 +43,33 @@ def _get(url, accept="text/html"):
 
 def sp500_tr():
     html = _get(SP_URL.format(y=datetime.now(timezone.utc).year))
+    # Parse ONLY the total-return table (Year | Month | Return (%) | Amount ($) |
+    # CPI). In Oct 2026 the page gained a dollar-cost-averaging table (Year |
+    # Month | Contribution ($) | Amount ($)) whose rows match the same pattern;
+    # being later on the page, its "amounts" (4.27, 8.43, ...) silently
+    # overwrote the real index and broke every S&P figure.
+    tables = re.split(r"(?i)<table", html)
+    tr = next((t for t in tables if "Return (%)" in t and "CPI" in t), None)
+    if tr is None:
+        raise RuntimeError("S&P total-return table not found")
     rows = re.findall(r"<tr>\s*<td[^>]*>(\d{4})</td>\s*<td[^>]*>(\d{1,2})</td>\s*"
-                      r"<td[^>]*>[-\d.,%]+</td>\s*<td[^>]*>\$?([\d.,]+)</td>", html)
+                      r"<td[^>]*>[-\d.,%]+</td>\s*<td[^>]*>\$?([\d.,]+)</td>", tr)
     if len(rows) < 60:
         raise RuntimeError(f"S&P table too short ({len(rows)} rows)")
-    return {f"{y}-{int(m):02d}": float(v.replace(",", "")) for y, m, v in rows}
+    m = {f"{y}-{int(mo):02d}": float(v.replace(",", "")) for y, mo, v in rows}
+    sanity(m, "S&P 500", start_near=100)
+    return m
+
+
+def sanity(m, name, start_near=None):
+    """Refuse a series that cannot be a monthly total-return index, so a page
+    change keeps the last-good copy instead of publishing garbage."""
+    ks = sorted(m)
+    if start_near is not None and not (0.8 * start_near <= m[ks[0]] <= 1.2 * start_near):
+        raise RuntimeError(f"{name}: first value {m[ks[0]]} is not near the ${start_near} base")
+    for a, b in zip(ks, ks[1:]):
+        if m[a] <= 0 or not (0.75 <= m[b] / m[a] <= 1.25):
+            raise RuntimeError(f"{name}: {a} -> {b} moves {m[b] / m[a] - 1:+.0%}, not a monthly index")
 
 
 def stock_tr(sym):
@@ -79,7 +101,9 @@ def stock_tr(sym):
         by.setdefault(date[:7], []).append(v)
     if len(by) < 60:
         raise RuntimeError(f"{sym} history too short ({len(by)} months)")
-    return {k: round(statistics.mean(v), 4) for k, v in sorted(by.items())}
+    out = {k: round(statistics.mean(v), 4) for k, v in sorted(by.items())}
+    sanity(out, sym)
+    return out
 
 
 def main():
