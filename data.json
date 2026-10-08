@@ -1,6 +1,6 @@
 {
- "updated": "2026-10-08T04:45Z",
- "refresh_status": "auto-refresh 2026-10-07 20:02Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $344k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $424k; Ferrari 812 Superfast: n=23 asking\u2248$570k -> value\u2248$527k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $696k",
+ "updated": "2026-10-08T09:16Z",
+ "refresh_status": "auto-refresh 2026-10-08 09:07Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $344k; Ferrari F12 Berlinetta: n=24 asking\u2248$491k -> value\u2248$420k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $527k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $696k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
  "years": [
@@ -109,10 +109,10 @@
     260,
     300,
     350,
-    424
+    420
    ],
    "proj": [
-    424,
+    420,
     402,
     420,
     435,
@@ -125,7 +125,7 @@
     "bull": 0.06,
     "bear": 0.0
    },
-   "asking": 495,
+   "asking": 491,
    "sold": 368,
    "factor": 0.856,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-f12berlinetta&maximum_distance=all&zip=94027",
@@ -6462,7 +6462,7 @@
     }
    }
   },
-  "updated": "2026-10-08T04:02Z",
+  "updated": "2026-10-08T09:16Z",
   "status": "S&P 500: 140 months to 2026-08 | AAPL: 121 months to 2026-10"
  },
  "csv_only": {
