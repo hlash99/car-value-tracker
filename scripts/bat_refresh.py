@@ -231,6 +231,23 @@ BAT_CARS = {
                  "year_min": 2004, "year_max": 2007, "lo": 175000, "hi": 3000000},
         "maint": 3,
     },
+    # Gen 5 Viper, the road trims only: GTS (2013-17) and GT (2015-17), both
+    # with the two-mode Bilstein dampers owners pick for street use. Excluded:
+    # the ACR (as asked), the stiffer track-first TA, the bare-suspension base
+    # SRT, and the custom-order GTC (often GTS-spec, but sold as one-offs at a
+    # premium). Every Gen 5 is a 6MT, so no gearbox include. BaT lists all Viper
+    # generations on one page; years and a $60k floor drop older cars, crate
+    # V10s and parts, and "prefix" / "9.0l" drops the big-block engine swaps.
+    "Dodge Viper GTS/GT (Gen 5)": {
+        "url": "https://bringatrailer.com/dodge/viper/",
+        "color": "#6A2C91",
+        "blurb": "2013-17 GTS and GT - 8.4 V10, six-speed, two-mode dampers; the road trims, not the ACR.",
+        "spec": {"exclude": ["acr", "gtc", "gts-r", "ta 1.0", "ta 2.0", "prefix", "9.0l", "engine",
+                             "twin-turbo", "conversion"],
+                 "year_min": 2013, "year_max": 2017, "lo": 60000, "hi": 400000},
+        "any_of": ["gts", "viper gt", "srt gt"],
+        "maint": 3,
+    },
 }
 
 
@@ -455,6 +472,21 @@ PRODUCTION = {
             "detail": "Gated-manual F355 GTS targas, 1994-1998, worldwide; another 526 were F1. Totals reconcile within ~2% of the 2,577 GTS usually quoted.",
             "src": "f-register.com production list (Matthias Urban)",
             "url": "https://f-register.com/About-the-Cars/Production-Numbers"
+        }
+    },
+    "Dodge Viper GTS/GT (Gen 5)": {
+        "last_my": 2017,
+        "na": {
+            "label": "1,405 GTS to N. Am.",
+            "detail": "Gen 5 GTS coupes for the US and Canada, 2013-2017: 745 / 572 / 37 / 16 / 34 by year (1,224 US + 181 Canada). The GT is not counted separately - the registry folds it into 'SRT Coupe' with the base car. Wikipedia's 2,427 total for the whole generation disagrees with the registry's VIN-verified build table (~3,900), which is used here.",
+            "src": "International Viper Registry (Viper Club of America), VIN-verified",
+            "url": "https://www.theviperregistry.com/build.php"
+        },
+        "world": {
+            "label": "1,529 GTS built",
+            "detail": "Gen 5 GTS coupes worldwide, 2013-2017: 782 / 627 / 66 / 18 / 36 by year, 124 of them exported outside North America. GT not counted separately.",
+            "src": "International Viper Registry (Viper Club of America), VIN-verified",
+            "url": "https://www.theviperregistry.com/build.php"
         }
     }
 }

@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-07T20:10Z",
+ "updated": "2026-10-08T02:00Z",
  "refresh_status": "auto-refresh 2026-10-07 20:02Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $344k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $424k; Ferrari 812 Superfast: n=23 asking\u2248$570k -> value\u2248$527k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $696k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
@@ -2704,9 +2704,151 @@
      "url": "https://en.wikipedia.org/wiki/Ford_GT"
     }
    }
+  },
+  "Dodge Viper GTS/GT (Gen 5)": {
+   "color": "#6A2C91",
+   "blurb": "2013-17 GTS and GT - 8.4 V10, six-speed, two-mode dampers; the road trims, not the ACR.",
+   "hist": [
+    111.4,
+    125.0,
+    132.0,
+    126.0,
+    100.0,
+    133.5,
+    154.0
+   ],
+   "proj": [
+    154.0,
+    157.7,
+    161.5,
+    165.4,
+    169.3,
+    173.4
+   ],
+   "maint": 3,
+   "cagr": {
+    "base": 0.024,
+    "bull": 0.054,
+    "bear": -0.006
+   },
+   "sold": 154,
+   "src": "bat",
+   "n_comps": 72,
+   "appr": {
+    "w5": {
+     "from_year": 2020,
+     "to_year": 2026,
+     "from_label": "2020-21",
+     "to_label": "2025-26",
+     "from": 123.5,
+     "to": 136.5,
+     "n_from": 16,
+     "n_to": 22,
+     "total_pct": 10.5,
+     "cagr_pct": 2.4,
+     "span_years": 4.3,
+     "cpi_from": 271.5,
+     "cpi_to": 328.1,
+     "t_from": 2021.484,
+     "t_to": 2025.828,
+     "pooled": true
+    },
+    "w10": {
+     "from_year": 2017,
+     "to_year": 2026,
+     "from_label": "2017-18",
+     "to_label": "2025-26",
+     "from": 101.2,
+     "to": 136.5,
+     "n_from": 2,
+     "n_to": 22,
+     "total_pct": 34.8,
+     "cagr_pct": 4.2,
+     "span_years": 7.2,
+     "cpi_from": 251.5,
+     "cpi_to": 328.1,
+     "t_from": 2018.581,
+     "t_to": 2025.828,
+     "pooled": true
+    }
+   },
+   "annual": [
+    {
+     "year": 2018,
+     "median": 101.2,
+     "n": 2,
+     "lo": 75.5,
+     "hi": 127.0
+    },
+    {
+     "year": 2019,
+     "median": 97.8,
+     "n": 2,
+     "lo": 83.5,
+     "hi": 112.0
+    },
+    {
+     "year": 2021,
+     "median": 125.0,
+     "n": 15,
+     "lo": 108.0,
+     "hi": 135.0
+    },
+    {
+     "year": 2022,
+     "median": 132.0,
+     "n": 14,
+     "lo": 129.1,
+     "hi": 140.0
+    },
+    {
+     "year": 2023,
+     "median": 126.0,
+     "n": 11,
+     "lo": 114.4,
+     "hi": 128.0
+    },
+    {
+     "year": 2024,
+     "median": 100.0,
+     "n": 5,
+     "lo": 99.0,
+     "hi": 122.0
+    },
+    {
+     "year": 2025,
+     "median": 133.5,
+     "n": 14,
+     "lo": 126.0,
+     "hi": 138.5
+    },
+    {
+     "year": 2026,
+     "median": 154.0,
+     "n": 8,
+     "lo": 143.0,
+     "hi": 169.0
+    }
+   ],
+   "bat_url": "https://bringatrailer.com/dodge/viper/",
+   "production": {
+    "last_my": 2017,
+    "na": {
+     "label": "1,405 GTS to N. Am.",
+     "detail": "Gen 5 GTS coupes for the US and Canada, 2013-2017: 745 / 572 / 37 / 16 / 34 by year (1,224 US + 181 Canada). The GT is not counted separately - the registry folds it into 'SRT Coupe' with the base car. Wikipedia's 2,427 total for the whole generation disagrees with the registry's VIN-verified build table (~3,900), which is used here.",
+     "src": "International Viper Registry (Viper Club of America), VIN-verified",
+     "url": "https://www.theviperregistry.com/build.php"
+    },
+    "world": {
+     "label": "1,529 GTS built",
+     "detail": "Gen 5 GTS coupes worldwide, 2013-2017: 782 / 627 / 66 / 18 / 36 by year, 124 of them exported outside North America. GT not counted separately.",
+     "src": "International Viper Registry (Viper Club of America), VIN-verified",
+     "url": "https://www.theviperregistry.com/build.php"
+    }
+   }
   }
  },
- "bat_status": "Acura NSX (NA2 manual): 95 comps, 20 driven | Ferrari 360 (gated manual): 171 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 227 comps | Porsche 997.2 Turbo S: 78 comps, 17 driven | Ferrari 328 GTS/GTB: 200 comps, 9 driven | Alfa Romeo GTV 1750/2000: 310 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 337 comps | Ferrari Dino 246 GT/GTS: 68 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 28 comps | Ferrari 550 Maranello: 129 comps | Ferrari F355 Berlinetta (gated manual): 55 comps | Ferrari F355 GTS (gated manual): 39 comps | Porsche Carrera GT: 14 comps | Ford GT (2005-2006): 252 comps | appreciation.csv: 12y x 17 cars",
+ "bat_status": "Acura NSX (NA2 manual): 95 comps, 20 driven | Ferrari 360 (gated manual): 171 comps | Audi R8 gen1 V10 (gated): 88 comps, 11 driven | Corvette split-window (1963): 227 comps | Porsche 997.2 Turbo S: 78 comps, 17 driven | Ferrari 328 GTS/GTB: 200 comps, 9 driven | Alfa Romeo GTV 1750/2000: 310 comps | Porsche Singer 911: 19 comps | Volvo P1800 (1800 family): 337 comps | Ferrari Dino 246 GT/GTS: 68 comps | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 28 comps | Ferrari 550 Maranello: 129 comps | Ferrari F355 Berlinetta (gated manual): 55 comps | Ferrari F355 GTS (gated manual): 39 comps | Porsche Carrera GT: 14 comps | Ford GT (2005-2006): 252 comps | Dodge Viper GTS/GT (Gen 5): 72 comps | appreciation.csv: 12y x 18 cars",
  "cpi_by_year": {
   "2014": 236.7,
   "2015": 237.0,
