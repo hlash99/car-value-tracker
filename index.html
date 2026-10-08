@@ -139,6 +139,10 @@
       <button data-v="all" class="on">All comps</button>
       <button data-v="driven">Driven only</button>
     </div>
+    <div class="seg" id="plotSeg" title="Charts show the top 15 cars in the table's current sort order; AAPL and the S&P 500 are always included">
+      <button data-v="15" class="on">Plots: top 15</button>
+      <button data-v="all">All cars</button>
+    </div>
   </div>
 
   <section class="blk" data-blk="cards"><h3><span class="grip" draggable="true" title="Drag to reorder">⠿</span>Current values &amp; appreciation<button class="clps" title="Collapse / expand">▾</button></h3>
@@ -217,7 +221,21 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
 <script>
 const state={basis:"real",scen:"base",maint:"on",metric:"cagr",driven:"all",
-             sortBy:"w10",sortDir:"desc"};
+             sortBy:"w10",sortDir:"desc",plotN:"15"};
+try{const v=localStorage.getItem("cvPlotN"); if(v==="15"||v==="all") state.plotN=v;}catch(e){}
+
+/* Which cars the CHARTS draw. Twenty-odd series made every plot unreadable, so
+   they show the top PLOT_N of the main table in its current sort order (best
+   10-yr return by default) - a newly added car appears as soon as it ranks, and
+   re-sorting the table re-picks. "All cars" restores the full set. The tables
+   always list every car; AAPL and the S&P 500 are always drawn where a chart
+   carries them. */
+const PLOT_N=15;
+function plotCars(){
+  if(state.plotN==="all") return carList();
+  return sortedRows().slice(0,PLOT_N).map(r=>r.name);
+}
+function drawPlots(){buildLegend();drawIdx();drawTraj();drawRet();drawYoY();}
 let D, charts={};
 const $=s=>document.querySelector(s);
 const fmtk=v=>"$"+Math.round(v)+"k";
@@ -371,14 +389,16 @@ function init(){
     "Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen","Twenty"][n]||String(n))(carList().length);
   $("#p997").textContent=fmtk(D.cars["Porsche 997.2 Turbo S"].hist.slice(-1)[0]);
   $("#p812").textContent=fmtk(D.cars["Ferrari 812 Superfast"].hist.slice(-1)[0]);
-  bindSeg("#basisSeg",v=>{state.basis=v;syncLabels();renderTable();drawRet();drawYoY();});
+  bindSeg("#basisSeg",v=>{state.basis=v;syncLabels();renderTable();drawPlots();});
   bindSeg("#scenSeg",v=>{state.scen=v;$("#scenLabel").textContent=v;drawTraj();renderProjTable();});
-  bindSeg("#maintSeg",v=>{state.maint=v;syncLabels();renderTable();drawRet();drawYoY();renderProjTable();});
-  bindSeg("#metricSeg",v=>{state.metric=v;renderTable();});
-  bindSeg("#drivenSeg",v=>{state.driven=v;renderTable();});
+  bindSeg("#maintSeg",v=>{state.maint=v;syncLabels();renderTable();drawPlots();renderProjTable();});
+  bindSeg("#metricSeg",v=>{state.metric=v;renderTable();drawPlots();});
+  bindSeg("#drivenSeg",v=>{state.driven=v;renderTable();drawPlots();});
+  document.querySelectorAll("#plotSeg button").forEach(b=>b.classList.toggle("on",b.dataset.v===state.plotN));
+  bindSeg("#plotSeg",v=>{state.plotN=v;try{localStorage.setItem("cvPlotN",v);}catch(e){}drawPlots();});
   loadSort();
   syncLabels();
-  renderTable();buildLegend();drawIdx();drawTraj();drawRet();drawYoY();initCross();renderProjTable();renderEvid();renderYear();renderRef();
+  renderTable();drawPlots();initCross();renderProjTable();renderEvid();renderYear();renderRef();
   initBlocks();
 }
 
@@ -718,7 +738,7 @@ function renderTable(){
     const k=th.dataset.k;
     if(state.sortBy===k) state.sortDir = state.sortDir==="asc"?"desc":"asc";
     else { state.sortBy=k; state.sortDir = (k==="name") ? "asc" : "desc"; }
-    saveSort(); renderTable();
+    saveSort(); renderTable(); drawPlots();
   });
 
   const anyFb  = rows.some(r=>r.fallback);
@@ -742,7 +762,7 @@ function renderTable(){
 
 function buildLegend(){
   const el=$("#legendIdx");el.innerHTML="";
-  const series=[...carList(),...Object.keys(D.refs)];
+  const series=[...plotCars(),...Object.keys(D.refs)];
   series.forEach((n,i)=>{
     const color=D.cars[n]?D.cars[n].color:D.refs[n].color;
     const b=document.createElement("button");b.dataset.n=n;
@@ -758,8 +778,9 @@ function fmtPrice(unit,v){
   return Math.round(v).toLocaleString();
 }
 function drawIdx(){
+  if(charts.idx)charts.idx.destroy();
   const ds=[];
-  carList().forEach(n=>{const c=D.cars[n];ds.push({label:n,data:idxArr(c.hist),raw:c.hist,unit:"usdk",borderColor:c.color,backgroundColor:c.color,borderWidth:2,pointRadius:2,tension:.3});});
+  plotCars().forEach(n=>{const c=D.cars[n];ds.push({label:n,data:idxArr(c.hist),raw:c.hist,unit:"usdk",borderColor:c.color,backgroundColor:c.color,borderWidth:2,pointRadius:2,tension:.3});});
   Object.keys(D.refs).forEach(n=>{const r=D.refs[n];ds.push({label:n,data:idxArr(r.hist),raw:r.hist,unit:r.unit,borderColor:r.color,backgroundColor:r.color,borderWidth:2.4,borderDash:[6,4],pointRadius:2,tension:.3});});
   charts.idx=new Chart($("#chartIdx"),{type:"line",data:{labels:D.years,datasets:ds},plugins:[ChartDataLabels],
     options:{responsive:true,maintainAspectRatio:false,layout:{padding:{top:22,right:30}},
@@ -778,7 +799,7 @@ function drawTraj(){
   if(charts.traj)charts.traj.destroy();
   const labels=[...D.years,...D.pyears.slice(1)];
   const ds=[];
-  carList().forEach(n=>{
+  plotCars().forEach(n=>{
     const c=D.cars[n];
     const hist=c.hist.concat(Array(D.pyears.length-1).fill(null));
     const pj=scenProj(n);
@@ -786,14 +807,25 @@ function drawTraj(){
     ds.push({label:n,data:hist,borderColor:c.color,backgroundColor:c.color,borderWidth:2,pointRadius:2,tension:.3});
     ds.push({label:n+" (proj)",data:proj,borderColor:c.color,backgroundColor:c.color,borderWidth:1.6,borderDash:[5,4],pointRadius:1.8,tension:.3});
   });
+  // Every car gets a legend entry (it had none, so new cars were invisible in
+  // the bundle) and the axis is log: a $25k P1800 and a $2.9M Carrera GT on a
+  // linear scale left everything under $500k as one flat smear. A legend click
+  // toggles the car's history and projection together.
+  const tick=v=>{const e=Math.floor(Math.log10(v)),m=Math.round(v/Math.pow(10,e));
+    return [1,2,5].includes(m)?(v>=1000?"$"+(v/1000)+"M":"$"+v+"k"):"";};
+  $("#chartTraj").parentNode.style.height="460px";
   charts.traj=new Chart($("#chartTraj"),{type:"line",data:{labels,datasets:ds},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{
+      legend:{display:true,labels:{boxWidth:10,font:{size:11},usePointStyle:true,pointStyle:"line",
+        filter:i=>!/ \(proj\)$/.test(i.text)},
+        onClick:(e,item,leg)=>{const ch=leg.chart,i=item.datasetIndex,hide=ch.isDatasetVisible(i);
+          [i,i+1].forEach(k=>ch.setDatasetVisibility(k,!hide));ch.update();}},
       tooltip:{filter:i=>i.parsed.y!=null,callbacks:{label:c=>c.dataset.label+": "+fmtk(c.parsed.y)}}},
-      scales:{y:{title:{display:true,text:"Median ($000s)"},ticks:{callback:v=>"$"+v+"k"}}}}});
+      scales:{y:{type:"logarithmic",title:{display:true,text:"Median ($000s, log scale)"},ticks:{callback:tick,autoSkip:false}}}}});
 }
 function drawRet(){
   if(charts.ret)charts.ret.destroy();
-  const names=[...carList(),...Object.keys(D.refs)];
+  const names=[...plotCars(),...Object.keys(D.refs)];
   const rows=names.map(n=>{
     const a=D.cars[n]?D.cars[n].hist:D.refs[n].hist;
     const end=netEnd(n,a[a.length-1],histYears());     // refs return end unchanged
@@ -829,14 +861,22 @@ function drawYoY(){
   if(charts.yoy)charts.yoy.destroy();
   const real=state.basis==="real";
   const labels=D.years.slice(1);
-  const ds=carList().map(n=>({label:n,data:yoyArr(D.cars[n].hist,real,maintPerYear(n)),backgroundColor:D.cars[n].color}));
+  const ds=plotCars().map(n=>({label:n,data:yoyArr(D.cars[n].hist,real,maintPerYear(n)),backgroundColor:D.cars[n].color}));
+  // The two benchmarks, like the return chart: no maintenance, same CPI.
+  Object.keys(D.refs).forEach(n=>ds.push({label:n,data:yoyArr(D.refs[n].hist,real,0),
+    backgroundColor:D.refs[n].color,borderColor:"#fff",borderWidth:1}));
+  // Options used to declare `plugins` twice, so the second silently replaced the
+  // first and every bar printed an unformatted float. One block now, and bar
+  // labels only once the legend has narrowed the chart to a readable few.
+  const few=c=>c.chart.data.datasets.filter((d,i)=>c.chart.isDatasetVisible(i)).length<=6;
+  $("#chartYoY").parentNode.style.height="440px";
   charts.yoy=new Chart($("#chartYoY"),{type:"bar",plugins:[ChartDataLabels],data:{labels,datasets:ds},
     options:{responsive:true,maintainAspectRatio:false,
-      plugins:{datalabels:{anchor:e=>e.dataset.data[e.dataIndex]>=0?"end":"start",
-        align:e=>e.dataset.data[e.dataIndex]>=0?"end":"start",rotation:-90,clamp:true,
-        formatter:v=>(v===null||v===undefined)?"":Math.round(v),
-        font:{size:8},color:"#666"}},
-      plugins:{legend:{labels:{boxWidth:10,font:{size:11},usePointStyle:true,pointStyle:"rect"}},
+      plugins:{
+        datalabels:{display:few,anchor:e=>e.dataset.data[e.dataIndex]>=0?"end":"start",
+          align:e=>e.dataset.data[e.dataIndex]>=0?"end":"start",rotation:-90,clamp:true,
+          formatter:v=>(v===null||v===undefined)?"":pct0(v),font:{size:9},color:"#888"},
+        legend:{labels:{boxWidth:10,font:{size:11},usePointStyle:true,pointStyle:"rect"}},
         tooltip:{callbacks:{label:c=>c.dataset.label+": "+pct(c.parsed.y)}}},
       scales:{y:{title:{display:true,text:(real?"real ":"")+"YoY %"},ticks:{callback:v=>pct0(v)}}}}});
 }
