@@ -254,6 +254,63 @@ BAT_CARS = {
         "any_of": ["gts", "viper gt", "srt gt"],
         "maint": 3,
     },
+    # Murciélago Roadster, one entry per generation and e-gear only. BaT's
+    # Murciélago page mixes three populations that must not share a median:
+    # e-gear cars ($120k-$425k), factory six-speeds ($345k-$580k) and six-speed
+    # conversions ($650k-$780k). The six-speeds are all 2025-26 sales, so they
+    # have no history to build a window from; the 2004-06 6.2 car and the
+    # 2007-10 LP640 also sit ~$160k apart, and pooling them read as ~25%/yr of
+    # "growth" that was only the mix moving from 6.2s to LP640s. The LP650-4
+    # (50 built) has one BaT sale - too thin for a series.
+    "Lamborghini Murcielago Roadster 6.2 (e-gear)": {
+        "url": "https://bringatrailer.com/lamborghini/murcielago/",
+        "color": "#E8A317",
+        "blurb": "2004-06 6.2 V12 roadster with the e-gear single-clutch automated manual - 435 roadsters built across all gearboxes.",
+        "spec": {"include": ["roadster"],
+                 "exclude": ["lp640", "lp 640", "lp650", "6-speed", "conversion", "replica", "kit car"],
+                 "year_min": 2004, "year_max": 2006, "lo": 80000, "hi": 600000},
+        "maint": 8,
+    },
+    "Lamborghini Murcielago LP640 Roadster (e-gear)": {
+        "url": "https://bringatrailer.com/lamborghini/murcielago/",
+        "color": "#6FA51E",
+        "blurb": "2007-10 6.5 V12 LP640 roadster with e-gear - about 414 built across all gearboxes.",
+        "spec": {"include": ["lp640", "roadster"],
+                 "exclude": ["lp650", "6-speed", "conversion", "replica", "kit car"],
+                 "year_min": 2007, "year_max": 2010, "lo": 150000, "hi": 1500000},
+        "maint": 8,
+    },
+    # Coupes, split the same way. The 6.2 coupe is the one Murcielago where the
+    # factory six-speed is common, so it gets its own series; e-gear 6.2s sell
+    # for roughly half. Thin trims are excluded and priced in the sheet instead:
+    # 40th Anniversary (50 built), LP640 Versace, LP640 six-speed, LP670-4 SV,
+    # plus "Modified" and RWD-converted cars that are not like-for-like.
+    "Lamborghini Murcielago 6.2 Coupe (6-speed)": {
+        "url": "https://bringatrailer.com/lamborghini/murcielago/",
+        "color": "#D35400",
+        "blurb": "2002-06 6.2 V12 coupe with the factory gated six-speed - the manual Murcielago that actually trades.",
+        "spec": {"include": ["6-speed"], "exclude": ["roadster", "lp640", "lp 640", "lp670", "superveloce", "40th", "anniversary", "versace", "conversion", "modified", "rwd", "engine", "replica", "kit car"],
+                 "year_min": 2001, "year_max": 2006, "lo": 120000, "hi": 1500000},
+        "maint": 8,
+    },
+    "Lamborghini Murcielago 6.2 Coupe (e-gear)": {
+        "url": "https://bringatrailer.com/lamborghini/murcielago/",
+        "color": "#8E5B2A",
+        "blurb": "2002-06 6.2 V12 coupe with e-gear - the cheapest way into a Murcielago.",
+        "spec": {"exclude": ["roadster", "lp640", "lp 640", "lp670", "superveloce", "40th", "anniversary", "versace", "conversion", "modified", "rwd", "engine", "replica", "kit car", "6-speed"],
+                 "year_min": 2001, "year_max": 2006, "lo": 100000, "hi": 1000000},
+        "maint": 8,
+    },
+    "Lamborghini Murcielago LP640 Coupe (e-gear)": {
+        "url": "https://bringatrailer.com/lamborghini/murcielago/",
+        "color": "#2E7D32",
+        "blurb": "2007-10 6.5 V12 LP640 coupe with e-gear; excludes the Versace, the SV and six-speeds.",
+        "spec": {"include": ["lp640"],
+                 "exclude": ["roadster", "6-speed", "conversion", "versace", "modified", "rwd",
+                             "lp670", "superveloce", "engine", "replica"],
+                 "year_min": 2007, "year_max": 2010, "lo": 150000, "hi": 1500000},
+        "maint": 8,
+    },
 }
 
 
@@ -473,6 +530,55 @@ PRODUCTION = {
             "detail": "Gen 5 GTS coupes worldwide, 2013-2017: 782 / 627 / 66 / 18 / 36 by year, 124 of them exported outside North America. GT not counted separately.",
             "src": "International Viper Registry (Viper Club of America), VIN-verified",
             "url": "https://www.theviperregistry.com/build.php"
+        }
+    },
+    # Lamborghini publishes no gearbox or market split, so both figures are
+    # all-gearbox worldwide counts; the page says so rather than inventing an
+    # e-gear or US number. Wikipedia's per-year roadster table (80/234/121 then
+    # 206/183/57/18) and duPont Registry's Volkswagen-sourced 435 / 464 agree.
+    "Lamborghini Murcielago Roadster 6.2 (e-gear)": {
+        "last_my": 2006,
+        "world": {
+            "label": "435 roadsters built",
+            "detail": "All 2004-06 Murcielago Roadsters, every gearbox: 80 / 234 / 121 by year. No e-gear or US split is published; e-gear was the large majority. Some 2006 builds may be early LP640s.",
+            "src": "Wikipedia production table; duPont Registry (Volkswagen annual figures)",
+            "url": "https://en.wikipedia.org/wiki/Lamborghini_Murci%C3%A9lago"
+        }
+    },
+    "Lamborghini Murcielago LP640 Roadster (e-gear)": {
+        "last_my": 2010,
+        "world": {
+            "label": "~414 roadsters built",
+            "detail": "464 roadsters built 2007-10 (206 / 183 / 57 / 18) less the 50 LP650-4s, every gearbox. Factory six-speed LP640 roadsters are a handful - about 8 for the US.",
+            "src": "Wikipedia production table; duPont Registry (Volkswagen annual figures)",
+            "url": "https://en.wikipedia.org/wiki/Lamborghini_Murci%C3%A9lago"
+        }
+    },
+    "Lamborghini Murcielago 6.2 Coupe (6-speed)": {
+        "last_my": 2006,
+        "world": {
+            "label": "1,788 coupes built",
+            "detail": "All 2001-06 Murcielago coupes, every gearbox: 65 / 442 / 424 / 304 / 230 / 323 by year, including the 50 40th Anniversary cars. No gearbox or US split is published.",
+            "src": "Wikipedia - Lamborghini Murcielago (production table)",
+            "url": "https://en.wikipedia.org/wiki/Lamborghini_Murci%C3%A9lago"
+        }
+    },
+    "Lamborghini Murcielago 6.2 Coupe (e-gear)": {
+        "last_my": 2006,
+        "world": {
+            "label": "1,788 coupes built",
+            "detail": "All 2001-06 Murcielago coupes, every gearbox: 65 / 442 / 424 / 304 / 230 / 323 by year, including the 50 40th Anniversary cars. No gearbox or US split is published.",
+            "src": "Wikipedia - Lamborghini Murcielago (production table)",
+            "url": "https://en.wikipedia.org/wiki/Lamborghini_Murci%C3%A9lago"
+        }
+    },
+    "Lamborghini Murcielago LP640 Coupe (e-gear)": {
+        "last_my": 2010,
+        "world": {
+            "label": "1,296 coupes built 2007-10",
+            "detail": "All 2007-10 coupes (423 / 454 / 274 / 145), every gearbox - this INCLUDES the LP670-4 SuperVeloce, whose own count is disputed (186 commonly cited, a registry tracks 268), so no LP640-only figure is given.",
+            "src": "Wikipedia - Lamborghini Murcielago (production table)",
+            "url": "https://en.wikipedia.org/wiki/Lamborghini_Murci%C3%A9lago"
         }
     }
 }
