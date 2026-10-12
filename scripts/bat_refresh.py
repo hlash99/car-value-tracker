@@ -663,6 +663,10 @@ def to_hist(series, years):
     return out
 
 
+# Share of a look-back that a window's actual span (between the two pools'
+# average sale dates) must cover before it is published at all.
+MIN_SPAN_SHARE = 0.6
+
 # Look-backs (years) published for the return chart's duration slider.
 LOOKBACKS = tuple(range(1, 11))
 
@@ -749,7 +753,12 @@ def windows(sold, wins=(5, 10)):
         from_med = statistics.median(s["price"] for s in p)
         t0 = statistics.mean(_frac_year(s) for s in p)
         span = round(t1 - t0, 1)
-        if span < 1:
+        # A look-back needs most of its length in actual sales. Without this a
+        # car whose BaT history starts in 2020 fell back to the same earliest
+        # pool for every look-back, so its "10-yr" CAGR was its 5-yr one
+        # relabelled (the Carrera GT and the Murcielagos showed identical
+        # columns). 60% of N: 3 yrs for the 5-yr column, 6 for the 10-yr.
+        if span < max(1, MIN_SPAN_SHARE * win):
             continue
         out[f"w{win}"] = {
             "from_year": y0, "to_year": L,
