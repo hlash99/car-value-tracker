@@ -68,10 +68,10 @@
     230,
     255,
     290,
-    344
+    274
    ],
    "proj": [
-    344,
+    274,
     322,
     338,
     353,
@@ -84,7 +84,7 @@
     "bull": 0.07,
     "bear": 0.0
    },
-   "asking": 377,
+   "asking": 300,
    "sold": 293,
    "factor": 0.912,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-458_italia&maximum_distance=all&zip=94027",
@@ -97,7 +97,8 @@
      "url": "https://f-register.com/About-the-Cars/Production-Numbers"
     },
     "na": null
-   }
+   },
+   "asking_src": "local Cars.com scrape 2026-10-19 (n=25)"
   },
   "Ferrari F12 Berlinetta": {
    "color": "#D85A30",
@@ -150,10 +151,10 @@
     350,
     380,
     410,
-    512
+    520
    ],
    "proj": [
-    512,
+    520,
     430,
     440,
     458,
@@ -166,7 +167,7 @@
     "bull": 0.05,
     "bear": -0.02
    },
-   "asking": 554,
+   "asking": 562,
    "sold": 415,
    "factor": 0.925,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_superfast&maximum_distance=all&zip=94027",
@@ -179,7 +180,8 @@
      "url": "https://f-register.com/About-the-Cars/Production-Numbers"
     },
     "na": null
-   }
+   },
+   "asking_src": "local Cars.com scrape 2026-10-19 (n=67)"
   },
   "Ferrari 812 GTS": {
    "color": "#534AB7",
@@ -6543,5 +6545,6 @@
     }
    ]
   }
- }
+ },
+ "local_feed": "2026-10-19 13:33 \u00b7 Ferrari 458 Italia: n=25 asking\u2248$300k -> value\u2248$274k (2026-10-19); Ferrari 812 Superfast: n=67 asking\u2248$562k -> value\u2248$520k (2026-10-19)"
 }
