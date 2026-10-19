@@ -322,7 +322,10 @@ function apprAdj(name,w){
 function rowData(name){
   const c=D.cars[name], dv=c.driven, h=c.hist;
   const useDriven = state.driven==="driven" && dv && dv.appr;
-  const appr = useDriven ? dv.appr : (c.appr || derivedAppr(name));
+  // An empty `appr` ({}) is truthy - a BaT car whose sold history is too thin
+  // for a window showed blank cells instead of the hist-derived fallback.
+  const own = (c.appr && (c.appr.w5 || c.appr.w10)) ? c.appr : null;
+  const appr = useDriven ? dv.appr : (own || derivedAppr(name));
   return {
     name:name, c:c, useDriven:useDriven,
     fallback: state.driven==="driven" && !useDriven,

@@ -72,7 +72,10 @@ BAT_CARS = {
         "maint": 3,
     },
     "Porsche 997.2 Turbo S": {
-        "url": "https://bringatrailer.com/porsche/997-turbo/",
+        # BaT split the Turbo S off its 997 Turbo model page (2026-10): the old
+        # /porsche/997-turbo/ now returns a single Turbo S sale, so every refresh
+        # logged "only 1 comps, skipped" and the 5y/10y CAGR cells went blank.
+        "url": "https://bringatrailer.com/porsche/997-911-turbo-s/",
         "color": "#185FA5",
         "blurb": "997.2 Turbo S coupe, 2010-2013 - the owned-car benchmark.",
         "spec": {"include": ["turbo s"], "exclude": ["cabriolet", "convertible"],
