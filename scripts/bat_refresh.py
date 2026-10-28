@@ -9,9 +9,12 @@ deep, and filterable down to the exact spec and mileage band you would buy.
 Each entry below carries the filter that defines the car. Two of them matter a
 lot and are easy to get wrong:
 
-  * `min_miles` - the appreciation on several of these lives almost entirely in
-    garage queens. Filtering to driven cars inverts the story (the NSX runs
-    +61% all-mileage but -3% at 30k+), so both series are computed and stored.
+  * the driven series - the appreciation on several of these lives almost
+    entirely in garage queens, so a second series keeps only cars with 30-50k
+    miles on the odometer as each LISTING PAGE states it (titles name mileage
+    mostly when it is low, so a title-based filter missed most driven cars).
+    Readings are cached in scripts/odometer_cache.json, so each run fetches only
+    listings it has not seen.
   * `any_of` - `parse_sold` ANDs its include list, but "manual" means
     "5-speed OR 6-speed". Each alternative is run separately and the results
     merged on listing URL.
@@ -22,16 +25,26 @@ import json
 import os
 import statistics
 import sys
+import time
 from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from bat_history import fetch_all_completed, parse_sold, annual_medians, cagr  # noqa: E402
+from bat_history import (fetch_all_completed, parse_sold, annual_medians, cagr,  # noqa: E402
+                         listing_odometer)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data.json")
 
-# Mileage floor that separates "driven" from "stored" for the second series.
-DRIVEN_MILES = 30000
+# Odometer band for the "driven" series: cars that have been used, without the
+# high-mileage discount 60k+ examples carry. Read from each listing page.
+DRIVEN_BAND = (30000, 50000)
+
+# Listing-page odometer readings, keyed by listing URL. Committed by CI with
+# data.json so a run only fetches new listings. A null value means the page
+# states no mileage (TMU) and is not re-fetched.
+ODO_CACHE = os.path.join(ROOT, "scripts", "odometer_cache.json")
+# New listing pages fetched per run at most; the rest wait for the next run.
+ODO_FETCH_CAP = int(os.environ.get("ODO_FETCH_CAP", "400"))
 
 BAT_CARS = {
     "Acura NSX (NA2 manual)": {
@@ -140,8 +153,8 @@ BAT_CARS = {
     # BaT files every Evora generation on one page, so "evora gt" alone also
     # catches the 2014 Evora GTS and two race cars (a GTN and a GT4 Cup). Those
     # three names plus a $60k floor leave only the 2020-21 US-market GT, whose
-    # cheapest real sale was $73.5k. No driven series: not one has sold at 30k+
-    # miles, so it falls back to all-comps with a dagger like the Dino.
+    # cheapest real sale was $73.5k. No driven series: one sale in the 30-50k
+    # band, so it falls back to all-comps with a dagger like the Dino.
     "Lotus Evora GT (2020-21)": {
         "url": "https://bringatrailer.com/lotus/evora/",
         "color": "#00915A",
@@ -210,7 +223,7 @@ BAT_CARS = {
     # standards, and flagged as such until the pools fill out. The model page
     # also carries posters, models and a steering wheel, all of which parse as
     # SOLD; the $300k floor clears them, and no real car has sold below $1.1M.
-    # Not one has sold at 30k+ miles - most are under 10k - so there is no
+    # One sale in the 30-50k band - most are under 10k - so there is no
     # driven series and it falls back to all comps with a dagger, like the Dino.
     "Porsche Carrera GT": {
         "url": "https://bringatrailer.com/porsche/carrera-gt/",
@@ -228,8 +241,8 @@ BAT_CARS = {
     # car, so the $175k floor separates them cleanly. Six modified cars
     # (Whipple-supercharged, Hennessey GT850, two twin-turbo builds) are excluded
     # by name: they trade on their own terms, above and below stock. Heritage
-    # Editions stay in - a factory edition, not a modification. Not one car has
-    # sold at 30k+ miles, so there is no driven series and it falls back to all
+    # Editions stay in - a factory edition, not a modification. Five sales in the
+    # 30-50k band but too few per year for a window, so no driven series and it falls back to all
     # comps with a dagger, like the Dino and the Carrera GT.
     "Ford GT (2005-2006)": {
         "url": "https://bringatrailer.com/ford/gt/",
@@ -610,8 +623,29 @@ CPI_BY_YEAR = {2014: 236.7, 2015: 237.0, 2016: 240.0, 2017: 245.1, 2018: 251.1,
                2024: 314.2, 2025: 323.6, 2026: 337.2}
 
 
-def collect(cfg):
-    """Sold comps for one car, honouring any_of by merging passes on URL."""
+def odometer(s, cache, budget):
+    """Listing-page odometer for one sale, from the cache or one page fetch.
+
+    A failed fetch is not cached, so it is retried next run; past the per-run
+    budget the sale is treated as unknown mileage for this run only."""
+    url = s["url"]
+    if url in cache:
+        return cache[url]
+    if budget["left"] <= 0:
+        return None
+    budget["left"] -= 1
+    try:
+        cache[url] = listing_odometer(url)
+    except Exception:
+        time.sleep(20)                      # usually a 429; back off and move on
+        return None
+    time.sleep(1.0)
+    return cache[url]
+
+
+def collect(cfg, cache, budget):
+    """Sold comps for one car, honouring any_of by merging passes on URL, plus
+    the driven subset (DRIVEN_BAND on the listing-page odometer)."""
     items, _ = fetch_all_completed(cfg["url"])
     alts = cfg.get("any_of") or [None]
     merged = {}
@@ -623,15 +657,13 @@ def collect(cfg):
             merged[s["url"]] = s
     all_sold = sorted(merged.values(), key=lambda s: s["ts"])
 
-    driven = {}
-    for alt in alts:
-        spec = dict(cfg["spec"])
-        spec["min_miles"] = DRIVEN_MILES
-        if alt:
-            spec["include"] = list(spec.get("include", [])) + [alt]
-        for s in parse_sold(items, spec):
-            driven[s["url"]] = s
-    return all_sold, sorted(driven.values(), key=lambda s: s["ts"])
+    lo, hi = DRIVEN_BAND
+    driven = []
+    for s in all_sold:
+        s["odo"] = odometer(s, cache, budget)
+        if s["odo"] is not None and lo <= s["odo"] <= hi:
+            driven.append(s)
+    return all_sold, driven
 
 
 def annual_detail(sold, min_n=2):
@@ -828,10 +860,16 @@ def main():
     years, pyears = d["years"], d["pyears"]
     log = []
     series_by_car = {}
+    try:
+        with open(ODO_CACHE) as f:
+            cache = json.load(f)
+    except (OSError, ValueError):
+        cache = {}
+    budget = {"left": ODO_FETCH_CAP}
 
     for name, cfg in BAT_CARS.items():
         try:
-            all_sold, driven = collect(cfg)
+            all_sold, driven = collect(cfg, cache, budget)
         except Exception as e:                      # keep last-good on any failure
             log.append(f"{name}: FAILED ({type(e).__name__})")
             continue
@@ -889,7 +927,8 @@ def main():
         drv_appr = {k: drv_n[k] for k in ("w5", "w10") if k in drv_n}
         if len(driven) >= 5 and drv_appr:
             car["driven"] = {
-                "min_miles": DRIVEN_MILES,
+                "min_miles": DRIVEN_BAND[0],
+                "max_miles": DRIVEN_BAND[1],
                 "n_comps": len(driven),
                 "latest": round(s_drv[-1]["median"] / 1000.0, 1),
                 "appr": drv_appr,
@@ -924,6 +963,11 @@ def main():
             csv_series[name] = [{"year": p["year"], "median": p["median"] * 1000}
                                 for p in src["annual"]]
             log.append(f"{name}: CSV column kept from last-good data")
+
+    with open(ODO_CACHE, "w") as f:
+        json.dump(cache, f, indent=0, sort_keys=True)
+    fetched = ODO_FETCH_CAP - budget["left"]
+    log.append(f"odometers: {len(cache)} cached, {fetched} fetched this run")
 
     d["cpi_by_year"] = {str(k): v for k, v in CPI_BY_YEAR.items()}
     ny, nc = write_csv(csv_series)

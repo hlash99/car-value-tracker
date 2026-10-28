@@ -58,6 +58,46 @@ def title_miles(title):
     return None
 
 
+# The odometer as the LISTING PAGE states it. Titles name the mileage mostly when
+# it is low, so title_miles() misses most driven cars - a 35k-mile 458 Spider
+# sold as plain "2013 Ferrari 458 Spider". The page's "Listing Details" list
+# always carries it: "35k Miles", "9,800 Indicated Miles", "11k Miles Shown",
+# "16k Kilometers (~10k Miles)", or "TMU" (true mileage unknown -> None).
+# Kilometre cars are converted here, unlike title_miles(): this reading feeds a
+# mileage band, and a 60k-km car is a 37k-mile car for that purpose.
+DETAILS_RE = re.compile(r"Listing Details.{0,1500}?</ul>", re.S)
+LI_RE = re.compile(r"<li>(.*?)</li>", re.S)
+APPROX_MI_RE = re.compile(r"\(~\s*([\d,.]+)\s*(k?)\s*Miles\)", re.I)
+ODO_RE = re.compile(r"(\d[\d,.]*)\s*(k?)\s+(?:Indicated\s+|Shown\s+)?(Miles|Kilometers|Km)\b", re.I)
+
+
+def parse_odometer(text):
+    """Miles from one Listing Details line, or None if it states none (TMU)."""
+    m = APPROX_MI_RE.search(text)
+    if m:
+        return int(float(m.group(1).replace(",", "")) * (1000 if m.group(2) else 1))
+    m = ODO_RE.search(text)
+    if not m:
+        return None
+    v = float(m.group(1).replace(",", "")) * (1000 if m.group(2) else 1)
+    if m.group(3).lower().startswith("k"):
+        v *= 0.621371
+    return int(round(v))
+
+
+def listing_odometer(url):
+    """Odometer reading from a listing page, or None if the page states none."""
+    html = _get(url)
+    blk = DETAILS_RE.search(html)
+    if not blk:
+        return None
+    for li in LI_RE.findall(blk.group(0)):
+        txt = re.sub(r"<[^>]+>", "", li)
+        if re.search(r"\b(Miles|Kilometers|Km|TMU)\b", txt, re.I):
+            return parse_odometer(txt)
+    return None
+
+
 def _get(url, data=None, headers=None, timeout=60, tries=3):
     for attempt in range(tries):
         try:
