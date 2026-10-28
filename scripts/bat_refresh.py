@@ -314,6 +314,22 @@ BAT_CARS = {
                  "year_min": 2007, "year_max": 2010, "lo": 150000, "hi": 1500000},
         "maint": 8,
     },
+    # 458 Spider, the folding-hardtop car. BaT files the Italia, Spider,
+    # Speciale and Speciale A on one /ferrari/458/ page, so "spider" picks the
+    # body and the Speciale A (Aperta) is excluded by name - it trades at 2-3x.
+    # Every 458 is a seven-speed DCT, so no gearbox filter. The $120k floor
+    # clears wheels, seats and other parts that parse as SOLD; the cheapest
+    # real Spider has been $156k. Unlike the Italia above (a Cars.com asking
+    # median), this is a BaT sold series. No production entry: Ferrari never
+    # published a Spider total and the f-register list has no count for it.
+    "Ferrari 458 Spider": {
+        "url": "https://bringatrailer.com/ferrari/458/",
+        "color": "#B22222",
+        "blurb": "2012-2015 folding-hardtop 458 - 4.5 flat-plane V8 to 9,000 rpm, DCT only.",
+        "spec": {"include": ["spider"], "exclude": ["speciale", "aperta", "replica", "kit car"],
+                 "year_min": 2011, "year_max": 2015, "lo": 120000, "hi": 1500000},
+        "maint": 5,
+    },
 }
 
 
