@@ -98,7 +98,7 @@
     },
     "na": null
    },
-   "asking_src": "local Cars.com scrape 2026-10-19 (n=25)"
+   "asking_src": "local Cars.com scrape 2026-10-29 (n=26)"
   },
   "Ferrari F12 Berlinetta": {
    "color": "#D85A30",
@@ -151,10 +151,10 @@
     350,
     380,
     410,
-    462
+    509
    ],
    "proj": [
-    462,
+    509,
     430,
     440,
     458,
@@ -167,7 +167,7 @@
     "bull": 0.05,
     "bear": -0.02
    },
-   "asking": 500,
+   "asking": 550,
    "sold": 415,
    "factor": 0.925,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_superfast&maximum_distance=all&zip=94027",
@@ -181,7 +181,7 @@
     },
     "na": null
    },
-   "asking_src": "local Cars.com scrape 2026-10-19 (n=67)"
+   "asking_src": "local Cars.com scrape 2026-10-29 (n=65)"
   },
   "Ferrari 812 GTS": {
    "color": "#534AB7",
@@ -193,10 +193,10 @@
     620,
     680,
     730,
-    680
+    671
    ],
    "proj": [
-    680,
+    671,
     778,
     802,
     825,
@@ -209,7 +209,7 @@
     "bull": 0.05,
     "bear": -0.01
    },
-   "asking": 850,
+   "asking": 839,
    "sold": 750,
    "factor": 0.8,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_gts&maximum_distance=all&zip=94027",
@@ -222,7 +222,8 @@
      "url": "https://f-register.com/About-the-Cars/Production-Numbers"
     },
     "na": null
-   }
+   },
+   "asking_src": "local Cars.com scrape 2026-10-29 (n=53)"
   },
   "Porsche 997.2 Turbo S": {
    "color": "#185FA5",
@@ -8509,5 +8510,5 @@
    ]
   }
  },
- "local_feed": "2026-10-19 13:33 \u00b7 Ferrari 458 Italia: n=25 asking\u2248$300k -> value\u2248$274k (2026-10-19); Ferrari 812 Superfast: n=67 asking\u2248$562k -> value\u2248$520k (2026-10-19)"
+ "local_feed": "2026-10-29 16:16 \u00b7 Ferrari 458 Italia: n=26 asking\u2248$300k -> value\u2248$274k (2026-10-29); Ferrari 812 Superfast: n=65 asking\u2248$550k -> value\u2248$509k (2026-10-29); Ferrari 812 GTS: n=53 asking\u2248$839k -> value\u2248$671k (2026-10-29)"
 }
