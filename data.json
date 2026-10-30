@@ -84,7 +84,7 @@
     "bull": 0.07,
     "bear": 0.0
    },
-   "asking": 300,
+   "asking": 347,
    "sold": 341,
    "factor": 0.912,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-458_italia&maximum_distance=all&zip=94027",
@@ -98,7 +98,7 @@
     },
     "na": null
    },
-   "asking_src": "local Cars.com scrape 2026-10-30 (n=24)",
+   "asking_src": "local Cars.com scrape 2026-10-30 (n=91)",
    "recent": {
     "value": 341.0,
     "n": 7,
@@ -179,7 +179,7 @@
     "bull": 0.05,
     "bear": -0.02
    },
-   "asking": 500,
+   "asking": 550,
    "sold": 478,
    "factor": 0.925,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_superfast&maximum_distance=all&zip=94027",
@@ -8668,5 +8668,5 @@
    ]
   }
  },
- "local_feed": "2026-10-30 11:13 \u00b7 Ferrari 458 Italia: n=24 asking\u2248$300k -> value\u2248$274k (2026-10-30); Ferrari 458 Spider: n=75 asking\u2248$460k -> value\u2248$414k (2026-10-30); Ferrari 812 Superfast: n=65 asking\u2248$550k -> value\u2248$509k (2026-10-29); Ferrari 812 GTS: n=52 asking\u2248$840k -> value\u2248$672k (2026-10-30)"
+ "local_feed": "2026-10-30 13:37 \u00b7 Ferrari 458 Italia: n=91 asking\u2248$347k -> value\u2248$316k (2026-10-30); Ferrari 458 Spider: n=75 asking\u2248$460k -> value\u2248$414k (2026-10-30); Ferrari 812 Superfast: n=65 asking\u2248$550k -> value\u2248$509k (2026-10-29); Ferrari 812 GTS: n=52 asking\u2248$840k -> value\u2248$672k (2026-10-30)"
 }
