@@ -84,7 +84,7 @@
     "bull": 0.07,
     "bear": 0.0
    },
-   "asking": 347,
+   "asking": 300,
    "sold": 234,
    "factor": 0.912,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-458_italia&maximum_distance=all&zip=94027",
@@ -98,7 +98,7 @@
     },
     "na": null
    },
-   "asking_src": "local Cars.com scrape 2026-10-30 (n=91)",
+   "asking_src": "local Cars.com scrape 2026-10-30 (n=31)",
    "recent": {
     "value": 234.1,
     "n": 3,
@@ -8232,8 +8232,8 @@
     "to": "2026-10-25",
     "min_miles": 30000
    },
-   "asking": 460,
-   "asking_src": "local Cars.com scrape 2026-10-30 (n=75)"
+   "asking": 328,
+   "asking_src": "local Cars.com scrape 2026-10-30 (n=8)"
   }
  },
  "bat_status": "Acura NSX (NA2 manual): 99 comps, 22 driven | Ferrari 360 (gated manual): 172 comps, 42 driven | Audi R8 gen1 V10 (gated): 88 comps, 18 driven | Corvette split-window (1963): CSV only | Porsche 997.2 Turbo S: 80 comps, 21 driven | Ferrari 328 GTS/GTB: 204 comps, 68 driven | Alfa Romeo GTV 1750/2000: 313 comps, 59 driven | Porsche Singer 911: 20 comps | Volvo P1800 (1800 family): CSV only | Ferrari Dino 246 GT/GTS: 69 comps, 25 driven | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 28 comps | Ferrari 550 Maranello: 132 comps, 38 driven | Ferrari F355 Berlinetta (gated manual): 56 comps, 22 driven | Ferrari F355 GTS (gated manual): 39 comps, 21 driven | Porsche Carrera GT: 14 comps | Ford GT (2005-2006): 257 comps | Dodge Viper GTS/GT (Gen 5): 73 comps | Lamborghini Murcielago Roadster 6.2 (e-gear): 12 comps | Lamborghini Murcielago LP640 Roadster (e-gear): 10 comps | Lamborghini Murcielago 6.2 Coupe (6-speed): 24 comps | Lamborghini Murcielago 6.2 Coupe (e-gear): 8 comps | Lamborghini Murcielago LP640 Coupe (e-gear): 15 comps | Ferrari 458 Spider: 72 comps | Ferrari 458 Italia: recent 3 sales -> $234.1k | Ferrari 812 Superfast: recent 5 sales -> $478.0k | Ferrari 812 GTS: recent 7 sales -> $765.0k | Ferrari F12 Berlinetta: recent 4 sales -> $425.0k | odometers: 2549 cached, 116 fetched this run | appreciation.csv: 12y x 24 cars",
@@ -8694,5 +8694,5 @@
    ]
   }
  },
- "local_feed": "2026-10-30 13:37 \u00b7 Ferrari 458 Italia: n=91 asking\u2248$347k -> value\u2248$316k (2026-10-30); Ferrari 458 Spider: n=75 asking\u2248$460k -> value\u2248$414k (2026-10-30); Ferrari 812 Superfast: n=65 asking\u2248$550k -> value\u2248$509k (2026-10-29); Ferrari 812 GTS: n=52 asking\u2248$840k -> value\u2248$672k (2026-10-30)"
+ "local_feed": "2026-10-30 16:09 \u00b7 Ferrari 458 Italia: n=31 asking\u2248$300k, value\u2248$234k (2026-10-30); Ferrari 458 Spider: n=8 asking\u2248$328k, value\u2248$258k (2026-10-30); Ferrari 812 Superfast: n=65 asking\u2248$550k, value\u2248$478k (2026-10-29); Ferrari 812 GTS: n=52 asking\u2248$840k, value\u2248$765k (2026-10-30)"
 }
