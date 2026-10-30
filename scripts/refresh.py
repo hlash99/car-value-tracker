@@ -74,8 +74,9 @@ def main():
                     asking = round(statistics.median(vals))
                     adopted = round(asking * car.get("factor", 0.9))
                     car["asking"] = asking
-                    car["hist"][-1] = adopted
-                    car["proj"][0] = adopted
+                    if not car.get("recent"):   # recent sales outrank asking x factor
+                        car["hist"][-1] = adopted
+                        car["proj"][0] = adopted
                     updated_any = True
                     log.append(f"{name}: n={len(vals)} asking≈${asking}k -> value≈${adopted}k")
                 else:

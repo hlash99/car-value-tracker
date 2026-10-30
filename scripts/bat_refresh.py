@@ -346,6 +346,33 @@ BAT_CARS = {
 }
 
 
+# Not full BaT cars (no hist, returns or CSV column from here), but valued from
+# their recent sales. 2026-10-30: the 458's Cars.com scrape had stopped reading
+# Cars.com at all, and asking x factor read about 20% under recent BaT sales.
+VALUE_ONLY_CARS = {
+    "Ferrari 458 Italia": {
+        "url": "https://bringatrailer.com/ferrari/458/",
+        "spec": {"include": ["458"], "exclude": ["spider", "speciale", "aperta", "replica", "kit car", "challenge"],
+                 "year_min": 2010, "year_max": 2015, "lo": 120000, "hi": 1500000},
+    },
+    "Ferrari 812 Superfast": {
+        "url": "https://bringatrailer.com/ferrari/812-superfast/",
+        "spec": {"include": ["superfast"], "exclude": ["gts", "competizione", "replica"],
+                 "year_min": 2017, "year_max": 2024, "lo": 200000, "hi": 1500000},
+    },
+    "Ferrari 812 GTS": {
+        "url": "https://bringatrailer.com/ferrari/812-superfast/",
+        "spec": {"include": ["gts"], "exclude": ["competizione", "replica"],
+                 "year_min": 2020, "year_max": 2024, "lo": 200000, "hi": 2500000},
+    },
+    "Ferrari F12 Berlinetta": {
+        "url": "https://bringatrailer.com/ferrari/f12-berlinetta/",
+        "spec": {"include": ["f12"], "exclude": ["tdf", "tour de france", "spider", "trs", "replica"],
+                 "year_min": 2013, "year_max": 2017, "lo": 150000, "hi": 1500000},
+    },
+}
+
+
 # Production figures, scoped to the SAME spec as each car's filter - the 360 is
 # the gated-manual car, so its figures are gated-manual counts, not all 360s.
 #
@@ -688,6 +715,29 @@ def annual_detail(sold, min_n=2):
     return out
 
 
+# The headline value is the median of the latest sales, not the calendar year's:
+# the market moves too fast for a year-to-date median. Backtested 2026-10-30 by
+# predicting each sale from the ones before it. Typical miss, 458s since 2023:
+# year-to-date 15.7%, 180 days 14.7%, this rule 13.5%. All 20 cars: 19.6%, 18.9%,
+# 18.9%. One sale alone missed by 18.9%, so three is the floor. A rare car with
+# fewer than three sales in the window widens to its latest three, however old.
+RECENT_MAX = 7
+RECENT_MIN = 3
+RECENT_DAYS = 90
+
+
+def recent_value(sold, now=None):
+    """Median of the latest sales ($000s) plus how many and over what dates."""
+    if len(sold) < RECENT_MIN:
+        return None
+    now = now if now is not None else datetime.now(timezone.utc).timestamp()
+    pool = [s for s in sold[-RECENT_MAX:] if now - s["ts"] <= RECENT_DAYS * 86400]
+    if len(pool) < RECENT_MIN:
+        pool = sold[-RECENT_MIN:]
+    return {"value": round(statistics.median(s["price"] for s in pool) / 1000.0, 1),
+            "n": len(pool), "from": pool[0]["date"], "to": pool[-1]["date"]}
+
+
 def to_hist(series, years):
     """Annual medians -> one value per dashboard year, in $000s.
 
@@ -900,6 +950,9 @@ def main():
         appr = {k: appr_n[k] for k in ("w5", "w10") if k in appr_n}
         base_cagr = (appr.get("w5") or {}).get("cagr_pct")
         r = max(-0.06, min(0.10, (base_cagr or 0) / 100.0))   # damp to a sane band
+        recent = recent_value(all_sold)
+        if recent:
+            hist[-1] = recent["value"]
         v0 = hist[-1]
 
         car = d["cars"].get(name, {})
@@ -911,6 +964,7 @@ def main():
             "maint": cfg["maint"],
             "cagr": {"base": round(r, 4), "bull": round(r + 0.03, 4), "bear": round(r - 0.03, 4)},
             "sold": round(hist[-1]),
+            "recent": recent,
             "src": "bat",
             "n_comps": len(all_sold),
             "appr": appr,
@@ -930,7 +984,7 @@ def main():
                 "min_miles": DRIVEN_BAND[0],
                 "max_miles": DRIVEN_BAND[1],
                 "n_comps": len(driven),
-                "latest": round(s_drv[-1]["median"] / 1000.0, 1),
+                "latest": (recent_value(driven) or {}).get("value", round(s_drv[-1]["median"] / 1000.0, 1)),
                 "appr": drv_appr,
                 "appr_n": drv_n,
             }
@@ -942,6 +996,24 @@ def main():
         if car.get("driven"):
             note += f", {len(driven)} driven"
         log.append(note)
+
+    # Cars whose history stays on Cars.com but whose value now follows recent sales.
+    for name, cfg in VALUE_ONLY_CARS.items():
+        car = d["cars"].get(name)
+        if not car:
+            continue
+        try:
+            items, _ = fetch_all_completed(cfg["url"])
+            recent = recent_value(parse_sold(items, cfg["spec"]))
+        except Exception as e:                      # keep last-good on any failure
+            log.append(f"{name}: recent sales FAILED ({type(e).__name__})")
+            continue
+        if recent:
+            car["hist"][-1] = recent["value"]
+            car["proj"][0] = recent["value"]
+            car["sold"] = round(recent["value"])
+            car["recent"] = recent
+            log.append(f"{name}: recent {recent['n']} sales -> ${recent['value']}k")
 
     for name, car in d["cars"].items():
         if name in PRODUCTION:

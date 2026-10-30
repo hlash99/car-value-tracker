@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-30T08:55Z",
+ "updated": "2026-10-30T18:11Z",
  "refresh_status": "auto-refresh 2026-10-30 08:45Z \u00b7 no source updates \u00b7 Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $274k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $414k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $509k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $671k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
@@ -68,10 +68,10 @@
     230,
     255,
     290,
-    274
+    341.0
    ],
    "proj": [
-    274,
+    341.0,
     322,
     338,
     353,
@@ -85,7 +85,7 @@
     "bear": 0.0
    },
    "asking": 300,
-   "sold": 293,
+   "sold": 341,
    "factor": 0.912,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-458_italia&maximum_distance=all&zip=94027",
    "production": {
@@ -98,7 +98,13 @@
     },
     "na": null
    },
-   "asking_src": "local Cars.com scrape 2026-10-30 (n=24)"
+   "asking_src": "local Cars.com scrape 2026-10-30 (n=24)",
+   "recent": {
+    "value": 341.0,
+    "n": 7,
+    "from": "2026-08-19",
+    "to": "2026-10-27"
+   }
   },
   "Ferrari F12 Berlinetta": {
    "color": "#D85A30",
@@ -110,10 +116,10 @@
     260,
     300,
     350,
-    414
+    425.0
    ],
    "proj": [
-    414,
+    425.0,
     402,
     420,
     435,
@@ -127,7 +133,7 @@
     "bear": 0.0
    },
    "asking": 484,
-   "sold": 368,
+   "sold": 425,
    "factor": 0.856,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-f12berlinetta&maximum_distance=all&zip=94027",
    "production": {
@@ -139,6 +145,12 @@
      "url": "https://f-register.com/About-the-Cars/Production-Numbers"
     },
     "na": null
+   },
+   "recent": {
+    "value": 425.0,
+    "n": 4,
+    "from": "2026-09-30",
+    "to": "2026-10-26"
    }
   },
   "Ferrari 812 Superfast": {
@@ -151,10 +163,10 @@
     350,
     380,
     410,
-    509
+    478.0
    ],
    "proj": [
-    509,
+    478.0,
     430,
     440,
     458,
@@ -168,7 +180,7 @@
     "bear": -0.02
    },
    "asking": 550,
-   "sold": 415,
+   "sold": 478,
    "factor": 0.925,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_superfast&maximum_distance=all&zip=94027",
    "production": {
@@ -181,7 +193,13 @@
     },
     "na": null
    },
-   "asking_src": "local Cars.com scrape 2026-10-29 (n=65)"
+   "asking_src": "local Cars.com scrape 2026-10-29 (n=65)",
+   "recent": {
+    "value": 478.0,
+    "n": 5,
+    "from": "2026-08-12",
+    "to": "2026-10-15"
+   }
   },
   "Ferrari 812 GTS": {
    "color": "#534AB7",
@@ -193,10 +211,10 @@
     620,
     680,
     730,
-    672
+    765.0
    ],
    "proj": [
-    672,
+    765.0,
     778,
     802,
     825,
@@ -210,7 +228,7 @@
     "bear": -0.01
    },
    "asking": 840,
-   "sold": 750,
+   "sold": 765,
    "factor": 0.8,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_gts&maximum_distance=all&zip=94027",
    "production": {
@@ -223,7 +241,13 @@
     },
     "na": null
    },
-   "asking_src": "local Cars.com scrape 2026-10-30 (n=52)"
+   "asking_src": "local Cars.com scrape 2026-10-30 (n=52)",
+   "recent": {
+    "value": 765.0,
+    "n": 7,
+    "from": "2026-09-18",
+    "to": "2026-10-30"
+   }
   },
   "Porsche 997.2 Turbo S": {
    "color": "#185FA5",
@@ -235,15 +259,15 @@
     98.0,
     110.0,
     112.5,
-    150.0
+    140.0
    ],
    "proj": [
-    150.0,
-    156.8,
-    163.8,
-    171.2,
-    178.9,
-    186.9
+    140.0,
+    146.3,
+    152.9,
+    159.8,
+    167.0,
+    174.5
    ],
    "maint": 3,
    "cagr": {
@@ -252,7 +276,7 @@
     "bear": 0.015
    },
    "asking": 126,
-   "sold": 150,
+   "sold": 140,
    "factor": 0.946,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=porsche&models[]=porsche-911&maximum_distance=all&zip=94027&year_min=2010&year_max=2013&keyword=Turbo%20S",
    "src": "bat",
@@ -699,6 +723,12 @@
       "pooled": true
      }
     }
+   },
+   "recent": {
+    "value": 140.0,
+    "n": 7,
+    "from": "2026-08-20",
+    "to": "2026-10-23"
    }
   },
   "Acura NSX (NA2 manual)": {
@@ -1258,6 +1288,12 @@
      "t_to": 2026.066,
      "pooled": true
     }
+   },
+   "recent": {
+    "value": 148.0,
+    "n": 7,
+    "from": "2026-08-03",
+    "to": "2026-10-23"
    }
   },
   "Ferrari 360 (gated manual)": {
@@ -1270,15 +1306,15 @@
     132.0,
     122.5,
     152.2,
-    230.0
+    285.0
    ],
    "proj": [
-    230.0,
-    251.8,
-    275.8,
-    302.0,
-    330.7,
-    362.1
+    285.0,
+    312.1,
+    341.7,
+    374.2,
+    409.7,
+    448.7
    ],
    "maint": 6,
    "cagr": {
@@ -1286,7 +1322,7 @@
     "bull": 0.125,
     "bear": 0.065
    },
-   "sold": 230,
+   "sold": 285,
    "src": "bat",
    "n_comps": 172,
    "appr": {
@@ -1589,7 +1625,7 @@
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 42,
-    "latest": 120.0,
+    "latest": 219.9,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -1810,6 +1846,12 @@
       "pooled": true
      }
     }
+   },
+   "recent": {
+    "value": 285.0,
+    "n": 7,
+    "from": "2026-08-03",
+    "to": "2026-10-14"
    }
   },
   "Audi R8 gen1 V10 (gated)": {
@@ -1884,7 +1926,7 @@
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 18,
-    "latest": 118.0,
+    "latest": 121.0,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -2283,6 +2325,12 @@
      "t_to": 2025.694,
      "pooled": true
     }
+   },
+   "recent": {
+    "value": 141.0,
+    "n": 3,
+    "from": "2026-07-07",
+    "to": "2026-08-20"
    }
   },
   "Alfa Romeo GTV 1750/2000": {
@@ -2295,15 +2343,15 @@
     47.0,
     52.0,
     45.1,
-    45.5
+    47.0
    ],
    "proj": [
-    45.5,
-    46.5,
-    47.5,
-    48.6,
-    49.6,
-    50.7
+    47.0,
+    48.0,
+    49.1,
+    50.2,
+    51.3,
+    52.4
    ],
    "maint": 2,
    "cagr": {
@@ -2311,7 +2359,7 @@
     "bull": 0.052,
     "bear": -0.008
    },
-   "sold": 46,
+   "sold": 47,
    "src": "bat",
    "n_comps": 313,
    "appr": {
@@ -2635,7 +2683,7 @@
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 59,
-    "latest": 44.4,
+    "latest": 49.0,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -2856,6 +2904,12 @@
       "pooled": true
      }
     }
+   },
+   "recent": {
+    "value": 47.0,
+    "n": 7,
+    "from": "2026-09-10",
+    "to": "2026-10-22"
    }
   },
   "Porsche Singer 911": {
@@ -2868,15 +2922,15 @@
     1125.0,
     1100.0,
     1075.0,
-    1240.0
+    1275.0
    ],
    "proj": [
-    1240.0,
-    1240.0,
-    1240.0,
-    1240.0,
-    1240.0,
-    1240.0
+    1275.0,
+    1275.0,
+    1275.0,
+    1275.0,
+    1275.0,
+    1275.0
    ],
    "maint": 8,
    "cagr": {
@@ -2884,7 +2938,7 @@
     "bull": 0.03,
     "bear": -0.03
    },
-   "sold": 1240,
+   "sold": 1275,
    "src": "bat",
    "n_comps": 20,
    "appr": {
@@ -3032,6 +3086,12 @@
      "t_to": 2025.929,
      "pooled": true
     }
+   },
+   "recent": {
+    "value": 1275.0,
+    "n": 3,
+    "from": "2026-05-28",
+    "to": "2026-10-14"
    }
   },
   "Ferrari 328 GTS/GTB": {
@@ -3044,15 +3104,15 @@
     103.0,
     87.0,
     115.5,
-    125.0
+    128.0
    ],
    "proj": [
-    125.0,
-    135.8,
-    147.4,
-    160.1,
-    173.9,
-    188.8
+    128.0,
+    139.0,
+    151.0,
+    163.9,
+    178.0,
+    193.4
    ],
    "maint": 5,
    "cagr": {
@@ -3060,7 +3120,7 @@
     "bull": 0.116,
     "bear": 0.056
    },
-   "sold": 125,
+   "sold": 128,
    "src": "bat",
    "n_comps": 204,
    "appr": {
@@ -3106,7 +3166,7 @@
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 68,
-    "latest": 118.0,
+    "latest": 115.0,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -3598,6 +3658,12 @@
      "t_to": 2026.116,
      "pooled": true
     }
+   },
+   "recent": {
+    "value": 128.0,
+    "n": 7,
+    "from": "2026-09-24",
+    "to": "2026-10-29"
    }
   },
   "Ferrari Dino 246 GT/GTS": {
@@ -3610,15 +3676,15 @@
     498.5,
     450.5,
     419.2,
-    431.0
+    455.0
    ],
    "proj": [
-    431.0,
-    444.4,
-    458.1,
-    472.3,
-    487.0,
-    502.1
+    455.0,
+    469.1,
+    483.6,
+    498.6,
+    514.1,
+    530.0
    ],
    "maint": 7,
    "cagr": {
@@ -3626,7 +3692,7 @@
     "bull": 0.061,
     "bear": 0.001
    },
-   "sold": 431,
+   "sold": 455,
    "src": "bat",
    "n_comps": 69,
    "appr": {
@@ -3922,7 +3988,7 @@
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 25,
-    "latest": 349.0,
+    "latest": 350.0,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -4143,6 +4209,12 @@
       "pooled": true
      }
     }
+   },
+   "recent": {
+    "value": 455.0,
+    "n": 3,
+    "from": "2026-08-25",
+    "to": "2026-10-09"
    }
   },
   "Lotus Evora GT (2020-21)": {
@@ -4155,15 +4227,15 @@
     81.5,
     85.2,
     85.0,
-    88.0
+    89.5
    ],
    "proj": [
-    88.0,
-    87.4,
-    86.8,
-    86.2,
-    85.6,
-    85.0
+    89.5,
+    88.9,
+    88.3,
+    87.6,
+    87.0,
+    86.4
    ],
    "maint": 3,
    "cagr": {
@@ -4171,7 +4243,7 @@
     "bull": 0.023,
     "bear": -0.037
    },
-   "sold": 88,
+   "sold": 90,
    "src": "bat",
    "n_comps": 18,
    "appr": {
@@ -4333,6 +4405,12 @@
      "t_to": 2025.896,
      "pooled": true
     }
+   },
+   "recent": {
+    "value": 89.5,
+    "n": 3,
+    "from": "2026-03-07",
+    "to": "2026-09-09"
    }
   },
   "Lotus Emira V6 (2024-25)": {
@@ -4345,15 +4423,15 @@
     101.0,
     101.0,
     86.2,
-    83.5
+    83.0
    ],
    "proj": [
-    83.5,
-    83.5,
-    83.5,
-    83.5,
-    83.5,
-    83.5
+    83.0,
+    83.0,
+    83.0,
+    83.0,
+    83.0,
+    83.0
    ],
    "maint": 3,
    "cagr": {
@@ -4361,7 +4439,7 @@
     "bull": 0.03,
     "bear": -0.03
    },
-   "sold": 84,
+   "sold": 83,
    "src": "bat",
    "n_comps": 28,
    "appr": {},
@@ -4426,6 +4504,12 @@
      "t_to": 2025.973,
      "pooled": true
     }
+   },
+   "recent": {
+    "value": 83.0,
+    "n": 5,
+    "from": "2026-08-02",
+    "to": "2026-10-02"
    }
   },
   "Ferrari 550 Maranello": {
@@ -4438,15 +4522,15 @@
     194.3,
     205.0,
     168.8,
-    223.0
+    232.0
    ],
    "proj": [
-    223.0,
-    238.2,
-    254.4,
-    271.7,
-    290.1,
-    309.9
+    232.0,
+    247.8,
+    264.6,
+    282.6,
+    301.8,
+    322.4
    ],
    "maint": 6,
    "cagr": {
@@ -4454,7 +4538,7 @@
     "bull": 0.098,
     "bear": 0.038
    },
-   "sold": 223,
+   "sold": 232,
    "src": "bat",
    "n_comps": 132,
    "appr": {
@@ -4757,7 +4841,7 @@
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 38,
-    "latest": 177.0,
+    "latest": 232.0,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -4978,6 +5062,12 @@
       "pooled": true
      }
     }
+   },
+   "recent": {
+    "value": 232.0,
+    "n": 7,
+    "from": "2026-08-11",
+    "to": "2026-10-21"
    }
   },
   "Ferrari F355 Berlinetta (gated manual)": {
@@ -4990,15 +5080,15 @@
     171.0,
     152.5,
     134.7,
-    229.2
+    245.4
    ],
    "proj": [
-    229.2,
-    244.6,
-    260.9,
-    278.4,
-    297.1,
-    317.0
+    245.4,
+    261.8,
+    279.4,
+    298.1,
+    318.1,
+    339.4
    ],
    "maint": 7,
    "cagr": {
@@ -5006,7 +5096,7 @@
     "bull": 0.097,
     "bear": 0.037
    },
-   "sold": 229,
+   "sold": 245,
    "src": "bat",
    "n_comps": 56,
    "appr": {
@@ -5302,7 +5392,7 @@
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 22,
-    "latest": 137.4,
+    "latest": 186.0,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -5523,6 +5613,12 @@
       "pooled": true
      }
     }
+   },
+   "recent": {
+    "value": 245.4,
+    "n": 3,
+    "from": "2026-08-06",
+    "to": "2026-10-23"
    }
   },
   "Ferrari F355 GTS (gated manual)": {
@@ -5535,15 +5631,15 @@
     187.7,
     180.5,
     159.8,
-    250.7
+    257.7
    ],
    "proj": [
-    250.7,
-    271.5,
-    294.0,
-    318.4,
-    344.9,
-    373.5
+    257.7,
+    279.1,
+    302.3,
+    327.3,
+    354.5,
+    383.9
    ],
    "maint": 7,
    "cagr": {
@@ -5551,7 +5647,7 @@
     "bull": 0.113,
     "bear": 0.053
    },
-   "sold": 251,
+   "sold": 258,
    "src": "bat",
    "n_comps": 39,
    "appr": {
@@ -5779,7 +5875,7 @@
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 21,
-    "latest": 223.7,
+    "latest": 235.4,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -5928,6 +6024,12 @@
       "pooled": true
      }
     }
+   },
+   "recent": {
+    "value": 257.7,
+    "n": 4,
+    "from": "2026-08-21",
+    "to": "2026-10-06"
    }
   },
   "Porsche Carrera GT": {
@@ -6138,6 +6240,12 @@
      "t_to": 2025.137,
      "pooled": true
     }
+   },
+   "recent": {
+    "value": 1810.4,
+    "n": 3,
+    "from": "2025-04-23",
+    "to": "2025-09-18"
    }
   },
   "Ford GT (2005-2006)": {
@@ -6150,15 +6258,15 @@
     414.5,
     424.0,
     491.5,
-    605.0
+    696.0
    ],
    "proj": [
-    605.0,
-    658.2,
-    716.2,
-    779.2,
-    847.8,
-    922.4
+    696.0,
+    757.2,
+    823.9,
+    896.4,
+    975.3,
+    1061.1
    ],
    "maint": 3,
    "cagr": {
@@ -6166,7 +6274,7 @@
     "bull": 0.118,
     "bear": 0.058
    },
-   "sold": 605,
+   "sold": 696,
    "src": "bat",
    "n_comps": 257,
    "appr": {
@@ -6469,6 +6577,12 @@
      "t_to": 2025.91,
      "pooled": true
     }
+   },
+   "recent": {
+    "value": 696.0,
+    "n": 7,
+    "from": "2026-10-01",
+    "to": "2026-10-28"
    }
   },
   "Dodge Viper GTS/GT (Gen 5)": {
@@ -6481,15 +6595,15 @@
     126.0,
     100.0,
     133.5,
-    155.0
+    186.5
    ],
    "proj": [
-    155.0,
-    158.7,
-    162.5,
-    166.4,
-    170.4,
-    174.5
+    186.5,
+    191.0,
+    195.6,
+    200.3,
+    205.1,
+    210.0
    ],
    "maint": 3,
    "cagr": {
@@ -6497,7 +6611,7 @@
     "bull": 0.054,
     "bear": -0.006
    },
-   "sold": 155,
+   "sold": 186,
    "src": "bat",
    "n_comps": 73,
    "appr": {
@@ -6793,6 +6907,12 @@
      "t_to": 2025.871,
      "pooled": true
     }
+   },
+   "recent": {
+    "value": 186.5,
+    "n": 4,
+    "from": "2026-08-04",
+    "to": "2026-10-27"
    }
   },
   "Lamborghini Murcielago Roadster 6.2 (e-gear)": {
@@ -7004,6 +7124,12 @@
      "src": "Wikipedia production table; duPont Registry (Volkswagen annual figures)",
      "url": "https://en.wikipedia.org/wiki/Lamborghini_Murci%C3%A9lago"
     }
+   },
+   "recent": {
+    "value": 261.0,
+    "n": 3,
+    "from": "2026-01-16",
+    "to": "2026-10-28"
    }
   },
   "Lamborghini Murcielago LP640 Roadster (e-gear)": {
@@ -7179,6 +7305,12 @@
      "src": "Wikipedia production table; duPont Registry (Volkswagen annual figures)",
      "url": "https://en.wikipedia.org/wiki/Lamborghini_Murci%C3%A9lago"
     }
+   },
+   "recent": {
+    "value": 425.0,
+    "n": 3,
+    "from": "2026-03-03",
+    "to": "2026-08-07"
    }
   },
   "Lamborghini Murcielago 6.2 Coupe (6-speed)": {
@@ -7191,15 +7323,15 @@
     345.5,
     425.5,
     400.0,
-    497.5
+    575.0
    ],
    "proj": [
-    497.5,
-    507.9,
-    518.6,
-    529.5,
-    540.6,
-    552.0
+    575.0,
+    587.1,
+    599.4,
+    612.0,
+    624.8,
+    638.0
    ],
    "maint": 8,
    "cagr": {
@@ -7207,7 +7339,7 @@
     "bull": 0.051,
     "bear": -0.009
    },
-   "sold": 498,
+   "sold": 575,
    "src": "bat",
    "n_comps": 24,
    "appr": {
@@ -7411,6 +7543,12 @@
      "src": "Wikipedia - Lamborghini Murcielago (production table)",
      "url": "https://en.wikipedia.org/wiki/Lamborghini_Murci%C3%A9lago"
     }
+   },
+   "recent": {
+    "value": 575.0,
+    "n": 3,
+    "from": "2026-04-22",
+    "to": "2026-06-18"
    }
   },
   "Lamborghini Murcielago 6.2 Coupe (e-gear)": {
@@ -7423,15 +7561,15 @@
     191.0,
     191.0,
     191.0,
-    191.0
+    200.0
    ],
    "proj": [
-    191.0,
-    206.7,
-    223.6,
-    241.9,
-    261.8,
-    283.2
+    200.0,
+    216.4,
+    234.1,
+    253.3,
+    274.1,
+    296.6
    ],
    "maint": 8,
    "cagr": {
@@ -7439,7 +7577,7 @@
     "bull": 0.112,
     "bear": 0.052
    },
-   "sold": 191,
+   "sold": 200,
    "src": "bat",
    "n_comps": 8,
    "appr": {
@@ -7615,6 +7753,12 @@
      "src": "Wikipedia - Lamborghini Murcielago (production table)",
      "url": "https://en.wikipedia.org/wiki/Lamborghini_Murci%C3%A9lago"
     }
+   },
+   "recent": {
+    "value": 200.0,
+    "n": 3,
+    "from": "2023-12-11",
+    "to": "2026-03-09"
    }
   },
   "Lamborghini Murcielago LP640 Coupe (e-gear)": {
@@ -7627,15 +7771,15 @@
     290.5,
     336.5,
     382.5,
-    551.0
+    725.0
    ],
    "proj": [
-    551.0,
-    606.1,
-    666.7,
-    733.4,
-    806.7,
-    887.4
+    725.0,
+    797.5,
+    877.3,
+    965.0,
+    1061.5,
+    1167.6
    ],
    "maint": 8,
    "cagr": {
@@ -7643,9 +7787,9 @@
     "bull": 0.13,
     "bear": 0.07
    },
-   "sold": 551,
+   "sold": 725,
    "src": "bat",
-   "n_comps": 14,
+   "n_comps": 15,
    "appr": {
     "w5": {
      "from_year": 2022,
@@ -7653,16 +7797,16 @@
      "from_label": "2022-23",
      "to_label": "2025-26",
      "from": 250.0,
-     "to": 430.0,
+     "to": 465.5,
      "n_from": 3,
-     "n_to": 11,
-     "total_pct": 72.0,
-     "cagr_pct": 18.5,
-     "span_years": 3.2,
+     "n_to": 12,
+     "total_pct": 86.2,
+     "cagr_pct": 20.7,
+     "span_years": 3.3,
      "cpi_from": 300.8,
-     "cpi_to": 333.4,
+     "cpi_to": 334.1,
      "t_from": 2023.007,
-     "t_to": 2026.219,
+     "t_to": 2026.27,
      "pooled": true
     }
    },
@@ -7673,16 +7817,16 @@
      "from_label": "prior 12 mo",
      "to_label": "last 12 mo",
      "from": 375.0,
-     "to": 526.0,
+     "to": 551.0,
      "n_from": 3,
-     "n_to": 8,
-     "total_pct": 40.3,
-     "cagr_pct": 42.8,
-     "span_years": 0.95,
+     "n_to": 9,
+     "total_pct": 46.9,
+     "cagr_pct": 47.5,
+     "span_years": 0.99,
      "cpi_from": 323.9,
-     "cpi_to": 336.9,
+     "cpi_to": 337.2,
      "t_from": 2025.525,
-     "t_to": 2026.479,
+     "t_to": 2026.518,
      "pooled": true
     },
     "w2": {
@@ -7691,16 +7835,16 @@
      "from_label": "2023-24",
      "to_label": "2025-26",
      "from": 290.5,
-     "to": 430.0,
+     "to": 465.5,
      "n_from": 2,
-     "n_to": 11,
-     "total_pct": 48.0,
-     "cagr_pct": 13.5,
+     "n_to": 12,
+     "total_pct": 60.2,
+     "cagr_pct": 16.4,
      "span_years": 3.1,
      "cpi_from": 301.9,
-     "cpi_to": 333.4,
+     "cpi_to": 334.1,
      "t_from": 2023.133,
-     "t_to": 2026.219,
+     "t_to": 2026.27,
      "pooled": true
     },
     "w3": {
@@ -7709,16 +7853,16 @@
      "from_label": "2022-23",
      "to_label": "2025-26",
      "from": 250.0,
-     "to": 430.0,
+     "to": 465.5,
      "n_from": 3,
-     "n_to": 11,
-     "total_pct": 72.0,
-     "cagr_pct": 18.5,
-     "span_years": 3.2,
+     "n_to": 12,
+     "total_pct": 86.2,
+     "cagr_pct": 20.7,
+     "span_years": 3.3,
      "cpi_from": 300.8,
-     "cpi_to": 333.4,
+     "cpi_to": 334.1,
      "t_from": 2023.007,
-     "t_to": 2026.219,
+     "t_to": 2026.27,
      "pooled": true
     },
     "w4": {
@@ -7727,16 +7871,16 @@
      "from_label": "2022-23",
      "to_label": "2025-26",
      "from": 250.0,
-     "to": 430.0,
+     "to": 465.5,
      "n_from": 3,
-     "n_to": 11,
-     "total_pct": 72.0,
-     "cagr_pct": 18.5,
-     "span_years": 3.2,
+     "n_to": 12,
+     "total_pct": 86.2,
+     "cagr_pct": 20.7,
+     "span_years": 3.3,
      "cpi_from": 300.8,
-     "cpi_to": 333.4,
+     "cpi_to": 334.1,
      "t_from": 2023.007,
-     "t_to": 2026.219,
+     "t_to": 2026.27,
      "pooled": true
     },
     "w5": {
@@ -7745,16 +7889,16 @@
      "from_label": "2022-23",
      "to_label": "2025-26",
      "from": 250.0,
-     "to": 430.0,
+     "to": 465.5,
      "n_from": 3,
-     "n_to": 11,
-     "total_pct": 72.0,
-     "cagr_pct": 18.5,
-     "span_years": 3.2,
+     "n_to": 12,
+     "total_pct": 86.2,
+     "cagr_pct": 20.7,
+     "span_years": 3.3,
      "cpi_from": 300.8,
-     "cpi_to": 333.4,
+     "cpi_to": 334.1,
      "t_from": 2023.007,
-     "t_to": 2026.219,
+     "t_to": 2026.27,
      "pooled": true
     }
    },
@@ -7775,10 +7919,10 @@
     },
     {
      "year": 2026,
-     "median": 551.0,
-     "n": 7,
+     "median": 625.5,
+     "n": 8,
      "lo": 501.0,
-     "hi": 700.0
+     "hi": 735.0
     }
    ],
    "bat_url": "https://bringatrailer.com/lamborghini/murcielago/",
@@ -7790,6 +7934,12 @@
      "src": "Wikipedia - Lamborghini Murcielago (production table)",
      "url": "https://en.wikipedia.org/wiki/Lamborghini_Murci%C3%A9lago"
     }
+   },
+   "recent": {
+    "value": 725.0,
+    "n": 4,
+    "from": "2026-08-20",
+    "to": "2026-10-30"
    }
   },
   "Ferrari 458 Spider": {
@@ -7802,15 +7952,15 @@
     247.5,
     250.5,
     253.0,
-    351.5
+    410.0
    ],
    "proj": [
-    351.5,
-    384.2,
-    419.9,
-    459.0,
-    501.7,
-    548.3
+    410.0,
+    448.1,
+    489.8,
+    535.4,
+    585.1,
+    639.6
    ],
    "maint": 5,
    "cagr": {
@@ -7818,7 +7968,7 @@
     "bull": 0.123,
     "bear": 0.063
    },
-   "sold": 352,
+   "sold": 410,
    "src": "bat",
    "n_comps": 72,
    "appr": {
@@ -8049,10 +8199,16 @@
      "hi": 410.0
     }
    ],
-   "bat_url": "https://bringatrailer.com/ferrari/458/"
+   "bat_url": "https://bringatrailer.com/ferrari/458/",
+   "recent": {
+    "value": 410.0,
+    "n": 7,
+    "from": "2026-08-28",
+    "to": "2026-10-25"
+   }
   }
  },
- "bat_status": "Acura NSX (NA2 manual): 99 comps, 22 driven | Ferrari 360 (gated manual): 172 comps, 42 driven | Audi R8 gen1 V10 (gated): 88 comps, 18 driven | Corvette split-window (1963): CSV only | Porsche 997.2 Turbo S: 80 comps, 21 driven | Ferrari 328 GTS/GTB: 204 comps, 68 driven | Alfa Romeo GTV 1750/2000: 313 comps, 59 driven | Porsche Singer 911: 20 comps | Volvo P1800 (1800 family): CSV only | Ferrari Dino 246 GT/GTS: 69 comps, 25 driven | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 28 comps | Ferrari 550 Maranello: 132 comps, 38 driven | Ferrari F355 Berlinetta (gated manual): 56 comps, 22 driven | Ferrari F355 GTS (gated manual): 39 comps, 21 driven | Porsche Carrera GT: 14 comps | Ford GT (2005-2006): 257 comps | Dodge Viper GTS/GT (Gen 5): 73 comps | Lamborghini Murcielago Roadster 6.2 (e-gear): 12 comps | Lamborghini Murcielago LP640 Roadster (e-gear): 10 comps | Lamborghini Murcielago 6.2 Coupe (6-speed): 24 comps | Lamborghini Murcielago 6.2 Coupe (e-gear): 8 comps | Lamborghini Murcielago LP640 Coupe (e-gear): 14 comps | Ferrari 458 Spider: 72 comps | odometers: 2372 cached, 0 fetched this run | appreciation.csv: 12y x 24 cars",
+ "bat_status": "Acura NSX (NA2 manual): 99 comps, 22 driven | Ferrari 360 (gated manual): 172 comps, 42 driven | Audi R8 gen1 V10 (gated): 88 comps, 18 driven | Corvette split-window (1963): CSV only | Porsche 997.2 Turbo S: 80 comps, 21 driven | Ferrari 328 GTS/GTB: 204 comps, 68 driven | Alfa Romeo GTV 1750/2000: 313 comps, 59 driven | Porsche Singer 911: 20 comps | Volvo P1800 (1800 family): CSV only | Ferrari Dino 246 GT/GTS: 69 comps, 25 driven | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 28 comps | Ferrari 550 Maranello: 132 comps, 38 driven | Ferrari F355 Berlinetta (gated manual): 56 comps, 22 driven | Ferrari F355 GTS (gated manual): 39 comps, 21 driven | Porsche Carrera GT: 14 comps | Ford GT (2005-2006): 257 comps | Dodge Viper GTS/GT (Gen 5): 73 comps | Lamborghini Murcielago Roadster 6.2 (e-gear): 12 comps | Lamborghini Murcielago LP640 Roadster (e-gear): 10 comps | Lamborghini Murcielago 6.2 Coupe (6-speed): 24 comps | Lamborghini Murcielago 6.2 Coupe (e-gear): 8 comps | Lamborghini Murcielago LP640 Coupe (e-gear): 15 comps | Ferrari 458 Spider: 72 comps | Ferrari 458 Italia: recent 7 sales -> $341.0k | Ferrari 812 Superfast: recent 5 sales -> $478.0k | Ferrari 812 GTS: recent 7 sales -> $765.0k | Ferrari F12 Berlinetta: recent 4 sales -> $425.0k | odometers: 2373 cached, 1 fetched this run | appreciation.csv: 12y x 24 cars",
  "cpi_by_year": {
   "2014": 236.7,
   "2015": 237.0,
