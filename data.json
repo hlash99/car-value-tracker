@@ -98,7 +98,7 @@
     },
     "na": null
    },
-   "asking_src": "local Cars.com scrape 2026-10-29 (n=26)"
+   "asking_src": "local Cars.com scrape 2026-10-30 (n=24)"
   },
   "Ferrari F12 Berlinetta": {
    "color": "#D85A30",
@@ -193,10 +193,10 @@
     620,
     680,
     730,
-    671
+    672
    ],
    "proj": [
-    671,
+    672,
     778,
     802,
     825,
@@ -209,7 +209,7 @@
     "bull": 0.05,
     "bear": -0.01
    },
-   "asking": 839,
+   "asking": 840,
    "sold": 750,
    "factor": 0.8,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-812_gts&maximum_distance=all&zip=94027",
@@ -223,7 +223,7 @@
     },
     "na": null
    },
-   "asking_src": "local Cars.com scrape 2026-10-29 (n=53)"
+   "asking_src": "local Cars.com scrape 2026-10-30 (n=52)"
   },
   "Porsche 997.2 Turbo S": {
    "color": "#185FA5",
@@ -8510,5 +8510,5 @@
    ]
   }
  },
- "local_feed": "2026-10-29 16:16 \u00b7 Ferrari 458 Italia: n=26 asking\u2248$300k -> value\u2248$274k (2026-10-29); Ferrari 812 Superfast: n=65 asking\u2248$550k -> value\u2248$509k (2026-10-29); Ferrari 812 GTS: n=53 asking\u2248$839k -> value\u2248$671k (2026-10-29)"
+ "local_feed": "2026-10-30 09:43 \u00b7 Ferrari 458 Italia: n=24 asking\u2248$300k -> value\u2248$274k (2026-10-30); Ferrari 812 Superfast: n=65 asking\u2248$550k -> value\u2248$509k (2026-10-29); Ferrari 812 GTS: n=52 asking\u2248$840k -> value\u2248$672k (2026-10-30)"
 }
