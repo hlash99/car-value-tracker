@@ -751,7 +751,7 @@ function renderTable(){
         // Sample size lives under the value (was its own Comps column).
         h+='<td class="num"><span class="val">'+fmtk(r.value)+'</span>'
           +'<span class="sub">'+(r.n ? r.n+(c.n_comps?' sold':' asking') : (c.n_comps?'BaT sold':'asking'))
-          +(c.recent&&!r.useDriven?' &middot; value: last '+c.recent.n:'')
+          +(c.recent&&!r.useDriven?' &middot; value: last '+c.recent.n+(c.recent.min_miles?' at '+c.recent.min_miles/1000+'k+ mi':''):'')
           +(r.minMiles?' &middot; '+Math.round(r.minMiles/1000)+(r.maxMiles?'-'+Math.round(r.maxMiles/1000)+'k mi':'k+ mi'):'')+'</span></td>';
       else if(col.key==="maint")
         h+='<td class="num">'+(c.maint?fmtk(c.maint):"&mdash;")+'</td>';

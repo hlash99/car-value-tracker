@@ -48,6 +48,7 @@ ODO_FETCH_CAP = int(os.environ.get("ODO_FETCH_CAP", "400"))
 
 BAT_CARS = {
     "Acura NSX (NA2 manual)": {
+        "value_min_miles": 40000,
         "url": "https://bringatrailer.com/acura/nsx/",
         "color": "#C8102E",
         "blurb": "Pre-facelift NA2, 1997-2001, six-speed, coupe and targa.",
@@ -336,6 +337,7 @@ BAT_CARS = {
     # median), this is a BaT sold series. No production entry: Ferrari never
     # published a Spider total and the f-register list has no count for it.
     "Ferrari 458 Spider": {
+        "value_min_miles": 30000,
         "url": "https://bringatrailer.com/ferrari/458/",
         "color": "#B22222",
         "blurb": "2012-2015 folding-hardtop 458 - 4.5 flat-plane V8 to 9,000 rpm, DCT only.",
@@ -351,6 +353,7 @@ BAT_CARS = {
 # Cars.com at all, and asking x factor read about 20% under recent BaT sales.
 VALUE_ONLY_CARS = {
     "Ferrari 458 Italia": {
+        "value_min_miles": 30000,
         "url": "https://bringatrailer.com/ferrari/458/",
         "spec": {"include": ["458"], "exclude": ["spider", "speciale", "aperta", "replica", "kit car", "challenge"],
                  "year_min": 2010, "year_max": 2015, "lo": 120000, "hi": 1500000},
@@ -738,6 +741,14 @@ def recent_value(sold, now=None):
             "n": len(pool), "from": pool[0]["date"], "to": pool[-1]["date"]}
 
 
+def recent_comps(sold, cfg):
+    """Sales the headline value may use: cars with a value_min_miles floor count
+    only sales with a known odometer at or above it. History and returns keep
+    every sale, so a floored car's current point sits on a different pool."""
+    floor = cfg.get("value_min_miles")
+    return [s for s in sold if (s.get("odo") or 0) >= floor] if floor else sold
+
+
 def to_hist(series, years):
     """Annual medians -> one value per dashboard year, in $000s.
 
@@ -950,8 +961,9 @@ def main():
         appr = {k: appr_n[k] for k in ("w5", "w10") if k in appr_n}
         base_cagr = (appr.get("w5") or {}).get("cagr_pct")
         r = max(-0.06, min(0.10, (base_cagr or 0) / 100.0))   # damp to a sane band
-        recent = recent_value(all_sold)
+        recent = recent_value(recent_comps(all_sold, cfg))
         if recent:
+            recent["min_miles"] = cfg.get("value_min_miles")
             hist[-1] = recent["value"]
         v0 = hist[-1]
 
@@ -1004,11 +1016,15 @@ def main():
             continue
         try:
             items, _ = fetch_all_completed(cfg["url"])
-            recent = recent_value(parse_sold(items, cfg["spec"]))
+            sold = parse_sold(items, cfg["spec"])
+            for s in sold:
+                s["odo"] = odometer(s, cache, budget)
+            recent = recent_value(recent_comps(sold, cfg))
         except Exception as e:                      # keep last-good on any failure
             log.append(f"{name}: recent sales FAILED ({type(e).__name__})")
             continue
         if recent:
+            recent["min_miles"] = cfg.get("value_min_miles")
             car["hist"][-1] = recent["value"]
             car["proj"][0] = recent["value"]
             car["sold"] = round(recent["value"])
