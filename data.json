@@ -1,6 +1,6 @@
 {
- "updated": "2026-10-30T23:09Z",
- "refresh_status": "auto-refresh 2026-10-30 19:32Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $341.0k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $425.0k; Ferrari 812 Superfast: n=24 asking\u2248$500k -> value\u2248$462k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $765.0k",
+ "updated": "2026-10-31T08:41Z",
+ "refresh_status": "auto-refresh 2026-10-31 08:31Z \u00b7 no source updates \u00b7 Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $234.1k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $425.0k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $478.0k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $765.0k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
  "years": [
@@ -8236,7 +8236,7 @@
    "asking_src": "local Cars.com scrape 2026-10-30 (n=8)"
   }
  },
- "bat_status": "Acura NSX (NA2 manual): 99 comps, 22 driven | Ferrari 360 (gated manual): 172 comps, 42 driven | Audi R8 gen1 V10 (gated): 88 comps, 18 driven | Corvette split-window (1963): CSV only | Porsche 997.2 Turbo S: 80 comps, 21 driven | Ferrari 328 GTS/GTB: 204 comps, 68 driven | Alfa Romeo GTV 1750/2000: 313 comps, 59 driven | Porsche Singer 911: 20 comps | Volvo P1800 (1800 family): CSV only | Ferrari Dino 246 GT/GTS: 69 comps, 25 driven | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 28 comps | Ferrari 550 Maranello: 132 comps, 38 driven | Ferrari F355 Berlinetta (gated manual): 56 comps, 22 driven | Ferrari F355 GTS (gated manual): 39 comps, 21 driven | Porsche Carrera GT: 14 comps | Ford GT (2005-2006): 257 comps | Dodge Viper GTS/GT (Gen 5): 73 comps | Lamborghini Murcielago Roadster 6.2 (e-gear): 12 comps | Lamborghini Murcielago LP640 Roadster (e-gear): 10 comps | Lamborghini Murcielago 6.2 Coupe (6-speed): 24 comps | Lamborghini Murcielago 6.2 Coupe (e-gear): 8 comps | Lamborghini Murcielago LP640 Coupe (e-gear): 15 comps | Ferrari 458 Spider: 72 comps | Ferrari 458 Italia: recent 3 sales -> $234.1k | Ferrari 812 Superfast: recent 5 sales -> $478.0k | Ferrari 812 GTS: recent 7 sales -> $765.0k | Ferrari F12 Berlinetta: recent 4 sales -> $425.0k | odometers: 2549 cached, 116 fetched this run | appreciation.csv: 12y x 24 cars",
+ "bat_status": "Acura NSX (NA2 manual): 99 comps, 22 driven | Ferrari 360 (gated manual): 172 comps, 42 driven | Audi R8 gen1 V10 (gated): 88 comps, 18 driven | Corvette split-window (1963): CSV only | Porsche 997.2 Turbo S: 80 comps, 21 driven | Ferrari 328 GTS/GTB: 204 comps, 68 driven | Alfa Romeo GTV 1750/2000: 313 comps, 59 driven | Porsche Singer 911: 20 comps | Volvo P1800 (1800 family): CSV only | Ferrari Dino 246 GT/GTS: 69 comps, 25 driven | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 28 comps | Ferrari 550 Maranello: 132 comps, 38 driven | Ferrari F355 Berlinetta (gated manual): 56 comps, 22 driven | Ferrari F355 GTS (gated manual): 39 comps, 21 driven | Porsche Carrera GT: 14 comps | Ford GT (2005-2006): 257 comps | Dodge Viper GTS/GT (Gen 5): 73 comps | Lamborghini Murcielago Roadster 6.2 (e-gear): 12 comps | Lamborghini Murcielago LP640 Roadster (e-gear): 10 comps | Lamborghini Murcielago 6.2 Coupe (6-speed): 24 comps | Lamborghini Murcielago 6.2 Coupe (e-gear): 8 comps | Lamborghini Murcielago LP640 Coupe (e-gear): 15 comps | Ferrari 458 Spider: 72 comps | Ferrari 458 Italia: recent 3 sales -> $234.1k | Ferrari 812 Superfast: recent 5 sales -> $478.0k | Ferrari 812 GTS: recent 7 sales -> $765.0k | Ferrari F12 Berlinetta: recent 4 sales -> $425.0k | odometers: 2549 cached, 0 fetched this run | appreciation.csv: 12y x 24 cars",
  "cpi_by_year": {
   "2014": 236.7,
   "2015": 237.0,
@@ -8523,11 +8523,11 @@
      "2026-07": 352.0534,
      "2026-08": 339.0678,
      "2026-09": 361.948,
-     "2026-10": 372.8215
+     "2026-10": 373.0018
     }
    }
   },
-  "updated": "2026-10-30T19:42Z",
+  "updated": "2026-10-31T08:41Z",
   "status": "S&P 500: 141 months to 2026-09 | AAPL: 121 months to 2026-10"
  },
  "csv_only": {
