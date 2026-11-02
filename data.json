@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-01T19:11Z",
- "refresh_status": "auto-refresh 2026-11-01 19:01Z · no source updates · Ferrari 458 Italia: only 0 prices found — kept last-good $234.1k; Ferrari F12 Berlinetta: only 0 prices found — kept last-good $425.0k; Ferrari 812 Superfast: only 0 prices found — kept last-good $478.0k; Ferrari 812 GTS: only 0 prices found — kept last-good $765.0k",
+ "updated": "2026-11-02T09:48Z",
+ "refresh_status": "auto-refresh 2026-11-02 09:38Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $234.1k; Ferrari F12 Berlinetta: n=24 asking\u2248$480k -> value\u2248$411k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $478.0k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $765.0k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
  "years": [
@@ -133,7 +133,7 @@
     "bull": 0.06,
     "bear": 0.0
    },
-   "asking": 484,
+   "asking": 480,
    "sold": 425,
    "factor": 0.856,
    "cars_url": "https://www.cars.com/shopping/results/?stock_type=used&makes[]=ferrari&models[]=ferrari-f12berlinetta&maximum_distance=all&zip=94027",
@@ -1312,15 +1312,15 @@
     132.0,
     122.5,
     152.2,
-    285.0
+    260.5
    ],
    "proj": [
-    285.0,
-    312.1,
-    341.7,
-    374.2,
-    409.7,
-    448.7
+    260.5,
+    285.2,
+    312.3,
+    342.0,
+    374.5,
+    410.1
    ],
    "maint": 6,
    "cagr": {
@@ -1328,7 +1328,7 @@
     "bull": 0.125,
     "bear": 0.065
    },
-   "sold": 285,
+   "sold": 260,
    "src": "bat",
    "n_comps": 172,
    "appr": {
@@ -1854,9 +1854,9 @@
     }
    },
    "recent": {
-    "value": 285.0,
-    "n": 7,
-    "from": "2026-08-03",
+    "value": 260.5,
+    "n": 6,
+    "from": "2026-08-04",
     "to": "2026-10-14",
     "min_miles": null
    }
@@ -8537,7 +8537,7 @@
     }
    }
   },
-  "updated": "2026-11-01T19:11Z",
+  "updated": "2026-11-02T09:48Z",
   "status": "S&P 500: 141 months to 2026-09 | AAPL: 121 months to 2026-10"
  },
  "csv_only": {
@@ -8704,5 +8704,5 @@
    ]
   }
  },
- "local_feed": "2026-10-30 16:19 · Ferrari 458 Italia: n=11 asking≈$280k, value≈$234k (2026-10-30); Ferrari 458 Spider: n=8 asking≈$328k, value≈$258k (2026-10-30); Ferrari 812 Superfast: n=65 asking≈$550k, value≈$478k (2026-10-29); Ferrari 812 GTS: n=52 asking≈$840k, value≈$765k (2026-10-30)"
+ "local_feed": "2026-10-30 16:19 \u00b7 Ferrari 458 Italia: n=11 asking\u2248$280k, value\u2248$234k (2026-10-30); Ferrari 458 Spider: n=8 asking\u2248$328k, value\u2248$258k (2026-10-30); Ferrari 812 Superfast: n=65 asking\u2248$550k, value\u2248$478k (2026-10-29); Ferrari 812 GTS: n=52 asking\u2248$840k, value\u2248$765k (2026-10-30)"
 }
