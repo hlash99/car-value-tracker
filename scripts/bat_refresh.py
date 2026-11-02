@@ -334,8 +334,8 @@ BAT_CARS = {
     # Every 458 is a seven-speed DCT, so no gearbox filter. The $120k floor
     # clears wheels, seats and other parts that parse as SOLD; the cheapest
     # real Spider has been $156k. Unlike the Italia above (a Cars.com asking
-    # median), this is a BaT sold series. No production entry: Ferrari never
-    # published a Spider total and the f-register list has no count for it.
+    # median), this is a BaT sold series. Ferrari never published a Spider total
+    # and the f-register list has no count, so PRODUCTION carries an estimate.
     "Ferrari 458 Spider": {
         "value_min_miles": 30000,
         "url": "https://bringatrailer.com/ferrari/458/",
@@ -526,6 +526,16 @@ PRODUCTION = {
             "detail": "458 Italia coupes, 2009-2015; Spider and Speciale are separate. An earlier count by the same register, quoted by Forza, was 9,944. Ferrari does not publish model totals; this is a count of chassis numbers. Ferrari North America has never published US numbers by model, and NHTSA recall filings give only multi-model totals.",
             "src": "f-register.com production list (Matthias Urban)",
             "url": "https://f-register.com/About-the-Cars/Production-Numbers"
+        },
+        "na": None
+    },
+    "Ferrari 458 Spider": {
+        "last_my": 2015,
+        "world": {
+            "label": "~6,000 est.",
+            "detail": "Estimate only, 458 Spider, 2011-2015; the Speciale A (499 official) is separate. Ferrari never published a Spider total and the f-register list gives no Spider count, so this is not a chassis count. ConceptCarz lists 6,000; Ferrari of Fort Lauderdale's blog gives about 6,248 as a market estimate, though its Italia figure also runs above f-register's count. Ferrari North America has never published US numbers by model.",
+            "src": "ConceptCarz; Ferrari of Fort Lauderdale",
+            "url": "https://www.ferrarifl.com/blog/ferrari-458-italia/"
         },
         "na": None
     },
