@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-03T20:43Z",
- "refresh_status": "auto-refresh 2026-11-03 20:33Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $234.1k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $500.0k; Ferrari 812 Superfast: n=24 asking\u2248$514k -> value\u2248$475k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $765.0k",
+ "updated": "2026-11-04T09:37Z",
+ "refresh_status": "auto-refresh 2026-11-04 09:26Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $234.1k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $500.0k; Ferrari 812 Superfast: n=24 asking\u2248$514k -> value\u2248$475k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $765.0k",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
  "years": [
@@ -8413,7 +8413,7 @@
    "AAPL": {
     "src": "Nasdaq closes + dividends reinvested",
     "m": {
-     "2016-11": 27.6575,
+     "2016-11": 27.6448,
      "2016-12": 28.7323,
      "2017-01": 30.0476,
      "2017-02": 33.7022,
@@ -8533,11 +8533,11 @@
      "2026-08": 339.0678,
      "2026-09": 361.948,
      "2026-10": 373.0018,
-     "2026-11": 369.889
+     "2026-11": 366.3795
     }
    }
   },
-  "updated": "2026-11-03T20:43Z",
+  "updated": "2026-11-04T09:37Z",
   "status": "S&P 500: 141 months to 2026-09 | AAPL: 121 months to 2026-11"
  },
  "csv_only": {
