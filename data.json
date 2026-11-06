@@ -98,7 +98,7 @@
     },
     "na": null
    },
-   "asking_src": "local Cars.com scrape 2026-10-30 (n=11)",
+   "asking_src": "local Cars.com scrape 2026-11-06 (n=13)",
    "recent": {
     "value": 234.1,
     "n": 3,
@@ -244,7 +244,7 @@
     },
     "na": null
    },
-   "asking_src": "local Cars.com scrape 2026-11-02 (n=52)",
+   "asking_src": "local Cars.com scrape 2026-11-06 (n=59)",
    "recent": {
     "value": 765.0,
     "n": 7,
@@ -8232,8 +8232,8 @@
     "to": "2026-11-05",
     "min_miles": 30000
    },
-   "asking": 345,
-   "asking_src": "local Cars.com scrape 2026-11-05 (n=8)",
+   "asking": 389,
+   "asking_src": "local Cars.com scrape 2026-11-06 (n=3)",
    "production": {
     "last_my": 2015,
     "world": {
@@ -8704,5 +8704,5 @@
    ]
   }
  },
- "local_feed": "2026-11-05 18:06 \u00b7 Ferrari 458 Italia: local scrape is 6d old \u2014 kept $234.1k; Ferrari 458 Spider: n=8 asking\u2248$345k, value\u2248$310k (2026-11-05); Ferrari 812 Superfast: n=68 asking\u2248$550k, value\u2248$478k (2026-11-02); Ferrari 812 GTS: n=52 asking\u2248$840k, value\u2248$765k (2026-11-02)"
+ "local_feed": "2026-11-06 10:02 \u00b7 Ferrari 458 Italia: n=13 asking\u2248$280k, value\u2248$234k (2026-11-06); Ferrari 458 Spider: n=3 asking\u2248$389k, value\u2248$310k (2026-11-06); Ferrari 812 Superfast: local scrape is 4d old \u2014 kept $478.0k; Ferrari 812 GTS: n=59 asking\u2248$840k, value\u2248$765k (2026-11-06)"
 }
