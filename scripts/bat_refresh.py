@@ -32,6 +32,7 @@ from datetime import datetime, timezone
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bat_history import (fetch_all_completed, parse_sold, annual_medians, cagr,  # noqa: E402
                          listing_odometer, listing_details, odometer_from_details)
+import forum_asks  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data.json")
@@ -386,13 +387,23 @@ BAT_CARS = {
     "Chevrolet Corvette C8 Z06 (no Z07/wing)": {
         "value_min_miles": 30000,
         "mileage_adj": 0.82,
+        # Asking prices blended into the value, half weight against the BaT
+        # figure: Cars.com (scripts/refresh.py, `asking_pts`) plus the
+        # CorvetteForum classifieds (scripts/forum_asks.py). Each ask is put on
+        # the 30k-mile basis by ask_mile_factor() and then x ask_haircut, the
+        # ask-to-sold ratio: BaT's latest non-Z07 sales ($105k, ~1-2k mi) over
+        # Cars.com's under-5k-mile asks ($121.9k) = 0.86, 2026-11-07.
+        "ask_haircut": 0.86,
+        "forum": True,
         "first_my": 2023,
         "pin_plot": True,
         "cagr": {"bear": -0.10, "base": -0.06, "bull": -0.02},
         "note": ("New model, launched MY2023 - no 2020-22 values exist, so those years are blank and "
                  "the chart index starts at 2023. Every year is BaT sold medians for non-Z07, no-wing "
                  "cars (listing-page check) x 0.82 to a 30k-mile basis - BaT has no 30k+ Z06 sales yet; 0.82 is "
-                 "Cars.com's 30k+ vs under-5k-mile asking ratio (2026-11-07). Projection is depreciation, not appreciation: "
+                 "Cars.com's 30k+ vs under-5k-mile asking ratio (2026-11-07). The adopted 2026 value is half that "
+                 "BaT figure and half the asking evidence - Cars.com plus CorvetteForum classifieds asks, each "
+                 "scaled to 30k miles and x 0.86 for ask-to-sold. Projection is depreciation, not appreciation: "
                  "base -6%/yr, bear -10%, bull -2%."),
         "url": "https://bringatrailer.com/chevrolet/corvette-c8-z06/",
         "color": "#E0218A",
@@ -870,6 +881,58 @@ def floored_value(sold, cfg):
     return rec
 
 
+def ask_mile_factor(miles, adj):
+    """Scale one ask to the 30k-mile basis: `adj` at 2k miles or less (or
+    unknown - nearly every Z06 for sale is low-mileage), rising linearly to 1.0
+    at 30k. Higher-mileage asks are left as they are."""
+    if miles is None:
+        return adj
+    t = max(0.0, min(1.0, (30000 - miles) / 28000.0))
+    return 1 - (1 - adj) * t
+
+
+def ask_blend(cfg, car, bat_value, log, name):
+    """Blend the BaT-derived value with the asking evidence, half and half.
+    Returns (blend dict or None, forum block). The forum scrape keeps its
+    last-good copy on any failure, like every other source."""
+    forum = car.get("forum")
+    if cfg.get("forum"):
+        try:
+            asks = forum_asks.fetch_asks()
+            forum = {"src": "CorvetteForum", "url": forum_asks.BASE,
+                     "updated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+                     "n": len(asks),
+                     "median": round(statistics.median(a["price"] for a in asks), 1) if asks else None,
+                     "asks": asks}
+            log.append(f"{name}: CorvetteForum {len(asks)} asks")
+        except Exception as e:
+            log.append(f"{name}: CorvetteForum FAILED ({type(e).__name__}) - kept last-good")
+    adj, hc = cfg.get("mileage_adj", 1.0), cfg["ask_haircut"]
+    pts = [(p, mi, "Cars.com") for p, mi in (car.get("asking_pts") or [])]
+    pts += [(a["price"], a.get("miles"), "CorvetteForum") for a in ((forum or {}).get("asks") or [])]
+    if len(pts) < 3 or bat_value is None:
+        return None, forum
+    norm = [p * ask_mile_factor(mi, adj) for p, mi, _ in pts]
+    ask_v = round(statistics.median(norm) * hc, 1)
+    n_cc = sum(1 for x in pts if x[2] == "Cars.com")
+    return {"value": round((bat_value + ask_v) / 2, 1), "bat": bat_value, "ask": ask_v,
+            "ask_median_30k": round(statistics.median(norm), 1), "haircut": hc,
+            "n_cars_com": n_cc, "n_forum": len(pts) - n_cc, "weights": {"bat": 0.5, "ask": 0.5}}, forum
+
+
+def scale_windows(wins, adj):
+    """Window dicts with their $ levels (from / to) on the mileage basis;
+    percentages are ratios, so unchanged."""
+    out = {}
+    for k, w in wins.items():
+        w = dict(w)
+        for f in ("from", "to"):
+            if w.get(f) is not None:
+                w[f] = round(w[f] * adj, 1)
+        out[k] = w
+    return out
+
+
 def to_hist(series, years, first_my=None):
     """Annual medians -> one value per dashboard year, in $000s.
 
@@ -1089,6 +1152,8 @@ def main():
         # duration slider. The table's 5y/10y columns are the same w5/w10 entries,
         # so the slider at 5 or 10 IS the table.
         appr_n = windows(all_sold, LOOKBACKS)
+        if cfg.get("mileage_adj"):            # same $ basis as hist (see below)
+            appr_n = scale_windows(appr_n, cfg["mileage_adj"])
         appr = {k: appr_n[k] for k in ("w5", "w10") if k in appr_n}
         if "w5" not in appr and cfg.get("first_my"):
             # A model too new for a 5-yr window: the 5-yr column shows the longest
@@ -1114,6 +1179,11 @@ def main():
         recent = floored_value(all_sold, cfg)
         if recent:
             hist[-1] = recent["value"]
+        blend, forum = None, None
+        if cfg.get("ask_haircut"):
+            blend, forum = ask_blend(cfg, d["cars"].get(name, {}), hist[-1], log, name)
+            if blend:
+                hist[-1] = blend["value"]
         v0 = hist[-1]
 
         car = d["cars"].get(name, {})
@@ -1136,6 +1206,21 @@ def main():
             "annual": annual_detail(all_sold),
             "bat_url": cfg["url"],
         })
+        if cfg.get("mileage_adj"):
+            # Publish the per-year medians on the same 30k-mile basis as `hist`
+            # (2026-11-08: the yearly line read $143.9k for 2023 while `annual`
+            # said $175.5k raw); the raw BaT medians stay in annual_raw.
+            car["annual_raw"] = car["annual"]
+            a = cfg["mileage_adj"]
+            car["annual"] = [dict(p, median=round(p["median"] * a, 1), lo=round(p["lo"] * a, 1),
+                                  hi=round(p["hi"] * a, 1)) for p in car["annual_raw"]]
+        else:
+            car.pop("annual_raw", None)
+        for k, v in (("value_blend", blend), ("forum", forum)):
+            if v:
+                car[k] = v
+            elif k == "value_blend":
+                car.pop(k, None)
         # A driven series also needs two usable years to form a window. The 550
         # has five 30k+ sales but only one year with n>=2, and an empty `appr`
         # is truthy in the page JS - it showed blank cells instead of falling

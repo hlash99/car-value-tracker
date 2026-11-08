@@ -26,6 +26,9 @@ cars from `data.json`, so no number is hard-coded here.
 - **Corvette C8 Z06**: launched as MY2023, so 2020–22 are blank rather than invented. Values are BaT
   sold medians for non-Z07, no-wing cars (Z07 / high wing checked on each listing page, cached in
   `scripts/listing_flags_cache.json`) × 0.82 to a 30k-mile basis, because no 30k+ Z06 has sold on BaT yet.
+  The adopted value is half that BaT figure and half asking evidence: Cars.com asks plus CorvetteForum
+  C8 classifieds asks (`scripts/forum_asks.py`; wanted/sold/new, Z07, aero/wing and Florida cars
+  skipped), each scaled to 30k miles and × 0.86 for ask-to-sold.
   Its projection is depreciation (base −6%/yr, bear −10%, bull −2%); see the page's methodology note.
 
 Not investment advice.

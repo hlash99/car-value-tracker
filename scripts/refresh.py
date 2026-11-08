@@ -26,6 +26,8 @@ PRICE_RE = re.compile(r"\$([0-9]{2,3},[0-9]{3})")
 # mileage descending and the floor is applied to each listing's own odometer,
 # read from the page's embedded srp_results JSON. Cars.com cannot filter Z07 or
 # the high wing (dealers rarely list them), so the asking pool is all Z06s.
+# `asking` (the evidence column) is the 30k+ median; `asking_pts` keeps every
+# listing on the page for the value blend in bat_refresh.py.
 ASKING_ONLY = {
     "Chevrolet Corvette C8 Z06 (no Z07/wing)": {
         "url": ("https://www.cars.com/shopping/results/?stock_type=used&makes[]=chevrolet"
@@ -131,8 +133,12 @@ def main():
             try:
                 page.goto(cfg["url"], wait_until="domcontentloaded", timeout=60000)
                 page.wait_for_timeout(4000)
-                vals = [p for p, mi in listings_from_srp(page.content())
-                        if mi >= cfg["min_miles"] and lo <= p <= hi]
+                pts = [(p, mi) for p, mi in listings_from_srp(page.content()) if lo <= p <= hi]
+                vals = [p for p, mi in pts if mi >= cfg["min_miles"]]
+                if len(pts) >= 3:
+                    # Every listing on the page (the highest-mileage ~24, by the
+                    # sort) feeds bat_refresh.py's asking blend, mileage-scaled.
+                    car["asking_pts"] = [[round(p, 1), mi] for p, mi in pts]
                 if len(vals) >= 3:
                     car["asking"] = round(statistics.median(vals), 1)
                     car["asking_src"] = (f"Cars.com {now_s()} (n={len(vals)}, "
