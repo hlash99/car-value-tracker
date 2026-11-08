@@ -1184,6 +1184,11 @@ def main():
             blend, forum = ask_blend(cfg, d["cars"].get(name, {}), hist[-1], log, name)
             if blend:
                 hist[-1] = blend["value"]
+                if recent:
+                    # Keep recent.value == hist[-1], as for every other car: the
+                    # asset tracker's sync_cvt.py reads today's point from it.
+                    recent["pre_blend"] = recent["value"]
+                    recent["value"] = blend["value"]
         v0 = hist[-1]
 
         car = d["cars"].get(name, {})

@@ -8273,14 +8273,15 @@
    },
    "sold": 105,
    "recent": {
-    "value": 86.1,
+    "value": 86.8,
     "n": 4,
     "from": "2026-08-15",
     "to": "2026-10-31",
     "raw": 105.0,
     "min_miles": null,
     "adj": 0.82,
-    "basis": "only 0 BaT sales at 30k+ mi, so the latest 4 all-mileage sales ($105k) x 0.82 mileage adjustment"
+    "basis": "only 0 BaT sales at 30k+ mi, so the latest 4 all-mileage sales ($105k) x 0.82 mileage adjustment",
+    "pre_blend": 86.1
    },
    "src": "bat",
    "n_comps": 111,
