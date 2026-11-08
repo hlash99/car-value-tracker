@@ -23,6 +23,7 @@ Stdlib only. Run by .github/workflows/refresh.yml alongside refresh.py.
 """
 import json
 import os
+import re
 import statistics
 import sys
 import time
@@ -30,7 +31,7 @@ from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bat_history import (fetch_all_completed, parse_sold, annual_medians, cagr,  # noqa: E402
-                         listing_odometer)
+                         listing_odometer, listing_details, odometer_from_details)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data.json")
@@ -43,6 +44,11 @@ DRIVEN_BAND = (30000, 50000)
 # data.json so a run only fetches new listings. A null value means the page
 # states no mileage (TMU) and is not re-fetched.
 ODO_CACHE = os.path.join(ROOT, "scripts", "odometer_cache.json")
+# Equipment flags read from each listing page's Listing Details, for cars whose
+# spec turns on options BaT titles do not always name (the Z06's high wing).
+# Keyed by listing URL -> list of matched page_exclude patterns ([] = clean).
+# Committed by CI alongside the odometer cache.
+FLAGS_CACHE = os.path.join(ROOT, "scripts", "listing_flags_cache.json")
 # New listing pages fetched per run at most; the rest wait for the next run.
 ODO_FETCH_CAP = int(os.environ.get("ODO_FETCH_CAP", "400"))
 
@@ -344,6 +350,59 @@ BAT_CARS = {
         "spec": {"include": ["spider"], "exclude": ["speciale", "aperta", "replica", "kit car"],
                  "year_min": 2011, "year_max": 2015, "lo": 120000, "hi": 1500000},
         "maint": 5,
+    },
+    # C8 Corvette Z06, the car he would actually buy: used, 30k+ miles, NO Z07
+    # Performance Package and NO high wing; coupe or convertible. BaT has its
+    # own /corvette-c8-z06/ page, so the ZR1 / E-Ray / Stingray never appear,
+    # but they are excluded by name as a guard. Titles say "Z07" when the car
+    # has it, which the title exclude catches; the high wing (part of the Carbon
+    # Aero Package, orderable without Z07) and the 2025+ "Ultimate Performance
+    # Package" name for Z07 are only in the listing page's Listing Details, so
+    # page_exclude reads those (cached in listing_flags_cache.json). The plain
+    # "Rear Spoiler" / "Low-Profile Spoiler" lines are the standard Z06 spoiler
+    # and stay in. A page that cannot be read is left out for that run.
+    #
+    # New model: the Z06 launched as MY2023 (first deliveries late 2022, first
+    # BaT sale Jul 2023), so first_my blanks 2020-22 in `hist` instead of
+    # copying the 2023 median backwards, and the 5-yr column falls back to the
+    # longest pooled window there is (~2.5 yrs, flagged thin by the page).
+    #
+    # Mileage: no Z06 has sold on BaT with 30k+ miles yet (Nov 2026: the clean
+    # pool's median odometer is ~750 mi, max 14k), so when fewer than RECENT_MIN
+    # 30k+ sales exist the value widens to the latest all-mileage sales x
+    # mileage_adj. Calibrated on Cars.com 2026-11-07 (all used Z06s, n=573): 30k+
+    # asking median $98.6k (n=4, ~35k mi) / under-5k-mile median $121.9k (n=319)
+    # = 0.81; the 15-30k band (n=38, ~19k mi) read 0.88. Adopted 0.82. Once three
+    # 30k+ sales exist inside the recent window they set the value directly.
+    #
+    # Projection: a depreciating new model, not a collector curve, so the
+    # bear/base/bull rates are fixed below rather than damped off a 5-yr window
+    # it does not have. Observed BaT non-Z07 medians fell ~$176k (2023, dealer
+    # markups) -> ~$132k (2024) -> ~$115k (2025) -> ~$110k (2026), slowing to
+    # roughly -4 to -8%/yr. Base -6%/yr continues that easing; bear -10%/yr (miles
+    # keep accruing, discounted new 2026-27 Z06s at ~$113k and the ZR1 above
+    # it); bull -2%/yr (flattens out the way the C6/C7 Z06 did at 5-6 years,
+    # helped by the flat-plane LT6 being the last NA V8 of its kind).
+    "Chevrolet Corvette C8 Z06 (no Z07/wing)": {
+        "value_min_miles": 30000,
+        "mileage_adj": 0.82,
+        "first_my": 2023,
+        "pin_plot": True,
+        "cagr": {"bear": -0.10, "base": -0.06, "bull": -0.02},
+        "note": ("New model, launched MY2023 - no 2020-22 values exist, so those years are blank and "
+                 "the chart index starts at 2023. Every year is BaT sold medians for non-Z07, no-wing "
+                 "cars (listing-page check) x 0.82 to a 30k-mile basis - BaT has no 30k+ Z06 sales yet; 0.82 is "
+                 "Cars.com's 30k+ vs under-5k-mile asking ratio (2026-11-07). Projection is depreciation, not appreciation: "
+                 "base -6%/yr, bear -10%, bull -2%."),
+        "url": "https://bringatrailer.com/chevrolet/corvette-c8-z06/",
+        "color": "#E0218A",
+        "blurb": "2023-on C8 Z06, flat-plane 5.5 LT6, coupe or convertible - used, 30k+ miles, no Z07 package and no high wing. Launched MY2023 (base MSRP $106,395 coupe), so there is no 2020-22 history.",
+        "spec": {"include": ["z06"],
+                 "exclude": ["z07", "zr1", "e-ray", "stingray", "replica"],
+                 "year_min": 2023, "year_max": 2028, "lo": 60000, "hi": 400000},
+        "page_exclude": [r"\bZ07\b", r"ultimate performance", r"aero (package|kit)",
+                         r"high[- ]?wing", r"\bwing\b"],
+        "maint": 3,
     },
 }
 
@@ -683,7 +742,29 @@ def odometer(s, cache, budget):
     return cache[url]
 
 
-def collect(cfg, cache, budget):
+def page_flags(s, cache, flags, budget, patterns):
+    """page_exclude patterns matched by one sale's Listing Details, from the
+    flags cache or one page fetch (which also fills the odometer cache, so the
+    page is read once). None = page not read this run."""
+    url = s["url"]
+    if url in flags:
+        return flags[url]
+    if budget["left"] <= 0:
+        return None
+    budget["left"] -= 1
+    try:
+        lines = listing_details(url)
+    except Exception:
+        time.sleep(20)                      # usually a 429; back off and move on
+        return None
+    text = " | ".join(lines)
+    flags[url] = [p for p in patterns if re.search(p, text, re.I)]
+    cache.setdefault(url, odometer_from_details(lines))
+    time.sleep(1.0)
+    return flags[url]
+
+
+def collect(cfg, cache, budget, flags=None):
     """Sold comps for one car, honouring any_of by merging passes on URL, plus
     the driven subset (DRIVEN_BAND on the listing-page odometer)."""
     items, _ = fetch_all_completed(cfg["url"])
@@ -696,6 +777,10 @@ def collect(cfg, cache, budget):
         for s in parse_sold(items, spec):
             merged[s["url"]] = s
     all_sold = sorted(merged.values(), key=lambda s: s["ts"])
+    if cfg.get("page_exclude"):
+        flags = {} if flags is None else flags
+        all_sold = [s for s in all_sold
+                    if page_flags(s, cache, flags, budget, cfg["page_exclude"]) == []]
 
     lo, hi = DRIVEN_BAND
     driven = []
@@ -759,11 +844,39 @@ def recent_comps(sold, cfg):
     return [s for s in sold if (s.get("odo") or 0) >= floor] if floor else sold
 
 
-def to_hist(series, years):
+def floored_value(sold, cfg):
+    """recent_value() on the value_min_miles pool. A car with `mileage_adj` whose
+    floored pool is too thin (the Z06: almost every one sells with under 5k
+    miles) widens to its latest all-mileage sales times that factor, and says so
+    in the result's `basis` so the page can show it."""
+    rec = recent_value(recent_comps(sold, cfg))
+    if rec:
+        rec["min_miles"] = cfg.get("value_min_miles")
+        return rec
+    adj = cfg.get("mileage_adj")
+    if not adj or not cfg.get("value_min_miles"):
+        return None
+    rec = recent_value(sold)
+    if not rec:
+        return None
+    n_floor = len(recent_comps(sold, cfg))
+    rec["raw"] = rec["value"]
+    rec["value"] = round(rec["value"] * adj, 1)
+    rec["min_miles"] = None
+    rec["adj"] = adj
+    rec["basis"] = (f"only {n_floor} BaT sale{'s' if n_floor != 1 else ''} at "
+                    f"{cfg['value_min_miles'] // 1000}k+ mi, so the latest {rec['n']} all-mileage "
+                    f"sales (${rec['raw']:.0f}k) x {adj} mileage adjustment")
+    return rec
+
+
+def to_hist(series, years, first_my=None):
     """Annual medians -> one value per dashboard year, in $000s.
 
     Missing years are linearly interpolated; years outside the observed range
-    carry the nearest observation. Returns None if there is nothing to work with.
+    carry the nearest observation. Years before `first_my` (a car that did not
+    exist yet) are None rather than a copy of its first median. Returns None if
+    there is nothing to work with.
     """
     if not series:
         return None
@@ -771,6 +884,9 @@ def to_hist(series, years):
     known = sorted(by)
     out = []
     for y in years:
+        if first_my and y < first_my:
+            out.append(None)
+            continue
         if y in by:
             out.append(round(by[y], 1))
             continue
@@ -937,10 +1053,15 @@ def main():
     except (OSError, ValueError):
         cache = {}
     budget = {"left": ODO_FETCH_CAP}
+    try:
+        with open(FLAGS_CACHE) as f:
+            flags = json.load(f)
+    except (OSError, ValueError):
+        flags = {}
 
     for name, cfg in BAT_CARS.items():
         try:
-            all_sold, driven = collect(cfg, cache, budget)
+            all_sold, driven = collect(cfg, cache, budget, flags)
         except Exception as e:                      # keep last-good on any failure
             log.append(f"{name}: FAILED ({type(e).__name__})")
             continue
@@ -959,7 +1080,7 @@ def main():
             log.append(f"{name}: CSV only")
             continue
         s_drv = annual_medians(driven)
-        hist = to_hist(s_all, years)
+        hist = to_hist(s_all, years, cfg.get("first_my"))
         if not hist:
             log.append(f"{name}: no usable annual medians")
             continue
@@ -969,11 +1090,29 @@ def main():
         # so the slider at 5 or 10 IS the table.
         appr_n = windows(all_sold, LOOKBACKS)
         appr = {k: appr_n[k] for k in ("w5", "w10") if k in appr_n}
+        if "w5" not in appr and cfg.get("first_my"):
+            # A model too new for a 5-yr window: the 5-yr column shows the longest
+            # pooled window it has, labelled with its real span (the page flags a
+            # span under 3 yrs as thin) rather than a blank or an invented 2021.
+            longest = [k for k in appr_n if int(k[1:]) >= 2]
+            if longest:
+                k = max(longest, key=lambda k: int(k[1:]))
+                w = dict(appr_n[k], fallback_from=k)
+                if w["from_year"] < cfg["first_my"]:
+                    w["from_label"] = str(cfg["first_my"])
+                appr["w5"] = w
         base_cagr = (appr.get("w5") or {}).get("cagr_pct")
         r = max(-0.06, min(0.10, (base_cagr or 0) / 100.0))   # damp to a sane band
-        recent = recent_value(recent_comps(all_sold, cfg))
+        fixed = cfg.get("cagr")                 # explicit scenario rates win
+        if fixed:
+            r = fixed["base"]
+        if cfg.get("mileage_adj"):
+            # Put the earlier years on the same 30k-mile-equivalent basis as the
+            # headline value, so the charts show market movement, not a one-off
+            # drop the year the value switched to the mileage-adjusted pool.
+            hist = [None if v is None else round(v * cfg["mileage_adj"], 1) for v in hist]
+        recent = floored_value(all_sold, cfg)
         if recent:
-            recent["min_miles"] = cfg.get("value_min_miles")
             hist[-1] = recent["value"]
         v0 = hist[-1]
 
@@ -984,8 +1123,11 @@ def main():
             "hist": hist,
             "proj": [round(v0 * (1 + r) ** i, 1) for i in range(len(pyears))],
             "maint": cfg["maint"],
-            "cagr": {"base": round(r, 4), "bull": round(r + 0.03, 4), "bear": round(r - 0.03, 4)},
-            "sold": round(hist[-1]),
+            "cagr": ({k: round(v, 4) for k, v in fixed.items()} if fixed else
+                     {"base": round(r, 4), "bull": round(r + 0.03, 4), "bear": round(r - 0.03, 4)}),
+            # Raw BaT median for the evidence table; equals the value unless a
+            # mileage adjustment was applied on top of it.
+            "sold": round((recent or {}).get("raw", hist[-1])),
             "recent": recent,
             "src": "bat",
             "n_comps": len(all_sold),
@@ -1013,6 +1155,11 @@ def main():
         else:
             car.pop("driven", None)
         car.pop("appr_by_end", None)          # superseded by appr_n (2026-10-07)
+        for k in ("first_my", "pin_plot", "mileage_adj", "note"):   # new-model extras
+            if cfg.get(k):
+                car[k] = cfg[k]
+            else:
+                car.pop(k, None)
         d["cars"][name] = car
         note = f"{name}: {len(all_sold)} comps"
         if car.get("driven"):
@@ -1064,6 +1211,8 @@ def main():
 
     with open(ODO_CACHE, "w") as f:
         json.dump(cache, f, indent=0, sort_keys=True)
+    with open(FLAGS_CACHE, "w") as f:
+        json.dump(flags, f, indent=0, sort_keys=True)
     fetched = ODO_FETCH_CAP - budget["left"]
     log.append(f"odometers: {len(cache)} cached, {fetched} fetched this run")
 

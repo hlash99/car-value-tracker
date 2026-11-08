@@ -234,7 +234,7 @@
   <details>
     <summary>Methodology &amp; caveats</summary>
     <p class="note">
-      <b>2026 values</b> come from Cars.com nationwide asking medians, cross-checked against recent Bring a Trailer sold prints; the adopted figure leans to sold levels (asking × a per-car factor). <b>2020 baselines and mid-years</b> are reconstructed from documented market lows and the 2021-22 run-up / 2023 wobble / 2024-26 surge — treat the 6-yr % as ±5-8 pts. <b>Projections</b> use momentum-aware CAGRs by each car's place on the modern-classic curve, drivetrain desirability, scarcity, and momentum; bull/bear bands convey uncertainty and are nominal. <b>Maintenance</b> = routine servicing + amortized wear (997 &asymp;$3k, 458 &asymp;$5k, F12 &asymp;$6k, 812s &asymp;$7k/yr); excludes insurance, storage, fuel, and major repairs. With the toggle <b>on</b> this carrying cost is subtracted from the end value everywhere &mdash; the table's 5-yr and 10-yr columns, the returns bars, the YoY bars and the projection table &mdash; so the figures show what each car cost to <i>hold</i>, not just what it sold for. Reference series (S&amp;P 500, AAPL) carry no maintenance. <b>Scope vs the asset tracker.</b> The R8 shown here is <i>gated manual, coupe, gen1 V10 only</i> (~$141k all-mileage, ~$118k at 30-50k miles). The asset tracker carries a deliberately broader <i>R8 V10 Gen 1</i> covering all transmissions and both bodies, which prices lower (~$111k) because R-tronic and S-tronic cars drag the median down. Same generation, different car - not a disagreement. Every other car on the asset tracker, the 458 and 812s included, is copied from this page and shows the same figure. The one exception is the <b>997.2 Turbo S</b>: here it is the <i>Bring a Trailer sold median</i> for coupes (the market benchmark), while the asset tracker values the owned car itself from BaT + AutoTrader + AutoTempest, so it reads higher there. <b>Sold vs asking.</b> The five original cars here are Cars.com <i>asking</i> medians; the five added 2026-08 are Bring a Trailer <i>sold</i> medians, which run lower and are the better evidence. <b>S&amp;P 500 / AAPL</b> are June levels (split-adjusted), not projected. Not investment advice.
+      <b>2026 values</b> come from Cars.com nationwide asking medians, cross-checked against recent Bring a Trailer sold prints; the adopted figure leans to sold levels (asking × a per-car factor). <b>2020 baselines and mid-years</b> are reconstructed from documented market lows and the 2021-22 run-up / 2023 wobble / 2024-26 surge — treat the 6-yr % as ±5-8 pts. <b>Projections</b> use momentum-aware CAGRs by each car's place on the modern-classic curve, drivetrain desirability, scarcity, and momentum; bull/bear bands convey uncertainty and are nominal. <b>Corvette C8 Z06</b> (used, 30k+ miles, no Z07 package, no high wing) is the exception: a new model that <i>depreciates</i>. It launched as MY2023, so 2020-22 are blank and its chart index starts at 2023 = 100; its 5-yr column is its longest real window (~2.5 yrs, marked thin). Values are BaT sold medians for non-Z07, no-wing cars (checked on each listing page) &times; 0.82 to a 30k-mile basis, because no Z06 has yet sold on BaT with 30k+ miles (the median sold car shows ~750) &mdash; the 0.82 is Cars.com&rsquo;s 30k+ vs under-5k-mile asking ratio (Nov 2026); once three 30k+ sales exist they set the value directly. Projection: base &minus;6%/yr (BaT medians fell ~$176k &rarr; $132k &rarr; $115k &rarr; $110k from 2023 to 2026, the first year inflated by dealer markups, easing to about &minus;4 to &minus;8%/yr), bear &minus;10%/yr (miles keep accruing, discounted new Z06s, the ZR1 above it), bull &minus;2%/yr (levels off as the C6/C7 Z06 did at 5-6 years). It is always drawn on the charts, even when &ldquo;top 15&rdquo; would leave it out. <b>Maintenance</b> = routine servicing + amortized wear (997 &asymp;$3k, Z06 &asymp;$3k, 458 &asymp;$5k, F12 &asymp;$6k, 812s &asymp;$7k/yr); excludes insurance, storage, fuel, and major repairs. With the toggle <b>on</b> this carrying cost is subtracted from the end value everywhere &mdash; the table's 5-yr and 10-yr columns, the returns bars, the YoY bars and the projection table &mdash; so the figures show what each car cost to <i>hold</i>, not just what it sold for. Reference series (S&amp;P 500, AAPL) carry no maintenance. <b>Scope vs the asset tracker.</b> The R8 shown here is <i>gated manual, coupe, gen1 V10 only</i> (~$141k all-mileage, ~$118k at 30-50k miles). The asset tracker carries a deliberately broader <i>R8 V10 Gen 1</i> covering all transmissions and both bodies, which prices lower (~$111k) because R-tronic and S-tronic cars drag the median down. Same generation, different car - not a disagreement. Every other car on the asset tracker, the 458 and 812s included, is copied from this page and shows the same figure. The one exception is the <b>997.2 Turbo S</b>: here it is the <i>Bring a Trailer sold median</i> for coupes (the market benchmark), while the asset tracker values the owned car itself from BaT + AutoTrader + AutoTempest, so it reads higher there. <b>Sold vs asking.</b> The five original cars here are Cars.com <i>asking</i> medians; the five added 2026-08 are Bring a Trailer <i>sold</i> medians, which run lower and are the better evidence. <b>S&amp;P 500 / AAPL</b> are June levels (split-adjusted), not projected. Not investment advice.
     </p>
   </details>
 
@@ -261,7 +261,11 @@ try{const v=localStorage.getItem("cvPlotN"); if(v==="15"||v==="all") state.plotN
 const PLOT_N=15;
 function plotCars(){
   if(state.plotN==="all") return carList();
-  return sortedRows().slice(0,PLOT_N).map(r=>r.name);
+  const top=sortedRows().slice(0,PLOT_N).map(r=>r.name);
+  // `pin_plot` cars (the C8 Z06, a depreciating new model that would never rank
+  // on a 10-yr sort) are always drawn, like AAPL and the S&P 500.
+  carList().forEach(n=>{if(D.cars[n].pin_plot&&!top.includes(n)) top.push(n);});
+  return top;
 }
 function drawPlots(){buildLegend();drawIdx();drawTraj();drawRet();drawYoY();}
 let D, charts={};
@@ -419,7 +423,9 @@ function init(){
   }));
   // Count from the data, not the copy: the intro said "Ten" long after there were sixteen.
   $("#nCars").textContent=(n=>["Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten",
-    "Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen","Twenty"][n]||String(n))(carList().length);
+    "Eleven","Twelve","Thirteen","Fourteen","Fifteen","Sixteen","Seventeen","Eighteen","Nineteen","Twenty",
+    "Twenty-one","Twenty-two","Twenty-three","Twenty-four","Twenty-five","Twenty-six","Twenty-seven","Twenty-eight",
+    "Twenty-nine","Thirty"][n]||String(n))(carList().length);
   $("#p997").textContent=fmtk(D.cars["Porsche 997.2 Turbo S"].hist.slice(-1)[0]);
   $("#p812").textContent=fmtk(D.cars["Ferrari 812 Superfast"].hist.slice(-1)[0]);
   bindSeg("#basisSeg",v=>{state.basis=v;syncLabels();renderTable();drawPlots();});
@@ -559,7 +565,9 @@ function bindSeg(sel,cb){document.querySelectorAll(sel+" button").forEach(b=>b.o
    column, which is why they sort to the bottom of a 10-yr sort. */
 function derivedAppr(name){
   const c=D.cars[name], h=c.hist; if(!h||h.length<2) return null;
-  const span=Math.min(5,h.length-1), i0=h.length-1-span;
+  // A new model's pre-launch years are null: start at its first real year.
+  const first=h.findIndex(v=>v!=null), span=Math.min(5,h.length-1-first), i0=h.length-1-span;
+  if(span<1) return null;
   return {w5:{from:h[i0],to:h[h.length-1],from_year:D.years[i0],
               to_year:D.years[h.length-1],span_years:span}};
 }
@@ -751,7 +759,8 @@ function renderTable(){
         // Sample size lives under the value (was its own Comps column).
         h+='<td class="num"><span class="val">'+fmtk(r.value)+'</span>'
           +'<span class="sub">'+(r.n ? r.n+(c.n_comps?' sold':' asking') : (c.n_comps?'BaT sold':'asking'))
-          +(c.recent&&!r.useDriven?' &middot; value: last '+c.recent.n+(c.recent.min_miles?' at '+c.recent.min_miles/1000+'k+ mi':''):'')
+          +(c.recent&&!r.useDriven?' &middot; value: last '+c.recent.n+(c.recent.min_miles?' at '+c.recent.min_miles/1000+'k+ mi':'')
+            +(c.recent.adj?' \u00d7'+c.recent.adj+' mi-adj':''):'')
           +(r.minMiles?' &middot; '+Math.round(r.minMiles/1000)+(r.maxMiles?'-'+Math.round(r.maxMiles/1000)+'k mi':'k+ mi'):'')+'</span></td>';
       else if(col.key==="maint")
         h+='<td class="num">'+(c.maint?fmtk(c.maint):"&mdash;")+'</td>';
@@ -914,7 +923,14 @@ function windowN(n,N){
   const c=D.cars[n], dv=c.driven;
   if(!c.annual) return apprAdj(n,derivedApprN(n,N));                // Cars.com cars
   const src=(state.driven==="driven"&&dv&&dv.appr_n)?dv.appr_n:c.appr_n;
-  return src?apprAdj(n,src["w"+N]):null;
+  if(!src) return null;
+  // A new model (first_my) has no window past its own age: reuse its longest
+  // one, as the table's 5-yr column does, and the bar says "x-yr data".
+  if(!src["w"+N]&&c.first_my){
+    const ks=Object.keys(src).map(k=>+k.slice(1)).filter(k=>k<=N).sort((a,b)=>b-a);
+    return ks.length?apprAdj(n,src["w"+ks[0]]):null;
+  }
+  return apprAdj(n,src["w"+N]);
 }
 // Same rule as the table at 5 and 10 yrs (span < 3 is thin), scaled down for
 // shorter look-backs so a 1-yr window is not flagged for being 1 yr long.
@@ -1114,7 +1130,15 @@ function renderProjTable(){
 }
 function renderEvid(){
   let h=`<thead><tr><th>Car</th><th>Cars.com asking median</th><th>Recent BaT sold</th><th>Adopted value</th></tr></thead><tbody>`;
-  carList().forEach(n=>{const c=D.cars[n];h+=`<tr><td>${n}</td><td>${c.asking!=null?fmtk(c.asking):"&mdash;"}</td><td>${fmtk(c.sold)}</td><td><b>${fmtk(c.hist.slice(-1)[0])}</b></td></tr>`;});
+  carList().forEach(n=>{const c=D.cars[n];
+    const ask=c.asking!=null?`<span${c.asking_src?' title="'+escH(c.asking_src)+'"':''}>${fmtk(c.asking)}</span>`:"&mdash;";
+    const sold=c.recent&&c.recent.basis?`<span title="${escH(c.recent.basis)}">${fmtk(c.sold)}</span>`:fmtk(c.sold);
+    h+=`<tr><td>${n}</td><td>${ask}</td><td>${sold}</td><td><b>${fmtk(c.hist.slice(-1)[0])}</b></td></tr>`;
+    // Cars with a non-standard basis (the Z06: new model, mileage-adjusted) say so in a row of their own.
+    if(c.note||(c.recent&&c.recent.basis)) h+=`<tr><td colspan="4" style="text-align:left;font-size:11.5px;color:var(--muted);padding-top:0">`
+      +(c.recent&&c.recent.basis?`Value: ${escH(c.recent.basis)} = ${fmtk(c.hist.slice(-1)[0])}. `:"")
+      +(c.asking_src?`Asking: ${escH(c.asking_src)}. `:"")+(c.note?escH(c.note):"")+`</td></tr>`;
+  });
   $("#evidTable").innerHTML=h+"</tbody>";
 }
 function renderYear(){
@@ -1124,11 +1148,14 @@ function renderYear(){
     let h=`<details><summary style="color:${c.color}">${n}</summary><div class="tablescroll" style="margin-top:8px"><table>
       <thead><tr><th>Year</th><th>Median</th><th>YoY</th><th>In 2026 $</th><th>Proj. year</th><th>Proj. (base)</th></tr></thead><tbody>`;
     for(let i=0;i<D.years.length;i++){
-      const yoy=i>0?pct((c.hist[i]/c.hist[i-1]-1)*100):"–";
-      const real=c.hist[i]*realFactorTo2026(i);
+      const v=c.hist[i], prev=i>0?c.hist[i-1]:null;
+      const yoy=(v!=null&&prev!=null)?pct((v/prev-1)*100):"–";
+      // null = before the model existed (the C8 Z06 launched as MY2023).
+      const med=v!=null?fmtk(v):`<span style="color:var(--muted)">&mdash; not built yet</span>`;
+      const real=v!=null?fmtk(v*realFactorTo2026(i)):"&mdash;";
       const py=i<D.pyears.length?D.pyears[i]:"";
       const pv=i<D.pyears.length?fmtk(c.proj[i]):"";
-      h+=`<tr><td>${D.years[i]}</td><td>${fmtk(c.hist[i])}</td><td>${yoy}</td><td>${fmtk(real)}</td><td>${py}</td><td>${pv}</td></tr>`;
+      h+=`<tr><td>${D.years[i]}</td><td>${med}</td><td>${yoy}</td><td>${real}</td><td>${py}</td><td>${pv}</td></tr>`;
     }
     wrap.insertAdjacentHTML("beforeend",h+"</tbody></table></div></details>");
   });

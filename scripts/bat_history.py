@@ -85,17 +85,27 @@ def parse_odometer(text):
     return int(round(v))
 
 
-def listing_odometer(url):
-    """Odometer reading from a listing page, or None if the page states none."""
+def listing_details(url):
+    """The listing page's "Listing Details" lines as plain text ([] if absent)."""
     html = _get(url)
     blk = DETAILS_RE.search(html)
     if not blk:
-        return None
-    for li in LI_RE.findall(blk.group(0)):
-        txt = re.sub(r"<[^>]+>", "", li)
+        return []
+    return [re.sub(r"<[^>]+>", "", li).replace("&amp;", "&").strip()
+            for li in LI_RE.findall(blk.group(0))]
+
+
+def odometer_from_details(lines):
+    """Odometer from Listing Details lines, or None if they state none (TMU)."""
+    for txt in lines:
         if re.search(r"\b(Miles|Kilometers|Km|TMU)\b", txt, re.I):
             return parse_odometer(txt)
     return None
+
+
+def listing_odometer(url):
+    """Odometer reading from a listing page, or None if the page states none."""
+    return odometer_from_details(listing_details(url))
 
 
 def _get(url, data=None, headers=None, timeout=60, tries=3):

@@ -19,6 +19,41 @@ WINDOW = {
 }
 PRICE_RE = re.compile(r"\$([0-9]{2,3},[0-9]{3})")
 
+# BaT-valued cars that also carry a Cars.com ASKING median for the evidence
+# table. Only `asking` / `asking_src` are written - the value, history and
+# projection stay with scripts/bat_refresh.py. These need a mileage floor, which
+# Cars.com's URL cannot express (it has a max, not a min), so the search sorts by
+# mileage descending and the floor is applied to each listing's own odometer,
+# read from the page's embedded srp_results JSON. Cars.com cannot filter Z07 or
+# the high wing (dealers rarely list them), so the asking pool is all Z06s.
+ASKING_ONLY = {
+    "Chevrolet Corvette C8 Z06 (no Z07/wing)": {
+        "url": ("https://www.cars.com/shopping/results/?stock_type=used&makes[]=chevrolet"
+                "&models[]=chevrolet-corvette&year_min=2023&keyword=Z06&sort=mileage_desc"
+                "&maximum_distance=all&zip=94027&page_size=100"),
+        "window": (60, 250),
+        "min_miles": 30000,
+    },
+}
+SRP_RE = re.compile(r"<script[^>]*>\s*(\{\"srp_results\".*?)</script>", re.S)
+
+
+def listings_from_srp(html):
+    """(price $000s, mileage) per listing card from Cars.com's embedded JSON."""
+    m = SRP_RE.search(html)
+    if not m:
+        return []
+    out = []
+    for x in json.loads(m.group(1))["srp_results"].get("results", []):
+        if x.get("__typename") != "SrpListingGridCard":
+            continue
+        try:
+            c = json.loads(x["analytics"]["context"])
+            out.append((int(c["price"]) / 1000.0, int(c["mileage"])))
+        except (KeyError, TypeError, ValueError):
+            continue
+    return out
+
 def prices_from_html(html, lo, hi):
     out = []
     for m in PRICE_RE.findall(html):
@@ -35,6 +70,10 @@ def scrape(page, url, lo, hi):
         pass
     page.wait_for_timeout(2500)
     return prices_from_html(page.content(), lo, hi)
+
+def now_s():
+    return datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
+
 
 def main():
     with open(DATA) as f:
@@ -83,6 +122,28 @@ def main():
                     log.append(f"{name}: only {len(vals)} prices found — kept last-good ${car['hist'][-1]}k")
             except Exception as e:
                 log.append(f"{name}: scrape failed ({e.__class__.__name__}) — kept last-good")
+        for name, cfg in ASKING_ONLY.items():
+            car = d["cars"].get(name)
+            if not car:
+                continue
+            car["cars_url"] = cfg["url"]
+            lo, hi = cfg["window"]
+            try:
+                page.goto(cfg["url"], wait_until="domcontentloaded", timeout=60000)
+                page.wait_for_timeout(4000)
+                vals = [p for p, mi in listings_from_srp(page.content())
+                        if mi >= cfg["min_miles"] and lo <= p <= hi]
+                if len(vals) >= 3:
+                    car["asking"] = round(statistics.median(vals), 1)
+                    car["asking_src"] = (f"Cars.com {now_s()} (n={len(vals)}, "
+                                         f"{cfg['min_miles'] // 1000}k+ mi; Z07/wing not filterable there)")
+                    updated_any = True
+                    log.append(f"{name}: n={len(vals)} asking≈${car['asking']}k (asking only)")
+                else:
+                    log.append(f"{name}: only {len(vals)} asking prices at {cfg['min_miles'] // 1000}k+ mi"
+                               f" — kept last-good asking")
+            except Exception as e:
+                log.append(f"{name}: asking scrape failed ({e.__class__.__name__}) — kept last-good")
         browser.close()
 
     now = datetime.datetime.now(datetime.timezone.utc).replace(microsecond=0)
