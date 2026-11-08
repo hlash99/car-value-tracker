@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-08T06:27Z",
- "refresh_status": "auto-refresh 2026-11-08 06:16Z \u00b7 no source updates \u00b7 Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $234.1k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $464.0k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $478.0k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $765.0k; Chevrolet Corvette C8 Z06 (no Z07/wing): only 0 asking prices at 30k+ mi \u2014 kept last-good asking",
+ "updated": "2026-11-08T06:40Z",
+ "refresh_status": "auto-refresh 2026-11-08 06:29Z \u00b7 no source updates \u00b7 Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $234.1k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $464.0k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $478.0k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $765.0k; Chevrolet Corvette C8 Z06 (no Z07/wing): only 0 asking prices at 30k+ mi \u2014 kept last-good asking",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
  "years": [
@@ -8933,7 +8933,7 @@
     }
    }
   },
-  "updated": "2026-11-08T06:27Z",
+  "updated": "2026-11-08T06:40Z",
   "status": "S&P 500: 141 months to 2026-09 | AAPL: 121 months to 2026-11"
  },
  "csv_only": {
