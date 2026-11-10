@@ -117,7 +117,11 @@ def main():
                     car["asking"] = asking
                     if not car.get("recent"):   # recent sales outrank asking x factor
                         car["hist"][-1] = adopted
-                        car["proj"][0] = adopted
+                        # Rebase the whole base-case path, not just its first
+                        # point (which left e.g. $464k -> $402k next year).
+                        r = (car.get("cagr") or {}).get("base")
+                        car["proj"] = ([round(adopted * (1 + r) ** i, 1) for i in range(len(car["proj"]))]
+                                       if r is not None else [adopted] + car["proj"][1:])
                     updated_any = True
                     log.append(f"{name}: n={len(vals)} asking≈${asking}k -> value≈${adopted}k")
                 else:

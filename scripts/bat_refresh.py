@@ -22,6 +22,7 @@ lot and are easy to get wrong:
 Stdlib only. Run by .github/workflows/refresh.yml alongside refresh.py.
 """
 import json
+import math
 import os
 import re
 import statistics
@@ -33,6 +34,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bat_history import (fetch_all_completed, parse_sold, annual_medians, cagr,  # noqa: E402
                          listing_odometer, listing_details, odometer_from_details)
 import forum_asks  # noqa: E402
+import valuation  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data.json")
@@ -148,7 +150,10 @@ BAT_CARS = {
         "color": "#E2703A",
         "blurb": "246 GT and GTS, 1969-1974 - the V6 junior Ferrari, badged Dino.",
         "spec": {"include": ["246"],
-                 "exclude": ["v8-powered", "replica", "kit car"],
+                 # 2026: two more engine-swapped cars sold as 246s - a "Turbocharged
+                 # Quattrovalvole-Powered" GT ($305k) and a "Modified ... 24-Valve"
+                 # GTS - and BaT's title used an en dash, so "v8-powered" missed it.
+                 "exclude": ["v8-powered", "quattrovalvole", "modified", "24-valve", "replica", "kit car"],
                  "year_min": 1969, "year_max": 1974,
                  "lo": 100000, "hi": 900000},
         "maint": 7,
@@ -881,6 +886,116 @@ def floored_value(sold, cfg):
     return rec
 
 
+YEAR_S = 365.2425 * 86400
+# Look-back for the live backtest that gates the estimator (years of sales scored).
+BACKTEST_YEARS = 3
+# Sales the gate must have scored before its verdict counts; below this (a run
+# where most scrapes failed) the previous run's decision stands.
+BACKTEST_MIN_N = 200
+# Mileage the "driven" value is quoted at: the middle of DRIVEN_BAND.
+DRIVEN_MILES = 40000
+
+
+def est_block(sold, cfg, now):
+    """valuation.estimate() for one car at its reference mileage, in the page's
+    units ($000s). None when the car is too thin or states no mileages."""
+    floor = cfg.get("value_min_miles")
+    ref = valuation.ref_miles(sold, floor)
+    e = valuation.estimate(sold, now, ref) if ref is not None else None
+    if not e:
+        return None
+    k = lambda v: round(v / 1000.0, 1)
+    odos = sorted(s["odo"] for s in sold if s.get("odo") is not None)
+    if not odos:
+        return None
+    q = lambda f: odos[int(round(f * (len(odos) - 1)))]
+    old = valuation.old_rule(recent_comps(sold, cfg), now)
+    # Sales "behind" the figure, for the n the page and the asset tracker show:
+    # the last 12 months' worth, or the effective sample if that is larger.
+    n = max(sum(1 for s in sold if now - s["ts"] <= YEAR_S), min(len(sold), int(round(e["n_eff"]))), 1)
+    used = sold[-n:]
+    return {
+        "value": k(e["value"]), "lo": k(e["lo"]), "hi": k(e["hi"]),
+        "sale_lo": k(e["sale_lo"]), "sale_hi": k(e["sale_hi"]),
+        "miles": ref, "gamma": round(e["gamma"], 3),
+        "n": n, "from": used[0]["date"], "to": used[-1]["date"],
+        "n_eff": round(e["n_eff"], 1), "newest_days": int(e["newest_days"]),
+        "half_life": int(round(e["half_life"])),
+        "spread_pct": round((math.exp(e["sigma"]) - 1) * 100, 1),
+        "odo_lo": q(0.05), "odo_hi": q(0.95),
+        "median_rule": k(old) if old else None,
+    }
+
+
+def apply_valuation(d, sales, now, log):
+    """Publish each car's mileage-standardised estimate (`est`) and, if the live
+    backtest says it beats the old latest-sales median, make it the headline.
+
+    `sales` maps car name -> (sold comps, cfg) for every car scraped this run.
+    The gate is re-run on every refresh over the last BACKTEST_YEARS of sales,
+    predicting each sale only from the ones before it: the estimator must miss
+    individual sales by less (given their mileage) AND be no worse blind, at
+    the reference mileage, which is the headline's own job. If it ever stops
+    winning, the page falls back to the old rule by itself and says so."""
+    prev = d.get("valuation") or {}
+    bt = valuation.backtest({n: s for n, (s, _) in sales.items()}, now - BACKTEST_YEARS * YEAR_S)
+    if bt and bt["n"] >= BACKTEST_MIN_N:
+        adopted = (bt["new_median_pct"] < bt["old_median_pct"]
+                   and bt["blind_mean_pct"] < bt["old_mean_pct"])
+        verdict = bt
+    else:                                   # too little scraped this run to judge
+        adopted = bool(prev.get("adopted"))
+        verdict = prev.get("backtest")
+    d["valuation"] = {
+        "method": "mileage-standardised, time-weighted median of BaT sold comps",
+        "adopted": adopted, "backtest": verdict, "backtest_years": BACKTEST_YEARS,
+        "offset": valuation.OFFSET, "half_life": valuation.HALF_LIFE,
+        "updated": datetime.fromtimestamp(now, timezone.utc).strftime("%Y-%m-%d"),
+    }
+    if verdict:
+        log.append(f"valuation: {'ADOPTED' if adopted else 'shadow only'} - typical miss "
+                   f"{verdict['new_median_pct']}% vs {verdict['old_median_pct']}% old rule "
+                   f"(blind {verdict['blind_median_pct']}%), n={verdict['n']}")
+    for name, (sold, cfg) in sales.items():
+        car = d["cars"].get(name)
+        if not car:
+            continue
+        # The Z06 is valued off a mileage it has no sales at (x mileage_adj, then
+        # blended with asks); extrapolating this estimator out to 30k miles from
+        # comps that stop at 14k would be a guess, so it keeps its own path.
+        blk = None if cfg.get("mileage_adj") else est_block(sold, cfg, now)
+        if not blk:
+            car.pop("est", None)
+            continue
+        car["est"] = blk
+        if not adopted:
+            continue
+        v = blk["value"]
+        car["hist"][-1] = v
+        car["recent"] = {"value": v, "n": blk["n"], "from": blk["from"], "to": blk["to"],
+                         "min_miles": cfg.get("value_min_miles"), "method": "est",
+                         "miles": blk["miles"], "lo": blk["lo"], "hi": blk["hi"],
+                         "median_rule": blk["median_rule"]}
+        dv = car.get("driven")
+        if dv and blk["odo_lo"] <= DRIVEN_MILES <= blk["odo_hi"]:
+            e = valuation.estimate(sold, now, DRIVEN_MILES)
+            if e:
+                dv["latest_median"] = dv["latest"]
+                dv["latest"] = round(e["value"] / 1000.0, 1)
+                dv["est_miles"] = DRIVEN_MILES
+
+
+def rebase_proj(car, n):
+    """Base-case projection compounding from today's value at the car's own
+    base rate. The four value-only cars kept a hand-entered path whose first
+    point alone was overwritten each run, so the base case read e.g. F12 $464k
+    (2026) -> $402k (2027) against a stated +3.5%/yr."""
+    r = (car.get("cagr") or {}).get("base")
+    v0 = car["hist"][-1]
+    if r is not None and v0 is not None:
+        car["proj"] = [round(v0 * (1 + r) ** i, 1) for i in range(n)]
+
+
 def ask_mile_factor(miles, adj):
     """Scale one ask to the 30k-mile basis: `adj` at 2k miles or less (or
     unknown - nearly every Z06 for sale is low-mileage), rising linearly to 1.0
@@ -994,7 +1109,49 @@ def _cpi_at(t):
     return CPI_BY_YEAR[y0] + (CPI_BY_YEAR[y0 + 1] - CPI_BY_YEAR[y0]) * f
 
 
-def windows(sold, wins=(5, 10)):
+def _honesty(w, base, top, span, extra):
+    """Add to one window dict (a) an 80% interval on its change and (b) the same
+    change with every sale first moved to one common mileage.
+
+    (a) The figure is a ratio of two pooled medians, and some pools hold 2-7
+    sales. ratio_lo / ratio_hi bound to/from; ci_lo_pct / ci_hi_pct are the
+    same bounds as %/yr. An interval that spans zero means the sign of the
+    "appreciation" is not established by the sales there are.
+    (b) Pooled medians also move when the MIX of cars moves: if the later pool
+    holds lower-mileage cars the median rises with no change in what any given
+    car is worth. adj_ratio / cagr_adj_pct hold the like-for-like change."""
+    if not extra:
+        return w
+    a = statistics.median(s["price"] for s in base)
+    b = statistics.median(s["price"] for s in top)
+    hw = valuation.median_ci(len(base), len(top), extra.get("sigma"))
+    if hw is not None and a > 0 and span > 0:
+        r = b / a
+        w["ratio_lo"], w["ratio_hi"] = round(r * math.exp(-hw), 4), round(r * math.exp(hw), 4)
+        w["ci_lo_pct"] = round((w["ratio_lo"] ** (1 / span) - 1) * 100, 1)
+        w["ci_hi_pct"] = round((w["ratio_hi"] ** (1 / span) - 1) * 100, 1)
+        w["ci_level"] = 80
+    g, ref = extra.get("gamma"), extra.get("miles")
+    if g is not None and ref is not None:
+        aa = statistics.median(valuation.adjusted_price(s, g, ref) for s in base)
+        bb = statistics.median(valuation.adjusted_price(s, g, ref) for s in top)
+        if aa > 0 and span > 0:
+            w["adj_ratio"] = round(bb / aa, 4)
+            w["cagr_adj_pct"] = round(((bb / aa) ** (1 / span) - 1) * 100, 1)
+            w["adj_miles"] = ref
+    return w
+
+
+def window_extra(sold, now):
+    """Per-car inputs for _honesty(): raw price dispersion, mileage elasticity
+    and the reference mileage. None for a car too thin to measure them."""
+    if len(sold) < valuation.MIN_COMPS:
+        return None
+    return {"sigma": valuation.dispersion(sold), "gamma": valuation.elasticity(sold, now),
+            "miles": valuation.ref_miles(sold)}
+
+
+def windows(sold, wins=(5, 10), extra=None):
     """Total and per-year appreciation over each look-back in `wins` (years),
     from POOLED two-year ends rather than single calendar years.
 
@@ -1024,7 +1181,7 @@ def windows(sold, wins=(5, 10)):
             t1 = statistics.mean(_frac_year(s) for s in top1)
             span = round(t1 - t0, 2)
             if span > 0.3:
-                out["w1"] = {
+                out["w1"] = _honesty({
                     "from_year": int(t0), "to_year": int(t1),
                     "from_label": "prior 12 mo", "to_label": "last 12 mo",
                     "from": round(a / 1000.0, 1), "to": round(b / 1000.0, 1),
@@ -1033,7 +1190,7 @@ def windows(sold, wins=(5, 10)):
                     "cagr_pct": cagr(a, b, span), "span_years": span,
                     "cpi_from": round(_cpi_at(t0), 1), "cpi_to": round(_cpi_at(t1), 1),
                     "t_from": round(t0, 3), "t_to": round(t1, 3), "pooled": True,
-                }
+                }, base1, top1, span, extra)
     L = max(int(s["date"][:4]) for s in sold)
     pool = lambda y0, y1: [s for s in sold if y0 <= int(s["date"][:4]) <= y1]
     top = pool(L - 1, L)
@@ -1061,7 +1218,7 @@ def windows(sold, wins=(5, 10)):
         # columns). 60% of N: 3 yrs for the 5-yr column, 6 for the 10-yr.
         if span < max(1, MIN_SPAN_SHARE * win):
             continue
-        out[f"w{win}"] = {
+        out[f"w{win}"] = _honesty({
             "from_year": y0, "to_year": L,
             "from_label": f"{y0}-{str(y0 + 1)[2:]}", "to_label": f"{L - 1}-{str(L)[2:]}",
             "from": round(from_med / 1000.0, 1), "to": round(to_med / 1000.0, 1),
@@ -1074,7 +1231,7 @@ def windows(sold, wins=(5, 10)):
             # over exactly these dates so the comparison is like for like.
             "t_from": round(t0, 3), "t_to": round(t1, 3),
             "pooled": True,
-        }
+        }, p, top, span, extra)
     return out
 
 # The Google Sheet pulls this with IMPORTDATA, which re-fetches on its own
@@ -1110,6 +1267,8 @@ def main():
     years, pyears = d["years"], d["pyears"]
     log = []
     series_by_car = {}
+    now = datetime.now(timezone.utc).timestamp()
+    sales = {}                # car -> (sold comps, cfg), for the value estimator
     try:
         with open(ODO_CACHE) as f:
             cache = json.load(f)
@@ -1134,6 +1293,7 @@ def main():
 
         s_all = annual_medians(all_sold)
         series_by_car[name] = s_all
+        sales[name] = (all_sold, cfg)
         if cfg.get("dashboard") is False:
             # CSV column only: kept so later columns don't shift (the sheet reads
             # them by position). Removed from the dashboard, with a last-good
@@ -1151,7 +1311,7 @@ def main():
         # Every look-back from 1 to 10 years, ending now, for the return chart's
         # duration slider. The table's 5y/10y columns are the same w5/w10 entries,
         # so the slider at 5 or 10 IS the table.
-        appr_n = windows(all_sold, LOOKBACKS)
+        appr_n = windows(all_sold, LOOKBACKS, window_extra(all_sold, now))
         if cfg.get("mileage_adj"):            # same $ basis as hist (see below)
             appr_n = scale_windows(appr_n, cfg["mileage_adj"])
         appr = {k: appr_n[k] for k in ("w5", "w10") if k in appr_n}
@@ -1231,7 +1391,7 @@ def main():
         # is truthy in the page JS - it showed blank cells instead of falling
         # back to all comps with the dagger. Drop any stale block too, so a car
         # that loses its driven window falls back rather than keeping old numbers.
-        drv_n = windows(driven, LOOKBACKS)
+        drv_n = windows(driven, LOOKBACKS, window_extra(driven, now))
         drv_appr = {k: drv_n[k] for k in ("w5", "w10") if k in drv_n}
         if len(driven) >= 5 and drv_appr:
             car["driven"] = {
@@ -1270,6 +1430,7 @@ def main():
         except Exception as e:                      # keep last-good on any failure
             log.append(f"{name}: recent sales FAILED ({type(e).__name__})")
             continue
+        sales[name] = (sold, cfg)
         if recent:
             recent["min_miles"] = cfg.get("value_min_miles")
             car["hist"][-1] = recent["value"]
@@ -1277,6 +1438,15 @@ def main():
             car["sold"] = round(recent["value"])
             car["recent"] = recent
             log.append(f"{name}: recent {recent['n']} sales -> ${recent['value']}k")
+
+    try:
+        apply_valuation(d, sales, now, log)
+    except Exception as e:          # never let the estimator cost the run its data
+        log.append(f"valuation: FAILED ({type(e).__name__}: {e}) - latest-sales medians kept")
+    for name, (_, cfg) in sales.items():
+        car = d["cars"].get(name)
+        if car and not cfg.get("ask_haircut") and car.get("hist") and car.get("proj"):
+            rebase_proj(car, len(pyears))
 
     for name, car in d["cars"].items():
         if name in PRODUCTION:
