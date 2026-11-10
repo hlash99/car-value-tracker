@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-10T00:47Z",
- "refresh_status": "auto-refresh 2026-11-10 00:35Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $260.0k; Ferrari F12 Berlinetta: n=24 asking\u2248$472k -> value\u2248$404k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $549.9k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $782.9k; Chevrolet Corvette C8 Z06 (no Z07/wing): only 0 asking prices at 30k+ mi \u2014 kept last-good asking",
+ "updated": "2026-11-10T10:11Z",
+ "refresh_status": "auto-refresh 2026-11-10 09:59Z \u00b7 no source updates \u00b7 Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $260.0k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $385.2k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $549.9k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $782.9k; Chevrolet Corvette C8 Z06 (no Z07/wing): only 0 asking prices at 30k+ mi \u2014 kept last-good asking",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
  "years": [
@@ -107,15 +107,15 @@
     "min_miles": 30000,
     "method": "est",
     "miles": 40000,
-    "lo": 236.5,
-    "hi": 285.8,
+    "lo": 236.4,
+    "hi": 285.9,
     "median_rule": 234.1
    },
    "est": {
     "value": 260.0,
-    "lo": 236.5,
-    "hi": 285.8,
-    "sale_lo": 214.5,
+    "lo": 236.4,
+    "hi": 285.9,
+    "sale_lo": 214.4,
     "sale_hi": 315.1,
     "miles": 40000,
     "gamma": -0.281,
@@ -179,15 +179,15 @@
     "min_miles": null,
     "method": "est",
     "miles": 11500,
-    "lo": 345.6,
-    "hi": 429.4,
+    "lo": 345.5,
+    "hi": 429.6,
     "median_rule": 464.0
    },
    "est": {
     "value": 385.2,
-    "lo": 345.6,
-    "hi": 429.4,
-    "sale_lo": 310.5,
+    "lo": 345.5,
+    "hi": 429.6,
+    "sale_lo": 310.4,
     "sale_hi": 478.0,
     "miles": 11500,
     "gamma": -0.422,
@@ -252,16 +252,16 @@
     "min_miles": null,
     "method": "est",
     "miles": 4000,
-    "lo": 490.8,
-    "hi": 616.1,
+    "lo": 490.6,
+    "hi": 616.3,
     "median_rule": 478.0
    },
    "est": {
     "value": 549.9,
-    "lo": 490.8,
-    "hi": 616.1,
-    "sale_lo": 470.9,
-    "sale_hi": 642.1,
+    "lo": 490.6,
+    "hi": 616.3,
+    "sale_lo": 470.8,
+    "sale_hi": 642.3,
     "miles": 4000,
     "gamma": -0.194,
     "n": 11,
@@ -325,14 +325,14 @@
     "min_miles": null,
     "method": "est",
     "miles": 1500,
-    "lo": 716.3,
-    "hi": 855.8,
+    "lo": 716.0,
+    "hi": 856.0,
     "median_rule": 765.0
    },
    "est": {
     "value": 782.9,
-    "lo": 716.3,
-    "hi": 855.8,
+    "lo": 716.0,
+    "hi": 856.0,
     "sale_lo": 660.5,
     "sale_hi": 928.0,
     "miles": 1500,
@@ -995,15 +995,15 @@
     "method": "est",
     "miles": 28500,
     "lo": 129.5,
-    "hi": 160.7,
+    "hi": 160.8,
     "median_rule": 140.0
    },
    "est": {
     "value": 144.3,
     "lo": 129.5,
-    "hi": 160.7,
+    "hi": 160.8,
     "sale_lo": 125.0,
-    "sale_hi": 166.4,
+    "sale_hi": 166.5,
     "miles": 28500,
     "gamma": -0.276,
     "n": 16,
@@ -1778,13 +1778,13 @@
     "min_miles": 40000,
     "method": "est",
     "miles": 66000,
-    "lo": 117.2,
+    "lo": 117.1,
     "hi": 149.1,
     "median_rule": 142.4
    },
    "est": {
     "value": 132.2,
-    "lo": 117.2,
+    "lo": 117.1,
     "hi": 149.1,
     "sale_lo": 108.0,
     "sale_hi": 161.7,
@@ -2555,16 +2555,16 @@
     "min_miles": null,
     "method": "est",
     "miles": 21000,
-    "lo": 198.7,
-    "hi": 279.9,
+    "lo": 198.6,
+    "hi": 280.0,
     "median_rule": 236.0
    },
    "est": {
     "value": 235.8,
-    "lo": 198.7,
-    "hi": 279.9,
+    "lo": 198.6,
+    "hi": 280.0,
     "sale_lo": 157.9,
-    "sale_hi": 352.2,
+    "sale_hi": 352.3,
     "miles": 21000,
     "gamma": -0.299,
     "n": 26,
@@ -3230,7 +3230,7 @@
     "lo": 123.9,
     "hi": 189.0,
     "sale_lo": 115.0,
-    "sale_hi": 203.6,
+    "sale_hi": 203.7,
     "miles": 19000,
     "gamma": -0.276,
     "n": 8,
@@ -4274,16 +4274,16 @@
     "min_miles": null,
     "method": "est",
     "miles": 700,
-    "lo": 972.9,
-    "hi": 1304.4,
+    "lo": 972.5,
+    "hi": 1304.8,
     "median_rule": 1125.0
    },
    "est": {
     "value": 1126.5,
-    "lo": 972.9,
-    "hi": 1304.4,
-    "sale_lo": 880.8,
-    "sale_hi": 1440.8,
+    "lo": 972.5,
+    "hi": 1304.8,
+    "sale_lo": 880.6,
+    "sale_hi": 1441.1,
     "miles": 700,
     "gamma": -0.241,
     "n": 10,
@@ -4308,15 +4308,15 @@
     103.0,
     87.0,
     115.5,
-    125.7
+    125.3
    ],
    "proj": [
-    125.7,
-    136.0,
-    147.2,
-    159.2,
-    172.3,
-    186.4
+    125.3,
+    135.6,
+    146.7,
+    158.7,
+    171.7,
+    185.8
    ],
    "maint": 5,
    "cagr": {
@@ -4350,8 +4350,8 @@
      "ci_lo_pct": 6.8,
      "ci_hi_pct": 9.6,
      "ci_level": 80,
-     "adj_ratio": 1.5978,
-     "cagr_adj_pct": 9.2,
+     "adj_ratio": 1.5986,
+     "cagr_adj_pct": 9.3,
      "adj_miles": 30200
     },
     "w10": {
@@ -4376,7 +4376,7 @@
      "ci_lo_pct": 3.4,
      "ci_hi_pct": 6.1,
      "ci_level": 80,
-     "adj_ratio": 1.5514,
+     "adj_ratio": 1.552,
      "cagr_adj_pct": 4.5,
      "adj_miles": 30200
     }
@@ -4386,7 +4386,7 @@
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 69,
-    "latest": 116.8,
+    "latest": 116.4,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -4410,8 +4410,8 @@
       "ci_lo_pct": 9.0,
       "ci_hi_pct": 12.2,
       "ci_level": 80,
-      "adj_ratio": 1.7705,
-      "cagr_adj_pct": 10.9,
+      "adj_ratio": 1.7721,
+      "cagr_adj_pct": 11.0,
       "adj_miles": 38000
      },
      "w10": {
@@ -4436,7 +4436,7 @@
       "ci_lo_pct": 4.0,
       "ci_hi_pct": 6.9,
       "ci_level": 80,
-      "adj_ratio": 1.605,
+      "adj_ratio": 1.6059,
       "cagr_adj_pct": 5.2,
       "adj_miles": 38000
      }
@@ -4464,8 +4464,8 @@
       "ci_lo_pct": 22.5,
       "ci_hi_pct": 49.1,
       "ci_level": 80,
-      "adj_ratio": 1.4269,
-      "cagr_adj_pct": 36.6,
+      "adj_ratio": 1.4277,
+      "cagr_adj_pct": 36.7,
       "adj_miles": 38000
      },
      "w2": {
@@ -4490,7 +4490,7 @@
       "ci_lo_pct": 9.8,
       "ci_hi_pct": 17.0,
       "ci_level": 80,
-      "adj_ratio": 1.3917,
+      "adj_ratio": 1.3932,
       "cagr_adj_pct": 15.5,
       "adj_miles": 38000
      },
@@ -4542,7 +4542,7 @@
       "ci_lo_pct": 5.2,
       "ci_hi_pct": 9.6,
       "ci_level": 80,
-      "adj_ratio": 1.3975,
+      "adj_ratio": 1.3982,
       "cagr_adj_pct": 7.9,
       "adj_miles": 38000
      },
@@ -4568,8 +4568,8 @@
       "ci_lo_pct": 9.0,
       "ci_hi_pct": 12.2,
       "ci_level": 80,
-      "adj_ratio": 1.7705,
-      "cagr_adj_pct": 10.9,
+      "adj_ratio": 1.7721,
+      "cagr_adj_pct": 11.0,
       "adj_miles": 38000
      },
      "w6": {
@@ -4594,7 +4594,7 @@
       "ci_lo_pct": 9.1,
       "ci_hi_pct": 12.2,
       "ci_level": 80,
-      "adj_ratio": 1.9098,
+      "adj_ratio": 1.9117,
       "cagr_adj_pct": 11.0,
       "adj_miles": 38000
      },
@@ -4620,7 +4620,7 @@
       "ci_lo_pct": 6.8,
       "ci_hi_pct": 10.2,
       "ci_level": 80,
-      "adj_ratio": 1.8049,
+      "adj_ratio": 1.8067,
       "cagr_adj_pct": 8.8,
       "adj_miles": 38000
      },
@@ -4646,7 +4646,7 @@
       "ci_lo_pct": 4.7,
       "ci_hi_pct": 7.7,
       "ci_level": 80,
-      "adj_ratio": 1.6832,
+      "adj_ratio": 1.683,
       "cagr_adj_pct": 6.4,
       "adj_miles": 38000
      },
@@ -4672,7 +4672,7 @@
       "ci_lo_pct": 4.0,
       "ci_hi_pct": 6.9,
       "ci_level": 80,
-      "adj_ratio": 1.605,
+      "adj_ratio": 1.6059,
       "cagr_adj_pct": 5.2,
       "adj_miles": 38000
      },
@@ -4698,7 +4698,7 @@
       "ci_lo_pct": 4.0,
       "ci_hi_pct": 6.9,
       "ci_level": 80,
-      "adj_ratio": 1.605,
+      "adj_ratio": 1.6059,
       "cagr_adj_pct": 5.2,
       "adj_miles": 38000
      }
@@ -4818,8 +4818,8 @@
      "ci_lo_pct": 2.1,
      "ci_hi_pct": 17.4,
      "ci_level": 80,
-     "adj_ratio": 1.1065,
-     "cagr_adj_pct": 9.8,
+     "adj_ratio": 1.1071,
+     "cagr_adj_pct": 9.9,
      "adj_miles": 30200
     },
     "w2": {
@@ -4844,7 +4844,7 @@
      "ci_lo_pct": 6.4,
      "ci_hi_pct": 12.0,
      "ci_level": 80,
-     "adj_ratio": 1.1862,
+     "adj_ratio": 1.1865,
      "cagr_adj_pct": 8.1,
      "adj_miles": 30200
     },
@@ -4870,7 +4870,7 @@
      "ci_lo_pct": 2.5,
      "ci_hi_pct": 6.2,
      "ci_level": 80,
-     "adj_ratio": 1.1051,
+     "adj_ratio": 1.1055,
      "cagr_adj_pct": 3.3,
      "adj_miles": 30200
     },
@@ -4896,7 +4896,7 @@
      "ci_lo_pct": 3.3,
      "ci_hi_pct": 6.5,
      "ci_level": 80,
-     "adj_ratio": 1.1703,
+     "adj_ratio": 1.1706,
      "cagr_adj_pct": 4.0,
      "adj_miles": 30200
     },
@@ -4922,8 +4922,8 @@
      "ci_lo_pct": 6.8,
      "ci_hi_pct": 9.6,
      "ci_level": 80,
-     "adj_ratio": 1.5978,
-     "cagr_adj_pct": 9.2,
+     "adj_ratio": 1.5986,
+     "cagr_adj_pct": 9.3,
      "adj_miles": 30200
     },
     "w6": {
@@ -4948,7 +4948,7 @@
      "ci_lo_pct": 8.8,
      "ci_hi_pct": 11.4,
      "ci_level": 80,
-     "adj_ratio": 1.7537,
+     "adj_ratio": 1.7543,
      "cagr_adj_pct": 9.8,
      "adj_miles": 30200
     },
@@ -4974,7 +4974,7 @@
      "ci_lo_pct": 6.6,
      "ci_hi_pct": 9.1,
      "ci_level": 80,
-     "adj_ratio": 1.7446,
+     "adj_ratio": 1.7451,
      "cagr_adj_pct": 8.3,
      "adj_miles": 30200
     },
@@ -5000,7 +5000,7 @@
      "ci_lo_pct": 5.8,
      "ci_hi_pct": 8.4,
      "ci_level": 80,
-     "adj_ratio": 1.7011,
+     "adj_ratio": 1.7016,
      "cagr_adj_pct": 7.0,
      "adj_miles": 30200
     },
@@ -5026,7 +5026,7 @@
      "ci_lo_pct": 4.6,
      "ci_hi_pct": 7.0,
      "ci_level": 80,
-     "adj_ratio": 1.5349,
+     "adj_ratio": 1.5356,
      "cagr_adj_pct": 4.7,
      "adj_miles": 30200
     },
@@ -5052,29 +5052,29 @@
      "ci_lo_pct": 3.4,
      "ci_hi_pct": 6.1,
      "ci_level": 80,
-     "adj_ratio": 1.5514,
+     "adj_ratio": 1.552,
      "cagr_adj_pct": 4.5,
      "adj_miles": 30200
     }
    },
    "recent": {
-    "value": 125.7,
+    "value": 125.3,
     "n": 47,
     "from": "2025-11-19",
     "to": "2026-11-05",
     "min_miles": null,
     "method": "est",
     "miles": 30200,
-    "lo": 111.1,
-    "hi": 142.2,
+    "lo": 110.7,
+    "hi": 141.8,
     "median_rule": 126.0
    },
    "est": {
-    "value": 125.7,
-    "lo": 111.1,
-    "hi": 142.2,
-    "sale_lo": 90.8,
-    "sale_hi": 174.0,
+    "value": 125.3,
+    "lo": 110.7,
+    "hi": 141.8,
+    "sale_lo": 90.3,
+    "sale_hi": 173.8,
     "miles": 30200,
     "gamma": -0.299,
     "n": 47,
@@ -5083,7 +5083,7 @@
     "n_eff": 35.4,
     "newest_days": 4,
     "half_life": 90,
-    "spread_pct": 24.8,
+    "spread_pct": 25.0,
     "odo_lo": 5594,
     "odo_hi": 68000,
     "median_rule": 126.0
@@ -5835,16 +5835,16 @@
     "min_miles": null,
     "method": "est",
     "miles": 37000,
-    "lo": 372.5,
-    "hi": 501.3,
+    "lo": 372.4,
+    "hi": 501.4,
     "median_rule": 455.0
    },
    "est": {
     "value": 432.1,
-    "lo": 372.5,
-    "hi": 501.3,
-    "sale_lo": 340.7,
-    "sale_hi": 548.1,
+    "lo": 372.4,
+    "hi": 501.4,
+    "sale_lo": 340.6,
+    "sale_hi": 548.3,
     "miles": 37000,
     "gamma": -0.053,
     "n": 7,
@@ -6105,15 +6105,15 @@
     "method": "est",
     "miles": 4800,
     "lo": 81.4,
-    "hi": 116.3,
+    "hi": 116.4,
     "median_rule": 89.5
    },
    "est": {
     "value": 97.3,
     "lo": 81.4,
-    "hi": 116.3,
+    "hi": 116.4,
     "sale_lo": 79.8,
-    "sale_hi": 118.6,
+    "sale_hi": 118.7,
     "miles": 4800,
     "gamma": -0.17,
     "n": 5,
@@ -6253,7 +6253,7 @@
     "lo": 74.3,
     "hi": 97.6,
     "sale_lo": 73.2,
-    "sale_hi": 99.0,
+    "sale_hi": 99.1,
     "miles": 1000,
     "gamma": -0.2,
     "n": 13,
@@ -7022,13 +7022,13 @@
     "method": "est",
     "miles": 25000,
     "lo": 187.4,
-    "hi": 255.8,
+    "hi": 255.9,
     "median_rule": 232.0
    },
    "est": {
     "value": 219.0,
     "lo": 187.4,
-    "hi": 255.8,
+    "hi": 255.9,
     "sale_lo": 136.2,
     "sale_hi": 352.1,
     "miles": 25000,
@@ -7791,15 +7791,15 @@
     "min_miles": null,
     "method": "est",
     "miles": 29000,
-    "lo": 195.8,
-    "hi": 267.7,
+    "lo": 195.7,
+    "hi": 267.8,
     "median_rule": 245.4
    },
    "est": {
     "value": 229.0,
-    "lo": 195.8,
-    "hi": 267.7,
-    "sale_lo": 181.2,
+    "lo": 195.7,
+    "hi": 267.8,
+    "sale_lo": 181.1,
     "sale_hi": 289.4,
     "miles": 29000,
     "gamma": -0.344,
@@ -8366,14 +8366,14 @@
     "method": "est",
     "miles": 31000,
     "lo": 219.1,
-    "hi": 314.1,
+    "hi": 314.2,
     "median_rule": 257.7
    },
    "est": {
     "value": 262.3,
     "lo": 219.1,
-    "hi": 314.1,
-    "sale_lo": 185.5,
+    "hi": 314.2,
+    "sale_lo": 185.4,
     "sale_hi": 371.1,
     "miles": 31000,
     "gamma": -0.267,
@@ -8670,16 +8670,16 @@
     "min_miles": null,
     "method": "est",
     "miles": 3800,
-    "lo": 961.1,
-    "hi": 3403.2,
+    "lo": 960.7,
+    "hi": 3404.6,
     "median_rule": 1810.4
    },
    "est": {
     "value": 1808.6,
-    "lo": 961.1,
-    "hi": 3403.2,
-    "sale_lo": 922.1,
-    "sale_hi": 3547.2,
+    "lo": 960.7,
+    "hi": 3404.6,
+    "sale_lo": 921.7,
+    "sale_hi": 3548.7,
     "miles": 3800,
     "gamma": -0.216,
     "n": 4,
@@ -9128,16 +9128,16 @@
     "min_miles": null,
     "method": "est",
     "miles": 3600,
-    "lo": 627.8,
-    "hi": 798.4,
+    "lo": 627.5,
+    "hi": 798.7,
     "median_rule": 696.0
    },
    "est": {
     "value": 708.0,
-    "lo": 627.8,
-    "hi": 798.4,
-    "sale_lo": 552.9,
-    "sale_hi": 906.6,
+    "lo": 627.5,
+    "hi": 798.7,
+    "sale_lo": 552.8,
+    "sale_hi": 906.8,
     "miles": 3600,
     "gamma": -0.216,
     "n": 42,
@@ -9580,15 +9580,15 @@
     "method": "est",
     "miles": 3900,
     "lo": 146.0,
-    "hi": 190.4,
+    "hi": 190.5,
     "median_rule": 183.0
    },
    "est": {
     "value": 166.7,
     "lo": 146.0,
-    "hi": 190.4,
-    "sale_lo": 138.1,
-    "sale_hi": 201.4,
+    "hi": 190.5,
+    "sale_lo": 138.0,
+    "sale_hi": 201.5,
     "miles": 3900,
     "gamma": -0.191,
     "n": 10,
@@ -9613,15 +9613,15 @@
     201.1,
     227.0,
     244.0,
-    340.7
+    338.3
    ],
    "proj": [
-    340.7,
-    374.8,
-    412.2,
-    453.5,
-    498.8,
-    548.7
+    338.3,
+    372.1,
+    409.3,
+    450.3,
+    495.3,
+    544.8
    ],
    "maint": 8,
    "cagr": {
@@ -9655,8 +9655,8 @@
      "ci_lo_pct": 12.1,
      "ci_hi_pct": 15.6,
      "ci_level": 80,
-     "adj_ratio": 2.1463,
-     "cagr_adj_pct": 16.2,
+     "adj_ratio": 2.1446,
+     "cagr_adj_pct": 16.1,
      "adj_miles": 10500
     }
    },
@@ -9683,8 +9683,8 @@
      "ci_lo_pct": 3.8,
      "ci_hi_pct": 11.5,
      "ci_level": 80,
-     "adj_ratio": 1.4272,
-     "cagr_adj_pct": 20.6,
+     "adj_ratio": 1.4209,
+     "cagr_adj_pct": 20.3,
      "adj_miles": 10500
     },
     "w3": {
@@ -9709,8 +9709,8 @@
      "ci_lo_pct": 3.8,
      "ci_hi_pct": 11.5,
      "ci_level": 80,
-     "adj_ratio": 1.4272,
-     "cagr_adj_pct": 20.6,
+     "adj_ratio": 1.4209,
+     "cagr_adj_pct": 20.3,
      "adj_miles": 10500
     },
     "w4": {
@@ -9735,8 +9735,8 @@
      "ci_lo_pct": 10.3,
      "ci_hi_pct": 14.4,
      "ci_level": 80,
-     "adj_ratio": 1.9402,
-     "cagr_adj_pct": 14.8,
+     "adj_ratio": 1.9321,
+     "cagr_adj_pct": 14.7,
      "adj_miles": 10500
     },
     "w5": {
@@ -9761,8 +9761,8 @@
      "ci_lo_pct": 12.1,
      "ci_hi_pct": 15.6,
      "ci_level": 80,
-     "adj_ratio": 2.1463,
-     "cagr_adj_pct": 16.2,
+     "adj_ratio": 2.1446,
+     "cagr_adj_pct": 16.1,
      "adj_miles": 10500
     },
     "w6": {
@@ -9787,8 +9787,8 @@
      "ci_lo_pct": 12.1,
      "ci_hi_pct": 15.6,
      "ci_level": 80,
-     "adj_ratio": 2.1463,
-     "cagr_adj_pct": 16.2,
+     "adj_ratio": 2.1446,
+     "cagr_adj_pct": 16.1,
      "adj_miles": 10500
     },
     "w7": {
@@ -9813,8 +9813,8 @@
      "ci_lo_pct": 12.1,
      "ci_hi_pct": 15.6,
      "ci_level": 80,
-     "adj_ratio": 2.1463,
-     "cagr_adj_pct": 16.2,
+     "adj_ratio": 2.1446,
+     "cagr_adj_pct": 16.1,
      "adj_miles": 10500
     },
     "w8": {
@@ -9839,8 +9839,8 @@
      "ci_lo_pct": 12.1,
      "ci_hi_pct": 15.6,
      "ci_level": 80,
-     "adj_ratio": 2.1463,
-     "cagr_adj_pct": 16.2,
+     "adj_ratio": 2.1446,
+     "cagr_adj_pct": 16.1,
      "adj_miles": 10500
     }
    },
@@ -9878,32 +9878,32 @@
     }
    },
    "recent": {
-    "value": 340.7,
+    "value": 338.3,
     "n": 4,
     "from": "2024-11-19",
     "to": "2026-10-28",
     "min_miles": null,
     "method": "est",
     "miles": 10500,
-    "lo": 246.6,
-    "hi": 470.7,
+    "lo": 244.6,
+    "hi": 468.0,
     "median_rule": 261.0
    },
    "est": {
-    "value": 340.7,
-    "lo": 246.6,
-    "hi": 470.7,
-    "sale_lo": 208.8,
-    "sale_hi": 555.8,
+    "value": 338.3,
+    "lo": 244.6,
+    "hi": 468.0,
+    "sale_lo": 206.9,
+    "sale_hi": 553.2,
     "miles": 10500,
-    "gamma": -0.234,
+    "gamma": -0.225,
     "n": 4,
     "from": "2024-11-19",
     "to": "2026-10-28",
     "n_eff": 3.6,
     "newest_days": 12,
     "half_life": 202,
-    "spread_pct": 30.0,
+    "spread_pct": 30.2,
     "odo_lo": 9000,
     "odo_hi": 33000,
     "median_rule": 261.0
@@ -10139,16 +10139,16 @@
     "min_miles": null,
     "method": "est",
     "miles": 9500,
-    "lo": 370.9,
-    "hi": 641.5,
+    "lo": 370.8,
+    "hi": 641.7,
     "median_rule": 425.0
    },
    "est": {
     "value": 487.8,
-    "lo": 370.9,
-    "hi": 641.5,
-    "sale_lo": 328.6,
-    "sale_hi": 724.0,
+    "lo": 370.8,
+    "hi": 641.7,
+    "sale_lo": 328.5,
+    "sale_hi": 724.2,
     "miles": 9500,
     "gamma": -0.24,
     "n": 3,
@@ -10466,16 +10466,16 @@
     "min_miles": null,
     "method": "est",
     "miles": 16000,
-    "lo": 367.4,
-    "hi": 667.0,
+    "lo": 367.2,
+    "hi": 667.2,
     "median_rule": 575.0
    },
    "est": {
     "value": 495.0,
-    "lo": 367.4,
-    "hi": 667.0,
-    "sale_lo": 315.6,
-    "sale_hi": 776.5,
+    "lo": 367.2,
+    "hi": 667.2,
+    "sale_lo": 315.5,
+    "sale_hi": 776.7,
     "miles": 16000,
     "gamma": -0.196,
     "n": 6,
@@ -10766,15 +10766,15 @@
     "method": "est",
     "miles": 7000,
     "lo": 109.9,
-    "hi": 452.1,
+    "hi": 452.3,
     "median_rule": 200.0
    },
    "est": {
     "value": 222.9,
     "lo": 109.9,
-    "hi": 452.1,
-    "sale_lo": 104.5,
-    "sale_hi": 475.6,
+    "hi": 452.3,
+    "sale_lo": 104.4,
+    "sale_hi": 475.8,
     "miles": 7000,
     "gamma": -0.2,
     "n": 4,
@@ -11019,16 +11019,16 @@
     "min_miles": null,
     "method": "est",
     "miles": 10000,
-    "lo": 498.0,
-    "hi": 644.7,
+    "lo": 497.9,
+    "hi": 644.8,
     "median_rule": 725.0
    },
    "est": {
     "value": 566.6,
-    "lo": 498.0,
-    "hi": 644.7,
+    "lo": 497.9,
+    "hi": 644.8,
     "sale_lo": 436.6,
-    "sale_hi": 735.3,
+    "sale_hi": 735.4,
     "miles": 10000,
     "gamma": -0.372,
     "n": 9,
@@ -11389,8 +11389,8 @@
     "min_miles": 30000,
     "method": "est",
     "miles": 37500,
-    "lo": 286.7,
-    "hi": 355.0,
+    "lo": 286.6,
+    "hi": 355.1,
     "median_rule": 310.0
    },
    "asking": 335,
@@ -11407,10 +11407,10 @@
    },
    "est": {
     "value": 319.0,
-    "lo": 286.7,
-    "hi": 355.0,
+    "lo": 286.6,
+    "hi": 355.1,
     "sale_lo": 256.3,
-    "sale_hi": 397.0,
+    "sale_hi": 397.1,
     "miles": 37500,
     "gamma": -0.225,
     "n": 22,
@@ -12021,7 +12021,7 @@
    "AAPL": {
     "src": "Nasdaq closes + dividends reinvested",
     "m": {
-     "2016-11": 27.5219,
+     "2016-11": 27.5003,
      "2016-12": 28.5839,
      "2017-01": 29.8925,
      "2017-02": 33.5282,
@@ -12141,11 +12141,11 @@
      "2026-08": 337.3171,
      "2026-09": 360.0792,
      "2026-10": 371.0759,
-     "2026-11": 371.1705
+     "2026-11": 372.881
     }
    }
   },
-  "updated": "2026-11-10T00:47Z",
+  "updated": "2026-11-10T10:11Z",
   "status": "S&P 500: 141 months to 2026-09 | AAPL: 121 months to 2026-11"
  },
  "csv_only": {
