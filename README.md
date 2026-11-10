@@ -22,6 +22,15 @@ cars from `data.json`, so no number is hard-coded here.
   (BaT sold) and `scripts/bench_refresh.py` (AAPL / S&P total return) twice daily and on demand. It is
   **best-effort**: if a source blocks the CI runner, each car keeps its last-good value and the status
   line notes it.
+- **Today's value** (`scripts/valuation.py`): every BaT comp is first moved to one mileage with the
+  car's own mileage elasticity, then a median weighted to the newest sales (90-day half-life) is taken.
+  Published per car as `est` (value, 80% band, the range one car sells within, reference mileage,
+  elasticity) and summarised in top-level `valuation`. It is the headline only while it wins a
+  walk-forward backtest that `bat_refresh.py` re-runs on every refresh (each of the last three years'
+  sales predicted from the sales before it); otherwise the page falls back to the plain median of the
+  latest sales by itself. Nov 2026: typical miss 14.8% vs 19.2%. The C8 Z06 keeps its own path below.
+- **Return windows** carry an 80% interval (`ci_lo_pct` / `ci_hi_pct`, `ratio_lo` / `ratio_hi`) and a
+  same-mileage figure (`cagr_adj_pct`), so a pool of three sales cannot pass for a trend.
 - 2020 baselines and intermediate years are reconstructed estimates; treat 6-year % as ±5–8 pts.
 - **Corvette C8 Z06**: launched as MY2023, so 2020–22 are blank rather than invented. Values are BaT
   sold medians for non-Z07, no-wing cars (Z07 / high wing checked on each listing page, cached in
