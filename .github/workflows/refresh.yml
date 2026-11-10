@@ -6,6 +6,8 @@ on:
   schedule:
     - cron: '23 14 * * *'   # 14:23 UTC (~07:23 PT)
     - cron: '23 2 * * *'    # 02:23 UTC (~18:23 PT)
+  push:
+    branches: [claude/valuation]   # TEMPORARY - branch verification only
   workflow_dispatch: {}      # also lets the dashboard ↻ button trigger it
 
 permissions:
