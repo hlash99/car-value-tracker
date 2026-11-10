@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-09T23:41Z",
- "refresh_status": "auto-refresh 2026-11-09 23:30Z \u00b7 updated Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $234.1k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $464.0k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $478.0k; Ferrari 812 GTS: n=24 asking\u2248$850k -> value\u2248$680k; Chevrolet Corvette C8 Z06 (no Z07/wing): only 0 asking prices at 30k+ mi \u2014 kept last-good asking",
+ "updated": "2026-11-10T00:31Z",
+ "refresh_status": "auto-refresh 2026-11-10 00:20Z \u00b7 no source updates \u00b7 Ferrari 458 Italia: only 0 prices found \u2014 kept last-good $234.1k; Ferrari F12 Berlinetta: only 0 prices found \u2014 kept last-good $464.0k; Ferrari 812 Superfast: only 0 prices found \u2014 kept last-good $478.0k; Ferrari 812 GTS: only 0 prices found \u2014 kept last-good $765.0k; Chevrolet Corvette C8 Z06 (no Z07/wing): only 0 asking prices at 30k+ mi \u2014 kept last-good asking",
  "inflation_factor": 1.308,
  "cpi_note": "U.S. CPI-U, June each year",
  "years": [
@@ -68,15 +68,15 @@
     230,
     255,
     290,
-    234.1
+    260.0
    ],
    "proj": [
-    234.1,
-    322,
-    338,
-    353,
-    366,
-    377
+    260.0,
+    270.4,
+    281.2,
+    292.5,
+    304.2,
+    316.3
    ],
    "maint": 5,
    "cagr": {
@@ -100,11 +100,35 @@
    },
    "asking_src": "local Cars.com scrape 2026-11-06 (n=13)",
    "recent": {
-    "value": 234.1,
-    "n": 3,
-    "from": "2026-04-20",
-    "to": "2026-10-15",
-    "min_miles": 30000
+    "value": 260.0,
+    "n": 24,
+    "from": "2025-11-25",
+    "to": "2026-11-09",
+    "min_miles": 30000,
+    "method": "est",
+    "miles": 40000,
+    "lo": 236.5,
+    "hi": 285.8,
+    "median_rule": 234.1
+   },
+   "est": {
+    "value": 260.0,
+    "lo": 236.5,
+    "hi": 285.8,
+    "sale_lo": 214.5,
+    "sale_hi": 315.1,
+    "miles": 40000,
+    "gamma": -0.281,
+    "n": 24,
+    "from": "2025-11-25",
+    "to": "2026-11-09",
+    "n_eff": 17.6,
+    "newest_days": 0,
+    "half_life": 90,
+    "spread_pct": 13.0,
+    "odo_lo": 1800,
+    "odo_hi": 47000,
+    "median_rule": 234.1
    }
   },
   "Ferrari F12 Berlinetta": {
@@ -117,15 +141,15 @@
     260,
     300,
     350,
-    464.0
+    385.2
    ],
    "proj": [
-    464.0,
-    402,
-    420,
-    435,
-    447,
-    457
+    385.2,
+    398.7,
+    412.6,
+    427.1,
+    442.0,
+    457.5
    ],
    "maint": 6,
    "cagr": {
@@ -148,11 +172,35 @@
     "na": null
    },
    "recent": {
-    "value": 464.0,
-    "n": 6,
-    "from": "2026-09-30",
+    "value": 385.2,
+    "n": 16,
+    "from": "2025-11-10",
     "to": "2026-11-04",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 11500,
+    "lo": 345.6,
+    "hi": 429.4,
+    "median_rule": 464.0
+   },
+   "est": {
+    "value": 385.2,
+    "lo": 345.6,
+    "hi": 429.4,
+    "sale_lo": 310.5,
+    "sale_hi": 478.0,
+    "miles": 11500,
+    "gamma": -0.422,
+    "n": 16,
+    "from": "2025-11-10",
+    "to": "2026-11-04",
+    "n_eff": 9.5,
+    "newest_days": 5,
+    "half_life": 90,
+    "spread_pct": 14.6,
+    "odo_lo": 606,
+    "odo_hi": 35000,
+    "median_rule": 464.0
    }
   },
   "Ferrari 812 Superfast": {
@@ -165,15 +213,15 @@
     350,
     380,
     410,
-    478.0
+    549.9
    ],
    "proj": [
-    478.0,
-    430,
-    440,
-    458,
-    474,
-    487
+    549.9,
+    563.6,
+    577.7,
+    592.2,
+    607.0,
+    622.2
    ],
    "maint": 7,
    "cagr": {
@@ -197,11 +245,35 @@
    },
    "asking_src": "local Cars.com scrape 2026-11-02 (n=68)",
    "recent": {
-    "value": 478.0,
-    "n": 5,
-    "from": "2026-08-12",
+    "value": 549.9,
+    "n": 11,
+    "from": "2025-11-26",
     "to": "2026-10-15",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 4000,
+    "lo": 490.8,
+    "hi": 616.1,
+    "median_rule": 478.0
+   },
+   "est": {
+    "value": 549.9,
+    "lo": 490.8,
+    "hi": 616.1,
+    "sale_lo": 470.9,
+    "sale_hi": 642.1,
+    "miles": 4000,
+    "gamma": -0.194,
+    "n": 11,
+    "from": "2025-11-26",
+    "to": "2026-10-15",
+    "n_eff": 8.1,
+    "newest_days": 25,
+    "half_life": 90,
+    "spread_pct": 7.6,
+    "odo_lo": 975,
+    "odo_hi": 21000,
+    "median_rule": 478.0
    }
   },
   "Ferrari 812 GTS": {
@@ -214,15 +286,15 @@
     620,
     680,
     730,
-    765.0
+    782.9
    ],
    "proj": [
-    765.0,
-    778,
-    802,
-    825,
-    845,
-    860
+    782.9,
+    802.5,
+    822.5,
+    843.1,
+    864.2,
+    885.8
    ],
    "maint": 7,
    "cagr": {
@@ -246,11 +318,35 @@
    },
    "asking_src": "local Cars.com scrape 2026-11-06 (n=59)",
    "recent": {
-    "value": 765.0,
-    "n": 7,
-    "from": "2026-09-18",
+    "value": 782.9,
+    "n": 25,
+    "from": "2025-11-13",
     "to": "2026-10-30",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 1500,
+    "lo": 716.3,
+    "hi": 855.8,
+    "median_rule": 765.0
+   },
+   "est": {
+    "value": 782.9,
+    "lo": 716.3,
+    "hi": 855.8,
+    "sale_lo": 660.5,
+    "sale_hi": 928.0,
+    "miles": 1500,
+    "gamma": -0.28,
+    "n": 25,
+    "from": "2025-11-13",
+    "to": "2026-10-30",
+    "n_eff": 21.1,
+    "newest_days": 10,
+    "half_life": 90,
+    "spread_pct": 11.1,
+    "odo_lo": 172,
+    "odo_hi": 7000,
+    "median_rule": 765.0
    }
   },
   "Porsche 997.2 Turbo S": {
@@ -263,15 +359,15 @@
     98.0,
     110.0,
     112.5,
-    140.0
+    144.3
    ],
    "proj": [
-    140.0,
-    146.3,
-    152.9,
-    159.8,
-    167.0,
-    174.5
+    144.3,
+    150.8,
+    157.6,
+    164.7,
+    172.1,
+    179.8
    ],
    "maint": 3,
    "cagr": {
@@ -302,7 +398,15 @@
      "cpi_to": 331.3,
      "t_from": 2021.269,
      "t_to": 2026.069,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1416,
+     "ratio_hi": 1.3359,
+     "ci_lo_pct": 2.8,
+     "ci_hi_pct": 6.2,
+     "ci_level": 80,
+     "adj_ratio": 1.4097,
+     "cagr_adj_pct": 7.4,
+     "adj_miles": 28500
     },
     "w10": {
      "from_year": 2018,
@@ -320,7 +424,15 @@
      "cpi_to": 331.3,
      "t_from": 2019.217,
      "t_to": 2026.069,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4804,
+     "ratio_hi": 1.8202,
+     "ci_lo_pct": 5.9,
+     "ci_hi_pct": 9.1,
+     "ci_level": 80,
+     "adj_ratio": 1.4457,
+     "cagr_adj_pct": 5.5,
+     "adj_miles": 28500
     }
    },
    "bat_url": "https://bringatrailer.com/porsche/997-911-turbo-s/",
@@ -409,7 +521,15 @@
      "cpi_to": 336.2,
      "t_from": 2025.407,
      "t_to": 2026.429,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1545,
+     "ratio_hi": 1.3486,
+     "ci_lo_pct": 15.1,
+     "ci_hi_pct": 34.1,
+     "ci_level": 80,
+     "adj_ratio": 1.1816,
+     "cagr_adj_pct": 17.8,
+     "adj_miles": 28500
     },
     "w2": {
      "from_year": 2023,
@@ -427,7 +547,15 @@
      "cpi_to": 331.3,
      "t_from": 2024.045,
      "t_to": 2026.069,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1191,
+     "ratio_hi": 1.2684,
+     "ci_lo_pct": 5.8,
+     "ci_hi_pct": 12.6,
+     "ci_level": 80,
+     "adj_ratio": 1.2691,
+     "cagr_adj_pct": 12.7,
+     "adj_miles": 28500
     },
     "w3": {
      "from_year": 2022,
@@ -445,7 +573,15 @@
      "cpi_to": 331.3,
      "t_from": 2022.822,
      "t_to": 2026.069,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1147,
+     "ratio_hi": 1.2499,
+     "ci_lo_pct": 3.5,
+     "ci_hi_pct": 7.2,
+     "ci_level": 80,
+     "adj_ratio": 1.1849,
+     "cagr_adj_pct": 5.4,
+     "adj_miles": 28500
     },
     "w4": {
      "from_year": 2021,
@@ -463,7 +599,15 @@
      "cpi_to": 331.3,
      "t_from": 2022.266,
      "t_to": 2026.069,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0132,
+     "ratio_hi": 1.1413,
+     "ci_lo_pct": 0.3,
+     "ci_hi_pct": 3.5,
+     "ci_level": 80,
+     "adj_ratio": 1.1474,
+     "cagr_adj_pct": 3.7,
+     "adj_miles": 28500
     },
     "w5": {
      "from_year": 2020,
@@ -481,7 +625,15 @@
      "cpi_to": 331.3,
      "t_from": 2021.269,
      "t_to": 2026.069,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1416,
+     "ratio_hi": 1.3359,
+     "ci_lo_pct": 2.8,
+     "ci_hi_pct": 6.2,
+     "ci_level": 80,
+     "adj_ratio": 1.4097,
+     "cagr_adj_pct": 7.4,
+     "adj_miles": 28500
     },
     "w6": {
      "from_year": 2019,
@@ -499,7 +651,15 @@
      "cpi_to": 331.3,
      "t_from": 2020.041,
      "t_to": 2026.069,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4356,
+     "ratio_hi": 1.7031,
+     "ci_lo_pct": 6.2,
+     "ci_hi_pct": 9.3,
+     "ci_level": 80,
+     "adj_ratio": 1.5468,
+     "cagr_adj_pct": 7.5,
+     "adj_miles": 28500
     },
     "w7": {
      "from_year": 2018,
@@ -517,7 +677,15 @@
      "cpi_to": 331.3,
      "t_from": 2019.217,
      "t_to": 2026.069,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4804,
+     "ratio_hi": 1.8202,
+     "ci_lo_pct": 5.9,
+     "ci_hi_pct": 9.1,
+     "ci_level": 80,
+     "adj_ratio": 1.4457,
+     "cagr_adj_pct": 5.5,
+     "adj_miles": 28500
     },
     "w8": {
      "from_year": 2018,
@@ -535,7 +703,15 @@
      "cpi_to": 331.3,
      "t_from": 2019.217,
      "t_to": 2026.069,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4804,
+     "ratio_hi": 1.8202,
+     "ci_lo_pct": 5.9,
+     "ci_hi_pct": 9.1,
+     "ci_level": 80,
+     "adj_ratio": 1.4457,
+     "cagr_adj_pct": 5.5,
+     "adj_miles": 28500
     },
     "w9": {
      "from_year": 2018,
@@ -553,7 +729,15 @@
      "cpi_to": 331.3,
      "t_from": 2019.217,
      "t_to": 2026.069,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4804,
+     "ratio_hi": 1.8202,
+     "ci_lo_pct": 5.9,
+     "ci_hi_pct": 9.1,
+     "ci_level": 80,
+     "adj_ratio": 1.4457,
+     "cagr_adj_pct": 5.5,
+     "adj_miles": 28500
     },
     "w10": {
      "from_year": 2018,
@@ -571,14 +755,22 @@
      "cpi_to": 331.3,
      "t_from": 2019.217,
      "t_to": 2026.069,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4804,
+     "ratio_hi": 1.8202,
+     "ci_lo_pct": 5.9,
+     "ci_hi_pct": 9.1,
+     "ci_level": 80,
+     "adj_ratio": 1.4457,
+     "cagr_adj_pct": 5.5,
+     "adj_miles": 28500
     }
    },
    "driven": {
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 21,
-    "latest": 134.0,
+    "latest": 133.0,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -596,7 +788,15 @@
       "cpi_to": 330.6,
       "t_from": 2021.496,
       "t_to": 2026.013,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0657,
+      "ratio_hi": 1.2014,
+      "ci_lo_pct": 1.4,
+      "ci_hi_pct": 4.2,
+      "ci_level": 80,
+      "adj_ratio": 1.087,
+      "cagr_adj_pct": 1.9,
+      "adj_miles": 41000
      }
     },
     "appr_n": {
@@ -616,7 +816,15 @@
       "cpi_to": 334.8,
       "t_from": 2025.327,
       "t_to": 2026.326,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0313,
+      "ratio_hi": 1.1614,
+      "ci_lo_pct": 3.1,
+      "ci_hi_pct": 16.1,
+      "ci_level": 80,
+      "adj_ratio": 1.1624,
+      "cagr_adj_pct": 16.2,
+      "adj_miles": 41000
      },
      "w2": {
       "from_year": 2023,
@@ -634,7 +842,15 @@
       "cpi_to": 330.6,
       "t_from": 2024.288,
       "t_to": 2026.013,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.9997,
+      "ratio_hi": 1.127,
+      "ci_lo_pct": -0.0,
+      "ci_hi_pct": 7.3,
+      "ci_level": 80,
+      "adj_ratio": 1.0885,
+      "cagr_adj_pct": 5.1,
+      "adj_miles": 41000
      },
      "w3": {
       "from_year": 2022,
@@ -652,7 +868,15 @@
       "cpi_to": 330.6,
       "t_from": 2022.427,
       "t_to": 2026.013,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.1475,
+      "ratio_hi": 1.2537,
+      "ci_lo_pct": 3.9,
+      "ci_hi_pct": 6.5,
+      "ci_level": 80,
+      "adj_ratio": 1.1513,
+      "cagr_adj_pct": 4.0,
+      "adj_miles": 41000
      },
      "w4": {
       "from_year": 2021,
@@ -670,7 +894,15 @@
       "cpi_to": 330.6,
       "t_from": 2022.183,
       "t_to": 2026.013,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.089,
+      "ratio_hi": 1.1869,
+      "ci_lo_pct": 2.3,
+      "ci_hi_pct": 4.6,
+      "ci_level": 80,
+      "adj_ratio": 1.1286,
+      "cagr_adj_pct": 3.2,
+      "adj_miles": 41000
      },
      "w5": {
       "from_year": 2020,
@@ -688,7 +920,15 @@
       "cpi_to": 330.6,
       "t_from": 2021.496,
       "t_to": 2026.013,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0657,
+      "ratio_hi": 1.2014,
+      "ci_lo_pct": 1.4,
+      "ci_hi_pct": 4.2,
+      "ci_level": 80,
+      "adj_ratio": 1.087,
+      "cagr_adj_pct": 1.9,
+      "adj_miles": 41000
      },
      "w6": {
       "from_year": 2020,
@@ -706,7 +946,15 @@
       "cpi_to": 330.6,
       "t_from": 2021.496,
       "t_to": 2026.013,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0657,
+      "ratio_hi": 1.2014,
+      "ci_lo_pct": 1.4,
+      "ci_hi_pct": 4.2,
+      "ci_level": 80,
+      "adj_ratio": 1.087,
+      "cagr_adj_pct": 1.9,
+      "adj_miles": 41000
      },
      "w7": {
       "from_year": 2020,
@@ -724,16 +972,50 @@
       "cpi_to": 330.6,
       "t_from": 2021.496,
       "t_to": 2026.013,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0657,
+      "ratio_hi": 1.2014,
+      "ci_lo_pct": 1.4,
+      "ci_hi_pct": 4.2,
+      "ci_level": 80,
+      "adj_ratio": 1.087,
+      "cagr_adj_pct": 1.9,
+      "adj_miles": 41000
      }
-    }
+    },
+    "latest_median": 134.0,
+    "est_miles": 40000
    },
    "recent": {
-    "value": 140.0,
-    "n": 7,
-    "from": "2026-08-20",
+    "value": 144.3,
+    "n": 16,
+    "from": "2025-11-12",
     "to": "2026-10-23",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 28500,
+    "lo": 129.5,
+    "hi": 160.7,
+    "median_rule": 140.0
+   },
+   "est": {
+    "value": 144.3,
+    "lo": 129.5,
+    "hi": 160.7,
+    "sale_lo": 125.0,
+    "sale_hi": 166.4,
+    "miles": 28500,
+    "gamma": -0.276,
+    "n": 16,
+    "from": "2025-11-12",
+    "to": "2026-10-23",
+    "n_eff": 11.9,
+    "newest_days": 17,
+    "half_life": 90,
+    "spread_pct": 6.7,
+    "odo_lo": 8000,
+    "odo_hi": 73000,
+    "median_rule": 140.0
    }
   },
   "Acura NSX (NA2 manual)": {
@@ -746,15 +1028,15 @@
     100.0,
     100.0,
     101.9,
-    142.4
+    132.2
    ],
    "proj": [
-    142.4,
-    151.8,
-    161.8,
-    172.5,
-    183.9,
-    196.0
+    132.2,
+    140.9,
+    150.2,
+    160.1,
+    170.7,
+    182.0
    ],
    "maint": 3,
    "cagr": {
@@ -782,7 +1064,15 @@
      "cpi_to": 331.3,
      "t_from": 2021.1,
      "t_to": 2026.066,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2303,
+     "ratio_hi": 1.5394,
+     "ci_lo_pct": 4.2,
+     "ci_hi_pct": 9.0,
+     "ci_level": 80,
+     "adj_ratio": 1.3694,
+     "cagr_adj_pct": 6.5,
+     "adj_miles": 41000
     },
     "w10": {
      "from_year": 2016,
@@ -800,7 +1090,15 @@
      "cpi_to": 331.3,
      "t_from": 2017.489,
      "t_to": 2026.066,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.8396,
+     "ratio_hi": 2.8226,
+     "ci_lo_pct": 7.3,
+     "ci_hi_pct": 12.8,
+     "ci_level": 80,
+     "adj_ratio": 2.1802,
+     "cagr_adj_pct": 9.5,
+     "adj_miles": 41000
     }
    },
    "bat_url": "https://bringatrailer.com/acura/nsx/",
@@ -808,7 +1106,7 @@
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 22,
-    "latest": 153.0,
+    "latest": 155.3,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -826,7 +1124,15 @@
       "cpi_to": 330.4,
       "t_from": 2021.095,
       "t_to": 2025.998,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0431,
+      "ratio_hi": 1.222,
+      "ci_lo_pct": 0.9,
+      "ci_hi_pct": 4.2,
+      "ci_level": 80,
+      "adj_ratio": 1.1256,
+      "cagr_adj_pct": 2.4,
+      "adj_miles": 38000
      },
      "w10": {
       "from_year": 2016,
@@ -844,7 +1150,15 @@
       "cpi_to": 330.4,
       "t_from": 2017.119,
       "t_to": 2025.998,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.5854,
+      "ratio_hi": 1.983,
+      "ci_lo_pct": 5.3,
+      "ci_hi_pct": 8.0,
+      "ci_level": 80,
+      "adj_ratio": 1.8291,
+      "cagr_adj_pct": 7.0,
+      "adj_miles": 38000
      }
     },
     "appr_n": {
@@ -864,7 +1178,15 @@
       "cpi_to": 335.3,
       "t_from": 2025.142,
       "t_to": 2026.363,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.3454,
+      "ratio_hi": 1.6587,
+      "ci_lo_pct": 27.5,
+      "ci_hi_pct": 51.4,
+      "ci_level": 80,
+      "adj_ratio": 1.5384,
+      "cagr_adj_pct": 42.3,
+      "adj_miles": 38000
      },
      "w2": {
       "from_year": 2023,
@@ -882,7 +1204,15 @@
       "cpi_to": 330.4,
       "t_from": 2024.285,
       "t_to": 2025.998,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.1698,
+      "ratio_hi": 1.3963,
+      "ci_lo_pct": 9.7,
+      "ci_hi_pct": 21.7,
+      "ci_level": 80,
+      "adj_ratio": 1.3286,
+      "cagr_adj_pct": 18.2,
+      "adj_miles": 38000
      },
      "w3": {
       "from_year": 2022,
@@ -900,7 +1230,15 @@
       "cpi_to": 330.4,
       "t_from": 2022.551,
       "t_to": 2025.998,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0243,
+      "ratio_hi": 1.2225,
+      "ci_lo_pct": 0.7,
+      "ci_hi_pct": 6.1,
+      "ci_level": 80,
+      "adj_ratio": 1.1611,
+      "cagr_adj_pct": 4.5,
+      "adj_miles": 38000
      },
      "w4": {
       "from_year": 2021,
@@ -918,7 +1256,15 @@
       "cpi_to": 330.4,
       "t_from": 2022.035,
       "t_to": 2025.998,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.9269,
+      "ratio_hi": 1.0943,
+      "ci_lo_pct": -1.9,
+      "ci_hi_pct": 2.3,
+      "ci_level": 80,
+      "adj_ratio": 1.0658,
+      "cagr_adj_pct": 1.6,
+      "adj_miles": 38000
      },
      "w5": {
       "from_year": 2020,
@@ -936,7 +1282,15 @@
       "cpi_to": 330.4,
       "t_from": 2021.095,
       "t_to": 2025.998,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0431,
+      "ratio_hi": 1.222,
+      "ci_lo_pct": 0.9,
+      "ci_hi_pct": 4.2,
+      "ci_level": 80,
+      "adj_ratio": 1.1256,
+      "cagr_adj_pct": 2.4,
+      "adj_miles": 38000
      },
      "w6": {
       "from_year": 2019,
@@ -954,7 +1308,15 @@
       "cpi_to": 330.4,
       "t_from": 2020.764,
       "t_to": 2025.998,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0645,
+      "ratio_hi": 1.2705,
+      "ci_lo_pct": 1.2,
+      "ci_hi_pct": 4.7,
+      "ci_level": 80,
+      "adj_ratio": 1.174,
+      "cagr_adj_pct": 3.1,
+      "adj_miles": 38000
      },
      "w7": {
       "from_year": 2019,
@@ -972,7 +1334,15 @@
       "cpi_to": 330.4,
       "t_from": 2020.764,
       "t_to": 2025.998,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0645,
+      "ratio_hi": 1.2705,
+      "ci_lo_pct": 1.2,
+      "ci_hi_pct": 4.7,
+      "ci_level": 80,
+      "adj_ratio": 1.174,
+      "cagr_adj_pct": 3.1,
+      "adj_miles": 38000
      },
      "w8": {
       "from_year": 2017,
@@ -990,7 +1360,15 @@
       "cpi_to": 330.4,
       "t_from": 2017.879,
       "t_to": 2025.998,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.5008,
+      "ratio_hi": 1.8773,
+      "ci_lo_pct": 5.1,
+      "ci_hi_pct": 8.1,
+      "ci_level": 80,
+      "adj_ratio": 1.7307,
+      "cagr_adj_pct": 7.0,
+      "adj_miles": 38000
      },
      "w9": {
       "from_year": 2016,
@@ -1008,7 +1386,15 @@
       "cpi_to": 330.4,
       "t_from": 2017.119,
       "t_to": 2025.998,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.5854,
+      "ratio_hi": 1.983,
+      "ci_lo_pct": 5.3,
+      "ci_hi_pct": 8.0,
+      "ci_level": 80,
+      "adj_ratio": 1.8291,
+      "cagr_adj_pct": 7.0,
+      "adj_miles": 38000
      },
      "w10": {
       "from_year": 2016,
@@ -1026,9 +1412,19 @@
       "cpi_to": 330.4,
       "t_from": 2017.119,
       "t_to": 2025.998,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.5854,
+      "ratio_hi": 1.983,
+      "ci_lo_pct": 5.3,
+      "ci_hi_pct": 8.0,
+      "ci_level": 80,
+      "adj_ratio": 1.8291,
+      "cagr_adj_pct": 7.0,
+      "adj_miles": 38000
      }
-    }
+    },
+    "latest_median": 153.0,
+    "est_miles": 40000
    },
    "annual": [
     {
@@ -1129,7 +1525,15 @@
      "cpi_to": 336.1,
      "t_from": 2025.371,
      "t_to": 2026.417,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2495,
+     "ratio_hi": 1.6633,
+     "ci_lo_pct": 23.6,
+     "ci_hi_pct": 62.3,
+     "ci_level": 80,
+     "adj_ratio": 1.3244,
+     "cagr_adj_pct": 30.7,
+     "adj_miles": 41000
     },
     "w2": {
      "from_year": 2023,
@@ -1147,7 +1551,15 @@
      "cpi_to": 331.3,
      "t_from": 2024.263,
      "t_to": 2026.066,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2323,
+     "ratio_hi": 1.5679,
+     "ci_lo_pct": 12.3,
+     "ci_hi_pct": 28.4,
+     "ci_level": 80,
+     "adj_ratio": 1.3313,
+     "cagr_adj_pct": 17.2,
+     "adj_miles": 41000
     },
     "w3": {
      "from_year": 2022,
@@ -1165,7 +1577,15 @@
      "cpi_to": 331.3,
      "t_from": 2022.723,
      "t_to": 2026.066,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1144,
+     "ratio_hi": 1.4072,
+     "ci_lo_pct": 3.3,
+     "ci_hi_pct": 10.9,
+     "ci_level": 80,
+     "adj_ratio": 1.2177,
+     "cagr_adj_pct": 6.1,
+     "adj_miles": 41000
     },
     "w4": {
      "from_year": 2021,
@@ -1183,7 +1603,15 @@
      "cpi_to": 331.3,
      "t_from": 2022.057,
      "t_to": 2026.066,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1822,
+     "ratio_hi": 1.4684,
+     "ci_lo_pct": 4.3,
+     "ci_hi_pct": 10.1,
+     "ci_level": 80,
+     "adj_ratio": 1.19,
+     "cagr_adj_pct": 4.4,
+     "adj_miles": 41000
     },
     "w5": {
      "from_year": 2020,
@@ -1201,7 +1629,15 @@
      "cpi_to": 331.3,
      "t_from": 2021.1,
      "t_to": 2026.066,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2303,
+     "ratio_hi": 1.5394,
+     "ci_lo_pct": 4.2,
+     "ci_hi_pct": 9.0,
+     "ci_level": 80,
+     "adj_ratio": 1.3694,
+     "cagr_adj_pct": 6.5,
+     "adj_miles": 41000
     },
     "w6": {
      "from_year": 2019,
@@ -1219,7 +1655,15 @@
      "cpi_to": 331.3,
      "t_from": 2020.395,
      "t_to": 2026.066,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3226,
+     "ratio_hi": 1.6982,
+     "ci_lo_pct": 5.0,
+     "ci_hi_pct": 9.7,
+     "ci_level": 80,
+     "adj_ratio": 1.5574,
+     "cagr_adj_pct": 8.1,
+     "adj_miles": 41000
     },
     "w7": {
      "from_year": 2018,
@@ -1237,7 +1681,15 @@
      "cpi_to": 331.3,
      "t_from": 2018.905,
      "t_to": 2026.066,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 2.0287,
+     "ratio_hi": 2.7231,
+     "ci_lo_pct": 10.3,
+     "ci_hi_pct": 14.9,
+     "ci_level": 80,
+     "adj_ratio": 2.0568,
+     "cagr_adj_pct": 10.5,
+     "adj_miles": 41000
     },
     "w8": {
      "from_year": 2017,
@@ -1255,7 +1707,15 @@
      "cpi_to": 331.3,
      "t_from": 2018.272,
      "t_to": 2026.066,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.9623,
+     "ratio_hi": 2.6655,
+     "ci_lo_pct": 9.0,
+     "ci_hi_pct": 13.4,
+     "ci_level": 80,
+     "adj_ratio": 2.1083,
+     "cagr_adj_pct": 10.0,
+     "adj_miles": 41000
     },
     "w9": {
      "from_year": 2016,
@@ -1273,7 +1733,15 @@
      "cpi_to": 331.3,
      "t_from": 2017.489,
      "t_to": 2026.066,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.8396,
+     "ratio_hi": 2.8226,
+     "ci_lo_pct": 7.3,
+     "ci_hi_pct": 12.8,
+     "ci_level": 80,
+     "adj_ratio": 2.1802,
+     "cagr_adj_pct": 9.5,
+     "adj_miles": 41000
     },
     "w10": {
      "from_year": 2016,
@@ -1291,15 +1759,47 @@
      "cpi_to": 331.3,
      "t_from": 2017.489,
      "t_to": 2026.066,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.8396,
+     "ratio_hi": 2.8226,
+     "ci_lo_pct": 7.3,
+     "ci_hi_pct": 12.8,
+     "ci_level": 80,
+     "adj_ratio": 2.1802,
+     "cagr_adj_pct": 9.5,
+     "adj_miles": 41000
     }
    },
    "recent": {
-    "value": 142.4,
-    "n": 4,
-    "from": "2026-08-30",
+    "value": 132.2,
+    "n": 18,
+    "from": "2025-11-17",
     "to": "2026-10-23",
-    "min_miles": 40000
+    "min_miles": 40000,
+    "method": "est",
+    "miles": 66000,
+    "lo": 117.2,
+    "hi": 149.1,
+    "median_rule": 142.4
+   },
+   "est": {
+    "value": 132.2,
+    "lo": 117.2,
+    "hi": 149.1,
+    "sale_lo": 108.0,
+    "sale_hi": 161.7,
+    "miles": 66000,
+    "gamma": -0.354,
+    "n": 18,
+    "from": "2025-11-17",
+    "to": "2026-10-23",
+    "n_eff": 13.0,
+    "newest_days": 17,
+    "half_life": 90,
+    "spread_pct": 12.4,
+    "odo_lo": 11000,
+    "odo_hi": 116000,
+    "median_rule": 142.4
    }
   },
   "Ferrari 360 (gated manual)": {
@@ -1312,15 +1812,15 @@
     132.0,
     122.5,
     152.2,
-    236.0
+    235.8
    ],
    "proj": [
-    236.0,
-    258.4,
-    283.0,
-    309.9,
-    339.3,
-    371.5
+    235.8,
+    258.2,
+    282.7,
+    309.6,
+    339.0,
+    371.2
    ],
    "maint": 6,
    "cagr": {
@@ -1348,7 +1848,15 @@
      "cpi_to": 330.8,
      "t_from": 2021.09,
      "t_to": 2026.032,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4402,
+     "ratio_hi": 1.6834,
+     "ci_lo_pct": 7.7,
+     "ci_hi_pct": 11.2,
+     "ci_level": 80,
+     "adj_ratio": 1.3274,
+     "cagr_adj_pct": 6.0,
+     "adj_miles": 21000
     },
     "w10": {
      "from_year": 2017,
@@ -1366,7 +1874,15 @@
      "cpi_to": 330.8,
      "t_from": 2018.4,
      "t_to": 2026.032,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.5448,
+     "ratio_hi": 2.0469,
+     "ci_lo_pct": 5.9,
+     "ci_hi_pct": 9.9,
+     "ci_level": 80,
+     "adj_ratio": 1.4861,
+     "cagr_adj_pct": 5.4,
+     "adj_miles": 21000
     }
    },
    "bat_url": "https://bringatrailer.com/ferrari/360/",
@@ -1462,7 +1978,15 @@
      "cpi_to": 335.6,
      "t_from": 2025.365,
      "t_to": 2026.379,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1731,
+     "ratio_hi": 1.4426,
+     "ci_lo_pct": 17.1,
+     "ci_hi_pct": 43.7,
+     "ci_level": 80,
+     "adj_ratio": 1.4084,
+     "cagr_adj_pct": 40.4,
+     "adj_miles": 21000
     },
     "w2": {
      "from_year": 2023,
@@ -1480,7 +2004,15 @@
      "cpi_to": 330.8,
      "t_from": 2024.138,
      "t_to": 2026.032,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2529,
+     "ratio_hi": 1.4529,
+     "ci_lo_pct": 12.6,
+     "ci_hi_pct": 21.7,
+     "ci_level": 80,
+     "adj_ratio": 1.1309,
+     "cagr_adj_pct": 6.7,
+     "adj_miles": 21000
     },
     "w3": {
      "from_year": 2022,
@@ -1498,7 +2030,15 @@
      "cpi_to": 330.8,
      "t_from": 2022.887,
      "t_to": 2026.032,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1941,
+     "ratio_hi": 1.3785,
+     "ci_lo_pct": 5.9,
+     "ci_hi_pct": 10.9,
+     "ci_level": 80,
+     "adj_ratio": 1.0902,
+     "cagr_adj_pct": 2.8,
+     "adj_miles": 21000
     },
     "w4": {
      "from_year": 2021,
@@ -1516,7 +2056,15 @@
      "cpi_to": 330.8,
      "t_from": 2022.045,
      "t_to": 2026.032,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2209,
+     "ratio_hi": 1.406,
+     "ci_lo_pct": 5.1,
+     "ci_hi_pct": 8.9,
+     "ci_level": 80,
+     "adj_ratio": 1.1612,
+     "cagr_adj_pct": 3.8,
+     "adj_miles": 21000
     },
     "w5": {
      "from_year": 2020,
@@ -1534,7 +2082,15 @@
      "cpi_to": 330.8,
      "t_from": 2021.09,
      "t_to": 2026.032,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4402,
+     "ratio_hi": 1.6834,
+     "ci_lo_pct": 7.7,
+     "ci_hi_pct": 11.2,
+     "ci_level": 80,
+     "adj_ratio": 1.3274,
+     "cagr_adj_pct": 6.0,
+     "adj_miles": 21000
     },
     "w6": {
      "from_year": 2019,
@@ -1552,7 +2108,15 @@
      "cpi_to": 330.8,
      "t_from": 2020.003,
      "t_to": 2026.032,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.6922,
+     "ratio_hi": 2.0177,
+     "ci_lo_pct": 9.2,
+     "ci_hi_pct": 12.4,
+     "ci_level": 80,
+     "adj_ratio": 1.5727,
+     "cagr_adj_pct": 7.8,
+     "adj_miles": 21000
     },
     "w7": {
      "from_year": 2018,
@@ -1570,7 +2134,15 @@
      "cpi_to": 330.8,
      "t_from": 2019.272,
      "t_to": 2026.032,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.6738,
+     "ratio_hi": 2.0399,
+     "ci_lo_pct": 7.9,
+     "ci_hi_pct": 11.1,
+     "ci_level": 80,
+     "adj_ratio": 1.5651,
+     "cagr_adj_pct": 6.8,
+     "adj_miles": 21000
     },
     "w8": {
      "from_year": 2017,
@@ -1588,7 +2160,15 @@
      "cpi_to": 330.8,
      "t_from": 2018.4,
      "t_to": 2026.032,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.5448,
+     "ratio_hi": 2.0469,
+     "ci_lo_pct": 5.9,
+     "ci_hi_pct": 9.9,
+     "ci_level": 80,
+     "adj_ratio": 1.4861,
+     "cagr_adj_pct": 5.4,
+     "adj_miles": 21000
     },
     "w9": {
      "from_year": 2017,
@@ -1606,7 +2186,15 @@
      "cpi_to": 330.8,
      "t_from": 2018.4,
      "t_to": 2026.032,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.5448,
+     "ratio_hi": 2.0469,
+     "ci_lo_pct": 5.9,
+     "ci_hi_pct": 9.9,
+     "ci_level": 80,
+     "adj_ratio": 1.4861,
+     "cagr_adj_pct": 5.4,
+     "adj_miles": 21000
     },
     "w10": {
      "from_year": 2017,
@@ -1624,14 +2212,22 @@
      "cpi_to": 330.8,
      "t_from": 2018.4,
      "t_to": 2026.032,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.5448,
+     "ratio_hi": 2.0469,
+     "ci_lo_pct": 5.9,
+     "ci_hi_pct": 9.9,
+     "ci_level": 80,
+     "adj_ratio": 1.4861,
+     "cagr_adj_pct": 5.4,
+     "adj_miles": 21000
     }
    },
    "driven": {
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 42,
-    "latest": 219.9,
+    "latest": 200.1,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -1649,7 +2245,15 @@
       "cpi_to": 333.4,
       "t_from": 2021.233,
       "t_to": 2026.219,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0679,
+      "ratio_hi": 1.3507,
+      "ci_lo_pct": 1.3,
+      "ci_hi_pct": 6.2,
+      "ci_level": 80,
+      "adj_ratio": 1.209,
+      "cagr_adj_pct": 3.9,
+      "adj_miles": 37000
      },
      "w10": {
       "from_year": 2018,
@@ -1667,7 +2271,15 @@
       "cpi_to": 333.4,
       "t_from": 2019.378,
       "t_to": 2026.219,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.198,
+      "ratio_hi": 1.6019,
+      "ci_lo_pct": 2.7,
+      "ci_hi_pct": 7.2,
+      "ci_level": 80,
+      "adj_ratio": 1.4344,
+      "cagr_adj_pct": 5.4,
+      "adj_miles": 37000
      }
     },
     "appr_n": {
@@ -1687,7 +2299,15 @@
       "cpi_to": 335.0,
       "t_from": 2025.099,
       "t_to": 2026.337,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.7734,
+      "ratio_hi": 1.1334,
+      "ci_lo_pct": -18.7,
+      "ci_hi_pct": 10.6,
+      "ci_level": 80,
+      "adj_ratio": 0.9546,
+      "cagr_adj_pct": -3.7,
+      "adj_miles": 37000
      },
      "w2": {
       "from_year": 2023,
@@ -1705,7 +2325,15 @@
       "cpi_to": 333.4,
       "t_from": 2024.22,
       "t_to": 2026.219,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.9893,
+      "ratio_hi": 1.2294,
+      "ci_lo_pct": -0.5,
+      "ci_hi_pct": 10.9,
+      "ci_level": 80,
+      "adj_ratio": 1.1183,
+      "cagr_adj_pct": 5.8,
+      "adj_miles": 37000
      },
      "w3": {
       "from_year": 2022,
@@ -1723,7 +2351,15 @@
       "cpi_to": 333.4,
       "t_from": 2022.626,
       "t_to": 2026.219,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.8855,
+      "ratio_hi": 1.092,
+      "ci_lo_pct": -3.3,
+      "ci_hi_pct": 2.5,
+      "ci_level": 80,
+      "adj_ratio": 1.0282,
+      "cagr_adj_pct": 0.8,
+      "adj_miles": 37000
      },
      "w4": {
       "from_year": 2021,
@@ -1741,7 +2377,15 @@
       "cpi_to": 333.4,
       "t_from": 2022.079,
       "t_to": 2026.219,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.9174,
+      "ratio_hi": 1.1221,
+      "ci_lo_pct": -2.1,
+      "ci_hi_pct": 2.8,
+      "ci_level": 80,
+      "adj_ratio": 1.0676,
+      "cagr_adj_pct": 1.6,
+      "adj_miles": 37000
      },
      "w5": {
       "from_year": 2020,
@@ -1759,7 +2403,15 @@
       "cpi_to": 333.4,
       "t_from": 2021.233,
       "t_to": 2026.219,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0679,
+      "ratio_hi": 1.3507,
+      "ci_lo_pct": 1.3,
+      "ci_hi_pct": 6.2,
+      "ci_level": 80,
+      "adj_ratio": 1.209,
+      "cagr_adj_pct": 3.9,
+      "adj_miles": 37000
      },
      "w6": {
       "from_year": 2019,
@@ -1777,7 +2429,15 @@
       "cpi_to": 333.4,
       "t_from": 2019.847,
       "t_to": 2026.219,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.2575,
+      "ratio_hi": 1.6468,
+      "ci_lo_pct": 3.6,
+      "ci_hi_pct": 8.1,
+      "ci_level": 80,
+      "adj_ratio": 1.5198,
+      "cagr_adj_pct": 6.8,
+      "adj_miles": 37000
      },
      "w7": {
       "from_year": 2018,
@@ -1795,7 +2455,15 @@
       "cpi_to": 333.4,
       "t_from": 2019.378,
       "t_to": 2026.219,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.198,
+      "ratio_hi": 1.6019,
+      "ci_lo_pct": 2.7,
+      "ci_hi_pct": 7.2,
+      "ci_level": 80,
+      "adj_ratio": 1.4344,
+      "cagr_adj_pct": 5.4,
+      "adj_miles": 37000
      },
      "w8": {
       "from_year": 2018,
@@ -1813,7 +2481,15 @@
       "cpi_to": 333.4,
       "t_from": 2019.378,
       "t_to": 2026.219,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.198,
+      "ratio_hi": 1.6019,
+      "ci_lo_pct": 2.7,
+      "ci_hi_pct": 7.2,
+      "ci_level": 80,
+      "adj_ratio": 1.4344,
+      "cagr_adj_pct": 5.4,
+      "adj_miles": 37000
      },
      "w9": {
       "from_year": 2018,
@@ -1831,7 +2507,15 @@
       "cpi_to": 333.4,
       "t_from": 2019.378,
       "t_to": 2026.219,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.198,
+      "ratio_hi": 1.6019,
+      "ci_lo_pct": 2.7,
+      "ci_hi_pct": 7.2,
+      "ci_level": 80,
+      "adj_ratio": 1.4344,
+      "cagr_adj_pct": 5.4,
+      "adj_miles": 37000
      },
      "w10": {
       "from_year": 2018,
@@ -1849,16 +2533,50 @@
       "cpi_to": 333.4,
       "t_from": 2019.378,
       "t_to": 2026.219,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.198,
+      "ratio_hi": 1.6019,
+      "ci_lo_pct": 2.7,
+      "ci_hi_pct": 7.2,
+      "ci_level": 80,
+      "adj_ratio": 1.4344,
+      "cagr_adj_pct": 5.4,
+      "adj_miles": 37000
      }
-    }
+    },
+    "latest_median": 219.9,
+    "est_miles": 40000
    },
    "recent": {
-    "value": 236.0,
-    "n": 5,
-    "from": "2026-08-27",
+    "value": 235.8,
+    "n": 26,
+    "from": "2025-12-09",
     "to": "2026-10-14",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 21000,
+    "lo": 198.7,
+    "hi": 279.9,
+    "median_rule": 236.0
+   },
+   "est": {
+    "value": 235.8,
+    "lo": 198.7,
+    "hi": 279.9,
+    "sale_lo": 157.9,
+    "sale_hi": 352.2,
+    "miles": 21000,
+    "gamma": -0.299,
+    "n": 26,
+    "from": "2025-12-09",
+    "to": "2026-10-14",
+    "n_eff": 21.3,
+    "newest_days": 26,
+    "half_life": 90,
+    "spread_pct": 30.5,
+    "odo_lo": 7000,
+    "odo_hi": 49000,
+    "median_rule": 236.0
    }
   },
   "Audi R8 gen1 V10 (gated)": {
@@ -1871,15 +2589,15 @@
     126.0,
     122.0,
     144.0,
-    141.0
+    153.0
    ],
    "proj": [
-    141.0,
-    137.2,
-    133.5,
-    129.9,
-    126.4,
-    123.0
+    153.0,
+    148.9,
+    144.8,
+    140.9,
+    137.1,
+    133.4
    ],
    "maint": 5,
    "cagr": {
@@ -1907,7 +2625,15 @@
      "cpi_to": 326.2,
      "t_from": 2021.519,
      "t_to": 2025.694,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8238,
+     "ratio_hi": 0.9606,
+     "ci_lo_pct": -4.5,
+     "ci_hi_pct": -1.0,
+     "ci_level": 80,
+     "adj_ratio": 0.9302,
+     "cagr_adj_pct": -1.7,
+     "adj_miles": 19000
     },
     "w10": {
      "from_year": 2017,
@@ -1925,7 +2651,15 @@
      "cpi_to": 326.2,
      "t_from": 2018.28,
      "t_to": 2025.694,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3158,
+     "ratio_hi": 1.94,
+     "ci_lo_pct": 3.8,
+     "ci_hi_pct": 9.4,
+     "ci_level": 80,
+     "adj_ratio": 1.5129,
+     "cagr_adj_pct": 5.8,
+     "adj_miles": 19000
     }
    },
    "bat_url": "https://bringatrailer.com/audi/r8-v10-type-42/",
@@ -1933,7 +2667,7 @@
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 18,
-    "latest": 121.0,
+    "latest": 128.7,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -1951,7 +2685,15 @@
       "cpi_to": 326.1,
       "t_from": 2021.506,
       "t_to": 2025.682,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.8908,
+      "ratio_hi": 1.077,
+      "ci_lo_pct": -2.7,
+      "ci_hi_pct": 1.8,
+      "ci_level": 80,
+      "adj_ratio": 0.9718,
+      "cagr_adj_pct": -0.7,
+      "adj_miles": 35500
      }
     },
     "appr_n": {
@@ -1971,7 +2713,15 @@
       "cpi_to": 332.5,
       "t_from": 2025.063,
       "t_to": 2026.154,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.082,
+      "ratio_hi": 1.3575,
+      "ci_lo_pct": 7.5,
+      "ci_hi_pct": 32.4,
+      "ci_level": 80,
+      "adj_ratio": 1.1653,
+      "cagr_adj_pct": 15.1,
+      "adj_miles": 35500
      },
      "w2": {
       "from_year": 2023,
@@ -1989,7 +2739,15 @@
       "cpi_to": 326.1,
       "t_from": 2023.909,
       "t_to": 2025.682,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0598,
+      "ratio_hi": 1.2339,
+      "ci_lo_pct": 3.3,
+      "ci_hi_pct": 12.4,
+      "ci_level": 80,
+      "adj_ratio": 1.0752,
+      "cagr_adj_pct": 4.1,
+      "adj_miles": 35500
      },
      "w3": {
       "from_year": 2022,
@@ -2007,7 +2765,15 @@
       "cpi_to": 326.1,
       "t_from": 2023.142,
       "t_to": 2025.682,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.953,
+      "ratio_hi": 1.1136,
+      "ci_lo_pct": -1.9,
+      "ci_hi_pct": 4.4,
+      "ci_level": 80,
+      "adj_ratio": 1.0022,
+      "cagr_adj_pct": 0.1,
+      "adj_miles": 35500
      },
      "w4": {
       "from_year": 2021,
@@ -2025,7 +2791,15 @@
       "cpi_to": 326.1,
       "t_from": 2021.729,
       "t_to": 2025.682,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.9012,
+      "ratio_hi": 1.0646,
+      "ci_lo_pct": -2.6,
+      "ci_hi_pct": 1.6,
+      "ci_level": 80,
+      "adj_ratio": 0.918,
+      "cagr_adj_pct": -2.1,
+      "adj_miles": 35500
      },
      "w5": {
       "from_year": 2020,
@@ -2043,7 +2817,15 @@
       "cpi_to": 326.1,
       "t_from": 2021.506,
       "t_to": 2025.682,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.8908,
+      "ratio_hi": 1.077,
+      "ci_lo_pct": -2.7,
+      "ci_hi_pct": 1.8,
+      "ci_level": 80,
+      "adj_ratio": 0.9718,
+      "cagr_adj_pct": -0.7,
+      "adj_miles": 35500
      },
      "w6": {
       "from_year": 2020,
@@ -2061,7 +2843,15 @@
       "cpi_to": 326.1,
       "t_from": 2021.506,
       "t_to": 2025.682,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.8908,
+      "ratio_hi": 1.077,
+      "ci_lo_pct": -2.7,
+      "ci_hi_pct": 1.8,
+      "ci_level": 80,
+      "adj_ratio": 0.9718,
+      "cagr_adj_pct": -0.7,
+      "adj_miles": 35500
      },
      "w7": {
       "from_year": 2020,
@@ -2079,9 +2869,19 @@
       "cpi_to": 326.1,
       "t_from": 2021.506,
       "t_to": 2025.682,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.8908,
+      "ratio_hi": 1.077,
+      "ci_lo_pct": -2.7,
+      "ci_hi_pct": 1.8,
+      "ci_level": 80,
+      "adj_ratio": 0.9718,
+      "cagr_adj_pct": -0.7,
+      "adj_miles": 35500
      }
-    }
+    },
+    "latest_median": 121.0,
+    "est_miles": 40000
    },
    "annual": [
     {
@@ -2168,7 +2968,15 @@
      "cpi_to": 332.9,
      "t_from": 2025.123,
      "t_to": 2026.183,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9575,
+     "ratio_hi": 1.1739,
+     "ci_lo_pct": -4.0,
+     "ci_hi_pct": 16.3,
+     "ci_level": 80,
+     "adj_ratio": 1.095,
+     "cagr_adj_pct": 8.9,
+     "adj_miles": 19000
     },
     "w2": {
      "from_year": 2023,
@@ -2186,7 +2994,15 @@
      "cpi_to": 326.2,
      "t_from": 2023.98,
      "t_to": 2025.694,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0437,
+     "ratio_hi": 1.2191,
+     "ci_lo_pct": 2.5,
+     "ci_hi_pct": 12.4,
+     "ci_level": 80,
+     "adj_ratio": 1.0743,
+     "cagr_adj_pct": 4.3,
+     "adj_miles": 19000
     },
     "w3": {
      "from_year": 2022,
@@ -2204,7 +3020,15 @@
      "cpi_to": 326.2,
      "t_from": 2022.995,
      "t_to": 2025.694,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9944,
+     "ratio_hi": 1.1562,
+     "ci_lo_pct": -0.2,
+     "ci_hi_pct": 5.5,
+     "ci_level": 80,
+     "adj_ratio": 1.0037,
+     "cagr_adj_pct": 0.1,
+     "adj_miles": 19000
     },
     "w4": {
      "from_year": 2021,
@@ -2222,7 +3046,15 @@
      "cpi_to": 326.2,
      "t_from": 2021.909,
      "t_to": 2025.694,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8999,
+     "ratio_hi": 1.0365,
+     "ci_lo_pct": -2.7,
+     "ci_hi_pct": 0.9,
+     "ci_level": 80,
+     "adj_ratio": 0.921,
+     "cagr_adj_pct": -2.1,
+     "adj_miles": 19000
     },
     "w5": {
      "from_year": 2020,
@@ -2240,7 +3072,15 @@
      "cpi_to": 326.2,
      "t_from": 2021.519,
      "t_to": 2025.694,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8238,
+     "ratio_hi": 0.9606,
+     "ci_lo_pct": -4.5,
+     "ci_hi_pct": -1.0,
+     "ci_level": 80,
+     "adj_ratio": 0.9302,
+     "cagr_adj_pct": -1.7,
+     "adj_miles": 19000
     },
     "w6": {
      "from_year": 2019,
@@ -2258,7 +3098,15 @@
      "cpi_to": 326.2,
      "t_from": 2020.133,
      "t_to": 2025.694,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3758,
+     "ratio_hi": 1.784,
+     "ci_lo_pct": 5.9,
+     "ci_hi_pct": 10.9,
+     "ci_level": 80,
+     "adj_ratio": 1.6184,
+     "cagr_adj_pct": 9.0,
+     "adj_miles": 19000
     },
     "w7": {
      "from_year": 2018,
@@ -2276,7 +3124,15 @@
      "cpi_to": 326.2,
      "t_from": 2019.513,
      "t_to": 2025.694,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3622,
+     "ratio_hi": 1.8119,
+     "ci_lo_pct": 5.1,
+     "ci_hi_pct": 10.1,
+     "ci_level": 80,
+     "adj_ratio": 1.5424,
+     "cagr_adj_pct": 7.2,
+     "adj_miles": 19000
     },
     "w8": {
      "from_year": 2017,
@@ -2294,7 +3150,15 @@
      "cpi_to": 326.2,
      "t_from": 2018.28,
      "t_to": 2025.694,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3158,
+     "ratio_hi": 1.94,
+     "ci_lo_pct": 3.8,
+     "ci_hi_pct": 9.4,
+     "ci_level": 80,
+     "adj_ratio": 1.5129,
+     "cagr_adj_pct": 5.8,
+     "adj_miles": 19000
     },
     "w9": {
      "from_year": 2017,
@@ -2312,7 +3176,15 @@
      "cpi_to": 326.2,
      "t_from": 2018.28,
      "t_to": 2025.694,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3158,
+     "ratio_hi": 1.94,
+     "ci_lo_pct": 3.8,
+     "ci_hi_pct": 9.4,
+     "ci_level": 80,
+     "adj_ratio": 1.5129,
+     "cagr_adj_pct": 5.8,
+     "adj_miles": 19000
     },
     "w10": {
      "from_year": 2017,
@@ -2330,15 +3202,47 @@
      "cpi_to": 326.2,
      "t_from": 2018.28,
      "t_to": 2025.694,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3158,
+     "ratio_hi": 1.94,
+     "ci_lo_pct": 3.8,
+     "ci_hi_pct": 9.4,
+     "ci_level": 80,
+     "adj_ratio": 1.5129,
+     "cagr_adj_pct": 5.8,
+     "adj_miles": 19000
     }
    },
    "recent": {
-    "value": 141.0,
-    "n": 3,
-    "from": "2026-07-07",
+    "value": 153.0,
+    "n": 8,
+    "from": "2025-11-14",
     "to": "2026-08-20",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 19000,
+    "lo": 123.9,
+    "hi": 189.0,
+    "median_rule": 141.0
+   },
+   "est": {
+    "value": 153.0,
+    "lo": 123.9,
+    "hi": 189.0,
+    "sale_lo": 115.0,
+    "sale_hi": 203.6,
+    "miles": 19000,
+    "gamma": -0.276,
+    "n": 8,
+    "from": "2025-11-14",
+    "to": "2026-08-20",
+    "n_eff": 7.9,
+    "newest_days": 81,
+    "half_life": 90,
+    "spread_pct": 14.3,
+    "odo_lo": 4000,
+    "odo_hi": 52000,
+    "median_rule": 141.0
    }
   },
   "Alfa Romeo GTV 1750/2000": {
@@ -2351,15 +3255,15 @@
     47.0,
     52.0,
     45.1,
-    39.8
+    46.7
    ],
    "proj": [
-    39.8,
-    40.7,
-    41.6,
-    42.5,
-    43.4,
-    44.4
+    46.7,
+    47.7,
+    48.8,
+    49.9,
+    50.9,
+    52.1
    ],
    "maint": 2,
    "cagr": {
@@ -2387,7 +3291,15 @@
      "cpi_to": 330.5,
      "t_from": 2021.207,
      "t_to": 2026.005,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.983,
+     "ratio_hi": 1.2528,
+     "ci_lo_pct": -0.4,
+     "ci_hi_pct": 4.8,
+     "ci_level": 80,
+     "adj_ratio": 1.035,
+     "cagr_adj_pct": 0.7,
+     "adj_miles": 49000
     },
     "w10": {
      "from_year": 2015,
@@ -2405,7 +3317,15 @@
      "cpi_to": 330.5,
      "t_from": 2016.359,
      "t_to": 2026.005,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1377,
+     "ratio_hi": 1.5741,
+     "ci_lo_pct": 1.4,
+     "ci_hi_pct": 4.8,
+     "ci_level": 80,
+     "adj_ratio": 1.2859,
+     "cagr_adj_pct": 2.7,
+     "adj_miles": 49000
     }
    },
    "bat_url": "https://bringatrailer.com/alfa-romeo/gtv/",
@@ -2522,7 +3442,15 @@
      "cpi_to": 336.6,
      "t_from": 2025.391,
      "t_to": 2026.456,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8145,
+     "ratio_hi": 1.1506,
+     "ci_lo_pct": -17.6,
+     "ci_hi_pct": 14.1,
+     "ci_level": 80,
+     "adj_ratio": 0.8927,
+     "cagr_adj_pct": -10.2,
+     "adj_miles": 49000
     },
     "w2": {
      "from_year": 2023,
@@ -2540,7 +3468,15 @@
      "cpi_to": 330.5,
      "t_from": 2023.988,
      "t_to": 2026.005,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8279,
+     "ratio_hi": 1.0522,
+     "ci_lo_pct": -9.0,
+     "ci_hi_pct": 2.6,
+     "ci_level": 80,
+     "adj_ratio": 0.9124,
+     "cagr_adj_pct": -4.5,
+     "adj_miles": 49000
     },
     "w3": {
      "from_year": 2022,
@@ -2558,7 +3494,15 @@
      "cpi_to": 330.5,
      "t_from": 2023.073,
      "t_to": 2026.005,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8076,
+     "ratio_hi": 1.0254,
+     "ci_lo_pct": -7.1,
+     "ci_hi_pct": 0.9,
+     "ci_level": 80,
+     "adj_ratio": 0.8865,
+     "cagr_adj_pct": -4.1,
+     "adj_miles": 49000
     },
     "w4": {
      "from_year": 2021,
@@ -2576,7 +3520,15 @@
      "cpi_to": 330.5,
      "t_from": 2021.926,
      "t_to": 2026.005,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8095,
+     "ratio_hi": 1.0229,
+     "ci_lo_pct": -5.0,
+     "ci_hi_pct": 0.6,
+     "ci_level": 80,
+     "adj_ratio": 0.8539,
+     "cagr_adj_pct": -3.8,
+     "adj_miles": 49000
     },
     "w5": {
      "from_year": 2020,
@@ -2594,7 +3546,15 @@
      "cpi_to": 330.5,
      "t_from": 2021.207,
      "t_to": 2026.005,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.983,
+     "ratio_hi": 1.2528,
+     "ci_lo_pct": -0.4,
+     "ci_hi_pct": 4.8,
+     "ci_level": 80,
+     "adj_ratio": 1.035,
+     "cagr_adj_pct": 0.7,
+     "adj_miles": 49000
     },
     "w6": {
      "from_year": 2019,
@@ -2612,7 +3572,15 @@
      "cpi_to": 330.5,
      "t_from": 2019.808,
      "t_to": 2026.005,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9814,
+     "ratio_hi": 1.2472,
+     "ci_lo_pct": -0.3,
+     "ci_hi_pct": 3.6,
+     "ci_level": 80,
+     "adj_ratio": 1.0594,
+     "cagr_adj_pct": 0.9,
+     "adj_miles": 49000
     },
     "w7": {
      "from_year": 2018,
@@ -2630,7 +3598,15 @@
      "cpi_to": 330.5,
      "t_from": 2019.119,
      "t_to": 2026.005,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9663,
+     "ratio_hi": 1.2145,
+     "ci_lo_pct": -0.5,
+     "ci_hi_pct": 2.9,
+     "ci_level": 80,
+     "adj_ratio": 1.03,
+     "cagr_adj_pct": 0.4,
+     "adj_miles": 49000
     },
     "w8": {
      "from_year": 2017,
@@ -2648,7 +3624,15 @@
      "cpi_to": 330.5,
      "t_from": 2018.176,
      "t_to": 2026.005,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0076,
+     "ratio_hi": 1.2841,
+     "ci_lo_pct": 0.1,
+     "ci_hi_pct": 3.3,
+     "ci_level": 80,
+     "adj_ratio": 1.0952,
+     "cagr_adj_pct": 1.2,
+     "adj_miles": 49000
     },
     "w9": {
      "from_year": 2016,
@@ -2666,7 +3650,15 @@
      "cpi_to": 330.5,
      "t_from": 2017.125,
      "t_to": 2026.005,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1079,
+     "ratio_hi": 1.4419,
+     "ci_lo_pct": 1.2,
+     "ci_hi_pct": 4.2,
+     "ci_level": 80,
+     "adj_ratio": 1.2073,
+     "cagr_adj_pct": 2.1,
+     "adj_miles": 49000
     },
     "w10": {
      "from_year": 2015,
@@ -2684,14 +3676,22 @@
      "cpi_to": 330.5,
      "t_from": 2016.359,
      "t_to": 2026.005,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1377,
+     "ratio_hi": 1.5741,
+     "ci_lo_pct": 1.4,
+     "ci_hi_pct": 4.8,
+     "ci_level": 80,
+     "adj_ratio": 1.2859,
+     "cagr_adj_pct": 2.7,
+     "adj_miles": 49000
     }
    },
    "driven": {
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 59,
-    "latest": 49.0,
+    "latest": 47.5,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -2709,7 +3709,15 @@
       "cpi_to": 330.5,
       "t_from": 2020.997,
       "t_to": 2026.007,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.8688,
+      "ratio_hi": 1.3077,
+      "ci_lo_pct": -2.8,
+      "ci_hi_pct": 5.5,
+      "ci_level": 80,
+      "adj_ratio": 1.0522,
+      "cagr_adj_pct": 1.0,
+      "adj_miles": 43000
      },
      "w10": {
       "from_year": 2016,
@@ -2727,7 +3735,15 @@
       "cpi_to": 330.5,
       "t_from": 2017.193,
       "t_to": 2026.007,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.1426,
+      "ratio_hi": 2.0104,
+      "ci_lo_pct": 1.5,
+      "ci_hi_pct": 8.3,
+      "ci_level": 80,
+      "adj_ratio": 1.5156,
+      "cagr_adj_pct": 4.8,
+      "adj_miles": 43000
      }
     },
     "appr_n": {
@@ -2747,7 +3763,15 @@
       "cpi_to": 337.2,
       "t_from": 2025.635,
       "t_to": 2026.566,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.6331,
+      "ratio_hi": 1.1727,
+      "ci_lo_pct": -38.8,
+      "ci_hi_pct": 18.7,
+      "ci_level": 80,
+      "adj_ratio": 0.8427,
+      "cagr_adj_pct": -16.8,
+      "adj_miles": 43000
      },
      "w2": {
       "from_year": 2023,
@@ -2765,7 +3789,15 @@
       "cpi_to": 330.5,
       "t_from": 2024.02,
       "t_to": 2026.007,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.9302,
+      "ratio_hi": 1.4001,
+      "ci_lo_pct": -3.6,
+      "ci_hi_pct": 18.3,
+      "ci_level": 80,
+      "adj_ratio": 1.131,
+      "cagr_adj_pct": 6.3,
+      "adj_miles": 43000
      },
      "w3": {
       "from_year": 2022,
@@ -2783,7 +3815,15 @@
       "cpi_to": 330.5,
       "t_from": 2022.937,
       "t_to": 2026.007,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.7085,
+      "ratio_hi": 1.0587,
+      "ci_lo_pct": -10.5,
+      "ci_hi_pct": 1.9,
+      "ci_level": 80,
+      "adj_ratio": 0.8678,
+      "cagr_adj_pct": -4.5,
+      "adj_miles": 43000
      },
      "w4": {
       "from_year": 2021,
@@ -2801,7 +3841,15 @@
       "cpi_to": 330.5,
       "t_from": 2022.008,
       "t_to": 2026.007,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.7022,
+      "ratio_hi": 1.0493,
+      "ci_lo_pct": -8.5,
+      "ci_hi_pct": 1.2,
+      "ci_level": 80,
+      "adj_ratio": 0.8367,
+      "cagr_adj_pct": -4.4,
+      "adj_miles": 43000
      },
      "w5": {
       "from_year": 2020,
@@ -2819,7 +3867,15 @@
       "cpi_to": 330.5,
       "t_from": 2020.997,
       "t_to": 2026.007,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.8688,
+      "ratio_hi": 1.3077,
+      "ci_lo_pct": -2.8,
+      "ci_hi_pct": 5.5,
+      "ci_level": 80,
+      "adj_ratio": 1.0522,
+      "cagr_adj_pct": 1.0,
+      "adj_miles": 43000
      },
      "w6": {
       "from_year": 2019,
@@ -2837,7 +3893,15 @@
       "cpi_to": 330.5,
       "t_from": 2019.849,
       "t_to": 2026.007,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.865,
+      "ratio_hi": 1.2712,
+      "ci_lo_pct": -2.3,
+      "ci_hi_pct": 3.9,
+      "ci_level": 80,
+      "adj_ratio": 1.0362,
+      "cagr_adj_pct": 0.6,
+      "adj_miles": 43000
      },
      "w7": {
       "from_year": 2018,
@@ -2855,7 +3919,15 @@
       "cpi_to": 330.5,
       "t_from": 2019.232,
       "t_to": 2026.007,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.8605,
+      "ratio_hi": 1.2779,
+      "ci_lo_pct": -2.2,
+      "ci_hi_pct": 3.7,
+      "ci_level": 80,
+      "adj_ratio": 1.0362,
+      "cagr_adj_pct": 0.5,
+      "adj_miles": 43000
      },
      "w8": {
       "from_year": 2017,
@@ -2873,7 +3945,15 @@
       "cpi_to": 330.5,
       "t_from": 2018.103,
       "t_to": 2026.007,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.9583,
+      "ratio_hi": 1.5342,
+      "ci_lo_pct": -0.5,
+      "ci_hi_pct": 5.6,
+      "ci_level": 80,
+      "adj_ratio": 1.1817,
+      "cagr_adj_pct": 2.1,
+      "adj_miles": 43000
      },
      "w9": {
       "from_year": 2016,
@@ -2891,7 +3971,15 @@
       "cpi_to": 330.5,
       "t_from": 2017.193,
       "t_to": 2026.007,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.1426,
+      "ratio_hi": 2.0104,
+      "ci_lo_pct": 1.5,
+      "ci_hi_pct": 8.3,
+      "ci_level": 80,
+      "adj_ratio": 1.5156,
+      "cagr_adj_pct": 4.8,
+      "adj_miles": 43000
      },
      "w10": {
       "from_year": 2016,
@@ -2909,16 +3997,50 @@
       "cpi_to": 330.5,
       "t_from": 2017.193,
       "t_to": 2026.007,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.1426,
+      "ratio_hi": 2.0104,
+      "ci_lo_pct": 1.5,
+      "ci_hi_pct": 8.3,
+      "ci_level": 80,
+      "adj_ratio": 1.5156,
+      "cagr_adj_pct": 4.8,
+      "adj_miles": 43000
      }
-    }
+    },
+    "latest_median": 49.0,
+    "est_miles": 40000
    },
    "recent": {
-    "value": 39.8,
-    "n": 7,
-    "from": "2026-09-18",
+    "value": 46.7,
+    "n": 27,
+    "from": "2025-11-21",
     "to": "2026-11-09",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 49000,
+    "lo": 38.4,
+    "hi": 56.9,
+    "median_rule": 39.8
+   },
+   "est": {
+    "value": 46.7,
+    "lo": 38.4,
+    "hi": 56.9,
+    "sale_lo": 24.0,
+    "sale_hi": 90.9,
+    "miles": 49000,
+    "gamma": -0.086,
+    "n": 27,
+    "from": "2025-11-21",
+    "to": "2026-11-09",
+    "n_eff": 20.4,
+    "newest_days": 0,
+    "half_life": 90,
+    "spread_pct": 60.0,
+    "odo_lo": 4500,
+    "odo_hi": 97000,
+    "median_rule": 39.8
    }
   },
   "Porsche Singer 911": {
@@ -2931,15 +4053,15 @@
     1125.0,
     1100.0,
     1075.0,
-    1125.0
+    1126.5
    ],
    "proj": [
-    1125.0,
-    1118.2,
-    1111.5,
-    1104.9,
-    1098.2,
-    1091.7
+    1126.5,
+    1119.7,
+    1113.0,
+    1106.3,
+    1099.7,
+    1093.1
    ],
    "maint": 8,
    "cagr": {
@@ -2967,7 +4089,15 @@
      "cpi_to": 330.2,
      "t_from": 2022.49,
      "t_to": 2025.983,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8847,
+     "ratio_hi": 1.0817,
+     "ci_lo_pct": -3.4,
+     "ci_hi_pct": 2.3,
+     "ci_level": 80,
+     "adj_ratio": 1.0143,
+     "cagr_adj_pct": 0.4,
+     "adj_miles": 700
     }
    },
    "bat_url": "https://bringatrailer.com/porsche/singer/",
@@ -3021,7 +4151,15 @@
      "cpi_to": 335.7,
      "t_from": 2025.403,
      "t_to": 2026.389,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0718,
+     "ratio_hi": 1.2237,
+     "ci_lo_pct": 7.3,
+     "ci_hi_pct": 22.6,
+     "ci_level": 80,
+     "adj_ratio": 1.1638,
+     "cagr_adj_pct": 16.6,
+     "adj_miles": 700
     },
     "w2": {
      "from_year": 2023,
@@ -3039,7 +4177,15 @@
      "cpi_to": 330.2,
      "t_from": 2023.714,
      "t_to": 2025.983,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0174,
+     "ratio_hi": 1.244,
+     "ci_lo_pct": 0.8,
+     "ci_hi_pct": 10.0,
+     "ci_level": 80,
+     "adj_ratio": 0.9978,
+     "cagr_adj_pct": -0.1,
+     "adj_miles": 700
     },
     "w3": {
      "from_year": 2022,
@@ -3057,7 +4203,15 @@
      "cpi_to": 330.2,
      "t_from": 2022.69,
      "t_to": 2025.983,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9401,
+     "ratio_hi": 1.1126,
+     "ci_lo_pct": -1.9,
+     "ci_hi_pct": 3.3,
+     "ci_level": 80,
+     "adj_ratio": 1.0147,
+     "cagr_adj_pct": 0.4,
+     "adj_miles": 700
     },
     "w4": {
      "from_year": 2021,
@@ -3075,7 +4229,15 @@
      "cpi_to": 330.2,
      "t_from": 2022.49,
      "t_to": 2025.983,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8847,
+     "ratio_hi": 1.0817,
+     "ci_lo_pct": -3.4,
+     "ci_hi_pct": 2.3,
+     "ci_level": 80,
+     "adj_ratio": 1.0143,
+     "cagr_adj_pct": 0.4,
+     "adj_miles": 700
     },
     "w5": {
      "from_year": 2021,
@@ -3093,15 +4255,47 @@
      "cpi_to": 330.2,
      "t_from": 2022.49,
      "t_to": 2025.983,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8847,
+     "ratio_hi": 1.0817,
+     "ci_lo_pct": -3.4,
+     "ci_hi_pct": 2.3,
+     "ci_level": 80,
+     "adj_ratio": 1.0143,
+     "cagr_adj_pct": 0.4,
+     "adj_miles": 700
     }
    },
    "recent": {
-    "value": 1125.0,
-    "n": 3,
-    "from": "2026-08-07",
+    "value": 1126.5,
+    "n": 10,
+    "from": "2025-11-21",
     "to": "2026-11-06",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 700,
+    "lo": 972.9,
+    "hi": 1304.4,
+    "median_rule": 1125.0
+   },
+   "est": {
+    "value": 1126.5,
+    "lo": 972.9,
+    "hi": 1304.4,
+    "sale_lo": 880.8,
+    "sale_hi": 1440.8,
+    "miles": 700,
+    "gamma": -0.241,
+    "n": 10,
+    "from": "2025-11-21",
+    "to": "2026-11-06",
+    "n_eff": 6.6,
+    "newest_days": 3,
+    "half_life": 90,
+    "spread_pct": 15.3,
+    "odo_lo": 68,
+    "odo_hi": 4800,
+    "median_rule": 1125.0
    }
   },
   "Ferrari 328 GTS/GTB": {
@@ -3114,15 +4308,15 @@
     103.0,
     87.0,
     115.5,
-    126.0
+    125.7
    ],
    "proj": [
-    126.0,
-    136.3,
-    147.5,
-    159.6,
-    172.7,
-    186.9
+    125.7,
+    136.0,
+    147.2,
+    159.2,
+    172.3,
+    186.4
    ],
    "maint": 5,
    "cagr": {
@@ -3150,7 +4344,15 @@
      "cpi_to": 332.1,
      "t_from": 2020.868,
      "t_to": 2026.126,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4195,
+     "ratio_hi": 1.6217,
+     "ci_lo_pct": 6.8,
+     "ci_hi_pct": 9.6,
+     "ci_level": 80,
+     "adj_ratio": 1.5978,
+     "cagr_adj_pct": 9.2,
+     "adj_miles": 30200
     },
     "w10": {
      "from_year": 2015,
@@ -3168,7 +4370,15 @@
      "cpi_to": 332.1,
      "t_from": 2016.252,
      "t_to": 2026.126,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3886,
+     "ratio_hi": 1.7993,
+     "ci_lo_pct": 3.4,
+     "ci_hi_pct": 6.1,
+     "ci_level": 80,
+     "adj_ratio": 1.5514,
+     "cagr_adj_pct": 4.5,
+     "adj_miles": 30200
     }
    },
    "bat_url": "https://bringatrailer.com/ferrari/328/",
@@ -3176,7 +4386,7 @@
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 69,
-    "latest": 112.0,
+    "latest": 116.8,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -3194,7 +4404,15 @@
       "cpi_to": 334.8,
       "t_from": 2020.849,
       "t_to": 2026.325,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.6028,
+      "ratio_hi": 1.8842,
+      "ci_lo_pct": 9.0,
+      "ci_hi_pct": 12.2,
+      "ci_level": 80,
+      "adj_ratio": 1.7705,
+      "cagr_adj_pct": 10.9,
+      "adj_miles": 38000
      },
      "w10": {
       "from_year": 2016,
@@ -3212,7 +4430,15 @@
       "cpi_to": 334.8,
       "t_from": 2017.031,
       "t_to": 2026.325,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.4417,
+      "ratio_hi": 1.8619,
+      "ci_lo_pct": 4.0,
+      "ci_hi_pct": 6.9,
+      "ci_level": 80,
+      "adj_ratio": 1.605,
+      "cagr_adj_pct": 5.2,
+      "adj_miles": 38000
      }
     },
     "appr_n": {
@@ -3232,7 +4458,15 @@
       "cpi_to": 337.2,
       "t_from": 2025.429,
       "t_to": 2026.573,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.26,
+      "ratio_hi": 1.577,
+      "ci_lo_pct": 22.5,
+      "ci_hi_pct": 49.1,
+      "ci_level": 80,
+      "adj_ratio": 1.4269,
+      "cagr_adj_pct": 36.6,
+      "adj_miles": 38000
      },
      "w2": {
       "from_year": 2023,
@@ -3250,7 +4484,15 @@
       "cpi_to": 334.8,
       "t_from": 2023.994,
       "t_to": 2026.325,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.2392,
+      "ratio_hi": 1.4347,
+      "ci_lo_pct": 9.8,
+      "ci_hi_pct": 17.0,
+      "ci_level": 80,
+      "adj_ratio": 1.3917,
+      "cagr_adj_pct": 15.5,
+      "adj_miles": 38000
      },
      "w3": {
       "from_year": 2022,
@@ -3268,7 +4510,15 @@
       "cpi_to": 334.8,
       "t_from": 2023.309,
       "t_to": 2026.325,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0681,
+      "ratio_hi": 1.2516,
+      "ci_lo_pct": 2.2,
+      "ci_hi_pct": 7.8,
+      "ci_level": 80,
+      "adj_ratio": 1.1364,
+      "cagr_adj_pct": 4.4,
+      "adj_miles": 38000
      },
      "w4": {
       "from_year": 2021,
@@ -3286,7 +4536,15 @@
       "cpi_to": 334.8,
       "t_from": 2021.902,
       "t_to": 2026.325,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.2508,
+      "ratio_hi": 1.4977,
+      "ci_lo_pct": 5.2,
+      "ci_hi_pct": 9.6,
+      "ci_level": 80,
+      "adj_ratio": 1.3975,
+      "cagr_adj_pct": 7.9,
+      "adj_miles": 38000
      },
      "w5": {
       "from_year": 2020,
@@ -3304,7 +4562,15 @@
       "cpi_to": 334.8,
       "t_from": 2020.849,
       "t_to": 2026.325,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.6028,
+      "ratio_hi": 1.8842,
+      "ci_lo_pct": 9.0,
+      "ci_hi_pct": 12.2,
+      "ci_level": 80,
+      "adj_ratio": 1.7705,
+      "cagr_adj_pct": 10.9,
+      "adj_miles": 38000
      },
      "w6": {
       "from_year": 2019,
@@ -3322,7 +4588,15 @@
       "cpi_to": 334.8,
       "t_from": 2020.117,
       "t_to": 2026.325,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.7188,
+      "ratio_hi": 2.0366,
+      "ci_lo_pct": 9.1,
+      "ci_hi_pct": 12.2,
+      "ci_level": 80,
+      "adj_ratio": 1.9098,
+      "cagr_adj_pct": 11.0,
+      "adj_miles": 38000
      },
      "w7": {
       "from_year": 2018,
@@ -3340,7 +4614,15 @@
       "cpi_to": 334.8,
       "t_from": 2019.307,
       "t_to": 2026.325,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.5889,
+      "ratio_hi": 1.974,
+      "ci_lo_pct": 6.8,
+      "ci_hi_pct": 10.2,
+      "ci_level": 80,
+      "adj_ratio": 1.8049,
+      "cagr_adj_pct": 8.8,
+      "adj_miles": 38000
      },
      "w8": {
       "from_year": 2017,
@@ -3358,7 +4640,15 @@
       "cpi_to": 334.8,
       "t_from": 2017.888,
       "t_to": 2026.325,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.4747,
+      "ratio_hi": 1.8622,
+      "ci_lo_pct": 4.7,
+      "ci_hi_pct": 7.7,
+      "ci_level": 80,
+      "adj_ratio": 1.6832,
+      "cagr_adj_pct": 6.4,
+      "adj_miles": 38000
      },
      "w9": {
       "from_year": 2016,
@@ -3376,7 +4666,15 @@
       "cpi_to": 334.8,
       "t_from": 2017.031,
       "t_to": 2026.325,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.4417,
+      "ratio_hi": 1.8619,
+      "ci_lo_pct": 4.0,
+      "ci_hi_pct": 6.9,
+      "ci_level": 80,
+      "adj_ratio": 1.605,
+      "cagr_adj_pct": 5.2,
+      "adj_miles": 38000
      },
      "w10": {
       "from_year": 2016,
@@ -3394,9 +4692,19 @@
       "cpi_to": 334.8,
       "t_from": 2017.031,
       "t_to": 2026.325,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.4417,
+      "ratio_hi": 1.8619,
+      "ci_lo_pct": 4.0,
+      "ci_hi_pct": 6.9,
+      "ci_level": 80,
+      "adj_ratio": 1.605,
+      "cagr_adj_pct": 5.2,
+      "adj_miles": 38000
      }
-    }
+    },
+    "latest_median": 112.0,
+    "est_miles": 40000
    },
    "annual": [
     {
@@ -3504,7 +4812,15 @@
      "cpi_to": 336.5,
      "t_from": 2025.369,
      "t_to": 2026.452,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0229,
+     "ratio_hi": 1.1893,
+     "ci_lo_pct": 2.1,
+     "ci_hi_pct": 17.4,
+     "ci_level": 80,
+     "adj_ratio": 1.1065,
+     "cagr_adj_pct": 9.8,
+     "adj_miles": 30200
     },
     "w2": {
      "from_year": 2023,
@@ -3522,7 +4838,15 @@
      "cpi_to": 332.1,
      "t_from": 2023.961,
      "t_to": 2026.126,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1471,
+     "ratio_hi": 1.2828,
+     "ci_lo_pct": 6.4,
+     "ci_hi_pct": 12.0,
+     "ci_level": 80,
+     "adj_ratio": 1.1862,
+     "cagr_adj_pct": 8.1,
+     "adj_miles": 30200
     },
     "w3": {
      "from_year": 2022,
@@ -3540,7 +4864,15 @@
      "cpi_to": 332.1,
      "t_from": 2023.032,
      "t_to": 2026.126,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0801,
+     "ratio_hi": 1.2064,
+     "ci_lo_pct": 2.5,
+     "ci_hi_pct": 6.2,
+     "ci_level": 80,
+     "adj_ratio": 1.1051,
+     "cagr_adj_pct": 3.3,
+     "adj_miles": 30200
     },
     "w4": {
      "from_year": 2021,
@@ -3558,7 +4890,15 @@
      "cpi_to": 332.1,
      "t_from": 2022.144,
      "t_to": 2026.126,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1384,
+     "ratio_hi": 1.2861,
+     "ci_lo_pct": 3.3,
+     "ci_hi_pct": 6.5,
+     "ci_level": 80,
+     "adj_ratio": 1.1703,
+     "cagr_adj_pct": 4.0,
+     "adj_miles": 30200
     },
     "w5": {
      "from_year": 2020,
@@ -3576,7 +4916,15 @@
      "cpi_to": 332.1,
      "t_from": 2020.868,
      "t_to": 2026.126,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4195,
+     "ratio_hi": 1.6217,
+     "ci_lo_pct": 6.8,
+     "ci_hi_pct": 9.6,
+     "ci_level": 80,
+     "adj_ratio": 1.5978,
+     "cagr_adj_pct": 9.2,
+     "adj_miles": 30200
     },
     "w6": {
      "from_year": 2019,
@@ -3594,7 +4942,15 @@
      "cpi_to": 332.1,
      "t_from": 2020.111,
      "t_to": 2026.126,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.6606,
+     "ratio_hi": 1.9067,
+     "ci_lo_pct": 8.8,
+     "ci_hi_pct": 11.4,
+     "ci_level": 80,
+     "adj_ratio": 1.7537,
+     "cagr_adj_pct": 9.8,
+     "adj_miles": 30200
     },
     "w7": {
      "from_year": 2018,
@@ -3612,7 +4968,15 @@
      "cpi_to": 332.1,
      "t_from": 2019.169,
      "t_to": 2026.126,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.5662,
+     "ratio_hi": 1.84,
+     "ci_lo_pct": 6.6,
+     "ci_hi_pct": 9.1,
+     "ci_level": 80,
+     "adj_ratio": 1.7446,
+     "cagr_adj_pct": 8.3,
+     "adj_miles": 30200
     },
     "w8": {
      "from_year": 2017,
@@ -3630,7 +4994,15 @@
      "cpi_to": 332.1,
      "t_from": 2018.19,
      "t_to": 2026.126,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.5598,
+     "ratio_hi": 1.887,
+     "ci_lo_pct": 5.8,
+     "ci_hi_pct": 8.4,
+     "ci_level": 80,
+     "adj_ratio": 1.7011,
+     "cagr_adj_pct": 7.0,
+     "adj_miles": 30200
     },
     "w9": {
      "from_year": 2016,
@@ -3648,7 +5020,15 @@
      "cpi_to": 332.1,
      "t_from": 2016.818,
      "t_to": 2026.126,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.5171,
+     "ratio_hi": 1.8825,
+     "ci_lo_pct": 4.6,
+     "ci_hi_pct": 7.0,
+     "ci_level": 80,
+     "adj_ratio": 1.5349,
+     "cagr_adj_pct": 4.7,
+     "adj_miles": 30200
     },
     "w10": {
      "from_year": 2015,
@@ -3666,15 +5046,47 @@
      "cpi_to": 332.1,
      "t_from": 2016.252,
      "t_to": 2026.126,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3886,
+     "ratio_hi": 1.7993,
+     "ci_lo_pct": 3.4,
+     "ci_hi_pct": 6.1,
+     "ci_level": 80,
+     "adj_ratio": 1.5514,
+     "cagr_adj_pct": 4.5,
+     "adj_miles": 30200
     }
    },
    "recent": {
-    "value": 126.0,
-    "n": 7,
-    "from": "2026-10-01",
+    "value": 125.7,
+    "n": 47,
+    "from": "2025-11-19",
     "to": "2026-11-05",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 30200,
+    "lo": 111.1,
+    "hi": 142.2,
+    "median_rule": 126.0
+   },
+   "est": {
+    "value": 125.7,
+    "lo": 111.1,
+    "hi": 142.2,
+    "sale_lo": 90.8,
+    "sale_hi": 174.0,
+    "miles": 30200,
+    "gamma": -0.299,
+    "n": 47,
+    "from": "2025-11-19",
+    "to": "2026-11-05",
+    "n_eff": 35.4,
+    "newest_days": 4,
+    "half_life": 90,
+    "spread_pct": 24.8,
+    "odo_lo": 5594,
+    "odo_hi": 68000,
+    "median_rule": 126.0
    }
   },
   "Ferrari Dino 246 GT/GTS": {
@@ -3685,27 +5097,27 @@
     360.2,
     567.0,
     498.5,
-    450.5,
+    450.0,
     419.2,
-    448.5
+    432.1
    ],
    "proj": [
-    448.5,
-    461.5,
-    474.9,
-    488.7,
-    502.8,
-    517.4
+    432.1,
+    445.1,
+    458.4,
+    472.2,
+    486.3,
+    500.9
    ],
    "maint": 7,
    "cagr": {
-    "base": 0.029,
-    "bull": 0.059,
-    "bear": -0.001
+    "base": 0.03,
+    "bull": 0.06,
+    "bear": 0.0
    },
-   "sold": 448,
+   "sold": 455,
    "src": "bat",
-   "n_comps": 70,
+   "n_comps": 67,
    "appr": {
     "w5": {
      "from_year": 2020,
@@ -3715,15 +5127,23 @@
      "from": 360.2,
      "to": 420.0,
      "n_from": 11,
-     "n_to": 15,
+     "n_to": 13,
      "total_pct": 16.6,
-     "cagr_pct": 2.9,
-     "span_years": 5.3,
+     "cagr_pct": 3.0,
+     "span_years": 5.2,
      "cpi_from": 262.3,
-     "cpi_to": 331.7,
+     "cpi_to": 330.8,
      "t_from": 2020.827,
-     "t_to": 2026.094,
-     "pooled": true
+     "t_to": 2026.029,
+     "pooled": true,
+     "ratio_lo": 1.0333,
+     "ratio_hi": 1.3155,
+     "ci_lo_pct": 0.6,
+     "ci_hi_pct": 5.4,
+     "ci_level": 80,
+     "adj_ratio": 1.1267,
+     "cagr_adj_pct": 2.3,
+     "adj_miles": 37000
     },
     "w10": {
      "from_year": 2018,
@@ -3733,15 +5153,23 @@
      "from": 371.5,
      "to": 420.0,
      "n_from": 6,
-     "n_to": 15,
+     "n_to": 13,
      "total_pct": 13.1,
      "cagr_pct": 1.9,
      "span_years": 6.6,
      "cpi_from": 255.6,
-     "cpi_to": 331.7,
+     "cpi_to": 330.8,
      "t_from": 2019.473,
-     "t_to": 2026.094,
-     "pooled": true
+     "t_to": 2026.029,
+     "pooled": true,
+     "ratio_lo": 0.9775,
+     "ratio_hi": 1.3076,
+     "ci_lo_pct": -0.3,
+     "ci_hi_pct": 4.1,
+     "ci_level": 80,
+     "adj_ratio": 1.1058,
+     "cagr_adj_pct": 1.5,
+     "adj_miles": 37000
     }
    },
    "bat_url": "https://bringatrailer.com/ferrari/dino/",
@@ -3783,10 +5211,10 @@
     },
     {
      "year": 2024,
-     "median": 450.5,
-     "n": 12,
-     "lo": 362.0,
-     "hi": 500.0
+     "median": 450.0,
+     "n": 11,
+     "lo": 355.0,
+     "hi": 505.5
     },
     {
      "year": 2025,
@@ -3798,9 +5226,9 @@
     {
      "year": 2026,
      "median": 420.0,
-     "n": 9,
-     "lo": 305.0,
-     "hi": 452.5
+     "n": 7,
+     "lo": 393.0,
+     "hi": 442.0
     }
    ],
    "production": {
@@ -3819,36 +5247,52 @@
      "to_year": 2026,
      "from_label": "prior 12 mo",
      "to_label": "last 12 mo",
-     "from": 419.2,
-     "to": 420.0,
-     "n_from": 8,
-     "n_to": 9,
-     "total_pct": 0.2,
-     "cagr_pct": 0.2,
-     "span_years": 1.14,
-     "cpi_from": 322.2,
-     "cpi_to": 337.1,
-     "t_from": 2025.354,
-     "t_to": 2026.495,
-     "pooled": true
+     "from": 426.0,
+     "to": 406.5,
+     "n_from": 7,
+     "n_to": 8,
+     "total_pct": -4.6,
+     "cagr_pct": -4.1,
+     "span_years": 1.11,
+     "cpi_from": 321.7,
+     "cpi_to": 335.9,
+     "t_from": 2025.294,
+     "t_to": 2026.401,
+     "pooled": true,
+     "ratio_lo": 0.8192,
+     "ratio_hi": 1.1115,
+     "ci_lo_pct": -16.4,
+     "ci_hi_pct": 10.0,
+     "ci_level": 80,
+     "adj_ratio": 0.9248,
+     "cagr_adj_pct": -6.8,
+     "adj_miles": 37000
     },
     "w2": {
      "from_year": 2023,
      "to_year": 2026,
      "from_label": "2023-24",
      "to_label": "2025-26",
-     "from": 463.0,
+     "from": 451.0,
      "to": 420.0,
-     "n_from": 24,
-     "n_to": 15,
-     "total_pct": -9.3,
-     "cagr_pct": -4.5,
-     "span_years": 2.1,
-     "cpi_from": 309.6,
-     "cpi_to": 331.7,
-     "t_from": 2023.99,
-     "t_to": 2026.094,
-     "pooled": true
+     "n_from": 23,
+     "n_to": 13,
+     "total_pct": -6.9,
+     "cagr_pct": -3.5,
+     "span_years": 2.0,
+     "cpi_from": 309.5,
+     "cpi_to": 330.8,
+     "t_from": 2023.987,
+     "t_to": 2026.029,
+     "pooled": true,
+     "ratio_lo": 0.8407,
+     "ratio_hi": 1.0315,
+     "ci_lo_pct": -8.3,
+     "ci_hi_pct": 1.6,
+     "ci_level": 80,
+     "adj_ratio": 0.8724,
+     "cagr_adj_pct": -6.6,
+     "adj_miles": 37000
     },
     "w3": {
      "from_year": 2022,
@@ -3858,15 +5302,23 @@
      "from": 501.0,
      "to": 420.0,
      "n_from": 25,
-     "n_to": 15,
+     "n_to": 13,
      "total_pct": -16.2,
-     "cagr_pct": -5.5,
-     "span_years": 3.1,
+     "cagr_pct": -5.7,
+     "span_years": 3.0,
      "cpi_from": 300.7,
-     "cpi_to": 331.7,
+     "cpi_to": 330.8,
      "t_from": 2023.003,
-     "t_to": 2026.094,
-     "pooled": true
+     "t_to": 2026.029,
+     "pooled": true,
+     "ratio_lo": 0.758,
+     "ratio_hi": 0.9272,
+     "ci_lo_pct": -8.8,
+     "ci_hi_pct": -2.5,
+     "ci_level": 80,
+     "adj_ratio": 0.7826,
+     "cagr_adj_pct": -7.8,
+     "adj_miles": 37000
     },
     "w4": {
      "from_year": 2021,
@@ -3876,15 +5328,23 @@
      "from": 501.0,
      "to": 420.0,
      "n_from": 18,
-     "n_to": 15,
+     "n_to": 13,
      "total_pct": -16.2,
-     "cagr_pct": -4.4,
-     "span_years": 3.9,
+     "cagr_pct": -4.5,
+     "span_years": 3.8,
      "cpi_from": 289.3,
-     "cpi_to": 331.7,
+     "cpi_to": 330.8,
      "t_from": 2022.214,
-     "t_to": 2026.094,
-     "pooled": true
+     "t_to": 2026.029,
+     "pooled": true,
+     "ratio_lo": 0.7531,
+     "ratio_hi": 0.9332,
+     "ci_lo_pct": -7.2,
+     "ci_hi_pct": -1.8,
+     "ci_level": 80,
+     "adj_ratio": 0.8134,
+     "cagr_adj_pct": -5.3,
+     "adj_miles": 37000
     },
     "w5": {
      "from_year": 2020,
@@ -3894,15 +5354,23 @@
      "from": 360.2,
      "to": 420.0,
      "n_from": 11,
-     "n_to": 15,
+     "n_to": 13,
      "total_pct": 16.6,
-     "cagr_pct": 2.9,
-     "span_years": 5.3,
+     "cagr_pct": 3.0,
+     "span_years": 5.2,
      "cpi_from": 262.3,
-     "cpi_to": 331.7,
+     "cpi_to": 330.8,
      "t_from": 2020.827,
-     "t_to": 2026.094,
-     "pooled": true
+     "t_to": 2026.029,
+     "pooled": true,
+     "ratio_lo": 1.0333,
+     "ratio_hi": 1.3155,
+     "ci_lo_pct": 0.6,
+     "ci_hi_pct": 5.4,
+     "ci_level": 80,
+     "adj_ratio": 1.1267,
+     "cagr_adj_pct": 2.3,
+     "adj_miles": 37000
     },
     "w6": {
      "from_year": 2019,
@@ -3912,15 +5380,23 @@
      "from": 363.0,
      "to": 420.0,
      "n_from": 11,
-     "n_to": 15,
+     "n_to": 13,
      "total_pct": 15.7,
      "cagr_pct": 2.5,
      "span_years": 6.0,
      "cpi_from": 256.9,
-     "cpi_to": 331.7,
+     "cpi_to": 330.8,
      "t_from": 2020.064,
-     "t_to": 2026.094,
-     "pooled": true
+     "t_to": 2026.029,
+     "pooled": true,
+     "ratio_lo": 1.0254,
+     "ratio_hi": 1.3055,
+     "ci_lo_pct": 0.4,
+     "ci_hi_pct": 4.5,
+     "ci_level": 80,
+     "adj_ratio": 1.1268,
+     "cagr_adj_pct": 2.0,
+     "adj_miles": 37000
     },
     "w7": {
      "from_year": 2018,
@@ -3930,15 +5406,23 @@
      "from": 371.5,
      "to": 420.0,
      "n_from": 6,
-     "n_to": 15,
+     "n_to": 13,
      "total_pct": 13.1,
      "cagr_pct": 1.9,
      "span_years": 6.6,
      "cpi_from": 255.6,
-     "cpi_to": 331.7,
+     "cpi_to": 330.8,
      "t_from": 2019.473,
-     "t_to": 2026.094,
-     "pooled": true
+     "t_to": 2026.029,
+     "pooled": true,
+     "ratio_lo": 0.9775,
+     "ratio_hi": 1.3076,
+     "ci_lo_pct": -0.3,
+     "ci_hi_pct": 4.1,
+     "ci_level": 80,
+     "adj_ratio": 1.1058,
+     "cagr_adj_pct": 1.5,
+     "adj_miles": 37000
     },
     "w8": {
      "from_year": 2018,
@@ -3948,15 +5432,23 @@
      "from": 371.5,
      "to": 420.0,
      "n_from": 6,
-     "n_to": 15,
+     "n_to": 13,
      "total_pct": 13.1,
      "cagr_pct": 1.9,
      "span_years": 6.6,
      "cpi_from": 255.6,
-     "cpi_to": 331.7,
+     "cpi_to": 330.8,
      "t_from": 2019.473,
-     "t_to": 2026.094,
-     "pooled": true
+     "t_to": 2026.029,
+     "pooled": true,
+     "ratio_lo": 0.9775,
+     "ratio_hi": 1.3076,
+     "ci_lo_pct": -0.3,
+     "ci_hi_pct": 4.1,
+     "ci_level": 80,
+     "adj_ratio": 1.1058,
+     "cagr_adj_pct": 1.5,
+     "adj_miles": 37000
     },
     "w9": {
      "from_year": 2018,
@@ -3966,15 +5458,23 @@
      "from": 371.5,
      "to": 420.0,
      "n_from": 6,
-     "n_to": 15,
+     "n_to": 13,
      "total_pct": 13.1,
      "cagr_pct": 1.9,
      "span_years": 6.6,
      "cpi_from": 255.6,
-     "cpi_to": 331.7,
+     "cpi_to": 330.8,
      "t_from": 2019.473,
-     "t_to": 2026.094,
-     "pooled": true
+     "t_to": 2026.029,
+     "pooled": true,
+     "ratio_lo": 0.9775,
+     "ratio_hi": 1.3076,
+     "ci_lo_pct": -0.3,
+     "ci_hi_pct": 4.1,
+     "ci_level": 80,
+     "adj_ratio": 1.1058,
+     "cagr_adj_pct": 1.5,
+     "adj_miles": 37000
     },
     "w10": {
      "from_year": 2018,
@@ -3984,22 +5484,30 @@
      "from": 371.5,
      "to": 420.0,
      "n_from": 6,
-     "n_to": 15,
+     "n_to": 13,
      "total_pct": 13.1,
      "cagr_pct": 1.9,
      "span_years": 6.6,
      "cpi_from": 255.6,
-     "cpi_to": 331.7,
+     "cpi_to": 330.8,
      "t_from": 2019.473,
-     "t_to": 2026.094,
-     "pooled": true
+     "t_to": 2026.029,
+     "pooled": true,
+     "ratio_lo": 0.9775,
+     "ratio_hi": 1.3076,
+     "ci_lo_pct": -0.3,
+     "ci_hi_pct": 4.1,
+     "ci_level": 80,
+     "adj_ratio": 1.1058,
+     "cagr_adj_pct": 1.5,
+     "adj_miles": 37000
     }
    },
    "driven": {
     "min_miles": 30000,
     "max_miles": 50000,
-    "n_comps": 26,
-    "latest": 305.0,
+    "n_comps": 25,
+    "latest": 430.6,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -4007,17 +5515,25 @@
       "from_label": "2020-21",
       "to_label": "2025-26",
       "from": 367.1,
-      "to": 386.0,
+      "to": 389.5,
       "n_from": 4,
-      "n_to": 7,
-      "total_pct": 5.1,
-      "cagr_pct": 1.0,
-      "span_years": 5.0,
+      "n_to": 6,
+      "total_pct": 6.1,
+      "cagr_pct": 1.2,
+      "span_years": 4.9,
       "cpi_from": 264.9,
-      "cpi_to": 330.5,
+      "cpi_to": 328.6,
       "t_from": 2021.007,
-      "t_to": 2026.006,
-      "pooled": true
+      "t_to": 2025.868,
+      "pooled": true,
+      "ratio_lo": 0.9628,
+      "ratio_hi": 1.1692,
+      "ci_lo_pct": -0.8,
+      "ci_hi_pct": 3.2,
+      "ci_level": 80,
+      "adj_ratio": 1.0103,
+      "cagr_adj_pct": 0.2,
+      "adj_miles": 37200
      },
      "w10": {
       "from_year": 2018,
@@ -4025,37 +5541,53 @@
       "from_label": "2018-19",
       "to_label": "2025-26",
       "from": 328.0,
-      "to": 386.0,
+      "to": 389.5,
       "n_from": 2,
-      "n_to": 7,
-      "total_pct": 17.7,
-      "cagr_pct": 2.5,
-      "span_years": 6.6,
+      "n_to": 6,
+      "total_pct": 18.8,
+      "cagr_pct": 2.7,
+      "span_years": 6.5,
       "cpi_from": 255.3,
-      "cpi_to": 330.5,
+      "cpi_to": 328.6,
       "t_from": 2019.405,
-      "t_to": 2026.006,
-      "pooled": true
+      "t_to": 2025.868,
+      "pooled": true,
+      "ratio_lo": 1.0502,
+      "ratio_hi": 1.3427,
+      "ci_lo_pct": 0.8,
+      "ci_hi_pct": 4.6,
+      "ci_level": 80,
+      "adj_ratio": 1.1745,
+      "cagr_adj_pct": 2.5,
+      "adj_miles": 37200
      }
     },
     "appr_n": {
      "w1": {
-      "from_year": 2025,
-      "to_year": 2026,
+      "from_year": 2024,
+      "to_year": 2025,
       "from_label": "prior 12 mo",
       "to_label": "last 12 mo",
-      "from": 406.0,
-      "to": 305.0,
-      "n_from": 4,
-      "n_to": 3,
-      "total_pct": -24.9,
-      "cagr_pct": -26.5,
-      "span_years": 0.93,
-      "cpi_from": 325.0,
-      "cpi_to": 337.2,
-      "t_from": 2025.606,
-      "t_to": 2026.539,
-      "pooled": true
+      "from": 336.0,
+      "to": 389.5,
+      "n_from": 2,
+      "n_to": 6,
+      "total_pct": 15.9,
+      "cagr_pct": 13.5,
+      "span_years": 1.17,
+      "cpi_from": 316.1,
+      "cpi_to": 328.6,
+      "t_from": 2024.701,
+      "t_to": 2025.868,
+      "pooled": true,
+      "ratio_lo": 1.0252,
+      "ratio_hi": 1.3108,
+      "ci_lo_pct": 2.1,
+      "ci_hi_pct": 26.0,
+      "ci_level": 80,
+      "adj_ratio": 1.0978,
+      "cagr_adj_pct": 8.3,
+      "adj_miles": 37200
      },
      "w2": {
       "from_year": 2023,
@@ -4063,17 +5595,25 @@
       "from_label": "2023-24",
       "to_label": "2025-26",
       "from": 397.0,
-      "to": 386.0,
+      "to": 389.5,
       "n_from": 7,
-      "n_to": 7,
-      "total_pct": -2.8,
-      "cagr_pct": -1.3,
-      "span_years": 2.1,
+      "n_to": 6,
+      "total_pct": -1.9,
+      "cagr_pct": -0.9,
+      "span_years": 2.0,
       "cpi_from": 308.4,
-      "cpi_to": 330.5,
+      "cpi_to": 328.6,
       "t_from": 2023.868,
-      "t_to": 2026.006,
-      "pooled": true
+      "t_to": 2025.868,
+      "pooled": true,
+      "ratio_lo": 0.9023,
+      "ratio_hi": 1.0668,
+      "ci_lo_pct": -5.0,
+      "ci_hi_pct": 3.3,
+      "ci_level": 80,
+      "adj_ratio": 0.9424,
+      "cagr_adj_pct": -2.9,
+      "adj_miles": 37200
      },
      "w3": {
       "from_year": 2022,
@@ -4081,17 +5621,25 @@
       "from_label": "2022-23",
       "to_label": "2025-26",
       "from": 467.5,
-      "to": 386.0,
+      "to": 389.5,
       "n_from": 10,
-      "n_to": 7,
-      "total_pct": -17.4,
-      "cagr_pct": -6.0,
-      "span_years": 3.1,
+      "n_to": 6,
+      "total_pct": -16.7,
+      "cagr_pct": -5.9,
+      "span_years": 3.0,
       "cpi_from": 299.7,
-      "cpi_to": 330.5,
+      "cpi_to": 328.6,
       "t_from": 2022.882,
-      "t_to": 2026.006,
-      "pooled": true
+      "t_to": 2025.868,
+      "pooled": true,
+      "ratio_lo": 0.7709,
+      "ratio_hi": 0.9005,
+      "ci_lo_pct": -8.3,
+      "ci_hi_pct": -3.4,
+      "ci_level": 80,
+      "adj_ratio": 0.828,
+      "cagr_adj_pct": -6.1,
+      "adj_miles": 37200
      },
      "w4": {
       "from_year": 2021,
@@ -4099,17 +5647,25 @@
       "from_label": "2021-22",
       "to_label": "2025-26",
       "from": 438.0,
-      "to": 386.0,
+      "to": 389.5,
       "n_from": 9,
-      "n_to": 7,
-      "total_pct": -11.9,
-      "cagr_pct": -3.1,
-      "span_years": 4.0,
+      "n_to": 6,
+      "total_pct": -11.1,
+      "cagr_pct": -3.0,
+      "span_years": 3.8,
       "cpi_from": 285.3,
-      "cpi_to": 330.5,
+      "cpi_to": 328.6,
       "t_from": 2022.051,
-      "t_to": 2026.006,
-      "pooled": true
+      "t_to": 2025.868,
+      "pooled": true,
+      "ratio_lo": 0.8215,
+      "ratio_hi": 0.9627,
+      "ci_lo_pct": -5.0,
+      "ci_hi_pct": -1.0,
+      "ci_level": 80,
+      "adj_ratio": 0.9188,
+      "cagr_adj_pct": -2.2,
+      "adj_miles": 37200
      },
      "w5": {
       "from_year": 2020,
@@ -4117,17 +5673,25 @@
       "from_label": "2020-21",
       "to_label": "2025-26",
       "from": 367.1,
-      "to": 386.0,
+      "to": 389.5,
       "n_from": 4,
-      "n_to": 7,
-      "total_pct": 5.1,
-      "cagr_pct": 1.0,
-      "span_years": 5.0,
+      "n_to": 6,
+      "total_pct": 6.1,
+      "cagr_pct": 1.2,
+      "span_years": 4.9,
       "cpi_from": 264.9,
-      "cpi_to": 330.5,
+      "cpi_to": 328.6,
       "t_from": 2021.007,
-      "t_to": 2026.006,
-      "pooled": true
+      "t_to": 2025.868,
+      "pooled": true,
+      "ratio_lo": 0.9628,
+      "ratio_hi": 1.1692,
+      "ci_lo_pct": -0.8,
+      "ci_hi_pct": 3.2,
+      "ci_level": 80,
+      "adj_ratio": 1.0103,
+      "cagr_adj_pct": 0.2,
+      "adj_miles": 37200
      },
      "w6": {
       "from_year": 2019,
@@ -4135,17 +5699,25 @@
       "from_label": "2019-20",
       "to_label": "2025-26",
       "from": 402.5,
-      "to": 386.0,
+      "to": 389.5,
       "n_from": 2,
-      "n_to": 7,
-      "total_pct": -4.1,
-      "cagr_pct": -0.7,
-      "span_years": 5.6,
+      "n_to": 6,
+      "total_pct": -3.2,
+      "cagr_pct": -0.6,
+      "span_years": 5.5,
       "cpi_from": 257.5,
-      "cpi_to": 330.5,
+      "cpi_to": 328.6,
       "t_from": 2020.366,
-      "t_to": 2026.006,
-      "pooled": true
+      "t_to": 2025.868,
+      "pooled": true,
+      "ratio_lo": 0.8558,
+      "ratio_hi": 1.0942,
+      "ci_lo_pct": -2.8,
+      "ci_hi_pct": 1.7,
+      "ci_level": 80,
+      "adj_ratio": 0.9269,
+      "cagr_adj_pct": -1.4,
+      "adj_miles": 37200
      },
      "w7": {
       "from_year": 2018,
@@ -4153,17 +5725,25 @@
       "from_label": "2018-19",
       "to_label": "2025-26",
       "from": 328.0,
-      "to": 386.0,
+      "to": 389.5,
       "n_from": 2,
-      "n_to": 7,
-      "total_pct": 17.7,
-      "cagr_pct": 2.5,
-      "span_years": 6.6,
+      "n_to": 6,
+      "total_pct": 18.8,
+      "cagr_pct": 2.7,
+      "span_years": 6.5,
       "cpi_from": 255.3,
-      "cpi_to": 330.5,
+      "cpi_to": 328.6,
       "t_from": 2019.405,
-      "t_to": 2026.006,
-      "pooled": true
+      "t_to": 2025.868,
+      "pooled": true,
+      "ratio_lo": 1.0502,
+      "ratio_hi": 1.3427,
+      "ci_lo_pct": 0.8,
+      "ci_hi_pct": 4.6,
+      "ci_level": 80,
+      "adj_ratio": 1.1745,
+      "cagr_adj_pct": 2.5,
+      "adj_miles": 37200
      },
      "w8": {
       "from_year": 2018,
@@ -4171,17 +5751,25 @@
       "from_label": "2018-19",
       "to_label": "2025-26",
       "from": 328.0,
-      "to": 386.0,
+      "to": 389.5,
       "n_from": 2,
-      "n_to": 7,
-      "total_pct": 17.7,
-      "cagr_pct": 2.5,
-      "span_years": 6.6,
+      "n_to": 6,
+      "total_pct": 18.8,
+      "cagr_pct": 2.7,
+      "span_years": 6.5,
       "cpi_from": 255.3,
-      "cpi_to": 330.5,
+      "cpi_to": 328.6,
       "t_from": 2019.405,
-      "t_to": 2026.006,
-      "pooled": true
+      "t_to": 2025.868,
+      "pooled": true,
+      "ratio_lo": 1.0502,
+      "ratio_hi": 1.3427,
+      "ci_lo_pct": 0.8,
+      "ci_hi_pct": 4.6,
+      "ci_level": 80,
+      "adj_ratio": 1.1745,
+      "cagr_adj_pct": 2.5,
+      "adj_miles": 37200
      },
      "w9": {
       "from_year": 2018,
@@ -4189,17 +5777,25 @@
       "from_label": "2018-19",
       "to_label": "2025-26",
       "from": 328.0,
-      "to": 386.0,
+      "to": 389.5,
       "n_from": 2,
-      "n_to": 7,
-      "total_pct": 17.7,
-      "cagr_pct": 2.5,
-      "span_years": 6.6,
+      "n_to": 6,
+      "total_pct": 18.8,
+      "cagr_pct": 2.7,
+      "span_years": 6.5,
       "cpi_from": 255.3,
-      "cpi_to": 330.5,
+      "cpi_to": 328.6,
       "t_from": 2019.405,
-      "t_to": 2026.006,
-      "pooled": true
+      "t_to": 2025.868,
+      "pooled": true,
+      "ratio_lo": 1.0502,
+      "ratio_hi": 1.3427,
+      "ci_lo_pct": 0.8,
+      "ci_hi_pct": 4.6,
+      "ci_level": 80,
+      "adj_ratio": 1.1745,
+      "cagr_adj_pct": 2.5,
+      "adj_miles": 37200
      },
      "w10": {
       "from_year": 2018,
@@ -4207,26 +5803,60 @@
       "from_label": "2018-19",
       "to_label": "2025-26",
       "from": 328.0,
-      "to": 386.0,
+      "to": 389.5,
       "n_from": 2,
-      "n_to": 7,
-      "total_pct": 17.7,
-      "cagr_pct": 2.5,
-      "span_years": 6.6,
+      "n_to": 6,
+      "total_pct": 18.8,
+      "cagr_pct": 2.7,
+      "span_years": 6.5,
       "cpi_from": 255.3,
-      "cpi_to": 330.5,
+      "cpi_to": 328.6,
       "t_from": 2019.405,
-      "t_to": 2026.006,
-      "pooled": true
+      "t_to": 2025.868,
+      "pooled": true,
+      "ratio_lo": 1.0502,
+      "ratio_hi": 1.3427,
+      "ci_lo_pct": 0.8,
+      "ci_hi_pct": 4.6,
+      "ci_level": 80,
+      "adj_ratio": 1.1745,
+      "cagr_adj_pct": 2.5,
+      "adj_miles": 37200
      }
-    }
+    },
+    "latest_median": 350.0,
+    "est_miles": 40000
    },
    "recent": {
-    "value": 448.5,
-    "n": 4,
-    "from": "2026-08-25",
-    "to": "2026-10-31",
-    "min_miles": null
+    "value": 432.1,
+    "n": 7,
+    "from": "2026-03-04",
+    "to": "2026-10-09",
+    "min_miles": null,
+    "method": "est",
+    "miles": 37000,
+    "lo": 372.5,
+    "hi": 501.3,
+    "median_rule": 455.0
+   },
+   "est": {
+    "value": 432.1,
+    "lo": 372.5,
+    "hi": 501.3,
+    "sale_lo": 340.7,
+    "sale_hi": 548.1,
+    "miles": 37000,
+    "gamma": -0.053,
+    "n": 7,
+    "from": "2026-03-04",
+    "to": "2026-10-09",
+    "n_eff": 5.9,
+    "newest_days": 31,
+    "half_life": 90,
+    "spread_pct": 14.3,
+    "odo_lo": 11000,
+    "odo_hi": 76000,
+    "median_rule": 455.0
    }
   },
   "Lotus Evora GT (2020-21)": {
@@ -4239,15 +5869,15 @@
     81.5,
     85.2,
     85.0,
-    89.5
+    97.3
    ],
    "proj": [
-    89.5,
-    88.9,
-    88.3,
-    87.6,
-    87.0,
-    86.4
+    97.3,
+    96.6,
+    95.9,
+    95.3,
+    94.6,
+    93.9
    ],
    "maint": 3,
    "cagr": {
@@ -4275,7 +5905,15 @@
      "cpi_to": 329.0,
      "t_from": 2022.57,
      "t_to": 2025.896,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9252,
+     "ratio_hi": 1.0325,
+     "ci_lo_pct": -2.3,
+     "ci_hi_pct": 1.0,
+     "ci_level": 80,
+     "adj_ratio": 1.0603,
+     "cagr_adj_pct": 1.8,
+     "adj_miles": 4800
     }
    },
    "annual": [
@@ -4343,7 +5981,15 @@
      "cpi_to": 333.1,
      "t_from": 2025.176,
      "t_to": 2026.201,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9537,
+     "ratio_hi": 1.0606,
+     "ci_lo_pct": -4.5,
+     "ci_hi_pct": 5.9,
+     "ci_level": 80,
+     "adj_ratio": 1.081,
+     "cagr_adj_pct": 7.9,
+     "adj_miles": 4800
     },
     "w2": {
      "from_year": 2023,
@@ -4361,7 +6007,15 @@
      "cpi_to": 329.0,
      "t_from": 2024.02,
      "t_to": 2025.896,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0132,
+     "ratio_hi": 1.105,
+     "ci_lo_pct": 0.7,
+     "ci_hi_pct": 5.4,
+     "ci_level": 80,
+     "adj_ratio": 1.1252,
+     "cagr_adj_pct": 6.4,
+     "adj_miles": 4800
     },
     "w3": {
      "from_year": 2022,
@@ -4379,7 +6033,15 @@
      "cpi_to": 329.0,
      "t_from": 2023.046,
      "t_to": 2025.896,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9786,
+     "ratio_hi": 1.0673,
+     "ci_lo_pct": -0.7,
+     "ci_hi_pct": 2.3,
+     "ci_level": 80,
+     "adj_ratio": 1.0761,
+     "cagr_adj_pct": 2.6,
+     "adj_miles": 4800
     },
     "w4": {
      "from_year": 2021,
@@ -4397,7 +6059,15 @@
      "cpi_to": 329.0,
      "t_from": 2022.57,
      "t_to": 2025.896,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9252,
+     "ratio_hi": 1.0325,
+     "ci_lo_pct": -2.3,
+     "ci_hi_pct": 1.0,
+     "ci_level": 80,
+     "adj_ratio": 1.0603,
+     "cagr_adj_pct": 1.8,
+     "adj_miles": 4800
     },
     "w5": {
      "from_year": 2021,
@@ -4415,15 +6085,47 @@
      "cpi_to": 329.0,
      "t_from": 2022.57,
      "t_to": 2025.896,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9252,
+     "ratio_hi": 1.0325,
+     "ci_lo_pct": -2.3,
+     "ci_hi_pct": 1.0,
+     "ci_level": 80,
+     "adj_ratio": 1.0603,
+     "cagr_adj_pct": 1.8,
+     "adj_miles": 4800
     }
    },
    "recent": {
-    "value": 89.5,
-    "n": 3,
-    "from": "2026-03-07",
+    "value": 97.3,
+    "n": 5,
+    "from": "2025-12-04",
     "to": "2026-09-09",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 4800,
+    "lo": 81.4,
+    "hi": 116.3,
+    "median_rule": 89.5
+   },
+   "est": {
+    "value": 97.3,
+    "lo": 81.4,
+    "hi": 116.3,
+    "sale_lo": 79.8,
+    "sale_hi": 118.6,
+    "miles": 4800,
+    "gamma": -0.17,
+    "n": 5,
+    "from": "2025-12-04",
+    "to": "2026-09-09",
+    "n_eff": 3.6,
+    "newest_days": 61,
+    "half_life": 90,
+    "spread_pct": 4.9,
+    "odo_lo": 1500,
+    "odo_hi": 15000,
+    "median_rule": 89.5
    }
   },
   "Lotus Emira V6 (2024-25)": {
@@ -4436,15 +6138,15 @@
     101.0,
     101.0,
     86.2,
-    82.5
+    85.1
    ],
    "proj": [
-    82.5,
-    82.5,
-    82.5,
-    82.5,
-    82.5,
-    82.5
+    85.1,
+    85.1,
+    85.1,
+    85.1,
+    85.1,
+    85.1
    ],
    "maint": 3,
    "cagr": {
@@ -4497,7 +6199,15 @@
      "cpi_to": 334.5,
      "t_from": 2025.36,
      "t_to": 2026.3,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9528,
+     "ratio_hi": 1.0074,
+     "ci_lo_pct": -5.0,
+     "ci_hi_pct": 0.8,
+     "ci_level": 80,
+     "adj_ratio": 1.0172,
+     "cagr_adj_pct": 1.8,
+     "adj_miles": 1000
     },
     "w2": {
      "from_year": 2023,
@@ -4515,15 +6225,47 @@
      "cpi_to": 330.0,
      "t_from": 2024.444,
      "t_to": 2025.973,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8161,
+     "ratio_hi": 0.8689,
+     "ci_lo_pct": -12.7,
+     "ci_hi_pct": -8.9,
+     "ci_level": 80,
+     "adj_ratio": 0.8621,
+     "cagr_adj_pct": -9.4,
+     "adj_miles": 1000
     }
    },
    "recent": {
-    "value": 82.5,
-    "n": 4,
-    "from": "2026-08-15",
+    "value": 85.1,
+    "n": 13,
+    "from": "2025-11-13",
     "to": "2026-10-02",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 1000,
+    "lo": 74.3,
+    "hi": 97.6,
+    "median_rule": 82.5
+   },
+   "est": {
+    "value": 85.1,
+    "lo": 74.3,
+    "hi": 97.6,
+    "sale_lo": 73.2,
+    "sale_hi": 99.0,
+    "miles": 1000,
+    "gamma": -0.2,
+    "n": 13,
+    "from": "2025-11-13",
+    "to": "2026-10-02",
+    "n_eff": 10.3,
+    "newest_days": 38,
+    "half_life": 90,
+    "spread_pct": 3.7,
+    "odo_lo": 71,
+    "odo_hi": 4000,
+    "median_rule": 82.5
    }
   },
   "Ferrari 550 Maranello": {
@@ -4536,15 +6278,15 @@
     194.3,
     205.0,
     168.8,
-    232.0
+    219.0
    ],
    "proj": [
-    232.0,
-    246.2,
-    261.2,
-    277.1,
-    294.0,
-    311.9
+    219.0,
+    232.4,
+    246.5,
+    261.6,
+    277.5,
+    294.5
    ],
    "maint": 6,
    "cagr": {
@@ -4572,7 +6314,15 @@
      "cpi_to": 331.2,
      "t_from": 2020.909,
      "t_to": 2026.057,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1885,
+     "ratio_hi": 1.5423,
+     "ci_lo_pct": 3.4,
+     "ci_hi_pct": 8.9,
+     "ci_level": 80,
+     "adj_ratio": 1.5199,
+     "cagr_adj_pct": 8.6,
+     "adj_miles": 25000
     },
     "w10": {
      "from_year": 2017,
@@ -4590,7 +6340,15 @@
      "cpi_to": 331.2,
      "t_from": 2018.551,
      "t_to": 2026.057,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2232,
+     "ratio_hi": 1.7402,
+     "ci_lo_pct": 2.7,
+     "ci_hi_pct": 7.7,
+     "ci_level": 80,
+     "adj_ratio": 1.5519,
+     "cagr_adj_pct": 6.0,
+     "adj_miles": 25000
     }
    },
    "annual": [
@@ -4686,7 +6444,15 @@
      "cpi_to": 336.1,
      "t_from": 2025.261,
      "t_to": 2026.416,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1081,
+     "ratio_hi": 1.4416,
+     "ci_lo_pct": 9.3,
+     "ci_hi_pct": 37.1,
+     "ci_level": 80,
+     "adj_ratio": 1.2425,
+     "cagr_adj_pct": 20.6,
+     "adj_miles": 25000
     },
     "w2": {
      "from_year": 2023,
@@ -4704,7 +6470,15 @@
      "cpi_to": 331.2,
      "t_from": 2024.086,
      "t_to": 2026.057,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.833,
+     "ratio_hi": 1.015,
+     "ci_lo_pct": -8.7,
+     "ci_hi_pct": 0.7,
+     "ci_level": 80,
+     "adj_ratio": 1.045,
+     "cagr_adj_pct": 2.2,
+     "adj_miles": 25000
     },
     "w3": {
      "from_year": 2022,
@@ -4722,7 +6496,15 @@
      "cpi_to": 331.2,
      "t_from": 2023.089,
      "t_to": 2026.057,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9418,
+     "ratio_hi": 1.1583,
+     "ci_lo_pct": -2.0,
+     "ci_hi_pct": 5.0,
+     "ci_level": 80,
+     "adj_ratio": 1.1438,
+     "cagr_adj_pct": 4.6,
+     "adj_miles": 25000
     },
     "w4": {
      "from_year": 2021,
@@ -4740,7 +6522,15 @@
      "cpi_to": 331.2,
      "t_from": 2022.189,
      "t_to": 2026.057,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9689,
+     "ratio_hi": 1.2289,
+     "ci_lo_pct": -0.8,
+     "ci_hi_pct": 5.4,
+     "ci_level": 80,
+     "adj_ratio": 1.2449,
+     "cagr_adj_pct": 5.8,
+     "adj_miles": 25000
     },
     "w5": {
      "from_year": 2020,
@@ -4758,7 +6548,15 @@
      "cpi_to": 331.2,
      "t_from": 2020.909,
      "t_to": 2026.057,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1885,
+     "ratio_hi": 1.5423,
+     "ci_lo_pct": 3.4,
+     "ci_hi_pct": 8.9,
+     "ci_level": 80,
+     "adj_ratio": 1.5199,
+     "cagr_adj_pct": 8.6,
+     "adj_miles": 25000
     },
     "w6": {
      "from_year": 2019,
@@ -4776,7 +6574,15 @@
      "cpi_to": 331.2,
      "t_from": 2020.352,
      "t_to": 2026.057,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4277,
+     "ratio_hi": 1.8637,
+     "ci_lo_pct": 6.4,
+     "ci_hi_pct": 11.5,
+     "ci_level": 80,
+     "adj_ratio": 1.8139,
+     "cagr_adj_pct": 11.0,
+     "adj_miles": 25000
     },
     "w7": {
      "from_year": 2018,
@@ -4794,7 +6600,15 @@
      "cpi_to": 331.2,
      "t_from": 2019.059,
      "t_to": 2026.057,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3602,
+     "ratio_hi": 1.8323,
+     "ci_lo_pct": 4.5,
+     "ci_hi_pct": 9.0,
+     "ci_level": 80,
+     "adj_ratio": 1.7055,
+     "cagr_adj_pct": 7.9,
+     "adj_miles": 25000
     },
     "w8": {
      "from_year": 2017,
@@ -4812,7 +6626,15 @@
      "cpi_to": 331.2,
      "t_from": 2018.551,
      "t_to": 2026.057,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2232,
+     "ratio_hi": 1.7402,
+     "ci_lo_pct": 2.7,
+     "ci_hi_pct": 7.7,
+     "ci_level": 80,
+     "adj_ratio": 1.5519,
+     "cagr_adj_pct": 6.0,
+     "adj_miles": 25000
     },
     "w9": {
      "from_year": 2017,
@@ -4830,7 +6652,15 @@
      "cpi_to": 331.2,
      "t_from": 2018.551,
      "t_to": 2026.057,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2232,
+     "ratio_hi": 1.7402,
+     "ci_lo_pct": 2.7,
+     "ci_hi_pct": 7.7,
+     "ci_level": 80,
+     "adj_ratio": 1.5519,
+     "cagr_adj_pct": 6.0,
+     "adj_miles": 25000
     },
     "w10": {
      "from_year": 2017,
@@ -4848,14 +6678,22 @@
      "cpi_to": 331.2,
      "t_from": 2018.551,
      "t_to": 2026.057,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2232,
+     "ratio_hi": 1.7402,
+     "ci_lo_pct": 2.7,
+     "ci_hi_pct": 7.7,
+     "ci_level": 80,
+     "adj_ratio": 1.5519,
+     "cagr_adj_pct": 6.0,
+     "adj_miles": 25000
     }
    },
    "driven": {
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 38,
-    "latest": 232.0,
+    "latest": 188.7,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -4873,7 +6711,15 @@
       "cpi_to": 331.2,
       "t_from": 2020.965,
       "t_to": 2026.062,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.3507,
+      "ratio_hi": 1.568,
+      "ci_lo_pct": 6.1,
+      "ci_hi_pct": 9.2,
+      "ci_level": 80,
+      "adj_ratio": 1.477,
+      "cagr_adj_pct": 7.9,
+      "adj_miles": 37000
      },
      "w10": {
       "from_year": 2017,
@@ -4891,7 +6737,15 @@
       "cpi_to": 331.2,
       "t_from": 2018.163,
       "t_to": 2026.062,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.4178,
+      "ratio_hi": 1.7638,
+      "ci_lo_pct": 4.5,
+      "ci_hi_pct": 7.4,
+      "ci_level": 80,
+      "adj_ratio": 1.6364,
+      "cagr_adj_pct": 6.4,
+      "adj_miles": 37000
      }
     },
     "appr_n": {
@@ -4911,7 +6765,15 @@
       "cpi_to": 335.9,
       "t_from": 2025.235,
       "t_to": 2026.406,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.8871,
+      "ratio_hi": 1.0284,
+      "ci_lo_pct": -9.7,
+      "ci_hi_pct": 2.4,
+      "ci_level": 80,
+      "adj_ratio": 0.9913,
+      "cagr_adj_pct": -0.7,
+      "adj_miles": 37000
      },
      "w2": {
       "from_year": 2023,
@@ -4929,7 +6791,15 @@
       "cpi_to": 331.2,
       "t_from": 2023.825,
       "t_to": 2026.062,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.127,
+      "ratio_hi": 1.2723,
+      "ci_lo_pct": 5.6,
+      "ci_hi_pct": 11.6,
+      "ci_level": 80,
+      "adj_ratio": 1.171,
+      "cagr_adj_pct": 7.4,
+      "adj_miles": 37000
      },
      "w3": {
       "from_year": 2022,
@@ -4947,7 +6817,15 @@
       "cpi_to": 331.2,
       "t_from": 2023.04,
       "t_to": 2026.062,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0406,
+      "ratio_hi": 1.1663,
+      "ci_lo_pct": 1.3,
+      "ci_hi_pct": 5.3,
+      "ci_level": 80,
+      "adj_ratio": 1.1439,
+      "cagr_adj_pct": 4.6,
+      "adj_miles": 37000
      },
      "w4": {
       "from_year": 2021,
@@ -4965,7 +6843,15 @@
       "cpi_to": 331.2,
       "t_from": 2022.189,
       "t_to": 2026.062,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.0414,
+      "ratio_hi": 1.1971,
+      "ci_lo_pct": 1.0,
+      "ci_hi_pct": 4.7,
+      "ci_level": 80,
+      "adj_ratio": 1.1617,
+      "cagr_adj_pct": 3.9,
+      "adj_miles": 37000
      },
      "w5": {
       "from_year": 2020,
@@ -4983,7 +6869,15 @@
       "cpi_to": 331.2,
       "t_from": 2020.965,
       "t_to": 2026.062,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.3507,
+      "ratio_hi": 1.568,
+      "ci_lo_pct": 6.1,
+      "ci_hi_pct": 9.2,
+      "ci_level": 80,
+      "adj_ratio": 1.477,
+      "cagr_adj_pct": 7.9,
+      "adj_miles": 37000
      },
      "w6": {
       "from_year": 2019,
@@ -5001,7 +6895,15 @@
       "cpi_to": 331.2,
       "t_from": 2020.687,
       "t_to": 2026.062,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.3507,
+      "ratio_hi": 1.568,
+      "ci_lo_pct": 5.7,
+      "ci_hi_pct": 8.7,
+      "ci_level": 80,
+      "adj_ratio": 1.477,
+      "cagr_adj_pct": 7.5,
+      "adj_miles": 37000
      },
      "w7": {
       "from_year": 2018,
@@ -5019,7 +6921,15 @@
       "cpi_to": 331.2,
       "t_from": 2019.301,
       "t_to": 2026.062,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.4705,
+      "ratio_hi": 1.8294,
+      "ci_lo_pct": 5.8,
+      "ci_hi_pct": 9.3,
+      "ci_level": 80,
+      "adj_ratio": 1.6742,
+      "cagr_adj_pct": 7.9,
+      "adj_miles": 37000
      },
      "w8": {
       "from_year": 2017,
@@ -5037,7 +6947,15 @@
       "cpi_to": 331.2,
       "t_from": 2018.163,
       "t_to": 2026.062,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.4178,
+      "ratio_hi": 1.7638,
+      "ci_lo_pct": 4.5,
+      "ci_hi_pct": 7.4,
+      "ci_level": 80,
+      "adj_ratio": 1.6364,
+      "cagr_adj_pct": 6.4,
+      "adj_miles": 37000
      },
      "w9": {
       "from_year": 2017,
@@ -5055,7 +6973,15 @@
       "cpi_to": 331.2,
       "t_from": 2018.163,
       "t_to": 2026.062,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.4178,
+      "ratio_hi": 1.7638,
+      "ci_lo_pct": 4.5,
+      "ci_hi_pct": 7.4,
+      "ci_level": 80,
+      "adj_ratio": 1.6364,
+      "cagr_adj_pct": 6.4,
+      "adj_miles": 37000
      },
      "w10": {
       "from_year": 2017,
@@ -5073,16 +6999,50 @@
       "cpi_to": 331.2,
       "t_from": 2018.163,
       "t_to": 2026.062,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.4178,
+      "ratio_hi": 1.7638,
+      "ci_lo_pct": 4.5,
+      "ci_hi_pct": 7.4,
+      "ci_level": 80,
+      "adj_ratio": 1.6364,
+      "cagr_adj_pct": 6.4,
+      "adj_miles": 37000
      }
-    }
+    },
+    "latest_median": 232.0,
+    "est_miles": 40000
    },
    "recent": {
-    "value": 232.0,
-    "n": 7,
-    "from": "2026-08-19",
+    "value": 219.0,
+    "n": 32,
+    "from": "2025-11-10",
     "to": "2026-11-09",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 25000,
+    "lo": 187.4,
+    "hi": 255.8,
+    "median_rule": 232.0
+   },
+   "est": {
+    "value": 219.0,
+    "lo": 187.4,
+    "hi": 255.8,
+    "sale_lo": 136.2,
+    "sale_hi": 352.1,
+    "miles": 25000,
+    "gamma": -0.367,
+    "n": 32,
+    "from": "2025-11-10",
+    "to": "2026-11-09",
+    "n_eff": 22.7,
+    "newest_days": 0,
+    "half_life": 90,
+    "spread_pct": 39.3,
+    "odo_lo": 6000,
+    "odo_hi": 55000,
+    "median_rule": 232.0
    }
   },
   "Ferrari F355 Berlinetta (gated manual)": {
@@ -5095,15 +7055,15 @@
     171.0,
     152.5,
     134.7,
-    245.4
+    229.0
    ],
    "proj": [
-    245.4,
-    261.8,
-    279.4,
-    298.1,
-    318.1,
-    339.4
+    229.0,
+    244.3,
+    260.7,
+    278.2,
+    296.8,
+    316.7
    ],
    "maint": 7,
    "cagr": {
@@ -5131,7 +7091,15 @@
      "cpi_to": 326.6,
      "t_from": 2021.4,
      "t_to": 2025.719,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1988,
+     "ratio_hi": 1.4607,
+     "ci_lo_pct": 4.3,
+     "ci_hi_pct": 9.2,
+     "ci_level": 80,
+     "adj_ratio": 1.3156,
+     "cagr_adj_pct": 6.6,
+     "adj_miles": 29000
     },
     "w10": {
      "from_year": 2017,
@@ -5149,7 +7117,15 @@
      "cpi_to": 326.6,
      "t_from": 2018.498,
      "t_to": 2025.719,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 2.023,
+     "ratio_hi": 2.4983,
+     "ci_lo_pct": 10.3,
+     "ci_hi_pct": 13.6,
+     "ci_level": 80,
+     "adj_ratio": 2.0988,
+     "cagr_adj_pct": 10.8,
+     "adj_miles": 29000
     }
    },
    "annual": [
@@ -5238,7 +7214,15 @@
      "cpi_to": 334.7,
      "t_from": 2025.182,
      "t_to": 2026.32,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4267,
+     "ratio_hi": 1.7586,
+     "ci_lo_pct": 36.6,
+     "ci_hi_pct": 64.1,
+     "ci_level": 80,
+     "adj_ratio": 1.7089,
+     "cagr_adj_pct": 60.0,
+     "adj_miles": 29000
     },
     "w2": {
      "from_year": 2023,
@@ -5256,7 +7240,15 @@
      "cpi_to": 326.6,
      "t_from": 2024.037,
      "t_to": 2025.719,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9154,
+     "ratio_hi": 1.0514,
+     "ci_lo_pct": -5.1,
+     "ci_hi_pct": 3.0,
+     "ci_level": 80,
+     "adj_ratio": 0.9126,
+     "cagr_adj_pct": -5.2,
+     "adj_miles": 29000
     },
     "w3": {
      "from_year": 2022,
@@ -5274,7 +7266,15 @@
      "cpi_to": 326.6,
      "t_from": 2023.241,
      "t_to": 2025.719,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8926,
+     "ratio_hi": 1.0312,
+     "ci_lo_pct": -4.4,
+     "ci_hi_pct": 1.2,
+     "ci_level": 80,
+     "adj_ratio": 0.9091,
+     "cagr_adj_pct": -3.7,
+     "adj_miles": 29000
     },
     "w4": {
      "from_year": 2021,
@@ -5292,7 +7292,15 @@
      "cpi_to": 326.6,
      "t_from": 2022.216,
      "t_to": 2025.719,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9765,
+     "ratio_hi": 1.1452,
+     "ci_lo_pct": -0.7,
+     "ci_hi_pct": 3.9,
+     "ci_level": 80,
+     "adj_ratio": 1.0543,
+     "cagr_adj_pct": 1.5,
+     "adj_miles": 29000
     },
     "w5": {
      "from_year": 2020,
@@ -5310,7 +7318,15 @@
      "cpi_to": 326.6,
      "t_from": 2021.4,
      "t_to": 2025.719,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1988,
+     "ratio_hi": 1.4607,
+     "ci_lo_pct": 4.3,
+     "ci_hi_pct": 9.2,
+     "ci_level": 80,
+     "adj_ratio": 1.3156,
+     "cagr_adj_pct": 6.6,
+     "adj_miles": 29000
     },
     "w6": {
      "from_year": 2019,
@@ -5328,7 +7344,15 @@
      "cpi_to": 326.6,
      "t_from": 2019.713,
      "t_to": 2025.719,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.8529,
+     "ratio_hi": 2.3975,
+     "ci_lo_pct": 10.8,
+     "ci_hi_pct": 15.7,
+     "ci_level": 80,
+     "adj_ratio": 1.9256,
+     "cagr_adj_pct": 11.5,
+     "adj_miles": 29000
     },
     "w7": {
      "from_year": 2018,
@@ -5346,7 +7370,15 @@
      "cpi_to": 326.6,
      "t_from": 2018.716,
      "t_to": 2025.719,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 2.047,
+     "ratio_hi": 2.4691,
+     "ci_lo_pct": 10.8,
+     "ci_hi_pct": 13.8,
+     "ci_level": 80,
+     "adj_ratio": 2.0276,
+     "cagr_adj_pct": 10.6,
+     "adj_miles": 29000
     },
     "w8": {
      "from_year": 2017,
@@ -5364,7 +7396,15 @@
      "cpi_to": 326.6,
      "t_from": 2018.498,
      "t_to": 2025.719,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 2.023,
+     "ratio_hi": 2.4983,
+     "ci_lo_pct": 10.3,
+     "ci_hi_pct": 13.6,
+     "ci_level": 80,
+     "adj_ratio": 2.0988,
+     "cagr_adj_pct": 10.8,
+     "adj_miles": 29000
     },
     "w9": {
      "from_year": 2017,
@@ -5382,7 +7422,15 @@
      "cpi_to": 326.6,
      "t_from": 2018.498,
      "t_to": 2025.719,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 2.023,
+     "ratio_hi": 2.4983,
+     "ci_lo_pct": 10.3,
+     "ci_hi_pct": 13.6,
+     "ci_level": 80,
+     "adj_ratio": 2.0988,
+     "cagr_adj_pct": 10.8,
+     "adj_miles": 29000
     },
     "w10": {
      "from_year": 2017,
@@ -5400,14 +7448,22 @@
      "cpi_to": 326.6,
      "t_from": 2018.498,
      "t_to": 2025.719,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 2.023,
+     "ratio_hi": 2.4983,
+     "ci_lo_pct": 10.3,
+     "ci_hi_pct": 13.6,
+     "ci_level": 80,
+     "adj_ratio": 2.0988,
+     "cagr_adj_pct": 10.8,
+     "adj_miles": 29000
     }
    },
    "driven": {
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 22,
-    "latest": 186.0,
+    "latest": 207.9,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -5425,7 +7481,15 @@
       "cpi_to": 327.2,
       "t_from": 2021.583,
       "t_to": 2025.763,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.034,
+      "ratio_hi": 1.4792,
+      "ci_lo_pct": 0.8,
+      "ci_hi_pct": 9.8,
+      "ci_level": 80,
+      "adj_ratio": 1.2092,
+      "cagr_adj_pct": 4.6,
+      "adj_miles": 33500
      },
      "w10": {
       "from_year": 2017,
@@ -5443,7 +7507,15 @@
       "cpi_to": 327.2,
       "t_from": 2018.484,
       "t_to": 2025.763,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.6389,
+      "ratio_hi": 2.3446,
+      "ci_lo_pct": 7.0,
+      "ci_hi_pct": 12.4,
+      "ci_level": 80,
+      "adj_ratio": 1.88,
+      "cagr_adj_pct": 9.0,
+      "adj_miles": 33500
      }
     },
     "appr_n": {
@@ -5463,7 +7535,15 @@
       "cpi_to": 333.2,
       "t_from": 2025.125,
       "t_to": 2026.209,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.3662,
+      "ratio_hi": 1.8819,
+      "ci_lo_pct": 33.5,
+      "ci_hi_pct": 79.6,
+      "ci_level": 80,
+      "adj_ratio": 1.6757,
+      "cagr_adj_pct": 61.3,
+      "adj_miles": 33500
      },
      "w2": {
       "from_year": 2023,
@@ -5481,7 +7561,15 @@
       "cpi_to": 327.2,
       "t_from": 2024.212,
       "t_to": 2025.763,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.8033,
+      "ratio_hi": 1.0121,
+      "ci_lo_pct": -12.8,
+      "ci_hi_pct": 0.8,
+      "ci_level": 80,
+      "adj_ratio": 0.8918,
+      "cagr_adj_pct": -6.9,
+      "adj_miles": 33500
      },
      "w3": {
       "from_year": 2022,
@@ -5499,7 +7587,15 @@
       "cpi_to": 327.2,
       "t_from": 2023.358,
       "t_to": 2025.763,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.7753,
+      "ratio_hi": 0.9986,
+      "ci_lo_pct": -10.1,
+      "ci_hi_pct": -0.1,
+      "ci_level": 80,
+      "adj_ratio": 0.8643,
+      "cagr_adj_pct": -5.9,
+      "adj_miles": 33500
      },
      "w4": {
       "from_year": 2021,
@@ -5517,7 +7613,15 @@
       "cpi_to": 327.2,
       "t_from": 2022.058,
       "t_to": 2025.763,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.8629,
+      "ratio_hi": 1.1453,
+      "ci_lo_pct": -3.9,
+      "ci_hi_pct": 3.7,
+      "ci_level": 80,
+      "adj_ratio": 0.9432,
+      "cagr_adj_pct": -1.6,
+      "adj_miles": 33500
      },
      "w5": {
       "from_year": 2020,
@@ -5535,7 +7639,15 @@
       "cpi_to": 327.2,
       "t_from": 2021.583,
       "t_to": 2025.763,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.034,
+      "ratio_hi": 1.4792,
+      "ci_lo_pct": 0.8,
+      "ci_hi_pct": 9.8,
+      "ci_level": 80,
+      "adj_ratio": 1.2092,
+      "cagr_adj_pct": 4.6,
+      "adj_miles": 33500
      },
      "w6": {
       "from_year": 2020,
@@ -5553,7 +7665,15 @@
       "cpi_to": 327.2,
       "t_from": 2021.583,
       "t_to": 2025.763,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.034,
+      "ratio_hi": 1.4792,
+      "ci_lo_pct": 0.8,
+      "ci_hi_pct": 9.8,
+      "ci_level": 80,
+      "adj_ratio": 1.2092,
+      "cagr_adj_pct": 4.6,
+      "adj_miles": 33500
      },
      "w7": {
       "from_year": 2018,
@@ -5571,7 +7691,15 @@
       "cpi_to": 327.2,
       "t_from": 2018.713,
       "t_to": 2025.763,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.6554,
+      "ratio_hi": 2.2572,
+      "ci_lo_pct": 7.4,
+      "ci_hi_pct": 12.1,
+      "ci_level": 80,
+      "adj_ratio": 1.8709,
+      "cagr_adj_pct": 9.2,
+      "adj_miles": 33500
      },
      "w8": {
       "from_year": 2017,
@@ -5589,7 +7717,15 @@
       "cpi_to": 327.2,
       "t_from": 2018.484,
       "t_to": 2025.763,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.6389,
+      "ratio_hi": 2.3446,
+      "ci_lo_pct": 7.0,
+      "ci_hi_pct": 12.4,
+      "ci_level": 80,
+      "adj_ratio": 1.88,
+      "cagr_adj_pct": 9.0,
+      "adj_miles": 33500
      },
      "w9": {
       "from_year": 2017,
@@ -5607,7 +7743,15 @@
       "cpi_to": 327.2,
       "t_from": 2018.484,
       "t_to": 2025.763,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.6389,
+      "ratio_hi": 2.3446,
+      "ci_lo_pct": 7.0,
+      "ci_hi_pct": 12.4,
+      "ci_level": 80,
+      "adj_ratio": 1.88,
+      "cagr_adj_pct": 9.0,
+      "adj_miles": 33500
      },
      "w10": {
       "from_year": 2017,
@@ -5625,16 +7769,50 @@
       "cpi_to": 327.2,
       "t_from": 2018.484,
       "t_to": 2025.763,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.6389,
+      "ratio_hi": 2.3446,
+      "ci_lo_pct": 7.0,
+      "ci_hi_pct": 12.4,
+      "ci_level": 80,
+      "adj_ratio": 1.88,
+      "cagr_adj_pct": 9.0,
+      "adj_miles": 33500
      }
-    }
+    },
+    "latest_median": 186.0,
+    "est_miles": 40000
    },
    "recent": {
-    "value": 245.4,
-    "n": 3,
-    "from": "2026-08-06",
+    "value": 229.0,
+    "n": 6,
+    "from": "2025-11-21",
     "to": "2026-10-23",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 29000,
+    "lo": 195.8,
+    "hi": 267.7,
+    "median_rule": 245.4
+   },
+   "est": {
+    "value": 229.0,
+    "lo": 195.8,
+    "hi": 267.7,
+    "sale_lo": 181.2,
+    "sale_hi": 289.4,
+    "miles": 29000,
+    "gamma": -0.344,
+    "n": 6,
+    "from": "2025-11-21",
+    "to": "2026-10-23",
+    "n_eff": 3.9,
+    "newest_days": 17,
+    "half_life": 90,
+    "spread_pct": 13.2,
+    "odo_lo": 10000,
+    "odo_hi": 48000,
+    "median_rule": 245.4
    }
   },
   "Ferrari F355 GTS (gated manual)": {
@@ -5647,15 +7825,15 @@
     187.7,
     180.5,
     159.8,
-    257.7
+    262.3
    ],
    "proj": [
-    257.7,
-    279.1,
-    302.3,
-    327.3,
-    354.5,
-    383.9
+    262.3,
+    284.1,
+    307.6,
+    333.2,
+    360.8,
+    390.8
    ],
    "maint": 7,
    "cagr": {
@@ -5683,7 +7861,15 @@
      "cpi_to": 333.6,
      "t_from": 2021.359,
      "t_to": 2026.234,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.288,
+     "ratio_hi": 1.7036,
+     "ci_lo_pct": 5.3,
+     "ci_hi_pct": 11.5,
+     "ci_level": 80,
+     "adj_ratio": 1.5311,
+     "cagr_adj_pct": 9.1,
+     "adj_miles": 31000
     }
    },
    "annual": [
@@ -5758,7 +7944,15 @@
      "cpi_to": 337.2,
      "t_from": 2025.077,
      "t_to": 2026.537,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2742,
+     "ratio_hi": 1.806,
+     "ci_lo_pct": 18.1,
+     "ci_hi_pct": 49.9,
+     "ci_level": 80,
+     "adj_ratio": 1.5744,
+     "cagr_adj_pct": 36.5,
+     "adj_miles": 31000
     },
     "w2": {
      "from_year": 2023,
@@ -5776,7 +7970,15 @@
      "cpi_to": 333.6,
      "t_from": 2024.111,
      "t_to": 2026.234,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0779,
+     "ratio_hi": 1.3562,
+     "ci_lo_pct": 3.6,
+     "ci_hi_pct": 15.6,
+     "ci_level": 80,
+     "adj_ratio": 1.2546,
+     "cagr_adj_pct": 11.4,
+     "adj_miles": 31000
     },
     "w3": {
      "from_year": 2022,
@@ -5794,7 +7996,15 @@
      "cpi_to": 333.6,
      "t_from": 2022.955,
      "t_to": 2026.234,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9395,
+     "ratio_hi": 1.2076,
+     "ci_lo_pct": -1.9,
+     "ci_hi_pct": 5.9,
+     "ci_level": 80,
+     "adj_ratio": 1.0976,
+     "cagr_adj_pct": 2.9,
+     "adj_miles": 31000
     },
     "w4": {
      "from_year": 2021,
@@ -5812,7 +8022,15 @@
      "cpi_to": 333.6,
      "t_from": 2021.939,
      "t_to": 2026.234,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2254,
+     "ratio_hi": 1.5751,
+     "ci_lo_pct": 4.8,
+     "ci_hi_pct": 11.1,
+     "ci_level": 80,
+     "adj_ratio": 1.341,
+     "cagr_adj_pct": 7.1,
+     "adj_miles": 31000
     },
     "w5": {
      "from_year": 2020,
@@ -5830,7 +8048,15 @@
      "cpi_to": 333.6,
      "t_from": 2021.359,
      "t_to": 2026.234,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.288,
+     "ratio_hi": 1.7036,
+     "ci_lo_pct": 5.3,
+     "ci_hi_pct": 11.5,
+     "ci_level": 80,
+     "adj_ratio": 1.5311,
+     "cagr_adj_pct": 9.1,
+     "adj_miles": 31000
     },
     "w6": {
      "from_year": 2020,
@@ -5848,7 +8074,15 @@
      "cpi_to": 333.6,
      "t_from": 2021.359,
      "t_to": 2026.234,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.288,
+     "ratio_hi": 1.7036,
+     "ci_lo_pct": 5.3,
+     "ci_hi_pct": 11.5,
+     "ci_level": 80,
+     "adj_ratio": 1.5311,
+     "cagr_adj_pct": 9.1,
+     "adj_miles": 31000
     },
     "w7": {
      "from_year": 2020,
@@ -5866,7 +8100,15 @@
      "cpi_to": 333.6,
      "t_from": 2021.359,
      "t_to": 2026.234,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.288,
+     "ratio_hi": 1.7036,
+     "ci_lo_pct": 5.3,
+     "ci_hi_pct": 11.5,
+     "ci_level": 80,
+     "adj_ratio": 1.5311,
+     "cagr_adj_pct": 9.1,
+     "adj_miles": 31000
     },
     "w8": {
      "from_year": 2020,
@@ -5884,14 +8126,22 @@
      "cpi_to": 333.6,
      "t_from": 2021.359,
      "t_to": 2026.234,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.288,
+     "ratio_hi": 1.7036,
+     "ci_lo_pct": 5.3,
+     "ci_hi_pct": 11.5,
+     "ci_level": 80,
+     "adj_ratio": 1.5311,
+     "cagr_adj_pct": 9.1,
+     "adj_miles": 31000
     }
    },
    "driven": {
     "min_miles": 30000,
     "max_miles": 50000,
     "n_comps": 21,
-    "latest": 235.4,
+    "latest": 247.2,
     "appr": {
      "w5": {
       "from_year": 2020,
@@ -5909,7 +8159,15 @@
       "cpi_to": 337.2,
       "t_from": 2021.382,
       "t_to": 2026.591,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.3147,
+      "ratio_hi": 1.6802,
+      "ci_lo_pct": 5.4,
+      "ci_hi_pct": 10.5,
+      "ci_level": 80,
+      "adj_ratio": 1.5515,
+      "cagr_adj_pct": 8.8,
+      "adj_miles": 36000
      }
     },
     "appr_n": {
@@ -5929,7 +8187,15 @@
       "cpi_to": 337.2,
       "t_from": 2024.251,
       "t_to": 2026.591,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.1295,
+      "ratio_hi": 1.3596,
+      "ci_lo_pct": 5.4,
+      "ci_hi_pct": 14.3,
+      "ci_level": 80,
+      "adj_ratio": 1.2776,
+      "cagr_adj_pct": 11.2,
+      "adj_miles": 36000
      },
      "w3": {
       "from_year": 2022,
@@ -5947,7 +8213,15 @@
       "cpi_to": 337.2,
       "t_from": 2023.211,
       "t_to": 2026.591,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 0.9974,
+      "ratio_hi": 1.2518,
+      "ci_lo_pct": -0.1,
+      "ci_hi_pct": 6.8,
+      "ci_level": 80,
+      "adj_ratio": 1.1649,
+      "cagr_adj_pct": 4.6,
+      "adj_miles": 36000
      },
      "w4": {
       "from_year": 2021,
@@ -5965,7 +8239,15 @@
       "cpi_to": 337.2,
       "t_from": 2021.667,
       "t_to": 2026.591,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.282,
+      "ratio_hi": 1.6088,
+      "ci_lo_pct": 5.2,
+      "ci_hi_pct": 10.2,
+      "ci_level": 80,
+      "adj_ratio": 1.4742,
+      "cagr_adj_pct": 8.2,
+      "adj_miles": 36000
      },
      "w5": {
       "from_year": 2020,
@@ -5983,7 +8265,15 @@
       "cpi_to": 337.2,
       "t_from": 2021.382,
       "t_to": 2026.591,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.3147,
+      "ratio_hi": 1.6802,
+      "ci_lo_pct": 5.4,
+      "ci_hi_pct": 10.5,
+      "ci_level": 80,
+      "adj_ratio": 1.5515,
+      "cagr_adj_pct": 8.8,
+      "adj_miles": 36000
      },
      "w6": {
       "from_year": 2020,
@@ -6001,7 +8291,15 @@
       "cpi_to": 337.2,
       "t_from": 2021.382,
       "t_to": 2026.591,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.3147,
+      "ratio_hi": 1.6802,
+      "ci_lo_pct": 5.4,
+      "ci_hi_pct": 10.5,
+      "ci_level": 80,
+      "adj_ratio": 1.5515,
+      "cagr_adj_pct": 8.8,
+      "adj_miles": 36000
      },
      "w7": {
       "from_year": 2020,
@@ -6019,7 +8317,15 @@
       "cpi_to": 337.2,
       "t_from": 2021.382,
       "t_to": 2026.591,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.3147,
+      "ratio_hi": 1.6802,
+      "ci_lo_pct": 5.4,
+      "ci_hi_pct": 10.5,
+      "ci_level": 80,
+      "adj_ratio": 1.5515,
+      "cagr_adj_pct": 8.8,
+      "adj_miles": 36000
      },
      "w8": {
       "from_year": 2020,
@@ -6037,16 +8343,50 @@
       "cpi_to": 337.2,
       "t_from": 2021.382,
       "t_to": 2026.591,
-      "pooled": true
+      "pooled": true,
+      "ratio_lo": 1.3147,
+      "ratio_hi": 1.6802,
+      "ci_lo_pct": 5.4,
+      "ci_hi_pct": 10.5,
+      "ci_level": 80,
+      "adj_ratio": 1.5515,
+      "cagr_adj_pct": 8.8,
+      "adj_miles": 36000
      }
-    }
+    },
+    "latest_median": 235.4,
+    "est_miles": 40000
    },
    "recent": {
-    "value": 257.7,
-    "n": 4,
-    "from": "2026-08-21",
+    "value": 262.3,
+    "n": 6,
+    "from": "2026-03-12",
     "to": "2026-10-06",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 31000,
+    "lo": 219.1,
+    "hi": 314.1,
+    "median_rule": 257.7
+   },
+   "est": {
+    "value": 262.3,
+    "lo": 219.1,
+    "hi": 314.1,
+    "sale_lo": 185.5,
+    "sale_hi": 371.1,
+    "miles": 31000,
+    "gamma": -0.267,
+    "n": 6,
+    "from": "2026-03-12",
+    "to": "2026-10-06",
+    "n_eff": 5.0,
+    "newest_days": 34,
+    "half_life": 90,
+    "spread_pct": 24.1,
+    "odo_lo": 15000,
+    "odo_hi": 59000,
+    "median_rule": 257.7
    }
   },
   "Porsche Carrera GT": {
@@ -6059,15 +8399,15 @@
     1724.8,
     1767.6,
     1810.4,
-    1810.4
+    1808.6
    ],
    "proj": [
-    1810.4,
-    1991.4,
-    2190.6,
-    2409.6,
-    2650.6,
-    2915.7
+    1808.6,
+    1989.5,
+    2188.4,
+    2407.2,
+    2648.0,
+    2912.8
    ],
    "maint": 12,
    "cagr": {
@@ -6095,7 +8435,15 @@
      "cpi_to": 320.2,
      "t_from": 2020.923,
      "t_to": 2025.137,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4651,
+     "ratio_hi": 1.9642,
+     "ci_lo_pct": 9.5,
+     "ci_hi_pct": 17.4,
+     "ci_level": 80,
+     "adj_ratio": 1.6367,
+     "cagr_adj_pct": 12.4,
+     "adj_miles": 3800
     }
    },
    "annual": [
@@ -6147,7 +8495,15 @@
      "cpi_to": 323.3,
      "t_from": 2024.034,
      "t_to": 2025.466,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0406,
+     "ratio_hi": 1.4174,
+     "ci_lo_pct": 2.8,
+     "ci_hi_pct": 27.6,
+     "ci_level": 80,
+     "adj_ratio": 1.2536,
+     "cagr_adj_pct": 17.1,
+     "adj_miles": 3800
     },
     "w2": {
      "from_year": 2022,
@@ -6165,7 +8521,15 @@
      "cpi_to": 320.2,
      "t_from": 2022.563,
      "t_to": 2025.137,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8328,
+     "ratio_hi": 1.0246,
+     "ci_lo_pct": -6.8,
+     "ci_hi_pct": 0.9,
+     "ci_level": 80,
+     "adj_ratio": 1.0289,
+     "cagr_adj_pct": 1.1,
+     "adj_miles": 3800
     },
     "w3": {
      "from_year": 2021,
@@ -6183,7 +8547,15 @@
      "cpi_to": 320.2,
      "t_from": 2022.287,
      "t_to": 2025.137,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8657,
+     "ratio_hi": 1.0651,
+     "ci_lo_pct": -4.9,
+     "ci_hi_pct": 2.2,
+     "ci_level": 80,
+     "adj_ratio": 1.0343,
+     "cagr_adj_pct": 1.2,
+     "adj_miles": 3800
     },
     "w4": {
      "from_year": 2020,
@@ -6201,7 +8573,15 @@
      "cpi_to": 320.2,
      "t_from": 2020.923,
      "t_to": 2025.137,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4651,
+     "ratio_hi": 1.9642,
+     "ci_lo_pct": 9.5,
+     "ci_hi_pct": 17.4,
+     "ci_level": 80,
+     "adj_ratio": 1.6367,
+     "cagr_adj_pct": 12.4,
+     "adj_miles": 3800
     },
     "w5": {
      "from_year": 2020,
@@ -6219,7 +8599,15 @@
      "cpi_to": 320.2,
      "t_from": 2020.923,
      "t_to": 2025.137,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4651,
+     "ratio_hi": 1.9642,
+     "ci_lo_pct": 9.5,
+     "ci_hi_pct": 17.4,
+     "ci_level": 80,
+     "adj_ratio": 1.6367,
+     "cagr_adj_pct": 12.4,
+     "adj_miles": 3800
     },
     "w6": {
      "from_year": 2020,
@@ -6237,7 +8625,15 @@
      "cpi_to": 320.2,
      "t_from": 2020.923,
      "t_to": 2025.137,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4651,
+     "ratio_hi": 1.9642,
+     "ci_lo_pct": 9.5,
+     "ci_hi_pct": 17.4,
+     "ci_level": 80,
+     "adj_ratio": 1.6367,
+     "cagr_adj_pct": 12.4,
+     "adj_miles": 3800
     },
     "w7": {
      "from_year": 2020,
@@ -6255,15 +8651,47 @@
      "cpi_to": 320.2,
      "t_from": 2020.923,
      "t_to": 2025.137,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4651,
+     "ratio_hi": 1.9642,
+     "ci_lo_pct": 9.5,
+     "ci_hi_pct": 17.4,
+     "ci_level": 80,
+     "adj_ratio": 1.6367,
+     "cagr_adj_pct": 12.4,
+     "adj_miles": 3800
     }
    },
    "recent": {
-    "value": 1810.4,
-    "n": 3,
-    "from": "2025-04-23",
+    "value": 1808.6,
+    "n": 4,
+    "from": "2024-02-25",
     "to": "2025-09-18",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 3800,
+    "lo": 961.1,
+    "hi": 3403.2,
+    "median_rule": 1810.4
+   },
+   "est": {
+    "value": 1808.6,
+    "lo": 961.1,
+    "hi": 3403.2,
+    "sale_lo": 922.1,
+    "sale_hi": 3547.1,
+    "miles": 3800,
+    "gamma": -0.216,
+    "n": 4,
+    "from": "2024-02-25",
+    "to": "2025-09-18",
+    "n_eff": 3.8,
+    "newest_days": 417,
+    "half_life": 202,
+    "spread_pct": 8.9,
+    "odo_lo": 601,
+    "odo_hi": 14000,
+    "median_rule": 1810.4
    }
   },
   "Ford GT (2005-2006)": {
@@ -6276,15 +8704,15 @@
     414.5,
     424.0,
     491.5,
-    696.0
+    708.0
    ],
    "proj": [
-    696.0,
-    760.0,
-    830.0,
-    906.3,
-    989.7,
-    1080.7
+    708.0,
+    773.1,
+    844.3,
+    921.9,
+    1006.8,
+    1099.4
    ],
    "maint": 3,
    "cagr": {
@@ -6312,7 +8740,15 @@
      "cpi_to": 329.5,
      "t_from": 2021.252,
      "t_to": 2025.933,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4534,
+     "ratio_hi": 1.5769,
+     "ci_lo_pct": 8.3,
+     "ci_hi_pct": 10.2,
+     "ci_level": 80,
+     "adj_ratio": 1.5585,
+     "cagr_adj_pct": 9.9,
+     "adj_miles": 3600
     },
     "w10": {
      "from_year": 2017,
@@ -6330,7 +8766,15 @@
      "cpi_to": 329.5,
      "t_from": 2018.39,
      "t_to": 2025.933,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.8747,
+     "ratio_hi": 2.4176,
+     "ci_lo_pct": 8.7,
+     "ci_hi_pct": 12.5,
+     "ci_level": 80,
+     "adj_ratio": 2.1261,
+     "cagr_adj_pct": 10.6,
+     "adj_miles": 3600
     }
    },
    "annual": [
@@ -6431,7 +8875,15 @@
      "cpi_to": 335.6,
      "t_from": 2025.377,
      "t_to": 2026.385,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1573,
+     "ratio_hi": 1.2698,
+     "ci_lo_pct": 15.6,
+     "ci_hi_pct": 26.7,
+     "ci_level": 80,
+     "adj_ratio": 1.2783,
+     "cagr_adj_pct": 27.5,
+     "adj_miles": 3600
     },
     "w2": {
      "from_year": 2023,
@@ -6449,7 +8901,15 @@
      "cpi_to": 329.5,
      "t_from": 2024.011,
      "t_to": 2025.933,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2502,
+     "ratio_hi": 1.3373,
+     "ci_lo_pct": 12.5,
+     "ci_hi_pct": 16.5,
+     "ci_level": 80,
+     "adj_ratio": 1.3295,
+     "cagr_adj_pct": 16.2,
+     "adj_miles": 3600
     },
     "w3": {
      "from_year": 2022,
@@ -6467,7 +8927,15 @@
      "cpi_to": 329.5,
      "t_from": 2022.997,
      "t_to": 2025.933,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.226,
+     "ratio_hi": 1.3102,
+     "ci_lo_pct": 7.3,
+     "ci_hi_pct": 9.8,
+     "ci_level": 80,
+     "adj_ratio": 1.2978,
+     "cagr_adj_pct": 9.4,
+     "adj_miles": 3600
     },
     "w4": {
      "from_year": 2021,
@@ -6485,7 +8953,15 @@
      "cpi_to": 329.5,
      "t_from": 2022.154,
      "t_to": 2025.933,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2757,
+     "ratio_hi": 1.3683,
+     "ci_lo_pct": 6.6,
+     "ci_hi_pct": 8.6,
+     "ci_level": 80,
+     "adj_ratio": 1.3346,
+     "cagr_adj_pct": 7.9,
+     "adj_miles": 3600
     },
     "w5": {
      "from_year": 2020,
@@ -6503,7 +8979,15 @@
      "cpi_to": 329.5,
      "t_from": 2021.252,
      "t_to": 2025.933,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4534,
+     "ratio_hi": 1.5769,
+     "ci_lo_pct": 8.3,
+     "ci_hi_pct": 10.2,
+     "ci_level": 80,
+     "adj_ratio": 1.5585,
+     "cagr_adj_pct": 9.9,
+     "adj_miles": 3600
     },
     "w6": {
      "from_year": 2019,
@@ -6521,7 +9005,15 @@
      "cpi_to": 329.5,
      "t_from": 2020.519,
      "t_to": 2025.933,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.6374,
+     "ratio_hi": 1.8282,
+     "ci_lo_pct": 9.6,
+     "ci_hi_pct": 11.8,
+     "ci_level": 80,
+     "adj_ratio": 1.8459,
+     "cagr_adj_pct": 12.0,
+     "adj_miles": 3600
     },
     "w7": {
      "from_year": 2018,
@@ -6539,7 +9031,15 @@
      "cpi_to": 329.5,
      "t_from": 2019.151,
      "t_to": 2025.933,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.9055,
+     "ratio_hi": 2.2882,
+     "ci_lo_pct": 9.9,
+     "ci_hi_pct": 12.9,
+     "ci_level": 80,
+     "adj_ratio": 2.0579,
+     "cagr_adj_pct": 11.2,
+     "adj_miles": 3600
     },
     "w8": {
      "from_year": 2017,
@@ -6557,7 +9057,15 @@
      "cpi_to": 329.5,
      "t_from": 2018.39,
      "t_to": 2025.933,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.8747,
+     "ratio_hi": 2.4176,
+     "ci_lo_pct": 8.7,
+     "ci_hi_pct": 12.5,
+     "ci_level": 80,
+     "adj_ratio": 2.1261,
+     "cagr_adj_pct": 10.6,
+     "adj_miles": 3600
     },
     "w9": {
      "from_year": 2017,
@@ -6575,7 +9083,15 @@
      "cpi_to": 329.5,
      "t_from": 2018.39,
      "t_to": 2025.933,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.8747,
+     "ratio_hi": 2.4176,
+     "ci_lo_pct": 8.7,
+     "ci_hi_pct": 12.5,
+     "ci_level": 80,
+     "adj_ratio": 2.1261,
+     "cagr_adj_pct": 10.6,
+     "adj_miles": 3600
     },
     "w10": {
      "from_year": 2017,
@@ -6593,15 +9109,47 @@
      "cpi_to": 329.5,
      "t_from": 2018.39,
      "t_to": 2025.933,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.8747,
+     "ratio_hi": 2.4176,
+     "ci_lo_pct": 8.7,
+     "ci_hi_pct": 12.5,
+     "ci_level": 80,
+     "adj_ratio": 2.1261,
+     "cagr_adj_pct": 10.6,
+     "adj_miles": 3600
     }
    },
    "recent": {
-    "value": 696.0,
-    "n": 7,
-    "from": "2026-10-12",
+    "value": 708.0,
+    "n": 42,
+    "from": "2025-11-13",
     "to": "2026-11-09",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 3600,
+    "lo": 627.8,
+    "hi": 798.4,
+    "median_rule": 696.0
+   },
+   "est": {
+    "value": 708.0,
+    "lo": 627.8,
+    "hi": 798.4,
+    "sale_lo": 552.9,
+    "sale_hi": 906.6,
+    "miles": 3600,
+    "gamma": -0.216,
+    "n": 42,
+    "from": "2025-11-13",
+    "to": "2026-11-09",
+    "n_eff": 29.1,
+    "newest_days": 0,
+    "half_life": 90,
+    "spread_pct": 17.1,
+    "odo_lo": 130,
+    "odo_hi": 16000,
+    "median_rule": 696.0
    }
   },
   "Dodge Viper GTS/GT (Gen 5)": {
@@ -6614,15 +9162,15 @@
     126.0,
     100.0,
     133.5,
-    183.0
+    166.7
    ],
    "proj": [
-    183.0,
-    187.4,
-    191.9,
-    196.5,
-    201.2,
-    206.0
+    166.7,
+    170.7,
+    174.8,
+    179.0,
+    183.3,
+    187.7
    ],
    "maint": 3,
    "cagr": {
@@ -6650,7 +9198,15 @@
      "cpi_to": 328.6,
      "t_from": 2021.484,
      "t_to": 2025.871,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0451,
+     "ratio_hi": 1.1775,
+     "ci_lo_pct": 1.0,
+     "ci_hi_pct": 3.8,
+     "ci_level": 80,
+     "adj_ratio": 1.1299,
+     "cagr_adj_pct": 2.8,
+     "adj_miles": 3900
     },
     "w10": {
      "from_year": 2017,
@@ -6668,7 +9224,15 @@
      "cpi_to": 328.6,
      "t_from": 2018.581,
      "t_to": 2025.871,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1821,
+     "ratio_hi": 1.5488,
+     "ci_lo_pct": 2.3,
+     "ci_hi_pct": 6.2,
+     "ci_level": 80,
+     "adj_ratio": 1.3894,
+     "cagr_adj_pct": 4.6,
+     "adj_miles": 3900
     }
    },
    "annual": [
@@ -6762,7 +9326,15 @@
      "cpi_to": 336.3,
      "t_from": 2025.437,
      "t_to": 2026.436,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1134,
+     "ratio_hi": 1.299,
+     "ci_lo_pct": 11.3,
+     "ci_hi_pct": 29.9,
+     "ci_level": 80,
+     "adj_ratio": 1.2316,
+     "cagr_adj_pct": 23.2,
+     "adj_miles": 3900
     },
     "w2": {
      "from_year": 2023,
@@ -6780,7 +9352,15 @@
      "cpi_to": 328.6,
      "t_from": 2023.907,
      "t_to": 2025.871,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0451,
+     "ratio_hi": 1.1775,
+     "ci_lo_pct": 2.2,
+     "ci_hi_pct": 8.5,
+     "ci_level": 80,
+     "adj_ratio": 1.1594,
+     "cagr_adj_pct": 7.7,
+     "adj_miles": 3900
     },
     "w3": {
      "from_year": 2022,
@@ -6798,7 +9378,15 @@
      "cpi_to": 328.6,
      "t_from": 2023.026,
      "t_to": 2025.871,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0065,
+     "ratio_hi": 1.1189,
+     "ci_lo_pct": 0.2,
+     "ci_hi_pct": 4.1,
+     "ci_level": 80,
+     "adj_ratio": 1.1069,
+     "cagr_adj_pct": 3.7,
+     "adj_miles": 3900
     },
     "w4": {
      "from_year": 2021,
@@ -6816,7 +9404,15 @@
      "cpi_to": 328.6,
      "t_from": 2022.022,
      "t_to": 2025.871,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9936,
+     "ratio_hi": 1.1007,
+     "ci_lo_pct": -0.2,
+     "ci_hi_pct": 2.6,
+     "ci_level": 80,
+     "adj_ratio": 1.0769,
+     "cagr_adj_pct": 2.0,
+     "adj_miles": 3900
     },
     "w5": {
      "from_year": 2020,
@@ -6834,7 +9430,15 @@
      "cpi_to": 328.6,
      "t_from": 2021.484,
      "t_to": 2025.871,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0451,
+     "ratio_hi": 1.1775,
+     "ci_lo_pct": 1.0,
+     "ci_hi_pct": 3.8,
+     "ci_level": 80,
+     "adj_ratio": 1.1299,
+     "cagr_adj_pct": 2.8,
+     "adj_miles": 3900
     },
     "w6": {
      "from_year": 2019,
@@ -6852,7 +9456,15 @@
      "cpi_to": 328.6,
      "t_from": 2020.003,
      "t_to": 2025.871,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4661,
+     "ratio_hi": 1.8361,
+     "ci_lo_pct": 6.7,
+     "ci_hi_pct": 10.8,
+     "ci_level": 80,
+     "adj_ratio": 1.7559,
+     "cagr_adj_pct": 10.0,
+     "adj_miles": 3900
     },
     "w7": {
      "from_year": 2018,
@@ -6870,7 +9482,15 @@
      "cpi_to": 328.6,
      "t_from": 2019.215,
      "t_to": 2025.871,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2691,
+     "ratio_hi": 1.5478,
+     "ci_lo_pct": 3.6,
+     "ci_hi_pct": 6.7,
+     "ci_level": 80,
+     "adj_ratio": 1.5696,
+     "cagr_adj_pct": 7.0,
+     "adj_miles": 3900
     },
     "w8": {
      "from_year": 2017,
@@ -6888,7 +9508,15 @@
      "cpi_to": 328.6,
      "t_from": 2018.581,
      "t_to": 2025.871,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1821,
+     "ratio_hi": 1.5488,
+     "ci_lo_pct": 2.3,
+     "ci_hi_pct": 6.2,
+     "ci_level": 80,
+     "adj_ratio": 1.3894,
+     "cagr_adj_pct": 4.6,
+     "adj_miles": 3900
     },
     "w9": {
      "from_year": 2017,
@@ -6906,7 +9534,15 @@
      "cpi_to": 328.6,
      "t_from": 2018.581,
      "t_to": 2025.871,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1821,
+     "ratio_hi": 1.5488,
+     "ci_lo_pct": 2.3,
+     "ci_hi_pct": 6.2,
+     "ci_level": 80,
+     "adj_ratio": 1.3894,
+     "cagr_adj_pct": 4.6,
+     "adj_miles": 3900
     },
     "w10": {
      "from_year": 2017,
@@ -6924,15 +9560,47 @@
      "cpi_to": 328.6,
      "t_from": 2018.581,
      "t_to": 2025.871,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1821,
+     "ratio_hi": 1.5488,
+     "ci_lo_pct": 2.3,
+     "ci_hi_pct": 6.2,
+     "ci_level": 80,
+     "adj_ratio": 1.3894,
+     "cagr_adj_pct": 4.6,
+     "adj_miles": 3900
     }
    },
    "recent": {
-    "value": 183.0,
-    "n": 3,
-    "from": "2026-09-24",
+    "value": 166.7,
+    "n": 10,
+    "from": "2025-12-01",
     "to": "2026-10-27",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 3900,
+    "lo": 146.0,
+    "hi": 190.4,
+    "median_rule": 183.0
+   },
+   "est": {
+    "value": 166.7,
+    "lo": 146.0,
+    "hi": 190.4,
+    "sale_lo": 138.1,
+    "sale_hi": 201.4,
+    "miles": 3900,
+    "gamma": -0.191,
+    "n": 10,
+    "from": "2025-12-01",
+    "to": "2026-10-27",
+    "n_eff": 7.7,
+    "newest_days": 13,
+    "half_life": 90,
+    "spread_pct": 9.9,
+    "odo_lo": 399,
+    "odo_hi": 23000,
+    "median_rule": 183.0
    }
   },
   "Lamborghini Murcielago Roadster 6.2 (e-gear)": {
@@ -6945,15 +9613,15 @@
     201.1,
     227.0,
     244.0,
-    261.0
+    340.7
    ],
    "proj": [
-    261.0,
-    287.1,
-    315.8,
-    347.4,
-    382.1,
-    420.3
+    340.7,
+    374.8,
+    412.2,
+    453.5,
+    498.8,
+    548.7
    ],
    "maint": 8,
    "cagr": {
@@ -6981,7 +9649,15 @@
      "cpi_to": 336.3,
      "t_from": 2021.355,
      "t_to": 2026.431,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.7873,
+     "ratio_hi": 2.0915,
+     "ci_lo_pct": 12.1,
+     "ci_hi_pct": 15.6,
+     "ci_level": 80,
+     "adj_ratio": 2.1463,
+     "cagr_adj_pct": 16.2,
+     "adj_miles": 10500
     }
    },
    "appr_n": {
@@ -7001,7 +9677,15 @@
      "cpi_to": 336.3,
      "t_from": 2024.54,
      "t_to": 2026.431,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0742,
+     "ratio_hi": 1.2308,
+     "ci_lo_pct": 3.8,
+     "ci_hi_pct": 11.5,
+     "ci_level": 80,
+     "adj_ratio": 1.4272,
+     "cagr_adj_pct": 20.6,
+     "adj_miles": 10500
     },
     "w3": {
      "from_year": 2023,
@@ -7019,7 +9703,15 @@
      "cpi_to": 336.3,
      "t_from": 2024.54,
      "t_to": 2026.431,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0742,
+     "ratio_hi": 1.2308,
+     "ci_lo_pct": 3.8,
+     "ci_hi_pct": 11.5,
+     "ci_level": 80,
+     "adj_ratio": 1.4272,
+     "cagr_adj_pct": 20.6,
+     "adj_miles": 10500
     },
     "w4": {
      "from_year": 2021,
@@ -7037,7 +9729,15 @@
      "cpi_to": 336.3,
      "t_from": 2021.604,
      "t_to": 2026.431,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.6017,
+     "ratio_hi": 1.9094,
+     "ci_lo_pct": 10.3,
+     "ci_hi_pct": 14.4,
+     "ci_level": 80,
+     "adj_ratio": 1.9402,
+     "cagr_adj_pct": 14.8,
+     "adj_miles": 10500
     },
     "w5": {
      "from_year": 2020,
@@ -7055,7 +9755,15 @@
      "cpi_to": 336.3,
      "t_from": 2021.355,
      "t_to": 2026.431,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.7873,
+     "ratio_hi": 2.0915,
+     "ci_lo_pct": 12.1,
+     "ci_hi_pct": 15.6,
+     "ci_level": 80,
+     "adj_ratio": 2.1463,
+     "cagr_adj_pct": 16.2,
+     "adj_miles": 10500
     },
     "w6": {
      "from_year": 2020,
@@ -7073,7 +9781,15 @@
      "cpi_to": 336.3,
      "t_from": 2021.355,
      "t_to": 2026.431,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.7873,
+     "ratio_hi": 2.0915,
+     "ci_lo_pct": 12.1,
+     "ci_hi_pct": 15.6,
+     "ci_level": 80,
+     "adj_ratio": 2.1463,
+     "cagr_adj_pct": 16.2,
+     "adj_miles": 10500
     },
     "w7": {
      "from_year": 2020,
@@ -7091,7 +9807,15 @@
      "cpi_to": 336.3,
      "t_from": 2021.355,
      "t_to": 2026.431,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.7873,
+     "ratio_hi": 2.0915,
+     "ci_lo_pct": 12.1,
+     "ci_hi_pct": 15.6,
+     "ci_level": 80,
+     "adj_ratio": 2.1463,
+     "cagr_adj_pct": 16.2,
+     "adj_miles": 10500
     },
     "w8": {
      "from_year": 2020,
@@ -7109,7 +9833,15 @@
      "cpi_to": 336.3,
      "t_from": 2021.355,
      "t_to": 2026.431,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.7873,
+     "ratio_hi": 2.0915,
+     "ci_lo_pct": 12.1,
+     "ci_hi_pct": 15.6,
+     "ci_level": 80,
+     "adj_ratio": 2.1463,
+     "cagr_adj_pct": 16.2,
+     "adj_miles": 10500
     }
    },
    "annual": [
@@ -7146,11 +9878,35 @@
     }
    },
    "recent": {
-    "value": 261.0,
-    "n": 3,
-    "from": "2026-01-16",
+    "value": 340.7,
+    "n": 4,
+    "from": "2024-11-19",
     "to": "2026-10-28",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 10500,
+    "lo": 246.6,
+    "hi": 470.7,
+    "median_rule": 261.0
+   },
+   "est": {
+    "value": 340.7,
+    "lo": 246.6,
+    "hi": 470.7,
+    "sale_lo": 208.8,
+    "sale_hi": 555.8,
+    "miles": 10500,
+    "gamma": -0.234,
+    "n": 4,
+    "from": "2024-11-19",
+    "to": "2026-10-28",
+    "n_eff": 3.6,
+    "newest_days": 12,
+    "half_life": 202,
+    "spread_pct": 30.0,
+    "odo_lo": 9000,
+    "odo_hi": 33000,
+    "median_rule": 261.0
    }
   },
   "Lamborghini Murcielago LP640 Roadster (e-gear)": {
@@ -7163,15 +9919,15 @@
     270.0,
     321.7,
     373.3,
-    425.0
+    487.8
    ],
    "proj": [
-    425.0,
-    450.9,
-    478.4,
-    507.6,
-    538.6,
-    571.4
+    487.8,
+    517.6,
+    549.1,
+    582.6,
+    618.2,
+    655.9
    ],
    "maint": 8,
    "cagr": {
@@ -7199,7 +9955,15 @@
      "cpi_to": 333.0,
      "t_from": 2022.546,
      "t_to": 2026.193,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0819,
+     "ratio_hi": 1.4189,
+     "ci_lo_pct": 2.2,
+     "ci_hi_pct": 10.2,
+     "ci_level": 80,
+     "adj_ratio": 1.5373,
+     "cagr_adj_pct": 12.7,
+     "adj_miles": 9500
     }
    },
    "appr_n": {
@@ -7219,7 +9983,15 @@
      "cpi_to": 333.0,
      "t_from": 2023.99,
      "t_to": 2026.193,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3854,
+     "ratio_hi": 1.7288,
+     "ci_lo_pct": 16.0,
+     "ci_hi_pct": 28.3,
+     "ci_level": 80,
+     "adj_ratio": 1.5675,
+     "cagr_adj_pct": 22.7,
+     "adj_miles": 9500
     },
     "w3": {
      "from_year": 2022,
@@ -7237,7 +10009,15 @@
      "cpi_to": 333.0,
      "t_from": 2023.222,
      "t_to": 2026.193,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2679,
+     "ratio_hi": 1.5643,
+     "ci_lo_pct": 8.2,
+     "ci_hi_pct": 16.1,
+     "ci_level": 80,
+     "adj_ratio": 1.6044,
+     "cagr_adj_pct": 17.1,
+     "adj_miles": 9500
     },
     "w4": {
      "from_year": 2021,
@@ -7255,7 +10035,15 @@
      "cpi_to": 333.0,
      "t_from": 2022.546,
      "t_to": 2026.193,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0819,
+     "ratio_hi": 1.4189,
+     "ci_lo_pct": 2.2,
+     "ci_hi_pct": 10.2,
+     "ci_level": 80,
+     "adj_ratio": 1.5373,
+     "cagr_adj_pct": 12.7,
+     "adj_miles": 9500
     },
     "w5": {
      "from_year": 2021,
@@ -7273,7 +10061,15 @@
      "cpi_to": 333.0,
      "t_from": 2022.546,
      "t_to": 2026.193,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0819,
+     "ratio_hi": 1.4189,
+     "ci_lo_pct": 2.2,
+     "ci_hi_pct": 10.2,
+     "ci_level": 80,
+     "adj_ratio": 1.5373,
+     "cagr_adj_pct": 12.7,
+     "adj_miles": 9500
     },
     "w6": {
      "from_year": 2021,
@@ -7291,7 +10087,15 @@
      "cpi_to": 333.0,
      "t_from": 2022.546,
      "t_to": 2026.193,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0819,
+     "ratio_hi": 1.4189,
+     "ci_lo_pct": 2.2,
+     "ci_hi_pct": 10.2,
+     "ci_level": 80,
+     "adj_ratio": 1.5373,
+     "cagr_adj_pct": 12.7,
+     "adj_miles": 9500
     }
    },
    "annual": [
@@ -7328,11 +10132,35 @@
     }
    },
    "recent": {
-    "value": 425.0,
+    "value": 487.8,
     "n": 3,
     "from": "2026-03-03",
     "to": "2026-08-07",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 9500,
+    "lo": 370.9,
+    "hi": 641.5,
+    "median_rule": 425.0
+   },
+   "est": {
+    "value": 487.8,
+    "lo": 370.9,
+    "hi": 641.5,
+    "sale_lo": 328.6,
+    "sale_hi": 724.0,
+    "miles": 9500,
+    "gamma": -0.24,
+    "n": 3,
+    "from": "2026-03-03",
+    "to": "2026-08-07",
+    "n_eff": 3.3,
+    "newest_days": 94,
+    "half_life": 135,
+    "spread_pct": 22.3,
+    "odo_lo": 1500,
+    "odo_hi": 15000,
+    "median_rule": 425.0
    }
   },
   "Lamborghini Murcielago 6.2 Coupe (6-speed)": {
@@ -7345,15 +10173,15 @@
     345.5,
     425.5,
     400.0,
-    575.0
+    495.0
    ],
    "proj": [
-    575.0,
-    587.1,
-    599.4,
-    612.0,
-    624.8,
-    638.0
+    495.0,
+    505.4,
+    516.0,
+    526.8,
+    537.9,
+    549.2
    ],
    "maint": 8,
    "cagr": {
@@ -7381,7 +10209,15 @@
      "cpi_to": 328.5,
      "t_from": 2021.634,
      "t_to": 2025.86,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8427,
+     "ratio_hi": 1.4181,
+     "ci_lo_pct": -4.0,
+     "ci_hi_pct": 8.7,
+     "ci_level": 80,
+     "adj_ratio": 1.3639,
+     "cagr_adj_pct": 7.7,
+     "adj_miles": 16000
     }
    },
    "appr_n": {
@@ -7401,7 +10237,15 @@
      "cpi_to": 330.0,
      "t_from": 2025.202,
      "t_to": 2025.968,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8632,
+     "ratio_hi": 1.5639,
+     "ci_lo_pct": -17.4,
+     "ci_hi_pct": 78.7,
+     "ci_level": 80,
+     "adj_ratio": 1.226,
+     "cagr_adj_pct": 30.3,
+     "adj_miles": 16000
     },
     "w2": {
      "from_year": 2023,
@@ -7419,7 +10263,15 @@
      "cpi_to": 328.5,
      "t_from": 2024.026,
      "t_to": 2025.86,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.7702,
+     "ratio_hi": 1.2962,
+     "ci_lo_pct": -13.5,
+     "ci_hi_pct": 15.5,
+     "ci_level": 80,
+     "adj_ratio": 1.1005,
+     "cagr_adj_pct": 5.5,
+     "adj_miles": 16000
     },
     "w3": {
      "from_year": 2022,
@@ -7437,7 +10289,15 @@
      "cpi_to": 328.5,
      "t_from": 2022.64,
      "t_to": 2025.86,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0928,
+     "ratio_hi": 1.6815,
+     "ci_lo_pct": 2.8,
+     "ci_hi_pct": 17.6,
+     "ci_level": 80,
+     "adj_ratio": 1.3634,
+     "cagr_adj_pct": 10.2,
+     "adj_miles": 16000
     },
     "w4": {
      "from_year": 2021,
@@ -7455,7 +10315,15 @@
      "cpi_to": 328.5,
      "t_from": 2022.022,
      "t_to": 2025.86,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0702,
+     "ratio_hi": 1.5976,
+     "ci_lo_pct": 1.8,
+     "ci_hi_pct": 13.1,
+     "ci_level": 80,
+     "adj_ratio": 1.3634,
+     "cagr_adj_pct": 8.5,
+     "adj_miles": 16000
     },
     "w5": {
      "from_year": 2020,
@@ -7473,7 +10341,15 @@
      "cpi_to": 328.5,
      "t_from": 2021.634,
      "t_to": 2025.86,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8427,
+     "ratio_hi": 1.4181,
+     "ci_lo_pct": -4.0,
+     "ci_hi_pct": 8.7,
+     "ci_level": 80,
+     "adj_ratio": 1.3639,
+     "cagr_adj_pct": 7.7,
+     "adj_miles": 16000
     },
     "w6": {
      "from_year": 2020,
@@ -7491,7 +10367,15 @@
      "cpi_to": 328.5,
      "t_from": 2021.634,
      "t_to": 2025.86,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8427,
+     "ratio_hi": 1.4181,
+     "ci_lo_pct": -4.0,
+     "ci_hi_pct": 8.7,
+     "ci_level": 80,
+     "adj_ratio": 1.3639,
+     "cagr_adj_pct": 7.7,
+     "adj_miles": 16000
     },
     "w7": {
      "from_year": 2020,
@@ -7509,7 +10393,15 @@
      "cpi_to": 328.5,
      "t_from": 2021.634,
      "t_to": 2025.86,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.8427,
+     "ratio_hi": 1.4181,
+     "ci_lo_pct": -4.0,
+     "ci_hi_pct": 8.7,
+     "ci_level": 80,
+     "adj_ratio": 1.3639,
+     "cagr_adj_pct": 7.7,
+     "adj_miles": 16000
     }
    },
    "annual": [
@@ -7567,11 +10459,35 @@
     }
    },
    "recent": {
-    "value": 575.0,
-    "n": 3,
-    "from": "2026-04-22",
+    "value": 495.0,
+    "n": 6,
+    "from": "2025-09-22",
     "to": "2026-06-18",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 16000,
+    "lo": 367.4,
+    "hi": 667.0,
+    "median_rule": 575.0
+   },
+   "est": {
+    "value": 495.0,
+    "lo": 367.4,
+    "hi": 667.0,
+    "sale_lo": 315.6,
+    "sale_hi": 776.5,
+    "miles": 16000,
+    "gamma": -0.196,
+    "n": 6,
+    "from": "2025-09-22",
+    "to": "2026-06-18",
+    "n_eff": 5.5,
+    "newest_days": 144,
+    "half_life": 90,
+    "spread_pct": 27.2,
+    "odo_lo": 4900,
+    "odo_hi": 44000,
+    "median_rule": 575.0
    }
   },
   "Lamborghini Murcielago 6.2 Coupe (e-gear)": {
@@ -7584,15 +10500,15 @@
     191.0,
     191.0,
     191.0,
-    200.0
+    222.9
    ],
    "proj": [
-    200.0,
-    216.4,
-    234.1,
-    253.3,
-    274.1,
-    296.6
+    222.9,
+    241.2,
+    261.0,
+    282.4,
+    305.5,
+    330.6
    ],
    "maint": 8,
    "cagr": {
@@ -7620,7 +10536,15 @@
      "cpi_to": 330.3,
      "t_from": 2021.031,
      "t_to": 2025.995,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3413,
+     "ratio_hi": 1.6439,
+     "ci_lo_pct": 6.0,
+     "ci_hi_pct": 10.5,
+     "ci_level": 80,
+     "adj_ratio": 1.6376,
+     "cagr_adj_pct": 10.4,
+     "adj_miles": 7000
     }
    },
    "appr_n": {
@@ -7640,7 +10564,15 @@
      "cpi_to": 330.3,
      "t_from": 2023.868,
      "t_to": 2025.995,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1823,
+     "ratio_hi": 1.4491,
+     "ci_lo_pct": 8.3,
+     "ci_hi_pct": 19.3,
+     "ci_level": 80,
+     "adj_ratio": 1.1906,
+     "cagr_adj_pct": 8.7,
+     "adj_miles": 7000
     },
     "w3": {
      "from_year": 2022,
@@ -7658,7 +10590,15 @@
      "cpi_to": 330.3,
      "t_from": 2023.304,
      "t_to": 2025.995,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2308,
+     "ratio_hi": 1.4679,
+     "ci_lo_pct": 8.0,
+     "ci_hi_pct": 15.3,
+     "ci_level": 80,
+     "adj_ratio": 1.3278,
+     "cagr_adj_pct": 11.1,
+     "adj_miles": 7000
     },
     "w4": {
      "from_year": 2021,
@@ -7676,7 +10616,15 @@
      "cpi_to": 330.3,
      "t_from": 2022.334,
      "t_to": 2025.995,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.1991,
+     "ratio_hi": 1.4438,
+     "ci_lo_pct": 5.0,
+     "ci_hi_pct": 10.4,
+     "ci_level": 80,
+     "adj_ratio": 1.3989,
+     "cagr_adj_pct": 9.5,
+     "adj_miles": 7000
     },
     "w5": {
      "from_year": 2020,
@@ -7694,7 +10642,15 @@
      "cpi_to": 330.3,
      "t_from": 2021.031,
      "t_to": 2025.995,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3413,
+     "ratio_hi": 1.6439,
+     "ci_lo_pct": 6.0,
+     "ci_hi_pct": 10.5,
+     "ci_level": 80,
+     "adj_ratio": 1.6376,
+     "cagr_adj_pct": 10.4,
+     "adj_miles": 7000
     },
     "w6": {
      "from_year": 2020,
@@ -7712,7 +10668,15 @@
      "cpi_to": 330.3,
      "t_from": 2021.031,
      "t_to": 2025.995,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3413,
+     "ratio_hi": 1.6439,
+     "ci_lo_pct": 6.0,
+     "ci_hi_pct": 10.5,
+     "ci_level": 80,
+     "adj_ratio": 1.6376,
+     "cagr_adj_pct": 10.4,
+     "adj_miles": 7000
     },
     "w7": {
      "from_year": 2020,
@@ -7730,7 +10694,15 @@
      "cpi_to": 330.3,
      "t_from": 2021.031,
      "t_to": 2025.995,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3413,
+     "ratio_hi": 1.6439,
+     "ci_lo_pct": 6.0,
+     "ci_hi_pct": 10.5,
+     "ci_level": 80,
+     "adj_ratio": 1.6376,
+     "cagr_adj_pct": 10.4,
+     "adj_miles": 7000
     },
     "w8": {
      "from_year": 2020,
@@ -7748,7 +10720,15 @@
      "cpi_to": 330.3,
      "t_from": 2021.031,
      "t_to": 2025.995,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3413,
+     "ratio_hi": 1.6439,
+     "ci_lo_pct": 6.0,
+     "ci_hi_pct": 10.5,
+     "ci_level": 80,
+     "adj_ratio": 1.6376,
+     "cagr_adj_pct": 10.4,
+     "adj_miles": 7000
     }
    },
    "annual": [
@@ -7778,11 +10758,35 @@
     }
    },
    "recent": {
-    "value": 200.0,
-    "n": 3,
-    "from": "2023-12-11",
+    "value": 222.9,
+    "n": 4,
+    "from": "2023-10-16",
     "to": "2026-03-09",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 7000,
+    "lo": 109.9,
+    "hi": 452.1,
+    "median_rule": 200.0
+   },
+   "est": {
+    "value": 222.9,
+    "lo": 109.9,
+    "hi": 452.1,
+    "sale_lo": 104.5,
+    "sale_hi": 475.6,
+    "miles": 7000,
+    "gamma": -0.2,
+    "n": 4,
+    "from": "2023-10-16",
+    "to": "2026-03-09",
+    "n_eff": 4.1,
+    "newest_days": 245,
+    "half_life": 456,
+    "spread_pct": 12.0,
+    "odo_lo": 3000,
+    "odo_hi": 38000,
+    "median_rule": 200.0
    }
   },
   "Lamborghini Murcielago LP640 Coupe (e-gear)": {
@@ -7795,15 +10799,15 @@
     290.5,
     336.5,
     382.5,
-    725.0
+    566.6
    ],
    "proj": [
-    725.0,
-    797.5,
-    877.3,
-    965.0,
-    1061.5,
-    1167.6
+    566.6,
+    623.3,
+    685.6,
+    754.1,
+    829.6,
+    912.5
    ],
    "maint": 8,
    "cagr": {
@@ -7831,7 +10835,15 @@
      "cpi_to": 334.1,
      "t_from": 2023.007,
      "t_to": 2026.27,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.6087,
+     "ratio_hi": 2.1552,
+     "ci_lo_pct": 15.5,
+     "ci_hi_pct": 26.2,
+     "ci_level": 80,
+     "adj_ratio": 2.0986,
+     "cagr_adj_pct": 25.2,
+     "adj_miles": 10000
     }
    },
    "appr_n": {
@@ -7851,7 +10863,15 @@
      "cpi_to": 337.2,
      "t_from": 2025.525,
      "t_to": 2026.518,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2634,
+     "ratio_hi": 1.7089,
+     "ci_lo_pct": 26.6,
+     "ci_hi_pct": 71.8,
+     "ci_level": 80,
+     "adj_ratio": 1.4008,
+     "cagr_adj_pct": 40.6,
+     "adj_miles": 10000
     },
     "w2": {
      "from_year": 2023,
@@ -7869,7 +10889,15 @@
      "cpi_to": 334.1,
      "t_from": 2023.133,
      "t_to": 2026.27,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.3478,
+     "ratio_hi": 1.9051,
+     "ci_lo_pct": 10.1,
+     "ci_hi_pct": 23.1,
+     "ci_level": 80,
+     "adj_ratio": 1.9551,
+     "cagr_adj_pct": 24.1,
+     "adj_miles": 10000
     },
     "w3": {
      "from_year": 2022,
@@ -7887,7 +10915,15 @@
      "cpi_to": 334.1,
      "t_from": 2023.007,
      "t_to": 2026.27,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.6087,
+     "ratio_hi": 2.1552,
+     "ci_lo_pct": 15.5,
+     "ci_hi_pct": 26.2,
+     "ci_level": 80,
+     "adj_ratio": 2.0986,
+     "cagr_adj_pct": 25.2,
+     "adj_miles": 10000
     },
     "w4": {
      "from_year": 2022,
@@ -7905,7 +10941,15 @@
      "cpi_to": 334.1,
      "t_from": 2023.007,
      "t_to": 2026.27,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.6087,
+     "ratio_hi": 2.1552,
+     "ci_lo_pct": 15.5,
+     "ci_hi_pct": 26.2,
+     "ci_level": 80,
+     "adj_ratio": 2.0986,
+     "cagr_adj_pct": 25.2,
+     "adj_miles": 10000
     },
     "w5": {
      "from_year": 2022,
@@ -7923,7 +10967,15 @@
      "cpi_to": 334.1,
      "t_from": 2023.007,
      "t_to": 2026.27,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.6087,
+     "ratio_hi": 2.1552,
+     "ci_lo_pct": 15.5,
+     "ci_hi_pct": 26.2,
+     "ci_level": 80,
+     "adj_ratio": 2.0986,
+     "cagr_adj_pct": 25.2,
+     "adj_miles": 10000
     }
    },
    "annual": [
@@ -7960,11 +11012,35 @@
     }
    },
    "recent": {
-    "value": 725.0,
-    "n": 4,
-    "from": "2026-08-20",
+    "value": 566.6,
+    "n": 9,
+    "from": "2025-12-24",
     "to": "2026-10-30",
-    "min_miles": null
+    "min_miles": null,
+    "method": "est",
+    "miles": 10000,
+    "lo": 498.1,
+    "hi": 644.7,
+    "median_rule": 725.0
+   },
+   "est": {
+    "value": 566.6,
+    "lo": 498.1,
+    "hi": 644.7,
+    "sale_lo": 436.7,
+    "sale_hi": 735.3,
+    "miles": 10000,
+    "gamma": -0.372,
+    "n": 9,
+    "from": "2025-12-24",
+    "to": "2026-10-30",
+    "n_eff": 7.0,
+    "newest_days": 10,
+    "half_life": 90,
+    "spread_pct": 18.0,
+    "odo_lo": 1500,
+    "odo_hi": 23000,
+    "median_rule": 725.0
    }
   },
   "Ferrari 458 Spider": {
@@ -7977,15 +11053,15 @@
     247.5,
     250.5,
     253.0,
-    310.0
+    319.0
    ],
    "proj": [
-    310.0,
-    339.8,
-    372.4,
-    408.1,
-    447.3,
-    490.2
+    319.0,
+    349.6,
+    383.2,
+    420.0,
+    460.3,
+    504.5
    ],
    "maint": 5,
    "cagr": {
@@ -8013,7 +11089,15 @@
      "cpi_to": 332.4,
      "t_from": 2020.441,
      "t_to": 2026.148,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4191,
+     "ratio_hi": 2.0092,
+     "ci_lo_pct": 6.3,
+     "ci_hi_pct": 13.0,
+     "ci_level": 80,
+     "adj_ratio": 1.6882,
+     "cagr_adj_pct": 9.6,
+     "adj_miles": 11000
     }
    },
    "appr_n": {
@@ -8033,7 +11117,15 @@
      "cpi_to": 336.7,
      "t_from": 2025.398,
      "t_to": 2026.463,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.2635,
+     "ratio_hi": 1.4783,
+     "ci_lo_pct": 24.4,
+     "ci_hi_pct": 44.1,
+     "ci_level": 80,
+     "adj_ratio": 1.4959,
+     "cagr_adj_pct": 45.7,
+     "adj_miles": 11000
     },
     "w2": {
      "from_year": 2023,
@@ -8051,7 +11143,15 @@
      "cpi_to": 332.4,
      "t_from": 2024.26,
      "t_to": 2026.148,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0867,
+     "ratio_hi": 1.2276,
+     "ci_lo_pct": 4.5,
+     "ci_hi_pct": 11.4,
+     "ci_level": 80,
+     "adj_ratio": 1.2684,
+     "cagr_adj_pct": 13.3,
+     "adj_miles": 11000
     },
     "w3": {
      "from_year": 2022,
@@ -8069,7 +11169,15 @@
      "cpi_to": 332.4,
      "t_from": 2023.061,
      "t_to": 2026.148,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0589,
+     "ratio_hi": 1.2204,
+     "ci_lo_pct": 1.9,
+     "ci_hi_pct": 6.6,
+     "ci_level": 80,
+     "adj_ratio": 1.2106,
+     "cagr_adj_pct": 6.4,
+     "adj_miles": 11000
     },
     "w4": {
      "from_year": 2021,
@@ -8087,7 +11195,15 @@
      "cpi_to": 332.4,
      "t_from": 2022.569,
      "t_to": 2026.148,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.0077,
+     "ratio_hi": 1.2054,
+     "ci_lo_pct": 0.2,
+     "ci_hi_pct": 5.3,
+     "ci_level": 80,
+     "adj_ratio": 1.2106,
+     "cagr_adj_pct": 5.5,
+     "adj_miles": 11000
     },
     "w5": {
      "from_year": 2020,
@@ -8105,7 +11221,15 @@
      "cpi_to": 332.4,
      "t_from": 2020.441,
      "t_to": 2026.148,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4191,
+     "ratio_hi": 2.0092,
+     "ci_lo_pct": 6.3,
+     "ci_hi_pct": 13.0,
+     "ci_level": 80,
+     "adj_ratio": 1.6882,
+     "cagr_adj_pct": 9.6,
+     "adj_miles": 11000
     },
     "w6": {
      "from_year": 2019,
@@ -8123,7 +11247,15 @@
      "cpi_to": 332.4,
      "t_from": 2020.21,
      "t_to": 2026.148,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4538,
+     "ratio_hi": 1.9386,
+     "ci_lo_pct": 6.5,
+     "ci_hi_pct": 11.9,
+     "ci_level": 80,
+     "adj_ratio": 1.7512,
+     "cagr_adj_pct": 10.0,
+     "adj_miles": 11000
     },
     "w7": {
      "from_year": 2019,
@@ -8141,7 +11273,15 @@
      "cpi_to": 332.4,
      "t_from": 2020.21,
      "t_to": 2026.148,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4538,
+     "ratio_hi": 1.9386,
+     "ci_lo_pct": 6.5,
+     "ci_hi_pct": 11.9,
+     "ci_level": 80,
+     "adj_ratio": 1.7512,
+     "cagr_adj_pct": 10.0,
+     "adj_miles": 11000
     },
     "w8": {
      "from_year": 2019,
@@ -8159,7 +11299,15 @@
      "cpi_to": 332.4,
      "t_from": 2020.21,
      "t_to": 2026.148,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4538,
+     "ratio_hi": 1.9386,
+     "ci_lo_pct": 6.5,
+     "ci_hi_pct": 11.9,
+     "ci_level": 80,
+     "adj_ratio": 1.7512,
+     "cagr_adj_pct": 10.0,
+     "adj_miles": 11000
     },
     "w9": {
      "from_year": 2019,
@@ -8177,7 +11325,15 @@
      "cpi_to": 332.4,
      "t_from": 2020.21,
      "t_to": 2026.148,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 1.4538,
+     "ratio_hi": 1.9386,
+     "ci_lo_pct": 6.5,
+     "ci_hi_pct": 11.9,
+     "ci_level": 80,
+     "adj_ratio": 1.7512,
+     "cagr_adj_pct": 10.0,
+     "adj_miles": 11000
     }
    },
    "annual": [
@@ -8226,11 +11382,16 @@
    ],
    "bat_url": "https://bringatrailer.com/ferrari/458/",
    "recent": {
-    "value": 310.0,
-    "n": 3,
-    "from": "2026-07-14",
+    "value": 319.0,
+    "n": 22,
+    "from": "2025-11-18",
     "to": "2026-11-05",
-    "min_miles": 30000
+    "min_miles": 30000,
+    "method": "est",
+    "miles": 37500,
+    "lo": 286.7,
+    "hi": 355.0,
+    "median_rule": 310.0
    },
    "asking": 389,
    "asking_src": "local Cars.com scrape 2026-11-06 (n=3)",
@@ -8243,6 +11404,25 @@
      "url": "https://www.ferrarifl.com/blog/ferrari-458-italia/"
     },
     "na": null
+   },
+   "est": {
+    "value": 319.0,
+    "lo": 286.7,
+    "hi": 355.0,
+    "sale_lo": 256.3,
+    "sale_hi": 397.0,
+    "miles": 37500,
+    "gamma": -0.225,
+    "n": 22,
+    "from": "2025-11-18",
+    "to": "2026-11-05",
+    "n_eff": 16.3,
+    "newest_days": 4,
+    "half_life": 90,
+    "spread_pct": 15.0,
+    "odo_lo": 2900,
+    "odo_hi": 35000,
+    "median_rule": 310.0
    }
   },
   "Chevrolet Corvette C8 Z06 (no Z07/wing)": {
@@ -8303,6 +11483,14 @@
      "t_from": 2023.69,
      "t_to": 2025.963,
      "pooled": true,
+     "ratio_lo": 0.6143,
+     "ratio_hi": 0.663,
+     "ci_lo_pct": -19.1,
+     "ci_hi_pct": -16.4,
+     "ci_level": 80,
+     "adj_ratio": 0.6989,
+     "cagr_adj_pct": -14.4,
+     "adj_miles": 750,
      "fallback_from": "w3"
     }
    },
@@ -8323,7 +11511,15 @@
      "cpi_to": 334.0,
      "t_from": 2025.383,
      "t_to": 2026.268,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.9193,
+     "ratio_hi": 1.0313,
+     "ci_lo_pct": -9.0,
+     "ci_hi_pct": 3.5,
+     "ci_level": 80,
+     "adj_ratio": 0.9827,
+     "cagr_adj_pct": -1.9,
+     "adj_miles": 750
     },
     "w2": {
      "from_year": 2023,
@@ -8341,7 +11537,15 @@
      "cpi_to": 329.9,
      "t_from": 2023.971,
      "t_to": 2025.963,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.7068,
+     "ratio_hi": 0.7571,
+     "ci_lo_pct": -15.9,
+     "ci_hi_pct": -13.0,
+     "ci_level": 80,
+     "adj_ratio": 0.7706,
+     "cagr_adj_pct": -12.2,
+     "adj_miles": 750
     },
     "w3": {
      "from_year": 2022,
@@ -8359,7 +11563,15 @@
      "cpi_to": 329.9,
      "t_from": 2023.69,
      "t_to": 2025.963,
-     "pooled": true
+     "pooled": true,
+     "ratio_lo": 0.6143,
+     "ratio_hi": 0.663,
+     "ci_lo_pct": -19.1,
+     "ci_hi_pct": -16.4,
+     "ci_level": 80,
+     "adj_ratio": 0.6989,
+     "cagr_adj_pct": -14.4,
+     "adj_miles": 750
     }
    },
    "annual": [
@@ -8544,7 +11756,7 @@
    "forum": {
     "src": "CorvetteForum",
     "url": "https://www.corvetteforum.com/forums/c8-corvettes-for-sale-178/",
-    "updated": "2026-11-09",
+    "updated": "2026-11-10",
     "n": 10,
     "median": 113.0,
     "asks": [
@@ -8642,7 +11854,7 @@
    }
   }
  },
- "bat_status": "Acura NSX (NA2 manual): 99 comps, 22 driven | Ferrari 360 (gated manual): 172 comps, 42 driven | Audi R8 gen1 V10 (gated): 88 comps, 18 driven | Corvette split-window (1963): CSV only | Porsche 997.2 Turbo S: 80 comps, 21 driven | Ferrari 328 GTS/GTB: 205 comps, 69 driven | Alfa Romeo GTV 1750/2000: 315 comps, 59 driven | Porsche Singer 911: 21 comps | Volvo P1800 (1800 family): CSV only | Ferrari Dino 246 GT/GTS: 70 comps, 26 driven | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 28 comps | Ferrari 550 Maranello: 134 comps, 38 driven | Ferrari F355 Berlinetta (gated manual): 56 comps, 22 driven | Ferrari F355 GTS (gated manual): 39 comps, 21 driven | Porsche Carrera GT: 14 comps | Ford GT (2005-2006): 259 comps | Dodge Viper GTS/GT (Gen 5): 73 comps | Lamborghini Murcielago Roadster 6.2 (e-gear): 12 comps | Lamborghini Murcielago LP640 Roadster (e-gear): 10 comps | Lamborghini Murcielago 6.2 Coupe (6-speed): 24 comps | Lamborghini Murcielago 6.2 Coupe (e-gear): 8 comps | Lamborghini Murcielago LP640 Coupe (e-gear): 15 comps | Ferrari 458 Spider: 74 comps | Chevrolet Corvette C8 Z06 (no Z07/wing): CorvetteForum 10 asks | Chevrolet Corvette C8 Z06 (no Z07/wing): 111 comps | Ferrari 458 Italia: recent 3 sales -> $234.1k | Ferrari 812 Superfast: recent 5 sales -> $478.0k | Ferrari 812 GTS: recent 7 sales -> $765.0k | Ferrari F12 Berlinetta: recent 6 sales -> $464.0k | odometers: 2684 cached, 5 fetched this run | appreciation.csv: 12y x 25 cars",
+ "bat_status": "Acura NSX (NA2 manual): 99 comps, 22 driven | Ferrari 360 (gated manual): 172 comps, 42 driven | Audi R8 gen1 V10 (gated): 88 comps, 18 driven | Corvette split-window (1963): CSV only | Porsche 997.2 Turbo S: 80 comps, 21 driven | Ferrari 328 GTS/GTB: 205 comps, 69 driven | Alfa Romeo GTV 1750/2000: 315 comps, 59 driven | Porsche Singer 911: 21 comps | Volvo P1800 (1800 family): CSV only | Ferrari Dino 246 GT/GTS: 67 comps, 25 driven | Lotus Evora GT (2020-21): 18 comps | Lotus Emira V6 (2024-25): 28 comps | Ferrari 550 Maranello: 134 comps, 38 driven | Ferrari F355 Berlinetta (gated manual): 56 comps, 22 driven | Ferrari F355 GTS (gated manual): 39 comps, 21 driven | Porsche Carrera GT: 14 comps | Ford GT (2005-2006): 259 comps | Dodge Viper GTS/GT (Gen 5): 73 comps | Lamborghini Murcielago Roadster 6.2 (e-gear): 12 comps | Lamborghini Murcielago LP640 Roadster (e-gear): 10 comps | Lamborghini Murcielago 6.2 Coupe (6-speed): 24 comps | Lamborghini Murcielago 6.2 Coupe (e-gear): 8 comps | Lamborghini Murcielago LP640 Coupe (e-gear): 15 comps | Ferrari 458 Spider: 74 comps | Chevrolet Corvette C8 Z06 (no Z07/wing): CorvetteForum 10 asks | Chevrolet Corvette C8 Z06 (no Z07/wing): 111 comps | Ferrari 458 Italia: recent 3 sales -> $234.1k | Ferrari 812 Superfast: recent 5 sales -> $478.0k | Ferrari 812 GTS: recent 7 sales -> $765.0k | Ferrari F12 Berlinetta: recent 6 sales -> $464.0k | valuation: ADOPTED - typical miss 14.8% vs 19.2% old rule (blind 18.8%), n=1272 | odometers: 2684 cached, 0 fetched this run | appreciation.csv: 12y x 25 cars",
  "cpi_by_year": {
   "2014": 236.7,
   "2015": 237.0,
@@ -8933,7 +12145,7 @@
     }
    }
   },
-  "updated": "2026-11-09T23:41Z",
+  "updated": "2026-11-10T00:31Z",
   "status": "S&P 500: 141 months to 2026-09 | AAPL: 121 months to 2026-11"
  },
  "csv_only": {
@@ -9100,5 +12312,23 @@
    ]
   }
  },
- "local_feed": "2026-11-06 10:02 \u00b7 Ferrari 458 Italia: n=13 asking\u2248$280k, value\u2248$234k (2026-11-06); Ferrari 458 Spider: n=3 asking\u2248$389k, value\u2248$310k (2026-11-06); Ferrari 812 Superfast: local scrape is 4d old \u2014 kept $478.0k; Ferrari 812 GTS: n=59 asking\u2248$840k, value\u2248$765k (2026-11-06)"
+ "local_feed": "2026-11-06 10:02 \u00b7 Ferrari 458 Italia: n=13 asking\u2248$280k, value\u2248$234k (2026-11-06); Ferrari 458 Spider: n=3 asking\u2248$389k, value\u2248$310k (2026-11-06); Ferrari 812 Superfast: local scrape is 4d old \u2014 kept $478.0k; Ferrari 812 GTS: n=59 asking\u2248$840k, value\u2248$765k (2026-11-06)",
+ "valuation": {
+  "method": "mileage-standardised, time-weighted median of BaT sold comps",
+  "adopted": true,
+  "backtest": {
+   "n": 1272,
+   "old_median_pct": 19.2,
+   "old_mean_pct": 28.7,
+   "new_median_pct": 14.8,
+   "new_mean_pct": 23.0,
+   "blind_median_pct": 18.8,
+   "blind_mean_pct": 27.1,
+   "band_cover_pct": 81.1
+  },
+  "backtest_years": 3,
+  "offset": 5000.0,
+  "half_life": 90.0,
+  "updated": "2026-11-10"
+ }
 }
