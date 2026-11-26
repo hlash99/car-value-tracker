@@ -98,7 +98,7 @@
     },
     "na": null
    },
-   "asking_src": "local Cars.com scrape 2026-11-23 (n=8)",
+   "asking_src": "local Cars.com scrape 2026-11-25 (n=12)",
    "recent": {
     "value": 257.9,
     "n": 25,
@@ -243,7 +243,7 @@
     },
     "na": null
    },
-   "asking_src": "local Cars.com scrape 2026-11-23 (n=63)",
+   "asking_src": "local Cars.com scrape 2026-11-25 (n=63)",
    "recent": {
     "value": 495.0,
     "n": 13,
@@ -316,7 +316,7 @@
     },
     "na": null
    },
-   "asking_src": "local Cars.com scrape 2026-11-23 (n=62)",
+   "asking_src": "local Cars.com scrape 2026-11-25 (n=61)",
    "recent": {
     "value": 784.3,
     "n": 24,
@@ -11453,7 +11453,7 @@
     "median_rule": 257.5
    },
    "asking": 324,
-   "asking_src": "local Cars.com scrape 2026-11-23 (n=8)",
+   "asking_src": "local Cars.com scrape 2026-11-25 (n=8)",
    "production": {
     "last_my": 2015,
     "world": {
@@ -12380,7 +12380,7 @@
    ]
   }
  },
- "local_feed": "2026-11-23 15:41 \u00b7 Ferrari 458 Italia: n=8 asking\u2248$278k, value\u2248$258k (2026-11-23); Ferrari 458 Spider: n=8 asking\u2248$324k, value\u2248$298k (2026-11-23); Ferrari 812 Superfast: n=63 asking\u2248$540k, value\u2248$550k (2026-11-23); Ferrari 812 GTS: n=62 asking\u2248$822k, value\u2248$784k (2026-11-23)",
+ "local_feed": "2026-11-25 16:52 \u00b7 Ferrari 458 Italia: n=12 asking\u2248$278k, value\u2248$258k (2026-11-25); Ferrari 458 Spider: n=8 asking\u2248$324k, value\u2248$298k (2026-11-25); Ferrari 812 Superfast: n=63 asking\u2248$540k, value\u2248$495k (2026-11-25); Ferrari 812 GTS: n=61 asking\u2248$817k, value\u2248$784k (2026-11-25)",
  "valuation": {
   "method": "mileage-standardised, time-weighted median of BaT sold comps",
   "adopted": true,
